@@ -102,7 +102,7 @@ function encrypt_decrypt($action, $string) {
               <a class="dropdown-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
               <a class="dropdown-item" href="./business.html">BUSINESS CONSULTANT</a>
               <a class="dropdown-item" href="./announcement.html">IT SERVICES</a>
-              <a class="dropdown-item" href="./announcement.html">TRAVEL AND TOURS</a>
+              <a class="dropdown-item" href="./travels.html">TRAVEL AND TOURS</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -249,7 +249,7 @@ function encrypt_decrypt($action, $string) {
               <span><a href="./announcement.html">IT Services</a></span>
             </li>
             <li>
-              <span><a href="./announcement.html">Travel and Tours</a></span>
+              <span><a href="./travels.html">Travel and Tours</a></span>
             </li>
           </ul>
         </div>
