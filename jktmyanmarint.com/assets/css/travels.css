@@ -76,9 +76,10 @@
   display: none;
 }
 /* .img-btn img{
-    
+  
 } */
 .img-btn img {
+  border: 5px solid #5bafe7;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -106,8 +107,9 @@
 }
 .text-bg {
   display: none;
-  width: 300px;
-  height: 100%;
+  width: 290px;
+  height: 95%;
+  margin-top: 5px;
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
@@ -202,7 +204,7 @@
   color: rgb(255, 255, 255);
   font-weight: 900;
   opacity: 1;
-  font-size: 46px;
+  font-size: 57px;
 }
 
 .carousel-caption h4 {
@@ -434,7 +436,7 @@
 
 .drink-item-large {
   position: relative;
-  height: 300px;
+  height: 400px;
 }
 .drink-item {
   position: relative;
