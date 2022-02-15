@@ -1,0 +1,1034 @@
+/* Consultant start */
+
+#description {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: rgb(117, 122, 122);
+}
+
+.appointment-label {
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+#radio-label {
+  font-size: 16px;
+}
+
+.appointment-legend {
+  font-size: 22px;
+  font-weight: bolder;
+  width: fit-content;
+}
+
+.appointment-input {
+  width: 100%;
+  height: 15px;
+  padding: 25px 25px !important;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0 40px;
+  box-shadow: inset 0px 0px 3px 1px rgba(170, 170, 170, 0.4);
+}
+
+.appointment-input:focus,
+.appointment-textarea:focus {
+  outline: none !important;
+  box-shadow: 0px 0px 3px 2px rgba(173, 201, 238, 0.466),
+    inset 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
+}
+
+.appointment-select {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  flex: 1;
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  padding: 15px 30px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0 40px;
+  box-shadow: inset 0px 0px 5px 1px rgba(170, 170, 170, 0.4);
+  background-color: rgb(223, 223, 223) !important;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+      no-repeat right 0.8em center/1.4em,
+    linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.5) 3em,
+      rgba(255, 255, 255, 0.9) 3em
+    );
+}
+
+.appointment-select::-ms-expand {
+  display: none;
+}
+
+.appointment-select option {
+  color: inherit;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.appointment-fieldset {
+  border: 1px solid rgb(207, 207, 207);
+  width: 100%;
+  padding-left: 30px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  /* background-color: #5bafe7; */
+}
+
+.appointment-textarea {
+  color: #000;
+  width: 100%;
+  height: 100px;
+  padding: 15px 30px;
+  font-size: 15px !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  margin: 10px 0 40px;
+  text-align: left !important;
+  box-shadow: inset 0px 0px 5px 1px rgba(170, 170, 170, 0.4);
+}
+
+.appointment-button {
+  width: 40%;
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 3px;
+  border-radius: 5px;
+  border: 1px solid rgb(62, 123, 235);
+  background-color: #5bafe7;
+}
+
+.appointment-button:hover {
+  background: linear-gradient(
+    to right,
+    rgb(60, 128, 255),
+    rgba(60, 128, 255, 0.753),
+    rgb(60, 128, 255)
+  );
+}
+
+.consultant-note {
+  font-size: 15px;
+  color: red;
+}
+
+.date-picker {
+  margin: 15px 0 35px;
+}
+
+.date-picker {
+  width: 100%;
+  height: auto;
+  max-height: 50px;
+  background: rgb(255, 255, 255);
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s 0s ease-in-out;
+  box-shadow: inset 0px 0px 5px 1px rgba(170, 170, 170, 0.4);
+}
+.date-picker .input {
+  width: 100%;
+  height: 49.5px;
+  /* padding-left: 15px; */
+  font-size: 0;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 3px 1px rgba(170, 170, 170, 0.4);
+  /* border : 1px solid rgba(255, 255, 255, 1); */
+  
+  /* border : none !important; */
+}
+.date-picker .input .result{
+    border: 1px solid rgba(170, 170, 170, 0.4);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.date-picker .input .result:hover{
+    outline : none;
+}
+.date-picker .input .result,
+.date-picker .input button {
+  display: inline-block;
+  vertical-align: top;
+}
+.date-picker .input .result {
+  width: calc(100% - 50px);
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  padding: 0 10px;
+  color: grey;
+  box-sizing: border-box;
+}
+.date-picker .input button {
+  width: 50px;
+  height: 50px;
+  background-color: #8392a7;
+  color: white;
+  line-height: 50px;
+  border: 0;
+  font-size: 18px;
+  padding: 0 0 0 2px;
+}
+.date-picker .input button:hover {
+  background-color: #68768a;
+}
+.date-picker .input button:focus {
+  outline: 0;
+}
+.date-picker .calendar {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 0px;
+  overflow: hidden;
+}
+.date-picker .ui-datepicker-inline {
+  position: relative;
+  width: 100%;
+}
+.date-picker .ui-datepicker-header {
+  height: 100%;
+  line-height: 50px;
+  background: #8392a7;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.date-picker .ui-datepicker-prev,
+.date-picker .ui-datepicker-next {
+  width: 20px;
+  height: 20px;
+  text-indent: 9999px;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 12px;
+}
+.date-picker .ui-datepicker-prev {
+  float: left;
+  margin-left: 12px;
+}
+.date-picker .ui-datepicker-prev:after {
+  transform: rotate(45deg);
+  margin: -43px 0px 0px 8px;
+}
+.date-picker .ui-datepicker-next {
+  float: right;
+  margin-right: 12px;
+}
+.date-picker .ui-datepicker-next:after {
+  transform: rotate(-135deg);
+  margin: -43px 0px 0px 6px;
+}
+.date-picker .ui-datepicker-prev:after,
+.date-picker .ui-datepicker-next:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+.date-picker .ui-datepicker-prev:hover,
+.date-picker .ui-datepicker-next:hover,
+.date-picker .ui-datepicker-prev:hover:after,
+.date-picker .ui-datepicker-next:hover:after {
+  border-color: #68768a;
+}
+.date-picker .ui-datepicker-title {
+  text-align: center;
+}
+.date-picker .ui-datepicker-calendar {
+  width: 100%;
+  text-align: center;
+}
+.date-picker .ui-datepicker-calendar thead tr th span {
+  display: block;
+  width: 100%;
+  color: #8392a7;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+.date-picker .ui-state-default {
+  display: block;
+  text-decoration: none;
+  color: #b5b5b5;
+  line-height: 40px;
+  font-size: 12px;
+}
+.date-picker .ui-state-default:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+.date-picker .ui-state-highlight {
+  color: #68768a;
+}
+.date-picker .ui-state-active {
+  color: #68768a;
+  background-color: rgba(131, 146, 167, 0.12);
+  font-weight: 600;
+}
+.date-picker .ui-datepicker-unselectable .ui-state-default {
+  color: #eee;
+  border: 2px solid transparent;
+}
+.date-picker.open {
+  max-height: 400px;
+}
+.date-picker.open .input button {
+  background: #68768a;
+}
+/* Consultant end */
+
+/* ANNOUNCEMENT PAGE END */
+
+/* media query */
+
+@media only screen and (max-width: 2400px) and (min-width: 1470px) {
+  .mm-nav-brand {
+    font-size: 26px;
+  }
+  .mm-nav a {
+    font-size: 17px !important;
+  }
+  .mm-nav > a {
+    padding: 20px 5px !important;
+  }
+  .fixed .mm-nav a {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 2400px) and (min-width: 1691px) {
+  .bod-header {
+    font-size: 50px;
+  }
+  .bod-blockquote {
+    font-size: 26px !important;
+  }
+  .bod-name h4 {
+    font-size: 24px !important;
+  }
+  .bod-name span {
+    font-size: 22px !important;
+  }
+  .long-quote {
+    font-size: 20px;
+  }
+  .long-quote-jp {
+    font-size: 23px;
+  }
+  .long-quote-mm {
+    font-size: 19px;
+  }
+}
+
+@media only screen and (max-width: 1691px) and (min-width: 1470px) {
+  .bod-blockquote {
+    font-size: 22px !important;
+  }
+  .bod-name h4 {
+    font-size: 20px !important;
+  }
+  .bod-name span {
+    font-size: 18px !important;
+  }
+  .long-quote {
+    font-size: 17px;
+  }
+  .long-quote-jp {
+    font-size: 20px;
+  }
+  .long-quote-mm {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+  }
+  #navbarCollapse {
+    max-width: fit-content;
+  }
+  .bod-img {
+    padding-left: 100px;
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  .lang {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 899px) {
+  .footer {
+    display: block;
+    padding-top: 50px;
+  }
+  .footer .left,
+  .footer .right {
+    width: 100%;
+  }
+  .footer .right {
+    margin-top: 50px;
+  }
+  .footer .right .footer-flex-nav {
+    display: block;
+  }
+  .footer .right .footer-flex-nav .nav {
+    width: 100%;
+    margin: 20px 0;
+    padding: 5px 10px;
+  }
+  .footer .right .footer-flex-nav .nav .footer-list {
+    width: 100%;
+  }
+  #first li,
+  #second li {
+    font-size: 15px;
+  }
+  #btn-contact {
+    width: 220px;
+  }
+  #first li,
+  #second li {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .footer .right .footer-flex {
+    display: block;
+  }
+  .footer .right .footer-flex > * {
+    display: block;
+    width: 100%;
+  }
+  .load-map {
+    left: 3%;
+    top: 10%;
+  }
+}
+@media only screen and (max-width: 1231px) {
+  .mm-nav a {
+    font-size: 12px !important;
+  }
+  .mm-nav > a {
+    padding: 20px 3.5px !important;
+  }
+  .fixed .mm-nav a {
+    font-size: 10px !important;
+  }
+  .mm-nav-brand {
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 1059px) {
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .mm-nav a {
+    font-size: 12px !important;
+  }
+  .mm-nav > a {
+    padding: 20px 3px !important;
+  }
+  .fixed .mm-nav a {
+    font-size: 10px !important;
+  }
+  .mm-nav-brand {
+    font-size: 19px;
+  }
+  .header img {
+    object-fit: fill;
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  .bod-blockquote {
+    font-size: 15px !important;
+  }
+  .bod-section {
+    padding: 40px 60px;
+  }
+  .long-quote {
+    font-size: 11px;
+  }
+  .long-quote-jp {
+    font-size: 12px;
+  }
+  .long-quote-mm {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #navbarCollapse {
+    padding-bottom: 20px;
+    box-shadow: 0 2px 20px 0px #ddd;
+    background-color: #ffffff;
+    margin-top: 10px;
+  }
+
+  #navbarCollapse .dropdown-menu,
+  #navbarCollapse .nav-item i {
+    display: none;
+  }
+  #navbarCollapse *:not(i) {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+  #navbarCollapse .nav-item a {
+    padding: 15px 0;
+  }
+
+  .bod-blockquote {
+    font-size: 15px !important;
+  }
+  .lang-xl {
+    display: none;
+  }
+  .contact-form {
+    padding: 10px 20px;
+  }
+  .activity-gallery img {
+    margin: 10px 0;
+  }
+  .activity-gallery img {
+    margin: 10px 0;
+  }
+  .activity-blog {
+    height: 250px;
+  }
+  .blog-date {
+    padding: 5px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .blog-date * {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+  }
+  .blog-day {
+    font-size: 20px;
+  }
+  .days-time {
+    width: 11em;
+  }
+  .schedule-table {
+    border: 0;
+  }
+
+  .schedule-table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .schedule-table tr {
+    border-top: 1px solid rgb(240, 240, 240);
+    border-right: 1.5px solid rgb(240, 240, 240);
+    border-left: 1.5px solid rgb(240, 240, 240);
+    border-bottom: 3px solid rgb(240, 240, 240) !important;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  .schedule-table td {
+    border-bottom: 1px solid rgb(240, 240, 240);
+    display: block;
+    font-size: 1em;
+    text-align: right;
+    padding: 10px 7px;
+  }
+
+  .schedule-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    width: 50%;
+  }
+
+  .schedule-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .detail-modal {
+    margin: 40px 12%;
+  }
+
+  .detail-modal-content {
+    width: 75vw;
+  }
+  /* .fb-iframe{
+      width :500px;
+    } */
+}
+@media only screen and (max-width: 992px) and (min-width: 767px) {
+  .about-img-blog {
+    height: 80%;
+  }
+  .about-company-blog-header {
+    font-size: 15px;
+  }
+  .about-company {
+    padding: 15px 0;
+    font-size: 12px;
+  }
+  .activity-slider-blog {
+    width: 90%;
+  }
+  .header {
+    height: 350px;
+  }
+  .header h3 {
+    font-size: 50px;
+  }
+  .overview-img {
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header {
+    height: 300px;
+  }
+  .header h3 {
+    font-size: 40px;
+  }
+
+  .bod-blockquote {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .small-brand {
+    display: block;
+  }
+  .navbar-brand {
+    display: none;
+  }
+  .nav-item {
+    border-bottom: 1px solid rgb(228, 228, 228);
+  }
+  .cover-area .cover-text p {
+    margin-bottom: 20px;
+  }
+  .cover-area .cover-text h3 {
+    font-weight: 600;
+    font-size: 40px;
+  }
+  .cover-area .cover-text p {
+    font-size: 15px;
+  }
+  #navbarCollapse .nav-item {
+    padding: 0;
+  }
+  .lang {
+    margin-top: 15px;
+  }
+  .overview-blog {
+    padding-top: 10px;
+  }
+  .overview-img {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .blog {
+    width: 90%;
+  }
+  .overlay-img {
+    width: 90vw;
+  }
+  .item-box-blog {
+    min-height: fit-content;
+  }
+  .section_title p {
+    text-align: justify;
+  }
+  .mission-blog-img img {
+    display: block;
+    width: 100%;
+  }
+  .about-info {
+    margin: 0 10px;
+    padding: 30px 0 50px;
+  }
+  .index-about {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+  .bod-section {
+    padding: 10px;
+  }
+  .detail-schedule {
+    font-size: 13px;
+  }
+  .modal-time-badges {
+    font-size: 13px;
+  }
+  .modal-days-badges {
+    font-size: 13px;
+  }
+  .detail-modal {
+    margin: 40px 8%;
+  }
+  .detail-modal-content {
+    width: 85vw;
+  }
+  .detail-modal-title {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-height: 1365px) {
+  .detail-modal {
+    margin-top: 30%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    height: 250px;
+  }
+  .header h3 {
+    font-size: 30px;
+  }
+  .bod-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .detail-modal-title {
+    font-size: 16px;
+  }
+  .detail-schedule {
+    font-size: 10px;
+  }
+  .modal-time-badges {
+    font-size: 10px;
+  }
+  .modal-days-badges {
+    font-size: 10px;
+  }
+  .schedule-time-badges {
+    font-size: 12px;
+    margin: 2px;
+  }
+  .schedule-days-badges {
+    font-size: 12px;
+    margin: 2px;
+  }
+  .instructor {
+    font-size: 10px;
+    padding: 3px;
+    margin: 0;
+  }
+  .schedule-mm {
+    font-size: 14px;
+  }
+
+  #jp_sh {
+    width: 80% !important;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .bod-blockquote {
+    font-size: 14px !important;
+  }
+  .mission-blog-img {
+    padding-top: 20px;
+  }
+  .small-brand {
+    font-size: 24px;
+  }
+  .modal-box {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 839px) {
+  .breadcrumb {
+    padding: 35px 5%;
+  }
+}
+
+@media only screen and (max-width: 746px) {
+  .breadcrumb {
+    height: 120px;
+    padding: 35px 6%;
+  }
+  .go-appointment {
+    float: none;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  /* .contact-header {
+      margin-top: 100%;
+    } */
+
+  .load-map {
+    left: 0%;
+    top: 10%;
+  }
+  .breadcrumb {
+    height: 150px;
+  }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 992px) {
+  /* .contact-header {
+      margin-top: 60%;
+    } */
+}
+
+@media only screen and (max-width: 1160px) {
+  .fixed #navbarCollapse .nav-item {
+    padding-bottom: 0px;
+  }
+  .mm-nav-brand {
+    font-size: 17px;
+  }
+  .mm-nav a {
+    font-size: 12px !important;
+  }
+  .mm-nav > a {
+    padding: 20px 5px !important;
+  }
+  .fixed .mm-nav a {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  /* .contact-header {
+      margin-top: 88%;
+    }   */
+}
+
+@media only screen and (min-width: 992px) {
+  #navbarCollapse {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 1150px) and (min-width: 992px) {
+  #navbarCollapse *:not(i) {
+    font-weight: 400;
+    line-height: 23px;
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 1061px) and (min-width: 991px) {
+  #navbarCollapse {
+    height: 50px;
+  }
+  #navbarCollapse *:not(i) {
+    font-size: 13px;
+  }
+  .navbar-brand {
+    font-size: 19px;
+  }
+  .mm-nav-brand {
+    font-size: 17px;
+  }
+  .mm-nav a {
+    font-size: 11px !important;
+  }
+  .mm-nav > a {
+    padding: 20px 5px !important;
+  }
+  .fixed .mm-nav a {
+    font-size: 10px !important;
+  }
+}
+@media only screen and (max-width: 568px) and (min-width: 377px) {
+  .mission-blog-img {
+    padding-top: 20px;
+  }
+  .announcement-blog-title h1 {
+    font-size: 42px;
+  }
+  .announcement-blog-title h2 {
+    font-size: 32px;
+  }
+  .separator--dotter {
+    padding-top: 45px;
+  }
+  .other-info-blog h3 {
+    padding: 35px 0;
+  }
+  .small-brand {
+    font-size: 18px;
+  }
+  .training-position {
+    background-position-x: 40%;
+  }
+  .overview-img {
+    height: 300px;
+  }
+  .fixed {
+    padding: 0 20px;
+  }
+  .schedule-table td::before {
+    width: 60%;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .bod-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .small-brand {
+    font-size: 16px;
+  }
+  .fixed {
+    padding: 0 20px;
+  }
+  .mission-blog-img {
+    padding-top: 20px;
+  }
+  .announcement-blog h1 {
+    font-size: 40px;
+  }
+  .announcement-blog h2 {
+    font-size: 30px;
+  }
+  .separator--dotter {
+    padding-top: 35px;
+  }
+  .other-info-blog h3 {
+    padding: 35px 0;
+  }
+  .schedule-table td::before {
+    width: 60%;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .small-brand {
+    font-size: 12px;
+  }
+  .header h3 {
+    font-size: 20px;
+  }
+  .overview-img {
+    height: 250px;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .small-brand {
+    font-size: 13px;
+  }
+  .mission-blog-img {
+    padding-top: 20px;
+  }
+  .medium-header-text h3 {
+    font-size: 45px;
+    letter-spacing: 5px;
+  }
+  .header h3 {
+    font-size: 20px;
+  }
+  .modal-time-badges {
+    font-size: 8px;
+    padding: 3px 2px;
+  }
+  .modal-days-badges {
+    font-size: 8px;
+  }
+  .schedule-table td {
+    font-size: 13px;
+    padding: 0.8em 0.625em;
+  }
+  /* .schedule-days-badges{
+      margin-bottom: 100px;
+    } */
+}
+
+@media only screen and (max-width: 310px) {
+  .small-brand {
+    display: none;
+  }
+  .icon-brand {
+    display: block;
+  }
+  .mission-blog-img {
+    padding-top: 20px;
+  }
+  .bod-blockquote {
+    padding: 10px;
+  }
+  .carousel-indicators {
+    padding-top: 20px;
+  }
+  .medium-header-text h3 {
+    font-size: 43px;
+    letter-spacing: 5px;
+  }
+  .schedule-time-badges {
+    font-size: 7px;
+    height: 12px;
+    line-height: 10px;
+  }
+  .schedule-days-badges {
+    font-size: 7px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+  }
+  .schedule-table td::before {
+    width: 120px;
+    font-size: 12px;
+  }
+  .enroll {
+    padding: 5px 12px;
+    font-size: 11px;
+  }
+  .detail {
+    padding: 5px 12px;
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 450px) {
+  .activity-gallery img {
+    height: 270px;
+  }
+}
