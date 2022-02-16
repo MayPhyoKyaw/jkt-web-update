@@ -1,5 +1,135 @@
 /* main travel and tours page start */
 
+.carousel-fade .carousel-inner {
+  height: 80vh;
+}
+
+.carousel-fade .carousel-inner .carousel-item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.carousel-fade .carousel-inner .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  opacity: 0.85;
+  /* filter: blur(1px); */
+}
+.carousel-fade .carousel-inner .carousel-item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+.header-title {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.45;
+  z-index: 3;
+  text-align: center;
+  /* margin: auto; */
+}
+.header-title h2 {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  opacity: 1;
+  font-size: 57px;
+}
+
+.carousel-caption h4 {
+  /* position: absolute; */
+  /* top: -100%; */
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  line-height: 1.5;
+  opacity: 1;
+  padding: 20px 10px;
+  color: rgb(255, 255, 255);
+}
+
+/* map start */
+.map-section{
+  background-color: #FCF4EB;
+}
+
+.hokkaido-container {
+  /* background-color: red; */
+  position: relative;
+  display: block;
+}
+.hokkaido-container .map {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.hokkaido-container .pointer {
+  width: 60px;
+  position: absolute;
+  max-width: 10%;
+  left: 27%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: 6;
+  animation-name: pointermove;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+.hokkaido-container .pointer-circle {
+  width: 85px;
+  position: absolute;
+  max-width: 20%;
+  left: 28%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+/* map end */
+
 .clocks {
   display: flex;
   flex-direction: column;
@@ -74,6 +204,10 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
+/* clock end */
+
+/* attraction and food start */
 
 .img-btn {
   position: relative;
@@ -151,132 +285,7 @@
   }
 }
 
-.carousel-fade .carousel-inner {
-  height: 80vh;
-}
-
-.carousel-fade .carousel-inner .carousel-item {
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-  /* position: relative; */
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-.carousel-fade .carousel-inner .carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  opacity: 0.85;
-  /* filter: blur(1px); */
-}
-.carousel-fade .carousel-inner .carousel-item,
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-  opacity: 0;
-}
-.carousel-fade .carousel-inner .active,
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
-  opacity: 1;
-}
-.carousel-fade .carousel-inner .next,
-.carousel-fade .carousel-inner .prev,
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-  left: 0;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-.carousel-fade .carousel-control {
-  z-index: 2;
-}
-.header-title {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0, 0, 0);
-  opacity: 0.45;
-  z-index: 3;
-  text-align: center;
-  /* margin: auto; */
-}
-.header-title h2 {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  z-index: 5;
-  color: rgb(255, 255, 255);
-  font-weight: 900;
-  opacity: 1;
-  font-size: 57px;
-}
-
-.carousel-caption h4 {
-  /* position: absolute; */
-  /* top: -100%; */
-  width: 100%;
-  margin: 20px auto;
-  text-align: center;
-  line-height: 1.5;
-  opacity: 1;
-  padding: 20px 10px;
-  color: rgb(255, 255, 255);
-}
-
-/* map start */
-
-.hokkaido-container {
-  /* background-color: red; */
-  position: relative;
-  display: block;
-}
-.hokkaido-container .map {
-  width: 100%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-}
-.hokkaido-container .pointer {
-  width: 60px;
-  position: absolute;
-  max-width: 10%;
-  left: 27%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  z-index: 6;
-  animation-name: pointermove;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-}
-.hokkaido-container .pointer-circle {
-  width: 85px;
-  position: absolute;
-  max-width: 20%;
-  left: 28%;
-  top: 55%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  z-index: 5;
-}
-
-/* map end */
+/* attraction and food end */
 
 /* main travel and tours page end */
 
@@ -1039,15 +1048,9 @@ hr.nav-hr:before {
     height: 280px !important;
   }
 }
-/* @media only screen and (min-width : 768px) and (max-width : 991px) {
-  #calendar-clock{
-    margin-top: 50px;
-  }
-  .hokkaido-container{
-    width : 60%;
-    padding-top: 750px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+  .clock-containter{
+    width : 90%;
   }
   
-} */
+}
