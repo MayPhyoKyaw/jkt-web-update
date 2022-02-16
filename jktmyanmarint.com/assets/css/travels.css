@@ -219,6 +219,58 @@
   color: rgb(255, 255, 255);
 }
 
+/* map start */
+
+.hokkaido-container {
+  /* background-color: red; */
+  position: relative;
+  display: inline;
+}
+.hokkaido-container .map {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.hokkaido-container .pointer {
+  width: 60px;
+  position: absolute;
+  max-width: 10%;
+  left: 27%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: 6;
+  animation-name: pointermove;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+.hokkaido-container .pointer-circle {
+  width: 85px;
+  position: absolute;
+  max-width: 20%;
+  left: 28%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+/* map end */
+
 /* main travel and tours page end */
 
 /* travel details start*/
@@ -363,9 +415,9 @@
 .attraction-item {
   text-align: center;
 }
-.attraction-item .title{
+.attraction-item .title {
   font-weight: bold;
-  font-size : 19px;
+  font-size: 19px;
 }
 
 @keyframes seasonlinkup {
@@ -374,6 +426,14 @@
   }
   to {
     bottom: 5%;
+  }
+}
+@keyframes pointermove {
+  from {
+    top: 45%;
+  }
+  to {
+    top: 50%;
   }
 }
 
@@ -430,7 +490,7 @@
   position: relative;
   height: 280px;
 }
-.food-item img{
+.food-item img {
   object-fit: cover;
 }
 
@@ -482,22 +542,22 @@
 /* sapporo */
 
 .hov-img-zoom {
-	display: block;
-	overflow: hidden;
+  display: block;
+  overflow: hidden;
 }
 .hov-img-zoom img {
-	width: 100%;
-	-webkit-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    transition: all 0.6s;
+  width: 100%;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  transition: all 0.6s;
 }
 .hov-img-zoom:hover img {
-	-webkit-transform: scale(1.1);
-  	-moz-transform: scale(1.1);
-  	-ms-transform: scale(1.1);
-  	-o-transform: scale(1.1);
-	transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .transportation-title {
