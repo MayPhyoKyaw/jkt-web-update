@@ -274,6 +274,100 @@
 /* main travel and tours page end */
 
 /* travel details start*/
+.haru-container {
+  /* background-color: #ffa8e55d; */
+  color: #ff43c7;
+}
+.natsu-container {
+  /* background-color: #ffe05749; */
+  color: #ffd000;
+}
+.aki-container {
+  /* background-color: #ff896544; */
+  color: #e75e35;
+}
+.fuyu-container {
+  /* background-color: #9cddf749; */
+  color: #2298e7;
+}
+
+.haru-container h1 {
+  font-size: 50px;
+  padding: 20px 0 0;
+  color: #ff43c7;
+  text-align: center;
+}
+.natsu-container h1 {
+  font-size: 50px;
+  padding: 20px 0 0;
+  color: #ffd000;
+  text-align: center;
+}
+.aki-container h1 {
+  font-size: 50px;
+  padding: 20px 0 0;
+  color: #ff7d56;
+  text-align: center;
+}
+.fuyu-container h1 {
+  font-size: 50px;
+  padding: 20px 0 0;
+  color: #59bdff;
+  text-align: center;
+}
+
+hr.season-title-hr1 {
+  background-color: #fff;
+  border-top: 2px dashed #ff43c7;
+  width: 10%;
+  margin: 0 auto 25px;
+}
+hr.season-title-hr2 {
+  background-color: #fff;
+  border-top: 2px dashed #ffd000;
+  width: 10%;
+  margin: 0 auto 25px;
+}
+hr.season-title-hr3 {
+  background-color: #fff;
+  border-top: 2px dashed #ff7d56;
+  width: 10%;
+  margin: 0 auto 25px;
+}
+hr.season-title-hr4 {
+  background-color: #fff;
+  border-top: 2px dashed #59bdff;
+  width: 10%;
+  margin: 0 auto 25px;
+}
+
+hr.season-hr {
+  border-top: 1px dashed dodgerblue;
+  border-bottom: 1px dashed #fff;
+  color: #5bafe73f;
+  width: 90%;
+  margin: 15px auto;
+}
+hr.nav-hr {
+  height: 20px;
+  border-style: solid;
+  border-color: #5bafe7;
+  border-width: 2px 0 0 0;
+  border-radius: 20px;
+  color: white;
+  width: 90%;
+  margin: 35px auto 0;
+}
+hr.nav-hr:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #2592db;
+  border-width: 0 0 2px 0;
+  border-radius: 20px;
+}
 
 .four-seasons {
   display: flex;
@@ -485,6 +579,13 @@
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
   }
+}
+.food-main-title{
+  color: #5bafe7;
+}
+.foods h3,
+.drinks h3 {
+  color: #5bafe7;
 }
 .food-item {
   position: relative;
@@ -808,7 +909,8 @@
   display: block;
   transition: all 0.3s ease-in-out;
   border-radius: 6px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
   margin: 3% 0 5%;
 }
 /* Image pop up end */
@@ -889,7 +991,7 @@
   .drink-item {
     height: 300px;
   }
-  .hokkaido-container{
+  .hokkaido-container {
     padding-top: 600px;
   }
   .popupContainer .popImage {
