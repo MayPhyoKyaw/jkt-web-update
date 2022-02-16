@@ -1,7 +1,7 @@
 // Cover carousel
 $(".carousel").carousel({
   pause: "false",
-  interval: 3000,
+  interval: 8000,
 });
 AOS.init();
 
