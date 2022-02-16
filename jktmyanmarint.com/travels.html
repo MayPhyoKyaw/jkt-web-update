@@ -320,25 +320,46 @@
     </nav>
 
     <!-- map -->
-    <section class="mt-5">
+    <section class="my-2 py-5">
       <div class="container">
         <div class="row">
           <img
             src="./assets/images/attractions/maps/jp_en.jpg"
             alt="jpn-map"
-            class="col-7 mx-auto jpn-map"
+            class="col-12 col-md-7 mx-auto"
           />
-          <img
-            src="./assets/images/attractions/maps/hokkaido_en.png"
-            alt="hokkaido-map"
-            class="col-5 mx-auto jpn-map"
-          />
+          <div class="col-12 col-md-5 mx-auto hokkaido-container ">
+            <img
+              src="./assets/images/attractions/maps/hokkaido_en.png"
+              alt="hokkaido-map"
+              class="map"
+            />
+            <img
+              class="pointer"
+              src="./assets/images/finger_pointing/down.png"
+              alt=""
+            />
+            <a href="sapporo.html">
+              <img
+                class="pointer-circle"
+                src="./assets/images/finger_pointing/circle.png"
+                alt=""
+              />
+            </a>
+          </div>
+          <!-- <svg width="500" height="250" class="col-5 mx-auto">
+            
+            <image
+              xlink:href="./assets/images/finger_pointing/left.png"
+            />
+          </svg> -->
         </div>
       </div>
     </section>
 
+    <hr/>
     <!-- calendar and clock -->
-    <section class="mt-5">
+    <section class="my-2 pt-5 pb-3" id="calendar-clock">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-6">
@@ -390,19 +411,30 @@
         </div>
       </div>
     </section>
-    <section class="mt-5 mb-5">
+    <hr/>
+    <section class="my-2 py-5">
       <div class="container">
         <div class="row">
           <div class="img-btn col-12 col-md-6">
             <a href="./travel_details.html#attractions">
-              <img src="./assets/images/attractions/four_seasons/attraction.jpg" width="300" height="300" alt="" />
+              <img
+                src="./assets/images/attractions/four_seasons/attraction.jpg"
+                width="300"
+                height="300"
+                alt=""
+              />
               <span class="text-bg"></span>
               <span class="img-text">Attractions</span>
             </a>
           </div>
           <div class="img-btn col-12 col-md-6">
             <a href="./travel_details.html#foods">
-              <img src="./assets/images/attractions/foods/kaisensq.jpg" width="300" height="300" alt="" />
+              <img
+                src="./assets/images/attractions/foods/kaisensq.jpg"
+                width="300"
+                height="300"
+                alt=""
+              />
               <span class="text-bg"></span>
               <span class="img-text">Foods</span>
             </a>
