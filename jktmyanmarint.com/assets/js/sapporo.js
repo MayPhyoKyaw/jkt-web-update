@@ -1,8 +1,8 @@
 // Cover carousel
-$(".carousel").carousel({
-  pause: "false",
-  interval: 8000,
-});
+// $(".carousel").carousel({
+//   pause: "false",
+//   interval: 8000,
+// });
 AOS.init();
 
 // temperature
