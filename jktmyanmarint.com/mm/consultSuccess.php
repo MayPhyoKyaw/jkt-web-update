@@ -117,7 +117,7 @@
                 <!-- <a class="dropdown-item" href="./announcement.html"
                   >အိုင်တီနည်းပညာ ဆိုင်ရာ ၀န်ဆောင်မှု</a
                 > -->
-                <a class="dropdown-item" href="./announcement.html"
+                <a class="dropdown-item" href="./travels.html"
                   >ခရီးသွား ၀န်ဆောင်မှု</a
                 >
               </div>
@@ -335,7 +335,7 @@
               </li> -->
               <li>
                 <span
-                  ><a href="./announcement.html">ခရီးသွား ၀န်ဆောင်မှု </a></span
+                  ><a href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု </a></span
                 >
               </li>
             </ul>

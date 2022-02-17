@@ -101,7 +101,7 @@ function encrypt_decrypt($action, $string)
               <a class="dropdown-item" href="./overseas.html">海外での雇用</a>
               <a class="dropdown-item" href="./business.html">ビジネスコンサルタント</a>
               <!-- <a class="dropdown-item" href="./announcement.html">ITサービス</a> -->
-              <a class="dropdown-item" href="./announcement.html">旅行サービス</a>
+              <a class="dropdown-item" href="./travels.html">旅行サービス</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -846,7 +846,7 @@ function encrypt_decrypt($action, $string)
               <span><a href="./announcement.html">ITサービス</a></span>
             </li> -->
             <li>
-              <span><a href="./announcement.html">旅行サービス</a></span>
+              <span><a href="./travels.html">旅行サービス</a></span>
             </li>
           </ul>
         </div>

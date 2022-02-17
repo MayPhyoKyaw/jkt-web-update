@@ -72,7 +72,7 @@ function initImagePopup(elem) {
               popupImage.style.height = 650 + "px";
             } else if(window.innerWidth >= 1200) {
               popupImage.style.top = "7.5%";
-              popupImage.style.height = 550 + "px";
+              popupImage.style.height = 510 + "px";
             } else if(window.innerWidth >= 1100) {
               popupImage.style.height = 500 + "px";
               console.log(window.innerWidth, window.innerHeight)

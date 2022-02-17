@@ -80,7 +80,7 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
               <!-- <a class="dropdown-item" href="./announcement.html"
                   >အိုင်တီနည်းပညာ ဆိုင်ရာ ၀န်ဆောင်မှု</a
                 > -->
-              <a class="dropdown-item" href="./announcement.html">ခရီးသွား ၀န်ဆောင်မှု</a>
+              <a class="dropdown-item" href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု</a>
             </div>
           </li>
           <li class="nav-item dropdown mm-nav">
@@ -302,7 +302,7 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
                 >
               </li> -->
             <li>
-              <span><a href="./announcement.html">ခရီးသွား ၀န်ဆောင်မှု </a></span>
+              <span><a href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု </a></span>
             </li>
           </ul>
         </div>
