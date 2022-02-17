@@ -59,13 +59,31 @@ function initImagePopup(elem) {
             // I created this part very simple, but you can do it much better by calculating height and width of the screen,
             // image dimensions.. so that popup image can be placed much better
             popUpBackground.classList.add("active");
-            popupImage.style.left = "15%";
-            popupImage.style.top = "50px";
-            popupImage.style.width = window.innerWidth * 0.7 + "px";
-            popupImage.style.height = 500 + "px";
+            popupImage.style.left = "20%";
+            popupImage.style.top = "6.5%";
+            popupImage.style.width = window.innerWidth * 0.6 + "px";
+            if(window.innerWidth >= 2000) {
+              popupImage.style.height = 900 + "px";
+            } else if(window.innerWidth >= 1700) {
+              popupImage.style.height = 800 + "px";
+            } else if(window.innerWidth >= 1500) {
+              popupImage.style.height = 700 + "px";
+            } else if(window.innerWidth >= 1400) {
+              popupImage.style.height = 650 + "px";
+            } else if(window.innerWidth >= 1200) {
+              popupImage.style.top = "7.5%";
+              popupImage.style.height = 550 + "px";
+            } else if(window.innerWidth >= 1100) {
+              popupImage.style.height = 500 + "px";
+              console.log(window.innerWidth, window.innerHeight)
+            } else {
+              popupImage.style.top = "9%";
+              popupImage.style.height = 450 + "px";
+            }
           }, 10);
         }
-        console.log((image.height / image.width) * (window.innerWidth * 0.6))
+        // console.log(window.innerWidth, window.innerHeight)
+        // console.log((image.height / image.width) * (window.innerWidth * 0.6))
 
         // function for closing popup image, first it will be return to the place where
         // it started then it will be removed totaly (deleted) after animation is over, in our case 300ms

@@ -10,12 +10,12 @@
   /* position: relative; */
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 .carousel-fade .carousel-inner .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   opacity: 0.85;
   /* filter: blur(1px); */
 }
@@ -677,6 +677,9 @@ hr.nav-hr:before {
   transform: scale(1.1);
 }
 
+.transportation-block {
+  overflow-x: hidden;
+}
 .transportation-title {
   font-weight: 800;
   color: #5bafe7;
@@ -827,7 +830,7 @@ hr.nav-hr:before {
   display: block;
   width: 100%;
   height: 350px;
-  object-fit: fill;
+  object-fit: cover;
 }
 .snow-festival-text h3 {
   color: #5bafe7;
@@ -949,7 +952,8 @@ hr.nav-hr:before {
     padding: 0px 20px;
   }
   .popupContainer .popImage {
-    margin: 6% 0;
+    top: 6.5% !important;
+    /* margin: 6% 0 !important; */
   }
 }
 
@@ -1011,14 +1015,22 @@ hr.nav-hr:before {
     padding-top: 600px;
   }
   .popupContainer .popImage {
+    left: 8% !important;
     margin: 15% 0;
+    width: 500px !important;
     height: 360px !important;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .transportation-image img {
+    height: 320px;
   }
 }
 
 @media screen and (max-width: 440px) {
   .popupContainer .popImage {
-    margin: 30% 0;
+    margin: 20% 0;
     left: 3% !important;
     width: 385px !important;
     height: 320px !important;
@@ -1027,7 +1039,7 @@ hr.nav-hr:before {
 
 @media screen and (max-width: 395px) {
   .popupContainer .popImage {
-    margin: 30% 0;
+    margin: 25% 0;
     left: 3% !important;
     width: 357px !important;
     height: 300px !important;
