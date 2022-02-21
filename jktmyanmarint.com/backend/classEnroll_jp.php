@@ -263,7 +263,7 @@ if ($org_width > "300" || $org_height > "300") {
         }
         if ($afterTryingToSend[0]) {
             unset($_SESSION['response']);
-            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null,null);
+            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null);
             header("location: ../jp/enrollSuccess.php");
             exit();
         } else {
@@ -395,7 +395,7 @@ if ($org_width > "300" || $org_height > "300") {
         }
         if ($afterTryingToSend[0]) {
             unset($_SESSION['response']);
-            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null,null);
+            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null);
             header("location: ../jp/enrollSuccess.php");
             exit();
         } else {

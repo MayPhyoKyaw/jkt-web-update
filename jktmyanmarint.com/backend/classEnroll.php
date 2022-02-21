@@ -27,7 +27,7 @@ session_start();
 include("../../jktmyanmarint.admin.com/confs/config.php");
 
 // for mail
-include("../../jktmyanmarint.admin.com/mail/sendMail.php");
+include_once("../../jktmyanmarint.admin.com/mail/sendMail.php");
 
 // for noti
 include("../backend/newNoti.php");
@@ -295,7 +295,7 @@ if ($org_width > "300" || $org_height > "300") {
         }
         if ($afterTryingToSend[0]) {
             unset($_SESSION['response']);
-            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null,null);
+            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null);
             header("location: ../enrollSuccess.php");
             exit();
         } else {
@@ -427,7 +427,7 @@ if ($org_width > "300" || $org_height > "300") {
         }
         if ($afterTryingToSend[0]) {
             unset($_SESSION['response']);
-            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null,null);
+            addNewNoti("new pending enrollment", "please go to students and search for enrollment id", "PENDING_REQUEST", $lastInserted, null);
             header("location: ../enrollSuccess.php");
             exit();
         } else {
