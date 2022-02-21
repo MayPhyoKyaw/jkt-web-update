@@ -76,8 +76,8 @@
 }
 
 /* map start */
-.map-section{
-  background-color: #FCF4EB;
+.map-section {
+  background-color: #fcf4eb;
 }
 
 .hokkaido-container {
@@ -203,8 +203,9 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  -webkit-text-stroke: 2px #3185B4;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  -webkit-text-stroke: 2px #3185b4;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 .clock-hr {
   color: #fff;
@@ -438,6 +439,7 @@ hr.nav-hr:before {
   position: absolute;
   left: 50%;
   top: 40%;
+  text-overflow: ellipsis;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -604,7 +606,7 @@ hr.nav-hr:before {
     -o-transform: translate(-50%, -50%);
   }
 }
-.food-main-title{
+.food-main-title {
   color: #5bafe7;
 }
 .foods h3,
@@ -1068,9 +1070,18 @@ hr.nav-hr:before {
     height: 280px !important;
   }
 }
-@media only screen and (min-width : 768px) and (max-width : 991px) {
-  .clock-containter{
-    width : 90%;
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .clock-containter {
+    width: 90%;
   }
-  
+  .season-text {
+    font-size: 35px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  .seasons-container {
+  }
 }
