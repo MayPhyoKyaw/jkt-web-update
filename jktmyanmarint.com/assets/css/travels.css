@@ -537,7 +537,10 @@ hr.nav-hr:before {
 }
 .attraction-item .title {
   font-weight: bold;
-  font-size: 19px;
+  font-size: 22px;
+}
+.attraction-item .description {
+  font-size: 16px;
 }
 
 @keyframes seasonlinkup {
@@ -912,6 +915,10 @@ hr.nav-hr:before {
   top: 0;
   left: 0;
 } */
+.pop-up img {
+  cursor: pointer;
+}
+
 .popupContainer {
   position: fixed;
   left: 0;

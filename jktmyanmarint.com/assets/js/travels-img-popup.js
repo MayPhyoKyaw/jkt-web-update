@@ -1,6 +1,6 @@
 $(".carousel").carousel({
     pause: "false",
-    interval: 8000,
+    interval: 6500,
 });
 
 function initImagePopup(elem) {
@@ -59,9 +59,9 @@ function initImagePopup(elem) {
             // I created this part very simple, but you can do it much better by calculating height and width of the screen,
             // image dimensions.. so that popup image can be placed much better
             popUpBackground.classList.add("active");
-            popupImage.style.left = "20%";
+            popupImage.style.left = "23%";
             popupImage.style.top = "6.5%";
-            popupImage.style.width = window.innerWidth * 0.6 + "px";
+            popupImage.style.width = window.innerWidth * 0.55 + "px";
             if(window.innerWidth >= 2000) {
               popupImage.style.height = 900 + "px";
             } else if(window.innerWidth >= 1700) {
