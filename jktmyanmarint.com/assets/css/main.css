@@ -3171,6 +3171,9 @@ iframe::-webkit-scrollbar-thumb:hover {
   .overview-img {
     height: 400px;
   }
+  .overview-blog {
+    padding-top: 15px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
