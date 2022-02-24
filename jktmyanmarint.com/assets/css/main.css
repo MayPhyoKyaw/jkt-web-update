@@ -3211,6 +3211,9 @@ iframe::-webkit-scrollbar-thumb:hover {
   .cover-area .cover-text p {
     font-size: 15px;
   }
+  .cover-title-mm{
+    line-height : 1.6em;
+  }
   #navbarCollapse .nav-item {
     padding: 0;
   }
