@@ -12,7 +12,7 @@ let img = document.getElementById("weatherImage");
 let description = document.getElementById("description");
 xhr.open(
   "GET",
-  `https://api.openweathermap.org/data/2.5/weather?q=sapporo&appid=1474f1e7c77ade332e0e292741d239a0`
+  `https://api.openweathermap.org/data/2.5/weather?q=sapporo&appid=1aafa074573e51b9c0c397d7254fc9a5`
 );
 xhr.send();
 xhr.onload = () => {

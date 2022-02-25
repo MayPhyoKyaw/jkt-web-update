@@ -24,364 +24,370 @@ latLons = [
     "42.77159906586529,141.40424358204658",
     "42.8048,140.6874",
   ];
+
+  function latLonsSplit(arg) {
+    return arg.split(",");
+  }
+
+  // console.log(latLonsSplit(latLons[0])[0])
   
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[0]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[0])[0]}&lon=${latLonsSplit(latLons[0])[1]}&appid=3b732dd9bfd2a0c01fbeb0aed0e87715`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 0).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 0).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 0).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[1]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[1])[0]}&lon=${latLonsSplit(latLons[1])[1]}&appid=151acfb517bc582ee713aa8b3a3ec7ee`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 1).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 1).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 1).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[2]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[2])[0]}&lon=${latLonsSplit(latLons[2])[1]}&appid=9d003d005e402339143e753efc552b8e`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 2).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 2).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 2).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[3]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[3])[0]}&lon=${latLonsSplit(latLons[3])[1]}&appid=164624a20f6296cb36efa79043f6e525`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 3).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 3).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 3).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[4]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[4])[0]}&lon=${latLonsSplit(latLons[4])[1]}&appid=0918c86d463b3e453bf65526b7a3b94f`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 4).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 4).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 4).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[5]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[5])[0]}&lon=${latLonsSplit(latLons[5])[1]}&appid=5f6d6d9942b3c5e3e45e78b712579046`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 5).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 5).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 5).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[6]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[6])[0]}&lon=${latLonsSplit(latLons[6])[1]}&appid=884fae15088844f7cdc264925d18887c`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 6).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 6).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 6).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[7]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[7])[0]}&lon=${latLonsSplit(latLons[7])[1]}&appid=e511ea2a94d6d4c17e33d1ee9d3f18f5`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 7).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 7).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 7).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[8]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[8])[0]}&lon=${latLonsSplit(latLons[8])[1]}&appid=4b02c6e9c4cb8095efc683f072822fa2`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 8).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 8).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 8).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[9]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[9])[0]}&lon=${latLonsSplit(latLons[9])[1]}&appid=6980542974ba79771281c1fb9cd906c0`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 9).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 9).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 9).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[10]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[10])[0]}&lon=${latLonsSplit(latLons[10])[1]}&appid=51707a02b6b76e53633b1b5df809df03`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 10).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 10).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 10).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[11]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[11])[0]}&lon=${latLonsSplit(latLons[11])[1]}&appid=d126d382a5b20b5b335bbfc5978c58ab`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 11).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 11).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 11).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[12]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[12])[0]}&lon=${latLonsSplit(latLons[12])[1]}&appid=5ed0b4724dfec2d2f1ef811afe1a09e8`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 12).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 12).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 12).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[13]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[13])[0]}&lon=${latLonsSplit(latLons[13])[1]}&appid=fb936f0f79836137359595fb7aa75afa`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 13).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 13).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 13).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[14]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[14])[0]}&lon=${latLonsSplit(latLons[14])[1]}&appid=22c0075fee20f9c2195476d15096d049`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 14).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 14).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 14).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[15]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[15])[0]}&lon=${latLonsSplit(latLons[15])[1]}&appid=ed415830caebec9c2573986508b8388c`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 15).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 15).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 15).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[16]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[16])[0]}&lon=${latLonsSplit(latLons[16])[1]}&appid=f44bc9699e3b616ad3b23a45643a899c`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 16).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 16).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 16).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[17]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[17])[0]}&lon=${latLonsSplit(latLons[17])[1]}&appid=3b6c9c8251a02f6645c284e44d5c57ed`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 17).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 17).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 17).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[18]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[18])[0]}&lon=${latLonsSplit(latLons[18])[1]}&appid=795d720e648b3023259c558a53557230`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 18).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 18).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 18).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[19]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[19])[0]}&lon=${latLonsSplit(latLons[19])[1]}&appid=8a5d33b8f4a36dee912e49348042fb7b`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 19).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 19).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 19).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[20]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[20])[0]}&lon=${latLonsSplit(latLons[20])[1]}&appid=49daf7e583e29adf88f04b2e5d3b3fec`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 20).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 20).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 20).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[21]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[21])[0]}&lon=${latLonsSplit(latLons[21])[1]}&appid=1156dd7017644a1b653dc838eff940d4`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 21).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 21).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 21).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[22]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[22])[0]}&lon=${latLonsSplit(latLons[22])[1]}&appid=2d183f858ea637645669123bf3c97c61`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 22).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 22).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 22).prepend(img);
     },
   });
   $.ajax({
-    url: `http://api.weatherapi.com/v1/current.json?key=6450d6e30f464fd99c173459221702&q=${latLons[23]}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latLonsSplit(latLons[23])[0]}&lon=${latLonsSplit(latLons[23])[1]}&appid=9e031beef00b6315f863cf2f7ea8a6f8`,
     type: "GET",
     dataType: "json", // added data type
     success: function (res) {
       var img = document.createElement("img");
-      img.src = "https:" + res.current.condition.icon;
+      img.src = `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
       img.style.width = 32 + "px";
       img.style.height = 32 + "px";
       img.style.margin = "0 5px";
       img.style.padding = 1 + "px";
-      document.getElementById("temp" + 23).innerText = res.current.temp_c + " °C";
+      document.getElementById("temp" + 23).innerText = Math.round(res.main.temp - 273.15) + " °C";
       document.getElementById("temp" + 23).prepend(img);
     },
   });
