@@ -22,6 +22,6 @@ if (isset($_POST['paymentSubmit'])) {
         (enrollment_id, course_id,bank_id,payment_amount, is_pending, created_at, updated_at) 
         VALUES ($enrollment_id, $course_id, $bank_id,$paymentAmount, 1, now(),now())";
         mysqli_query($conn, $insert_into_payments);
-        header("location: ../frontend/index.html");
+        header("location: ../paymentSuccess.php");
     }
 }

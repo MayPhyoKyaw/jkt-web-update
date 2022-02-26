@@ -1452,6 +1452,22 @@ figure img {
   font-weight: normal;
 }
 
+.blue-text-payment {
+  color: #5bafe7;
+  line-height: 1.5;
+  font-size: 18px;
+  /* letter-spacing: 2px; */
+}
+
+.blue-text-payment a {
+  color: #5bafe7;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+.blue-text-payment a:hover {
+  color: #007fe7;
+}
+
 .steps {
   font-size: 25px;
   color: gray;

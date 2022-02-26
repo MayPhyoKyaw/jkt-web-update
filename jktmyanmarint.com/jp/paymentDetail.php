@@ -296,7 +296,7 @@ function encrypt_decrypt($action, $string) {
                 ?>
                 <!-- <h2 id="heading">Sign Up Your User Account</h2> -->
                 <p class="enroll-description">お支払いを確認するには、このフォームに記入してください</p>
-                <form id="paymentForm" action="../backend/enrollSubmit.php" method="POST" enctype="multipart/form-data">
+                <form id="paymentForm" action="../backend/paymentSubmit_jp.php" method="POST" enctype="multipart/form-data">
                     <span id="nrc" class="hidden"><?php echo $row['nrc']; ?></span>
                     <div class="row mx-2">
                       <label for="payment_amount">支払い金額「チャット」を入力します</label>

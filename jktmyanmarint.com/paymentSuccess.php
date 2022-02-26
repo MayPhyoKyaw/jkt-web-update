@@ -1,34 +1,3 @@
-<?php
-
-if (!isset($_GET["enroll_id"])) {
-  header("location: index.html");
-}
-function encrypt_decrypt($action, $string) {
-  /* =================================================
-  * ENCRYPTION-DECRYPTION
-  * =================================================
-  * ENCRYPTION: encrypt_decrypt('encrypt', $string);
-  * DECRYPTION: encrypt_decrypt('decrypt', $string) ;
-  */
-  $output = false;
-  $encrypt_method = "AES-256-CBC";
-  $secret_key = 'JKT-2019-20IT85-MM-JP';
-  $secret_iv = 'JKT-2019-serV1ce-MM-JP';
-  // hash
-  $key = hash('sha256', $secret_key);
-  // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
-  $iv = substr(hash('sha256', $secret_iv), 0, 16);
-  if ($action == 'encrypt') {
-      $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
-  } else {
-      if ($action == 'decrypt') {
-          $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-      }
-  }
-  return $output;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,42 +70,40 @@ function encrypt_decrypt($action, $string) {
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
               <a class="dropdown-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
               <a class="dropdown-item" href="./business.html">BUSINESS CONSULTANT</a>
-              <a class="dropdown-item" href="./announcement.html">IT SERVICES</a>
               <a class="dropdown-item" href="./travels.html">TRAVEL AND TOURS</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="./trainings.html" class="nav-link active" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
               TRAININGS <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
               <a class="dropdown-item" href="./jp-school.php">JAPANESE LANGUAGE SCHOOL</a>
-              <a class="dropdown-item" href="./announcement.html">VOCATIONAL TRAINING</a>
+              <a class="dropdown-item" href="./digital-institute.php">DIGITAL INSTITUTE</a>
               <a class="dropdown-item" href="./announcement.html">HR TRAINING</a>
             </div>
           </li>
           <li class="nav-item">
-            <a href="./contact.html" class="nav-link"> CONTACT </a>
+            <a href="./contact.html" class="nav-link active"> CONTACT </a>
           </li>
-          <?php $getID = $_GET['enroll_id'] ?>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
-              <a href="./paymentDetail.php?enroll_id=<?php echo $getID; ?>"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
+              <a href="./paymentSuccess.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
                   <img src="./assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-              <a href="./mm/paymentDetail.php?enroll_id=<?php echo $getID; ?>"><button type="button" class="btn btn2">
+              <a href="./mm/paymentSuccess.php"><button type="button" class="btn btn2">
                   <img src="./assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-              <a href="./jp/paymentDetail.php?enroll_id=<?php echo $getID; ?>"><button type="button" class="btn btn3">
+              <a href="./jp/paymentSuccess.php"><button type="button" class="btn btn3">
                   <img src="./assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
             </div>
           </li>
         </ul>
       </div>
       <div class="btn-group lang-xl" role="group" aria-label="First group">
-        <a href="./paymentDetail.php?enroll_id=<?php echo $getID; ?>"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
+        <a href="./paymentSuccess.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
             <img src="./assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-        <a href="./mm/paymentDetail.php?enroll_id=<?php echo $getID; ?>"><button type="button" class="btn btn2">
+        <a href="./mm/paymentSuccess.php"><button type="button" class="btn btn2">
             <img src="./assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-        <a href="./jp/paymentDetail.php?enroll_id=<?php echo $getID; ?>"><button type="button" class="btn btn3">
+        <a href="./jp/paymentSuccess.php"><button type="button" class="btn btn3">
             <img src="./assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
       </div>
     </div>
@@ -152,68 +119,52 @@ function encrypt_decrypt($action, $string) {
   </section>
   <!-- JP School header end -->
 
-  <!-- Payment Confirm Form start -->
+  <!-- <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="./trainings.html">Trainings</a></li>
+        <li class="breadcrumb-item"><a href="./school-detail.php">Training Schools</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Enroll Successfully </li>
+      </ol>
+    </nav> -->
+
+  <!-- Enrollment Form start -->
   <section>
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-6 text-center p-0 mt-3 mb-2">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-8 text-center p-0 mt-3 mb-2">
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-            <?php
-            include_once('../jktmyanmarint.admin.com/confs/config.php');
-            $decryptedEnrollId = encrypt_decrypt("decrypt", $getID);
-            $nrc = "SELECT * FROM enrollments e, students s WHERE e.student_id = s.student_id AND enrollment_id = $decryptedEnrollId";
-            $nrc_result = mysqli_query($conn, $nrc);
-            $row = mysqli_fetch_assoc($nrc_result);
-            $payment_method = $row["payment_method"];
-            $get_bank_name = "SELECT * FROM banking_info WHERE bank_name = '$payment_method'";
-            $get_bank_result = mysqli_query($conn, $get_bank_name);
-            $bank_row = mysqli_fetch_assoc($get_bank_result);
-            $bank_id = $bank_row["bank_id"];
-            ?>
-            <p class="enroll-description">Please fill out this form to confirm your payment</p>
-            <form id="paymentForm" action="../backend/paymentSubmit_en.php" method="POST" enctype="multipart/form-data">
-              <span id="nrc" class="hidden"><?php echo $row['nrc']; ?></span>
-              <div class="row mx-2">
-                <label for="payment_amount">Enter Payment Amount (MMKs)</label>
-                <input type="number" class="form-input" name="payment_amount" id="payment_amount" placeholder="eg. 250000"/>
-              </div>
-              <div class="row mt-5 mx-2">
-                <label class="fieldlabels">Your NRC Number: <span class="required-tag">required &nbsp; *</span></label>
-                <input type="text" class="form-input" name="nrcNumber" id="nrcNumber" placeholder="e.g. 123456" />
-                <input type="hidden" name="enrollment_id" id="enrollment_id" value="<?php echo $row["enrollment_id"] ?>"/>
-                <input type="hidden" name="course_id" id="course_id" value="<?php echo $row["course_id"] ?>"/>
-                <input type="hidden" name="bank_id" id="bank_id" value="<?php echo $bank_id ?>"/>
-              </div>
-              <span class="nrcNo-required" id="nrcNoRequired"><em></em></span>
-              <div class="row mt-5 px-4">
-                <label class="fieldlabels">Please Upload Your Payment Screenshot: <span class="required-tag">required &nbsp; *</span></label> <br>
-                <div class="preview-zone hidden">
-                  <div class="box box-solid">
-                    <div class="box-header with-border">
-                      <div><b>Preview</b></div>
+            <!-- <h2 id="heading">Sign Up Your User Account</h2> -->
+              <fieldset id="success">
+                <div class="form-card">
+                  <h2 class="blue-text text-center"><strong>Successfully Submitted!</strong></h2> <br>
+                  <div class="row justify-content-center">
+                    <div class="col-3">
+                      <img src="./assets/images/blue-tick.png" class="fit-image">
                     </div>
-                    <div class="box-body"></div>
+                  </div> <br><br>
+                  <div class="row justify-content-center">
+                    <div class="col-7 text-center">
+                      <h5 class="blue-text-payment">
+                          We will contact you as soon as possible.<br>
+                          If you would like to confirm your payment immediately, <br>
+                          please contact us at the phone number below during business hours (9:00 ~ 17:00).<br>
+                          <i class="fa fa-phone"></i><a href="tel:+959269564339">+959 269 564 339</a><br>
+                          <i class="fa fa-phone"></i><a href="tel:+959770411708">+959 770 411 708</a><br>
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center mt-3">
+                    <a href="./jp-school.php" class="back-to-courses">Browse Courses</a>
                   </div>
                 </div>
-                <div class="dropzone-wrapper">
-                  <div class="dropzone-desc">
-                    <i class="fas fa-upload"></i>
-                    <p>Choose an image file or drag it here.</p>
-                  </div>
-                  <input type="file" name="paymentImg" class="dropzone payment-input">
-                </div>
-                <span class="ss-required" id="ssRequired"></span>
-              </div>
-              <div class="mt-5 mb-3">
-                <input type="submit" name="paymentSubmit" id="paymentSubmit" class="back-to-courses" value="Submit" />
-              </div>
-            </form>
+              </fieldset>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- Payment Confirm Form end -->
+  <!-- Enrollment Form end -->
 
   <!-- footer start -->
   <footer class="footer">
@@ -245,9 +196,9 @@ function encrypt_decrypt($action, $string) {
             <li>
               <span><a href="./business.html">Business Consultant Service</a></span>
             </li>
-            <li>
+            <!-- <li>
               <span><a href="./announcement.html">IT Services</a></span>
-            </li>
+            </li> -->
             <li>
               <span><a href="./travels.html">Travel and Tours</a></span>
             </li>
@@ -260,7 +211,7 @@ function encrypt_decrypt($action, $string) {
               <span><a href="./jp-school.php">Japanese Language School</a></span>
             </li>
             <li>
-              <span><a href="./announcement.html">Vocational Training</a></span>
+              <span><a href="./digital-institute.php">Digital Institute</a></span>
             </li>
             <li>
               <span><a href="./announcement.html">HR Training</a></span>
@@ -292,11 +243,12 @@ function encrypt_decrypt($action, $string) {
 
   <!-- script -->
   <script src="./assets/js/jquery-3.6.0.js"></script>
-  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
-  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
+  <script src="./assets/js/validation.js"></script>
+  <script src="./assets/js/additional-methods"></script>
   <script src="./assets/js/popper.min.js"></script>
   <script src="./assets/js/bootstrap.min.js"></script>
   <script src="./assets/js/float-panel.js"></script>
-  <script src="./assets/js/paymentDetail.js"></script>
+  <script src="./assets/js/multistepForm.js"></script>
+  <script src="./assets/js/userImgPreview.js"></script>
 </body>
 <html>

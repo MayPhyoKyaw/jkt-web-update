@@ -11,7 +11,13 @@ require "src/Exception.php";
 //Load Composer's autoloader
 // require 'vendor/autoload.php';
 
-include("../confs/config.php");
+// require "../";
+$dbhost = "127.0.0.1";
+ $dbuser = "root";
+ $dbpass = "";
+ $dbname = "training";
+ $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+ mysqli_select_db($conn, $dbname);
 
 function encrypt_decrypt($action, $string)
 {
