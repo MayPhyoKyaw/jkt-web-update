@@ -458,7 +458,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="submit" name="deleteBankConfirm" id="deleteBankConfirm" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#warning" id="showDelModal">Confirm</button>
+                                <button type="submit" name="deleteBankConfirm" id="deleteBankConfirm" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#warning">Confirm</button>
                             </div>
                         </form>
                     </div>

@@ -148,7 +148,7 @@ function student_delete(event, row, idx) {
 $(document).ready(function () {
   const params = new URLSearchParams(window.location.search);
   let getParam = params.get("id");
-  $("#dataTable").DataTable({
+  var table = $("#dataTable").DataTable({
     order: [[10, "desc"]],
   });
   let decrypted = "";
@@ -159,7 +159,8 @@ $(document).ready(function () {
       encryptedId: getParam,
     },
     function (data) {
-      $("#dataTable").DataTable({
+      table.destroy();
+      table = $("#dataTable").DataTable({
         order: [[10, "desc"]],
       }).column(4).search(data.toString()).draw();
     }

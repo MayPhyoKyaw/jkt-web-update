@@ -5,6 +5,9 @@ $(document).ready(function() {
         let accNumber = $(this).siblings('#accNo').html();
         $("#accNumber").val(accNumber);
     });
+    $("#deleteBankConfirm").click(function() {
+        $("#bankDelete").submit();
+    })
 })
 
 function showHide() {

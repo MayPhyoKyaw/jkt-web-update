@@ -7,7 +7,7 @@
     $admin_result = mysqli_query($conn, $admin_query);
     $admin_row = mysqli_fetch_assoc($admin_result);
 
-    if(isset($_POST['deleteBankConfirm'])) {
+    // if(isset($_POST['deleteBankConfirm'])) {
         $bankAccount = $_POST['bankAccount'];
         $password = $_POST['password'];
         $getPsd = encrypt_decrypt("decrypt", $admin_row['password']);
@@ -19,5 +19,5 @@
             $_SESSION['delBankErr'] = "Password Wrong! Please Try Again.";
             header("location: javascript:history.go(-1)");
         }
-    }
+    // }
 ?>
