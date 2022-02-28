@@ -432,8 +432,8 @@ function encrypt_decrypt($action, $string) {
 
     <!-- script -->
     <script src="../assets/js/jquery-3.6.0.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
-	  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
+    <script src="./assets/js/jquery.validate.1.13.1.js"></script>
+    <script src="./assets/js/additional-methods.1.13.1.js"></script>
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/float-panel.js"></script>
