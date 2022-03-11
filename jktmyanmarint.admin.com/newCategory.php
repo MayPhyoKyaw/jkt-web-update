@@ -140,6 +140,22 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     <span>Consultants</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRecruitment" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <span>Recruitment</span>
+                </a>
+                <div id="collapseRecruitment" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="./jobs.php">
+                            <i class="fas fa-fw fa-suitcase"></i>
+                            <span>All jobs</span></a>
+                        <a class="collapse-item" href="./applicants.php">
+                            <i class="fas fa-fw fa-users"></i>
+                            <span>Applicants</span></a>
+                    </div>
+                </div>
+            </li>
             <hr class="sidebar-divider d-none d-md-block my-1">
 
             <li class="nav-item">

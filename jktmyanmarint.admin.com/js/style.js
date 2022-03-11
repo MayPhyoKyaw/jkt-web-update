@@ -149,6 +149,9 @@ var detailCourseDays = document.getElementById("detailCourseDays");
 var detailCourseFromTo = document.getElementById("detailCourseFromTo");
 var detailCourseNote = document.getElementById("detailCourseNote");
 
+// JOBS DEL
+var jobIdDel = document.getElementById("jobIdDel");
+
 var daysObj = {
   M: "Monday",
   Tu: "Tuesday",
@@ -624,4 +627,10 @@ function setCurrentCourseDel(event, idx) {
   event.stopPropagation();
   currentCourseIdDel.value = idx;
   // console.log(idx);
+}
+
+// SET CURRENT DELETING ID JOB
+function setCurrentJobDel(idx) {
+  jobIdDel.value = idx;
+  console.log("setting");
 }

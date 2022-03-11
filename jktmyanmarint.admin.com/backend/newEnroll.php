@@ -44,23 +44,22 @@ if (isset($_POST['isPending']) && $_POST["isPending"] == "on") {
 } else {
     $isPending = 0;
 }
-echo (
-
-    // $courseId . "," .
-    // $uname . "," .
-    // $dob . "," .
-    // $fname . "," .
-    // $nrcCode . "," .
-    // $township . "," .
-    // $type . "," .
-    // $nrcNumber . "," .
-    // $email . "," .
-    // $phone . "," .
-    // $education . "," .
-    // $payment_method . "," .
-    // $paidPercent . "," .
-    "pending is" . $isPending . "pending end"
-);
+// echo (
+//     $courseId . "," .
+//     $uname . "," .
+//     $dob . "," .
+//     $fname . "," .
+//     $nrcCode . "," .
+//     $township . "," .
+//     $type . "," .
+//     $nrcNumber . "," .
+//     $email . "," .
+//     $phone . "," .
+//     $education . "," .
+//     $payment_method . "," .
+//     $paidPercent . "," .
+//     "pending is" . $isPending . "pending end"
+// );
 
 function resize_image($file, $ext, $mHW)
 {
