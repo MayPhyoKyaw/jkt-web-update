@@ -42,6 +42,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -157,6 +159,22 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     <span>Consultants</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRecruitment" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <span>Recruitment</span>
+                </a>
+                <div id="collapseRecruitment" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="./jobs.php">
+                            <i class="fas fa-fw fa-suitcase"></i>
+                            <span>All jobs</span></a>
+                        <a class="collapse-item" href="./applicants.php">
+                            <i class="fas fa-fw fa-users"></i>
+                            <span>Applicants</span></a>
+                    </div>
+                </div>
+            </li>
             <hr class="sidebar-divider d-none d-md-block my-1">
 
             <li class="nav-item">
@@ -601,6 +619,14 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
     <!-- Page level custom scripts -->
     <script src="js/students.js"></script>
+    
+    <!-- for excel print -->
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 </body>
 
 </html>

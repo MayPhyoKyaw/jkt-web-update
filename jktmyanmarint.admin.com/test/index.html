@@ -1,0 +1,286 @@
+<html lang="en">
+</head>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <form id="multistep_form">
+            <!-- progressbar -->
+            <ul id="progress_header">
+                <li><img src="./img/ukFlag.png" alt="" class="versionFlag versionFlag-active"></li>
+                <li><img src="./img/mmFlag.svg" alt="" class="versionFlag"></li>
+                <li><img src="./img/japanFlag.jpg" alt="" class="versionFlag"></li>
+            </ul>
+            <!-- Step 01 -->
+            <div class="multistep-box">
+                <div class="title-box">
+                    <h2>Fill In English</h2>
+                </div>
+                <div class="flex-preview">
+                    <div id="photo1-preview"><img src="./img/default.jpg" alt=""></div>
+                    <div id="photo2-preview"><img src="./img/default.jpg" alt=""></div>
+                </div>
+                <p class="flex-input">
+                    <label for="photo_one" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload mr-2"></i>Company Image
+                    </label>
+                    <label for="photo_two" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload mr-2"></i>Workplace Image
+                    </label>
+                    <div class="my-3">
+                        <input type="file" name="photo_one" id="photo_one" class="photo-input">
+                        <span id="error_photo_one"></span>
+                    </div>
+                    <div class="my-3">
+                        <input type="file" name="photo_two" id="photo_two" class="photo-input">
+                        <span id="error_photo_two"></span>
+                    </div>
+                </p>
+                <hr/>
+                <p>
+                    <input type="text" name="company_name" placeholder="Company Name" id="company_name">
+                    <span id="error_company_name"></span>
+                </p>
+                <p>
+                    <input type="job_title" name="job_title" placeholder="Job Title" id="job_title">
+                    <span id="error_job_title"></span>
+                </p>
+                <p>
+                    <select name="employment_type" id="employment_type" class="input-select">
+                        <option value="permanent">Permanent Employment</option>
+                        <option value="contract">Contract Employment</option>
+                        <option value="temporary">Temporary Employment</option>
+                    </select>
+                    <span id="error_employment_type"></span>
+                </p>
+                <p class="my-2">
+                    <div style="display: flex; justify-content: space-between;" class="my-3">
+                        <input type="number" name="wage" placeholder="Wage in Yen (eg. 10,000)" id="wage" class="input-number">
+                        <select name="wage_unit" id="wage_unit" class="input-select-sm">
+                            <option value="hourly">Hourly</option>
+                            <option value="daily">Daily</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    <span id="error_wage"></span>
+                </p>
+                
+                <p class="input-p">
+                    <label>Requirements</label>
+                    <div>
+
+                        <textarea rows="10" name="requirements" id="requirements" class="ta-input">Job Requirements</textarea>
+                        <span id="error_requirements"></span>
+                    </div>
+                </p>
+                <p>
+                    <textarea rows="7" name="benefits" id="benefits" class="ta-input">Benefits</textarea>
+                    <span id="error_benefits
+                    "></span>
+                </p>
+                <p>
+                    <!-- working hour (null if part time) -->
+                </p>
+                <p>
+                    <textarea rows="5" name="holidays" id="holidays" class="ta-input">Holidays (eg. Sat, Sun, Public holidays)</textarea>
+                    <span id="error_holidays
+                    "></span>
+                </p>
+                
+                <p>
+                    <textarea rows="5" name="location" id="location" class="ta-input">Company Address</textarea>
+                    <span id="error_location
+                    "></span>
+                </p>
+                
+                <p>
+                    <textarea rows="7" name="memo" id="memo" class="ta-input">Any additional note</textarea>
+                    <span id="error_memo"></span>
+                </p>
+                <div class="switch-container">
+                    <div>
+                        <p class="label">
+                            <label class="label">Is remote?</label>
+                        </p>
+                        <p class="switch">
+                            <!-- isremote -->
+                            <label>
+                                <input type="checkbox" name="remote">
+                                <span class="slider round"></span>
+                              </label>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="label">
+                            <label class="label">Available Now?</label>
+                        </p>
+                        <p  class="switch">
+                            <!-- isremote -->
+                            <label>
+                                <input type="checkbox" name="available">
+                                <span class="slider round"></span>
+                              </label>
+                        </p>
+                    </div>
+                </div>
+                <p class="nxt-prev-button"><input type="button" name="next" class="fs_next_btn action-button" value="Next" /></p>
+            </div>
+            <!-- Step 02 -->
+            <div class="multistep-box">
+                <div class="title-box">
+                    <h2>Fill In Burmese</h2>
+                </div>
+                
+                <p>
+                    <input type="text" name="company_name" placeholder="Company Name" id="company_name">
+                    <span id="error_company_name"></span>
+                </p>
+                <p>
+                    <input type="job_title" name="job_title" placeholder="Job Title" id="job_title">
+                    <span id="error_job_title"></span>
+                </p>
+                <p>
+                    <select name="employment_type" id="employment_type" class="input-select">
+                        <option value="permanent">Permanent Employment</option>
+                        <option value="contract">Contract Employment</option>
+                        <option value="temporary">Temporary Employment</option>
+                    </select>
+                    <span id="error_employment_type"></span>
+                </p>
+                <p class="my-2">
+                    <div style="display: flex; justify-content: space-between;" class="my-3">
+                        <input type="number" name="wage" placeholder="Wage in Yen (eg. 10,000)" id="wage" class="input-number">
+                        <select name="wage_unit" id="wage_unit" class="input-select-sm">
+                            <option value="hourly">Hourly</option>
+                            <option value="daily">Daily</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    <span id="error_wage"></span>
+                </p>
+                
+                <p>
+                    <textarea rows="10" name="requirements" id="requirements" class="ta-input">Job Requirements</textarea>
+                    <span id="error_requirements"></span>
+                </p>
+                <p>
+                    <textarea rows="7" name="benefits" id="benefits" class="ta-input">Benefits</textarea>
+                    <span id="error_benefits
+                    "></span>
+                </p>
+                <p>
+                    <!-- working hour (null if part time) -->
+                </p>
+                <p>
+                    <textarea rows="5" name="holidays" id="holidays" class="ta-input">Holidays (eg. Sat, Sun, Public holidays)
+                    </textarea>
+                    <span id="error_holidays
+                    "></span>
+                </p>
+                
+                <p>
+                    <textarea rows="5" name="location" id="location" class="ta-input">Company Address</textarea>
+                    <span id="error_location
+                    "></span>
+                </p>
+                
+                <p>
+                    <textarea rows="7" name="memo" id="memo" class="ta-input">Any additional note</textarea>
+                    
+                    <span id="error_memo
+                    "></span>
+                </p>
+                <p>
+                    <!-- isremote -->
+                    <!-- isavailable -->
+                </p>
+                <p class="nxt-prev-button">
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="ss_next_btn action-button" value="Next" />
+                </p>
+            </div>
+            <!-- Step 03 -->
+            <div class="multistep-box">
+                <div class="title-box">
+                    <h2>Fill In Japanese</h2>
+                </div>
+                
+                <p>
+                    <input type="text" name="company_name" placeholder="Company Name" id="company_name">
+                    <span id="error_company_name"></span>
+                </p>
+                <p>
+                    <input type="job_title" name="job_title" placeholder="Job Title" id="job_title">
+                    <span id="error_job_title"></span>
+                </p>
+                <p>
+                    <select name="employment_type" id="employment_type" class="input-select">
+                        <option value="permanent">Permanent Employment</option>
+                        <option value="contract">Contract Employment</option>
+                        <option value="temporary">Temporary Employment</option>
+                    </select>
+                    <span id="error_employment_type"></span>
+                </p>
+                <p class="my-2">
+                    <div style="display: flex; justify-content: space-between;" class="my-3">
+                        <input type="number" name="wage" placeholder="Wage in Yen (eg. 10,000)" id="wage" class="input-number">
+                        <select name="wage_unit" id="wage_unit" class="input-select-sm">
+                            <option value="hourly">Hourly</option>
+                            <option value="daily">Daily</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    <span id="error_wage"></span>
+                </p>
+                
+                <p>
+                    <textarea rows="10" name="requirements" id="requirements" class="ta-input">Job Requirements</textarea>
+                    <span id="error_requirements"></span>
+                </p>
+                <p>
+                    <textarea rows="7" name="benefits" id="benefits" class="ta-input">Benefits</textarea>
+                    <span id="error_benefits
+                    "></span>
+                </p>
+                <p>
+                    <!-- working hour (null if part time) -->
+                </p>
+                <p>
+                    <textarea rows="5" name="holidays" id="holidays" class="ta-input">Holidays (eg. Sat, Sun, Public holidays)</textarea>
+                    <span id="error_holidays
+                    "></span>
+                </p>
+                
+                <p>
+                    <textarea rows="5" name="location" id="location" class="ta-input">Company Address</textarea>
+                    <span id="error_location
+                    "></span>
+                </p>
+                
+                <p>
+                    <textarea rows="7" name="memo" id="memo" class="ta-input">Any additional note</textarea>
+                    
+                    <span id="error_memo"></span>
+                </p>
+                <p>
+                    <!-- isremote -->
+                    
+                    <!-- isavailable -->
+                </p>
+                <p class="nxt-prev-button"><input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="submit" name="submit" class="submit_btn ts_next_btn action-button" value="Submit" />
+                </p>
+            </div>
+        </form>
+        <h1>You are successfully logged in</h1>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.js" type="text/javascript"></script>
+    <script src="style.js"></script>
+    
+</body>
+</html>

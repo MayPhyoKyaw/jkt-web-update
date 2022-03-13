@@ -508,7 +508,8 @@ canvas {
   width : 100%;
 }
 
-.tabs > input[type="radio"] {
+.tabs > input[type="radio"],
+.outsidetab {
   display: none;
 }
 
@@ -525,7 +526,7 @@ canvas {
   display: block;
 }
 
-.tabs > label {
+.tabs > label, .outsidetablabel {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -550,6 +551,9 @@ canvas {
   -o-border-radius: 5px;
 }
 
+.outsidetablabel{
+  width: 32px;
+}
 /* .tabs > label:not(:first-of-type) {
   border-left: none;
 } */
@@ -559,8 +563,14 @@ canvas {
   color : #ffffff;
   /* border-bottom: 1px solid #fff; */
 }
-
+.outsidetab:checked + label{
+  /* border: 1px solid red; */
+}
 /* tab style end  */
+.dropdown-toggle:focus {
+  border : 1px solid #ddd;
+  box-shadow: none;
+}
 
 @media only screen and (max-width: 991px) {
   .mychart-left,

@@ -27,6 +27,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -142,6 +144,22 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     <span>Consultants</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRecruitment" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <span>Recruitment</span>
+                </a>
+                <div id="collapseRecruitment" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="./jobs.php">
+                            <i class="fas fa-fw fa-suitcase"></i>
+                            <span>All jobs</span></a>
+                        <a class="collapse-item" href="./applicants.php">
+                            <i class="fas fa-fw fa-users"></i>
+                            <span>Applicants</span></a>
+                    </div>
+                </div>
+            </li>
             <hr class="sidebar-divider d-none d-md-block my-1">
 
             <li class="nav-item">
@@ -404,6 +422,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -416,17 +435,107 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <!-- <script src="js/demo/datatables-demo.js"></script> -->
     <script src="js/style.js"></script>
     <script>
         $(document).ready(function() {
             $("#dataTable").DataTable({
                 "order": [
                     [3, 'desc']
+                ],
+                // dom: 'fBlrtpi',
+                dom: "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                // dom : '<"mybg"fB><"bottom"lrtpi>',
+                buttons: [{
+                        extend: 'copyHtml5',
+                        text: '<i class="fa fa-files-o"></i>',
+                        titleAttr: 'Copy',
+                        exportOptions: {
+                            modifier: {
+                                // DataTables core
+                                order: 'index', // 'current', 'applied',
+                                //'index', 'original'
+                                page: 'all', // 'all', 'current'
+                                search: 'none' // 'none', 'applied', 'removed'
+                            },
+                            columns: [0, 1, 2, 3]
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text: '<i class="fa fa-file-excel-o"></i>',
+                        titleAttr: 'Excel',
+                        exportOptions: {
+                            modifier: {
+                                // DataTables core
+                                order: 'index', // 'current', 'applied',
+                                //'index', 'original'
+                                page: 'all', // 'all', 'current'
+                                search: 'none' // 'none', 'applied', 'removed'
+                            },
+                            columns: [0, 1, 2, 3]
+                        }
+                    },
+                    // {
+                    //     extend: 'csvHtml5',
+                    //     text: '<i class="fa fa-file-text-o"></i>',
+                    //     titleAttr: 'CSV',
+                    //     exportOptions: {
+                    //         modifier: {
+                    //             // DataTables core
+                    //             order: 'index', // 'current', 'applied',
+                    //             //'index', 'original'
+                    //             page: 'all', // 'all', 'current'
+                    //             search: 'none' // 'none', 'applied', 'removed'
+                    //         },
+                    //         columns: [0, 1, 2, 3]
+                    //     }
+                    // },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<i class="fa fa-file-pdf-o"></i>',
+                        titleAttr: 'PDF',
+                        exportOptions: {
+                            modifier: {
+                                // DataTables core
+                                order: 'index', // 'current', 'applied',
+                                //'index', 'original'
+                                page: 'all', // 'all', 'current'
+                                search: 'none' // 'none', 'applied', 'removed'
+                            },
+                            columns: [0, 1, 2, 3]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: '<i class="fa fa-print"></i>',
+                        titleAttr: 'Print',
+                        exportOptions: {
+                            modifier: {
+                                // DataTables core
+                                order: 'index', // 'current', 'applied',
+                                //'index', 'original'
+                                page: 'all', // 'all', 'current'
+                                search: 'none' // 'none', 'applied', 'removed'
+                            },
+                            columns: [0, 1, 2, 3]
+                        }
+                    },
+
                 ]
             });
-        })
+        });
     </script>
+
+    <!-- for excel print -->
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 </body>
 
 </html>
