@@ -71,30 +71,29 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
             </a>
           </li>
           <li class="nav-item dropdown mm-nav">
-            <a href="./services.html" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              ၀န်ဆောင်မှုများ <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              လုပ်ငန်းများ <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a>
-              <a class="dropdown-item" href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a>
+              <a class="dropdown-item category-title-mm" href="./services.html">၀န်ဆောင်မှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a>
               <!-- <a class="dropdown-item" href="./announcement.html"
                   >အိုင်တီနည်းပညာ ဆိုင်ရာ ၀န်ဆောင်မှု</a
                 > -->
-              <a class="dropdown-item" href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown mm-nav">
-            <a href="./trainings.html" class="nav-link active" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              လေ့ကျင့်သင်ကြားမှုများ <i class="fas fa-angle-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
-              <a class="dropdown-item" href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a>
-              <a class="dropdown-item" href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a>
-              <a class="dropdown-item" href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title-mm" href="./trainings.html">လေ့ကျင့်သင်ကြားမှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a>
             </div>
           </li>
           <li class="nav-item mm-nav">
             <a href="./contact.html" class="nav-link active"> ဆက်သွယ်ရန် </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php"><button class="recruitment-btn">အလုပ်ခေါ်ခြင်း</button></a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -343,6 +342,7 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="../assets/js/jquery-3.6.0.js"></script>

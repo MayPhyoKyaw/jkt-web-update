@@ -94,28 +94,33 @@ function encrypt_decrypt($action, $string)
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              サービス <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              会社の事業 <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">海外での雇用</a>
-              <a class="dropdown-item" href="./business.html">ビジネスコンサルタント</a>
-              <!-- <a class="dropdown-item" href="./announcement.html">ITサービス</a> -->
-              <a class="dropdown-item" href="./travels.html">旅行サービス</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              トレーニング <i class="fas fa-angle-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
-              <a class="dropdown-item" href="./jp-school.php">日本語学校</a>
-              <a class="dropdown-item" href="./digital-institute.php">デジタル学院</a>
-              <a class="dropdown-item" href="./announcement.html">人材トレーニング</a>
+              <a class="dropdown-item category-title" href="./services.html">サービス</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">海外での雇用</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">ビジネスコンサルタント</a>
+              <!-- <a class="dropdown-item" href="./announcement.html"
+                  >ITサービス</a
+                > -->
+              <a class="dropdown-item nav-sub-item" href="./travels.html">旅行サービス</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title" href="./trainings.html">トレーニング</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">日本語学校</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">デジタル学院</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">人材トレーニング</a>
             </div>
           </li>
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> お問い合わせ </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -177,10 +182,10 @@ function encrypt_decrypt($action, $string)
         <div class="col-12 col-sm-11 text-center mt-4 d-block d-lg-flex">
           <div class="tabs d-block d-lg-none">
             <div class="tab">
-              <?php 
-                 $result = mysqli_query($conn, $get_course);
-                 $row = mysqli_fetch_assoc($result);
-                 $origin_fee = $row['fee'];
+              <?php
+              $result = mysqli_query($conn, $get_course);
+              $row = mysqli_fetch_assoc($result);
+              $origin_fee = $row['fee'];
               ?>
               <input type="checkbox" id="chck2" class="accordion">
               <label class="tab-label" for="chck2"><?php echo $row['category_title'] . " " . $row['course_title']; ?></label>
@@ -190,13 +195,13 @@ function encrypt_decrypt($action, $string)
                 </p>
                 <p class="class-detail">
                   <?php
-                    if($row['discount_percent'] != 0) {
-                      $sale_price = $origin_fee - ($origin_fee * $row['discount_percent'] / 100);
-                      echo "<span class='sale-price'>" . number_format($origin_fee) . "</span>&nbsp;";
-                      echo number_format($sale_price) . " MMK";
-                    } else {
-                      echo $origin_fee . " MMK";
-                    }
+                  if ($row['discount_percent'] != 0) {
+                    $sale_price = $origin_fee - ($origin_fee * $row['discount_percent'] / 100);
+                    echo "<span class='sale-price'>" . number_format($origin_fee) . "</span>&nbsp;";
+                    echo number_format($sale_price) . " MMK";
+                  } else {
+                    echo $origin_fee . " MMK";
+                  }
                   ?>
                 </p>
                 <p class="class-detail">
@@ -229,10 +234,10 @@ function encrypt_decrypt($action, $string)
                                                                             break;
                                                                         }
                                                                         ?>"><?php
-                        echo $sections[$i]["days"][$j];
-                        echo "</span>";
-                      }
-                        ?>
+                                                                            echo $sections[$i]["days"][$j];
+                                                                            echo "</span>";
+                                                                          }
+                                                                            ?>
                       <span class="section-hour schedule-time-badges" id="section_hour">
                         <?php
                         echo $sections[$i]["sectionHour"];
@@ -713,7 +718,7 @@ function encrypt_decrypt($action, $string)
                 </p>
                 <p class="class-detail">
                   <?php
-                  if($row['discount_percent'] != 0) {
+                  if ($row['discount_percent'] != 0) {
                     $sale_price = $origin_fee - ($origin_fee * $row['discount_percent'] / 100);
                     echo "<span class='sale-price'>" . number_format($origin_fee) . "</span>&nbsp;";
                     echo number_format($sale_price) . " MMK";
@@ -742,20 +747,20 @@ function encrypt_decrypt($action, $string)
                     for ($j = 0; $j < count($sections[$i]["days"]); $j++) {
                   ?>
                       <span id="days" class="days schedule-days-badges accordion-badges <?php
-                                                                        switch ($sections[$i]["days"][$j]) {
-                                                                          case "Sa":
-                                                                          case "Su":
-                                                                            echo "weekend";
-                                                                            break;
-                                                                          default:
-                                                                            echo "weekday";
-                                                                            break;
-                                                                        }
-                                                                        ?>"><?php
-                        echo $sections[$i]["days"][$j];
-                        echo "</span>";
-                      }
-                        ?>
+                                                                                        switch ($sections[$i]["days"][$j]) {
+                                                                                          case "Sa":
+                                                                                          case "Su":
+                                                                                            echo "weekend";
+                                                                                            break;
+                                                                                          default:
+                                                                                            echo "weekday";
+                                                                                            break;
+                                                                                        }
+                                                                                        ?>"><?php
+                                                                                            echo $sections[$i]["days"][$j];
+                                                                                            echo "</span>";
+                                                                                          }
+                                                                                            ?>
                       <span class="section-hour schedule-time-badges" id="section_hour">
                         <?php
                         echo $sections[$i]["sectionHour"];
@@ -886,6 +891,7 @@ function encrypt_decrypt($action, $string)
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="../assets/js/jquery-3.6.0.js"></script>

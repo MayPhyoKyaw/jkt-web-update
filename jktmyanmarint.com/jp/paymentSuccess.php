@@ -32,7 +32,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light navbar-expand-lg gray-dark float-panel" data-top="0" data-scroll="300">
+  <nav class="navbar navbar-light navbar-expand-lg gray-dark float-panel" data-top="0" data-scroll="300">
     <div class="container-fluid mynav">
       <a href="index.html" class="navbar-brand">
         <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
@@ -64,28 +64,33 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              サービス <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              会社の事業 <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">海外での雇用</a>
-              <a class="dropdown-item" href="./business.html">ビジネスコンサルタント</a>
-              <!-- <a class="dropdown-item" href="./announcement.html">ITサービス</a> -->
-              <a class="dropdown-item" href="./travels.html">旅行サービス</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              トレーニング <i class="fas fa-angle-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
-              <a class="dropdown-item" href="./jp-school.php">日本語学校</a>
-              <a class="dropdown-item" href="./digital-institute.php">デジタル学院</a>
-              <a class="dropdown-item" href="./announcement.html">人材トレーニング</a>
+              <a class="dropdown-item category-title" href="./services.html">サービス</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">海外での雇用</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">ビジネスコンサルタント</a>
+              <!-- <a class="dropdown-item" href="./announcement.html"
+                  >ITサービス</a
+                > -->
+              <a class="dropdown-item nav-sub-item" href="./travels.html">旅行サービス</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title" href="./trainings.html">トレーニング</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">日本語学校</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">デジタル学院</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">人材トレーニング</a>
             </div>
           </li>
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> お問い合わせ </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -136,30 +141,30 @@
         <div class="col-11 col-sm-10 col-md-10 col-lg-8 text-center p-0 mt-3 mb-2">
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <!-- <h2 id="heading">Sign Up Your User Account</h2> -->
-              <fieldset id="success">
-                <div class="form-card">
-                  <h2 class="blue-text text-center"><strong>正常に登録されました!</strong></h2> <br>
-                  <div class="row justify-content-center">
-                    <div class="col-3">
-                      <img src="../assets/images/blue-tick.png" class="fit-image">
-                    </div>
-                  </div> <br><br>
-                  <div class="row justify-content-center">
-                    <div class="col-7 text-center">
-                        <h5 class="blue-text-payment text-center">
-                            できるだけ早くご連絡いたします。<br>
-                            お支払いをすぐに確認したい場合は、<br>
-                            営業時間内（９：００　～　１７：００）に下記の電話番号までご連絡ください。<br>
-                            <i class="fa fa-phone"></i><a href="tel:+959269564339">+959 269 564 339</a><br>
-                            <i class="fa fa-phone"></i><a href="tel:+959770411708">+959 770 411 708</a><br>
-                        </h5>
-                    </div>
+            <fieldset id="success">
+              <div class="form-card">
+                <h2 class="blue-text text-center"><strong>正常に登録されました!</strong></h2> <br>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <img src="../assets/images/blue-tick.png" class="fit-image">
                   </div>
-                  <div class="row justify-content-center mt-3">
-                    <a href="./jp-school.php" class="back-to-courses">クラスのスケジュールへ</a>
+                </div> <br><br>
+                <div class="row justify-content-center">
+                  <div class="col-7 text-center">
+                    <h5 class="blue-text-payment text-center">
+                      できるだけ早くご連絡いたします。<br>
+                      お支払いをすぐに確認したい場合は、<br>
+                      営業時間内（９：００　～　１７：００）に下記の電話番号までご連絡ください。<br>
+                      <i class="fa fa-phone"></i><a href="tel:+959269564339">+959 269 564 339</a><br>
+                      <i class="fa fa-phone"></i><a href="tel:+959770411708">+959 770 411 708</a><br>
+                    </h5>
                   </div>
                 </div>
-              </fieldset>
+                <div class="row justify-content-center mt-3">
+                  <a href="./jp-school.php" class="back-to-courses">クラスのスケジュールへ</a>
+                </div>
+              </div>
+            </fieldset>
           </div>
         </div>
       </div>
@@ -241,6 +246,7 @@
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="../assets/js/jquery-3.6.0.js"></script>

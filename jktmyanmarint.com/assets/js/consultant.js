@@ -1,4 +1,3 @@
-
 $(function () {
   $(".calendar").datepicker({
     dateFormat: "dd/mm/yy",
@@ -28,7 +27,8 @@ $(function () {
     "Name must contain only letters (Please Spell in English)"
   );
 
-  $("#survey-form").validate({
+  let appointmentForm = $("#appointment-form");
+  let appointmentValidate = appointmentForm.validate({
     errorElement: "p",
     errorClass: "help-block",
     highlight: function (element, errorClass, validClass) {
@@ -110,13 +110,23 @@ $(function () {
         this.element(element);
       }
     },
-    submitHandler: function (form) {
-      $("#confirmationModal").modal('show');
-      $('#consultSubmit').click(function () {
-        console.log(form)
-          form.submit();
-     });
-  }
+    // submitHandler: function (form) {
+    //   $("#confirmationModal").modal('show');
+    //   $('#consultSubmit').click(function () {
+    //     console.log(form)
+    //       form.submit();
+    //  });
+    // }
+  });
+  $("#appointmentSubmit").on("click", function () {
+    if (appointmentForm.valid() === true) {
+      $("#confirmationModal").modal("show");
+      $("#consultSubmit").on("click", function () {
+        appointmentForm.submit();
+      });
+    } else {
+      appointmentValidate.focusInvalid();
+    }
   });
   $("#appointment_date").on("focusin", function () {
     $(this).prop("readonly", true);

@@ -62,203 +62,86 @@ function encrypt_decrypt($action, $string)
 </head>
 
 <body>
-    <nav
-      class="navbar navbar-light navbar-expand-lg gray-dark float-panel"
-      data-top="0"
-      data-scroll="300"
-    >
-      <div class="container-fluid mynav">
-        <a href="./index.html" class="navbar-brand mm-nav-brand">
-          <img
-            src="../assets/images/logo.jpg"
-            alt=""
-            height="50px"
-            width="50px"
-          />
-          <span style="font-weight: bolder; font-size: larger; color: #029eff"
-            >JKT</span
-          >
-          Myanmar International
-        </a>
-        <a href="./index.html" class="small-brand">
-          <img
-            src="../assets/images/logo.jpg"
-            alt=""
-            height="50px"
-            width="50px"
-          />
-          <span style="font-weight: bolder; font-size: larger; color: #029eff"
-            >JKT</span
-          >
-          Myanmar International
-        </a>
-        <a href="./index.html" class="icon-brand">
-          <img
-            src="../assets/images/logo.jpg"
-            alt=""
-            height="50px"
-            width="50px"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarCollapse"
-        >
-          <span class="navbar-toggler-icon toggler-icon-color"></span>
-        </button>
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto text-sm-start">
-            <li class="nav-item mm-nav">
-              <a href="./index.html" class="nav-link active"> ပင်မစာမျက်နှာ </a>
-            </li>
-            <li class="nav-item mm-nav">
-              <a href="./about.html" class="nav-link active">
-                ကျွန်ုပ်တို့‌အကြောင်း
-              </a>
-            </li>
-            <li class="nav-item mm-nav">
-              <a href="./activities.html" class="nav-link active">
-                လှုပ်ရှားမှုများ
-              </a>
-            </li>
-            <li class="nav-item dropdown mm-nav">
-              <a
-                href="./services.html"
-                class="nav-link active"
-                id="serviceNavbarDropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                ၀န်ဆောင်မှုများ <i class="fas fa-angle-down"></i>
-              </a>
-              <div
-                class="dropdown-menu"
-                aria-labelledby="serviceNavbarDropdown"
-              >
-                <a class="dropdown-item" href="./overseas.html"
-                  >နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a
-                >
-                <a class="dropdown-item" href="./business.html"
-                  >စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a
-                >
-                <!-- <a class="dropdown-item" href="./announcement.html"
+  <nav class="navbar navbar-light navbar-expand-lg gray-dark float-panel" data-top="0" data-scroll="300">
+    <div class="container-fluid mynav">
+      <a href="./index.html" class="navbar-brand mm-nav-brand">
+        <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
+        <span style="font-weight: bolder; font-size: larger; color: #029eff">JKT</span>
+        Myanmar International
+      </a>
+      <a href="./index.html" class="small-brand">
+        <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
+        <span style="font-weight: bolder; font-size: larger; color: #029eff">JKT</span>
+        Myanmar International
+      </a>
+      <a href="./index.html" class="icon-brand">
+        <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon toggler-icon-color"></span>
+      </button>
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto text-sm-start">
+          <li class="nav-item mm-nav">
+            <a href="./index.html" class="nav-link active"> ပင်မစာမျက်နှာ </a>
+          </li>
+          <li class="nav-item mm-nav">
+            <a href="./about.html" class="nav-link active">
+              ကျွန်ုပ်တို့‌အကြောင်း
+            </a>
+          </li>
+          <li class="nav-item mm-nav">
+            <a href="./activities.html" class="nav-link active">
+              လှုပ်ရှားမှုများ
+            </a>
+          </li>
+          <li class="nav-item dropdown mm-nav">
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              လုပ်ငန်းများ <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
+              <a class="dropdown-item category-title-mm" href="./services.html">၀န်ဆောင်မှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a>
+              <!-- <a class="dropdown-item" href="./announcement.html"
                   >အိုင်တီနည်းပညာ ဆိုင်ရာ ၀န်ဆောင်မှု</a
                 > -->
-                <a class="dropdown-item" href="./travels.html"
-                  >ခရီးသွား ၀န်ဆောင်မှု</a
-                >
-              </div>
-            </li>
-            <li class="nav-item dropdown mm-nav">
-              <a
-                href="./trainings.html"
-                class="nav-link"
-                id="trainingNavbarDropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                လေ့ကျင့်သင်ကြားမှုများ <i class="fas fa-angle-down"></i>
-              </a>
-              <div
-                class="dropdown-menu"
-                aria-labelledby="trainingNavbarDropdown"
-              >
-                <a class="dropdown-item" href="./jp-school.php"
-                  >ဂျပန်ဘာသာစကား သင်တန်း</a
-                >
-                <a class="dropdown-item" href="./digital-institute.php"
-                  >အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a
-                >
-                <a class="dropdown-item" href="./announcement.html"
-                  >လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a
-                >
-              </div>
-            </li>
-            <li class="nav-item mm-nav">
-              <a href="./contact.html" class="nav-link active"> ဆက်သွယ်ရန် </a>
-            </li>
-            <li class="lang">
-              <div class="btn-group" role="group" aria-label="First group">
-                <a href="../classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"
-                  ><button
-                    type="button"
-                    class="btn btn1"
-                  >
-                    <img
-                      src="../assets/images/icon/ukFlag.png"
-                      height="20px"
-                      width="25px"
-                    /></button
-                ></a>
-                <a href="./classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"
-                  ><button
-                    type="button"
-                    class="btn btn2"
-                    style="background-color: rgba(91, 175, 231, 0.5)"
-                  >
-                    <img
-                      src="../assets/images/icon/mmFlag.svg"
-                      height="20px"
-                      width="25px"
-                    /></button
-                ></a>
-                <a href="../jp/classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"
-                  ><button
-                    type="button"
-                    class="btn btn3"
-                  >
-                    <img
-                      src="../assets/images/icon/japanFlag.jpg"
-                      height="20px"
-                      width="25px"
-                    /></button
-                ></a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="btn-group lang-xl" role="group" aria-label="First group">
-          <a href="../classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"
-            ><button
-              type="button"
-              class="btn btn1"
-            >
-              <img
-                src="../assets/images/icon/ukFlag.png"
-                height="20px"
-                width="25px"
-              /></button
-          ></a>
-          <a href="./classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"
-            ><button
-              type="button"
-              class="btn btn2"
-              style="background-color: rgba(91, 175, 231, 0.5)"
-            >
-              <img
-                src="../assets/images/icon/mmFlag.svg"
-                height="20px"
-                width="25px"
-              /></button
-          ></a>
-          <a href="../jp/classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"
-            ><button
-              type="button"
-              class="btn btn3"
-            >
-              <img
-                src="../assets/images/icon/japanFlag.jpg"
-                height="20px"
-                width="25px"
-              /></button
-          ></a>
-        </div>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title-mm" href="./trainings.html">လေ့ကျင့်သင်ကြားမှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a>
+            </div>
+          </li>
+          <li class="nav-item mm-nav">
+            <a href="./contact.html" class="nav-link active"> ဆက်သွယ်ရန် </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php"><button class="recruitment-btn">အလုပ်ခေါ်ခြင်း</button></a>
+          </li>
+          <li class="lang">
+            <div class="btn-group" role="group" aria-label="First group">
+              <a href="../classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"><button type="button" class="btn btn1">
+                  <img src="../assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
+              <a href="./classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
+                  <img src="../assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
+              <a href="../jp/classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"><button type="button" class="btn btn3">
+                  <img src="../assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </nav>
+      <div class="btn-group lang-xl" role="group" aria-label="First group">
+        <a href="../classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"><button type="button" class="btn btn1">
+            <img src="../assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
+        <a href="./classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
+            <img src="../assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
+        <a href="../jp/classEnroll.php?courseId=<?php echo $_GET['courseId'] ?>"><button type="button" class="btn btn3">
+            <img src="../assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
+      </div>
+    </div>
+  </nav>
 
   <!-- JP School header start -->
   <section>
@@ -294,13 +177,13 @@ function encrypt_decrypt($action, $string)
   <section>
     <div class="container">
       <div class="row justify-content-center">
-      <div class="col-12 col-sm-11 text-center mt-4 d-block d-lg-flex">
+        <div class="col-12 col-sm-11 text-center mt-4 d-block d-lg-flex">
           <div class="tabs d-block d-lg-none">
             <div class="tab">
-              <?php 
-                 $result = mysqli_query($conn, $get_course);
-                 $row = mysqli_fetch_assoc($result);
-                 $origin_fee = $row['fee'];
+              <?php
+              $result = mysqli_query($conn, $get_course);
+              $row = mysqli_fetch_assoc($result);
+              $origin_fee = $row['fee'];
               ?>
               <input type="checkbox" id="chck2" class="accordion">
               <label class="tab-label" for="chck2"><?php echo $row['category_title'] . " " . $row['course_title']; ?></label>
@@ -310,7 +193,7 @@ function encrypt_decrypt($action, $string)
                 </p>
                 <p class="class-detail">
                   <?php
-                  if($row['discount_percent'] != 0) {
+                  if ($row['discount_percent'] != 0) {
                     $sale_price = $origin_fee - ($origin_fee * $row['discount_percent'] / 100);
                     echo "<span class='sale-price'>" . number_format($origin_fee) . "</span>&nbsp;";
                     echo number_format($sale_price) . " MMK";
@@ -349,10 +232,10 @@ function encrypt_decrypt($action, $string)
                                                                             break;
                                                                         }
                                                                         ?>"><?php
-                        echo $sections[$i]["days"][$j];
-                        echo "</span>";
-                      }
-                        ?>
+                                                                            echo $sections[$i]["days"][$j];
+                                                                            echo "</span>";
+                                                                          }
+                                                                            ?>
                       <span class="section-hour schedule-time-badges" id="section_hour">
                         <?php
                         echo $sections[$i]["sectionHour"];
@@ -408,7 +291,7 @@ function encrypt_decrypt($action, $string)
                         <label class="fieldlabels">သင့်ဓာတ်ပုံကို တင်ရန် <span class="required-tag">required &nbsp; *</span></label>
                         <input type="file" name="photo" class="form-input" id="file-input" />
                       </div>
-                      <p class="alert col-12 pb-0"><?php if($response["type"] === "error") echo $response["message"]; ?></p>
+                      <p class="alert col-12 pb-0"><?php if ($response["type"] === "error") echo $response["message"]; ?></p>
                     </div>
                     <input type="hidden" name="courseId" value="<?php if (isset($courseId)) echo $courseId ?>" />
                     <div class="row mb-3">
@@ -651,7 +534,7 @@ function encrypt_decrypt($action, $string)
                         <label class="fieldlabels">သင့်ဓာတ်ပုံကို တင်ရန် <span class="required-tag">required &nbsp; *</span></label>
                         <input type="file" name="photo" class="form-input" id="file-input" />
                       </div>
-                      
+
                     </div>
                     <input type="hidden" name="courseId" value="<?php if (isset($courseId)) echo $courseId ?>" />
                     <div class="row mb-3">
@@ -833,7 +716,7 @@ function encrypt_decrypt($action, $string)
                 </p>
                 <p class="class-detail">
                   <?php
-                  if($row['discount_percent'] != 0) {
+                  if ($row['discount_percent'] != 0) {
                     $sale_price = $origin_fee - ($origin_fee * $row['discount_percent'] / 100);
                     echo "<span class='sale-price'>" . number_format($origin_fee) . "</span>&nbsp;";
                     echo number_format($sale_price) . " MMK";
@@ -862,20 +745,20 @@ function encrypt_decrypt($action, $string)
                     for ($j = 0; $j < count($sections[$i]["days"]); $j++) {
                   ?>
                       <span id="days" class="days schedule-days-badges accordion-badges <?php
-                                                                        switch ($sections[$i]["days"][$j]) {
-                                                                          case "Sa":
-                                                                          case "Su":
-                                                                            echo "weekend";
-                                                                            break;
-                                                                          default:
-                                                                            echo "weekday";
-                                                                            break;
-                                                                        }
-                                                                        ?>"><?php
-                        echo $sections[$i]["days"][$j];
-                        echo "</span>";
-                      }
-                        ?>
+                                                                                        switch ($sections[$i]["days"][$j]) {
+                                                                                          case "Sa":
+                                                                                          case "Su":
+                                                                                            echo "weekend";
+                                                                                            break;
+                                                                                          default:
+                                                                                            echo "weekday";
+                                                                                            break;
+                                                                                        }
+                                                                                        ?>"><?php
+                                                                                            echo $sections[$i]["days"][$j];
+                                                                                            echo "</span>";
+                                                                                          }
+                                                                                            ?>
                       <span class="section-hour schedule-time-badges" id="section_hour">
                         <?php
                         echo $sections[$i]["sectionHour"];
@@ -934,113 +817,88 @@ function encrypt_decrypt($action, $string)
 
   <!-- footer start -->
   <footer class="footer">
-      <div class="left">
-        <a href="./index.html"><span>JKT</span> Myanmar International </a>
-        <div>
-          <a
-            href="https://www.facebook.com/JKT-Myanmar-International-CoLtd-2508681849366709"
-          >
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-instagram"></i>
-        </div>
+    <div class="left">
+      <a href="./index.html"><span>JKT</span> Myanmar International </a>
+      <div>
+        <a href="https://www.facebook.com/JKT-Myanmar-International-CoLtd-2508681849366709">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
       </div>
-      <div class="right">
-        <div class="footer-flex">
-          <div>
-            <header>လာရောက်ပူးပေါင်းဆောင်ရွက်ရန်ဖိတ်ခေါ်အပ်ပါသည်။</header>
-            <p>
-              လူကြီးမင်းတို့ နှင့် လုပ်ငန်းများ လက်တွဲလုပ်ဆောင်ဖို့
-              အဆင်သင့်ရှိပါသည်။
-            </p>
-          </div>
-          <a href="./contact.html"
-            ><button id="btn-contact" class="primary-btn">ဆက်သွယ်ရန်</button></a
-          >
+    </div>
+    <div class="right">
+      <div class="footer-flex">
+        <div>
+          <header>လာရောက်ပူးပေါင်းဆောင်ရွက်ရန်ဖိတ်ခေါ်အပ်ပါသည်။</header>
+          <p>
+            လူကြီးမင်းတို့ နှင့် လုပ်ငန်းများ လက်တွဲလုပ်ဆောင်ဖို့
+            အဆင်သင့်ရှိပါသည်။
+          </p>
         </div>
-        <div class="footer-flex-nav">
-          <div class="nav">
-            <header>၀န်ဆောင်မှုများ</header>
-            <ul class="footer-list" id="first">
-              <li>
-                <span
-                  ><a href="./overseas.html"
-                    >နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု
-                    (ဂျပန်နိုင်ငံတွင်သာ)</a
-                  ></span
-                >
-              </li>
-              <li>
-                <span
-                  ><a href="./business.html"
-                    >စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a
-                  ></span
-                >
-              </li>
-              <!-- <li>
+        <a href="./contact.html"><button id="btn-contact" class="primary-btn">ဆက်သွယ်ရန်</button></a>
+      </div>
+      <div class="footer-flex-nav">
+        <div class="nav">
+          <header>၀န်ဆောင်မှုများ</header>
+          <ul class="footer-list" id="first">
+            <li>
+              <span><a href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု
+                  (ဂျပန်နိုင်ငံတွင်သာ)</a></span>
+            </li>
+            <li>
+              <span><a href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a></span>
+            </li>
+            <!-- <li>
                 <span
                   ><a href="./announcement.html"
                     >အိုင်တီနည်းပညာဆိုင်ရာ ၀န်ဆောင်မှု</a
                   ></span
                 >
               </li> -->
-              <li>
-                <span
-                  ><a href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု </a></span
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="nav">
-            <header>သင်တန်းများ</header>
-            <ul class="footer-list" id="second">
-              <li>
-                <span
-                  ><a href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a></span
-                >
-              </li>
-              <li>
-                <span
-                  ><a href="./digital-institute.php"
-                    >အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a
-                  ></span
-                >
-              </li>
-              <li>
-                <span
-                  ><a href="./announcement.html"
-                    >လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a
-                  ></span
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="nav">
-            <header>ဆက်သွယ်ရန်</header>
-            <ul class="footer-list" id="last">
-              <li>
-                <i class="fa fa-phone"></i
-                ><a href="tel:+959269564339">၀၉ ၂၆၉ ၅၆၄ ၃၃၉</a>
-              </li>
-              <li>
-                <i class="fa fa-phone"></i
-                ><a href="tel:+959770411708">၀၉ ၇၇၀ ၄၁၁ ၇၀၈</a>
-              </li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>နံပါတ် - ၈၆၊ ၃က၊
-                ရှင်စောပုလမ်း၊ ‌မြေနီကုန်း City Mart အနီး၊ စမ်းချောင်းမြို့နယ်၊
-                ရန်ကုန်မြို့။
-              </li>
-              <li>
-                <i class="fa fa-envelope"></i>
-                <a href="mailto:jkt.mm.int@gmail.com">jkt.mm.int@gmail.com</a>
-              </li>
-            </ul>
-          </div>
+            <li>
+              <span><a href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု </a></span>
+            </li>
+          </ul>
+        </div>
+        <div class="nav">
+          <header>သင်တန်းများ</header>
+          <ul class="footer-list" id="second">
+            <li>
+              <span><a href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a></span>
+            </li>
+            <li>
+              <span><a href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a></span>
+            </li>
+            <li>
+              <span><a href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a></span>
+            </li>
+          </ul>
+        </div>
+        <div class="nav">
+          <header>ဆက်သွယ်ရန်</header>
+          <ul class="footer-list" id="last">
+            <li>
+              <i class="fa fa-phone"></i><a href="tel:+959269564339">၀၉ ၂၆၉ ၅၆၄ ၃၃၉</a>
+            </li>
+            <li>
+              <i class="fa fa-phone"></i><a href="tel:+959770411708">၀၉ ၇၇၀ ၄၁၁ ၇၀၈</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>နံပါတ် - ၈၆၊ ၃က၊
+              ရှင်စောပုလမ်း၊ ‌မြေနီကုန်း City Mart အနီး၊ စမ်းချောင်းမြို့နယ်၊
+              ရန်ကုန်မြို့။
+            </li>
+            <li>
+              <i class="fa fa-envelope"></i>
+              <a href="mailto:jkt.mm.int@gmail.com">jkt.mm.int@gmail.com</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="../assets/js/jquery-3.6.0.js"></script>

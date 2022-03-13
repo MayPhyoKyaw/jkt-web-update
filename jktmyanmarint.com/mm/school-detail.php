@@ -1,6 +1,7 @@
 <?php
 session_start();
-function encrypt_decrypt($action, $string) {
+function encrypt_decrypt($action, $string)
+{
   /* =================================================
   * ENCRYPTION-DECRYPTION
   * =================================================
@@ -16,11 +17,11 @@ function encrypt_decrypt($action, $string) {
   // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
   $iv = substr(hash('sha256', $secret_iv), 0, 16);
   if ($action == 'encrypt') {
-      $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
+    $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
   } else {
-      if ($action == 'decrypt') {
-          $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-      }
+    if ($action == 'decrypt') {
+      $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+    }
   }
   return $output;
 }
@@ -92,30 +93,29 @@ function encrypt_decrypt($action, $string) {
             </a>
           </li>
           <li class="nav-item dropdown mm-nav">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              ၀န်ဆောင်မှုများ <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              လုပ်ငန်းများ <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a>
-              <a class="dropdown-item" href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a>
+              <a class="dropdown-item category-title-mm" href="./services.html">၀န်ဆောင်မှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a>
               <!-- <a class="dropdown-item" href="./announcement.html"
                   >အိုင်တီနည်းပညာ ဆိုင်ရာ ၀န်ဆောင်မှု</a
                 > -->
-              <a class="dropdown-item" href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown mm-nav">
-            <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              လေ့ကျင့်သင်ကြားမှုများ <i class="fas fa-angle-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
-              <a class="dropdown-item" href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a>
-              <a class="dropdown-item" href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a>
-              <a class="dropdown-item" href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title-mm" href="./trainings.html">လေ့ကျင့်သင်ကြားမှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a>
             </div>
           </li>
           <li class="nav-item mm-nav">
             <a href="./contact.html" class="nav-link active"> ဆက်သွယ်ရန် </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php"><button class="recruitment-btn">အလုပ်ခေါ်ခြင်း</button></a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -271,10 +271,10 @@ function encrypt_decrypt($action, $string) {
                                                                                     break;
                                                                                 }
                                                                                 ?>"><?php
-                              echo $sections[$i]["days"][$j];
-                              echo "</span>";
-                            }
-                              ?>
+                                                                                    echo $sections[$i]["days"][$j];
+                                                                                    echo "</span>";
+                                                                                  }
+                                                                                    ?>
                               <span class="section-hour schedule-time-badges" id="section_hour">
                                 <?php
                                 echo $sections[$i]["sectionHour"];
@@ -299,13 +299,13 @@ function encrypt_decrypt($action, $string) {
                         </td>
                         <td data-label="အသေးစိတ် သိရှိရန်">
                           <button class=" detail" data-toggle="modal" data-target="#detailModal">
-                          <i class="fas fa-eye"></i>
+                            <i class="fas fa-eye"></i>
                           </button>
                         </td>
                         <td data-label="စာရင်းပေးသွင်းရန်">
                           <?php $encryptedCourseId = encrypt_decrypt("encrypt", $row['course_id']) ?>
                           <span class="hidden row-data"><?php echo $encryptedCourseId; ?></span>
-                            <a href="./classEnroll.php?courseId=<?php echo $encryptedCourseId; ?>"><button class="enroll">
+                          <a href="./classEnroll.php?courseId=<?php echo $encryptedCourseId; ?>"><button class="enroll">
                               <img src="../assets/images/icon/contract.png" alt="" width="20" height="20" />
                             </button></a>
                         </td>
@@ -404,7 +404,7 @@ function encrypt_decrypt($action, $string) {
                         <td data-label="စာရင်းပေးသွင်းရန်">
                           <?php $encryptedCourseId = encrypt_decrypt("encrypt", $row['course_id']) ?>
                           <span class="hidden row-data"><?php echo $encryptedCourseId; ?></span>
-                            <a href="./classEnroll.php?courseId=<?php echo $encryptedCourseId; ?>"><button class="enroll">
+                          <a href="./classEnroll.php?courseId=<?php echo $encryptedCourseId; ?>"><button class="enroll">
                               <img src="../assets/images/icon/contract.png" alt="" width="20" height="20" />
                             </button></a>
                         </td>
@@ -468,10 +468,10 @@ function encrypt_decrypt($action, $string) {
                                                                                   break;
                                                                               }
                                                                               ?>"><?php
-                              echo $sections[$i]["days"][$j];
-                              echo "</span>";
-                            }
-                              ?>
+                                                                                  echo $sections[$i]["days"][$j];
+                                                                                  echo "</span>";
+                                                                                }
+                                                                                  ?>
                             <span class="section-hour schedule-time-badges" id="section_hour">
                               <?php
                               echo $sections[$i]["sectionHour"];
@@ -502,7 +502,7 @@ function encrypt_decrypt($action, $string) {
                       <td data-label="စာရင်းပေးသွင်းရန်">
                         <?php $encryptedCourseId = encrypt_decrypt("encrypt", $row['course_id']) ?>
                         <span class="hidden row-data"><?php echo $encryptedCourseId; ?></span>
-                          <a href="./classEnroll.php?courseId=<?php echo $encryptedCourseId; ?>"><button class="enroll">
+                        <a href="./classEnroll.php?courseId=<?php echo $encryptedCourseId; ?>"><button class="enroll">
                             <img src="../assets/images/icon/contract.png" alt="" width="20" height="20" />
                           </button></a>
                       </td>
@@ -550,11 +550,11 @@ function encrypt_decrypt($action, $string) {
               </td>
             </tr>
             <tr>
-                <td class="schedule-modal-label">တက်‌ရောက်ရမည့်အချိန် နှင့် ရက် :</td>
-                <td id="modal_days_time" class="modal_days_time">
-                  <!-- <span id="modal_days"></span>
+              <td class="schedule-modal-label">တက်‌ရောက်ရမည့်အချိန် နှင့် ရက် :</td>
+              <td id="modal_days_time" class="modal_days_time">
+                <!-- <span id="modal_days"></span>
                   <span id="modal_time"></span> -->
-                </td>
+              </td>
             </tr>
             <tr>
               <td class="schedule-modal-label">သင်တန်းကြေး (ကျပ်)</td>

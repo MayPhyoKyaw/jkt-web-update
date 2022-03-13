@@ -1,6 +1,7 @@
-<?php 
-session_start(); 
-function encrypt_decrypt($action, $string) {
+<?php
+session_start();
+function encrypt_decrypt($action, $string)
+{
   /* =================================================
   * ENCRYPTION-DECRYPTION
   * =================================================
@@ -16,11 +17,11 @@ function encrypt_decrypt($action, $string) {
   // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
   $iv = substr(hash('sha256', $secret_iv), 0, 16);
   if ($action == 'encrypt') {
-      $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
+    $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
   } else {
-      if ($action == 'decrypt') {
-          $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-      }
+    if ($action == 'decrypt') {
+      $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+    }
   }
   return $output;
 }
@@ -90,30 +91,33 @@ function encrypt_decrypt($action, $string) {
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              サービス <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              会社の事業 <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">海外での雇用</a>
-              <a class="dropdown-item" href="./business.html">ビジネスコンサルタント</a>
+              <a class="dropdown-item category-title" href="./services.html">サービス</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">海外での雇用</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">ビジネスコンサルタント</a>
               <!-- <a class="dropdown-item" href="./announcement.html"
                   >ITサービス</a
                 > -->
-              <a class="dropdown-item" href="./travels.html">旅行サービス</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              トレーニング <i class="fas fa-angle-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
-              <a class="dropdown-item" href="./jp-school.php">日本語学校</a>
-              <a class="dropdown-item" href="./digital-institute.php">デジタル学院</a>
-              <a class="dropdown-item" href="./announcement.html">人材トレーニング</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">旅行サービス</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title" href="./trainings.html">トレーニング</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">日本語学校</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">デジタル学院</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">人材トレーニング</a>
             </div>
           </li>
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> お問い合わせ </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -245,38 +249,38 @@ function encrypt_decrypt($action, $string) {
                       ?>
                     </td>
                     <td data-label="日程" class="text-right text-lg-left">
-                        <?php
-                          // var_dump($row["sections"]);
-                          // var_dump($row["sections"][0]); 
-                          $sections = json_decode($row["sections"], true);
-                          for($i = 0; $i < count($sections); $i++) {
-                            // var_dump($sections[$i]["days"]);
-                            echo "<div class='sections'>";
-                            for($j = 0; $j < count($sections[$i]["days"]); $j++) {
-                        ?>
-                              <span id="days" class="days schedule-days-badges <?php
-                                switch($sections[$i]["days"][$j]) {
-                                  case "Sa":
-                                  case "Su":
-                                    echo "weekend";
-                                    break;
-                                  default:
-                                    echo "weekday";
-                                    break;                           
-                                }  
-                          ?>"><?php 
-                                  echo $sections[$i]["days"][$j];
-                                echo "</span>"; 
-                              } 
+                      <?php
+                      // var_dump($row["sections"]);
+                      // var_dump($row["sections"][0]); 
+                      $sections = json_decode($row["sections"], true);
+                      for ($i = 0; $i < count($sections); $i++) {
+                        // var_dump($sections[$i]["days"]);
+                        echo "<div class='sections'>";
+                        for ($j = 0; $j < count($sections[$i]["days"]); $j++) {
+                      ?>
+                          <span id="days" class="days schedule-days-badges <?php
+                                                                            switch ($sections[$i]["days"][$j]) {
+                                                                              case "Sa":
+                                                                              case "Su":
+                                                                                echo "weekend";
+                                                                                break;
+                                                                              default:
+                                                                                echo "weekday";
+                                                                                break;
+                                                                            }
+                                                                            ?>"><?php
+                                                                                echo $sections[$i]["days"][$j];
+                                                                                echo "</span>";
+                                                                              }
+                                                                                ?>
+                          <span class="section-hour schedule-time-badges" id="section_hour">
+                            <?php
+                            echo $sections[$i]["sectionHour"];
                             ?>
-                              <span class="section-hour schedule-time-badges" id="section_hour">
-                                <?php 
-                                  echo $sections[$i]["sectionHour"];
-                                ?>
-                              </span><br>
-                          <?php }
-                            echo "</div>";
-                          ?>
+                          </span><br>
+                        <?php }
+                      echo "</div>";
+                        ?>
                     </td>
                     <td data-label="学費「チャット」">
                       <span id="price"><?php echo number_format($row["fee"]) ?></span>
@@ -295,8 +299,8 @@ function encrypt_decrypt($action, $string) {
                       </button>
                     </td>
                     <td data-label="登録">
-                    <?php $encryptedCourseId = encrypt_decrypt("encrypt", $row['course_id']) ?>
-                    <span class="hidden row-data"><?php echo $encryptedCourseId; ?></span>
+                      <?php $encryptedCourseId = encrypt_decrypt("encrypt", $row['course_id']) ?>
+                      <span class="hidden row-data"><?php echo $encryptedCourseId; ?></span>
                       <a href="./classEnroll.php?courseId=<?php echo $encryptedCourseId; ?>"><button class="enroll">
                           <img src="../assets/images/icon/contract.png" alt="" width="20" height="20" />
                         </button></a>
@@ -388,11 +392,11 @@ function encrypt_decrypt($action, $string) {
               </td>
             </tr>
             <tr>
-                <td class="schedule-modal-label">日程 :</td>
-                <td id="modal_days_time" class="modal_days_time">
-                  <!-- <span id="modal_days"></span>
+              <td class="schedule-modal-label">日程 :</td>
+              <td id="modal_days_time" class="modal_days_time">
+                <!-- <span id="modal_days"></span>
                   <span id="modal_time"></span> -->
-                </td>
+              </td>
             </tr>
             <tr>
               <td class="schedule-modal-label">学費「チャット」 :</td>

@@ -91,19 +91,22 @@ function encrypt_decrypt($action, $string)
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              SERVICES <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              OUR BUSINESS <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
-              <a class="dropdown-item" href="./business.html">BUSINESS CONSULTANT</a>
-              <!-- <a class="dropdown-item" href="./announcement.html"
-                  >IT SERVICES</a
-                > -->
-              <a class="dropdown-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <a class="dropdown-item category-title" href="./services.html">SERVICES</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">BUSINESS CONSULTANT</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <hr class="nav-dropdown-hr nav-sub-item">
+              <a class="dropdown-item category-title" href="./trainings.html">TRAININGS</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">JAPANESE LANGUAGE SCHOOL</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">DIGITAL INSTITUTE</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">HR TRAINING</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
               TRAININGS <i class="fas fa-angle-down"></i>
             </a>
@@ -112,9 +115,16 @@ function encrypt_decrypt($action, $string)
               <a class="dropdown-item" href="./digital-institute.php">DIGITAL INSTITUTE</a>
               <a class="dropdown-item" href="./announcement.html">HR TRAINING</a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> CONTACT </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="./assets/images/icon/job-search.png" width="20" height="20" />&nbsp; Jobs
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -267,10 +277,10 @@ function encrypt_decrypt($action, $string)
                                                                                 break;
                                                                             }
                                                                             ?>"><?php
-                                                                                                                    echo $sections[$i]["days"][$j];
-                                                                                                                    echo "</span>";
-                                                                                                                  }
-                                                                                                                    ?>
+                                                                                echo $sections[$i]["days"][$j];
+                                                                                echo "</span>";
+                                                                              }
+                                                                                ?>
                           <span class="section-hour schedule-time-badges" id="section_hour">
                             <?php
                             echo $sections[$i]["sectionHour"];

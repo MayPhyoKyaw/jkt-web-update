@@ -64,16 +64,22 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              SERVICES <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              OUR BUSINESS <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
-              <a class="dropdown-item" href="./business.html">BUSINESS CONSULTANT</a>
-              <a class="dropdown-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <a class="dropdown-item category-title" href="./services.html">SERVICES</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">BUSINESS CONSULTANT</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <hr class="nav-dropdown-hr nav-sub-item">
+              <a class="dropdown-item category-title" href="./trainings.html">TRAININGS</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">JAPANESE LANGUAGE SCHOOL</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">DIGITAL INSTITUTE</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">HR TRAINING</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
               TRAININGS <i class="fas fa-angle-down"></i>
             </a>
@@ -82,9 +88,16 @@
               <a class="dropdown-item" href="./digital-institute.php">DIGITAL INSTITUTE</a>
               <a class="dropdown-item" href="./announcement.html">HR TRAINING</a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> CONTACT </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="./assets/images/icon/job-search.png" width="20" height="20" />&nbsp; Jobs
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -120,13 +133,13 @@
   <!-- JP School header end -->
 
   <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="./trainings.html">Trainings</a></li>
-        <li class="breadcrumb-item"><a href="./school-detail.php">Training Schools</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Enroll Successfully </li>
-      </ol>
-    </nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="./trainings.html">Trainings</a></li>
+      <li class="breadcrumb-item"><a href="./school-detail.php">Training Schools</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Enroll Successfully </li>
+    </ol>
+  </nav>
 
   <!-- Enrollment Form start -->
   <section>
@@ -136,41 +149,41 @@
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <!-- <h2 id="heading">Sign Up Your User Account</h2> -->
             <p class="enroll-description">Fill all form field to go to next step</p>
-              <!-- progressbar -->
-              <ul id="progressbar">
-                <li class="active" id="personal"></li>
-                <li class="active" id="payment"></li>
-                <li class="active" id="confirm"></li>
-              </ul>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-              </div> <br> <!-- fieldsets -->
-              <fieldset id="success">
-                <div class="form-card">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="enrollForm-title">Finish:</h2>
-                    </div>
-                    <div class="col-5">
-                      <h2 class="steps">Step 3 - 3</h2>
-                    </div>
-                  </div> <br><br>
-                  <h2 class="blue-text text-center"><strong>Successfully Submitted!</strong></h2> <br>
-                  <div class="row justify-content-center">
-                    <div class="col-3">
-                      <img src="./assets/images/blue-tick.png" class="fit-image">
-                    </div>
-                  </div> <br><br>
-                  <div class="row justify-content-center">
-                    <div class="col-7 text-center">
-                      <h5 class="blue-text text-center">We will send email during business hours (9:00~17:00). Please check your email for payment information. </h5>
-                    </div>
+            <!-- progressbar -->
+            <ul id="progressbar">
+              <li class="active" id="personal"></li>
+              <li class="active" id="payment"></li>
+              <li class="active" id="confirm"></li>
+            </ul>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> <br> <!-- fieldsets -->
+            <fieldset id="success">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="enrollForm-title">Finish:</h2>
                   </div>
-                  <div class="row justify-content-center mt-3">
-                    <a href="./jp-school.php" class="back-to-courses">Browse Courses</a>
+                  <div class="col-5">
+                    <h2 class="steps">Step 3 - 3</h2>
+                  </div>
+                </div> <br><br>
+                <h2 class="blue-text text-center"><strong>Successfully Submitted!</strong></h2> <br>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <img src="./assets/images/blue-tick.png" class="fit-image">
+                  </div>
+                </div> <br><br>
+                <div class="row justify-content-center">
+                  <div class="col-7 text-center">
+                    <h5 class="blue-text text-center">We will send email during business hours (9:00~17:00). Please check your email for payment information. </h5>
                   </div>
                 </div>
-              </fieldset>
+                <div class="row justify-content-center mt-3">
+                  <a href="./jp-school.php" class="back-to-courses">Browse Courses</a>
+                </div>
+              </div>
+            </fieldset>
           </div>
         </div>
       </div>
@@ -252,6 +265,7 @@
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="./assets/js/jquery-3.6.0.js"></script>

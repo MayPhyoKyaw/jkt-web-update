@@ -3,7 +3,8 @@
 if (!isset($_GET["enroll_id"])) {
   header("location: index.html");
 }
-function encrypt_decrypt($action, $string) {
+function encrypt_decrypt($action, $string)
+{
   /* =================================================
   * ENCRYPTION-DECRYPTION
   * =================================================
@@ -19,11 +20,11 @@ function encrypt_decrypt($action, $string) {
   // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
   $iv = substr(hash('sha256', $secret_iv), 0, 16);
   if ($action == 'encrypt') {
-      $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
+    $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
   } else {
-      if ($action == 'decrypt') {
-          $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-      }
+    if ($action == 'decrypt') {
+      $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+    }
   }
   return $output;
 }
@@ -95,17 +96,22 @@ function encrypt_decrypt($action, $string) {
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              SERVICES <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              OUR BUSINESS <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
-              <a class="dropdown-item" href="./business.html">BUSINESS CONSULTANT</a>
-              <a class="dropdown-item" href="./announcement.html">IT SERVICES</a>
-              <a class="dropdown-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <a class="dropdown-item category-title" href="./services.html">SERVICES</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">BUSINESS CONSULTANT</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <hr class="nav-dropdown-hr nav-sub-item">
+              <a class="dropdown-item category-title" href="./trainings.html">TRAININGS</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">JAPANESE LANGUAGE SCHOOL</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">DIGITAL INSTITUTE</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">HR TRAINING</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a href="./trainings.html" class="nav-link active" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
               TRAININGS <i class="fas fa-angle-down"></i>
             </a>
@@ -114,9 +120,16 @@ function encrypt_decrypt($action, $string) {
               <a class="dropdown-item" href="./announcement.html">VOCATIONAL TRAINING</a>
               <a class="dropdown-item" href="./announcement.html">HR TRAINING</a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a href="./contact.html" class="nav-link"> CONTACT </a>
+            <a href="./contact.html" class="nav-link active"> CONTACT </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="./assets/images/icon/job-search.png" width="20" height="20" />&nbsp; Jobs
+              </button>
+            </a>
           </li>
           <?php $getID = $_GET['enroll_id'] ?>
           <li class="lang">
@@ -175,14 +188,14 @@ function encrypt_decrypt($action, $string) {
               <span id="nrc" class="hidden"><?php echo $row['nrc']; ?></span>
               <div class="row mx-2">
                 <label for="payment_amount">Enter Payment Amount (MMKs)</label>
-                <input type="number" class="form-input" name="payment_amount" id="payment_amount" placeholder="eg. 250000"/>
+                <input type="number" class="form-input" name="payment_amount" id="payment_amount" placeholder="eg. 250000" />
               </div>
               <div class="row mt-5 mx-2">
                 <label class="fieldlabels">Your NRC Number: <span class="required-tag">required &nbsp; *</span></label>
                 <input type="text" class="form-input" name="nrcNumber" id="nrcNumber" placeholder="e.g. 123456" />
-                <input type="hidden" name="enrollment_id" id="enrollment_id" value="<?php echo $row["enrollment_id"] ?>"/>
-                <input type="hidden" name="course_id" id="course_id" value="<?php echo $row["course_id"] ?>"/>
-                <input type="hidden" name="bank_id" id="bank_id" value="<?php echo $bank_id ?>"/>
+                <input type="hidden" name="enrollment_id" id="enrollment_id" value="<?php echo $row["enrollment_id"] ?>" />
+                <input type="hidden" name="course_id" id="course_id" value="<?php echo $row["course_id"] ?>" />
+                <input type="hidden" name="bank_id" id="bank_id" value="<?php echo $bank_id ?>" />
               </div>
               <span class="nrcNo-required" id="nrcNoRequired"><em></em></span>
               <div class="row mt-5 px-4">
@@ -289,6 +302,7 @@ function encrypt_decrypt($action, $string) {
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="./assets/js/jquery-3.6.0.js"></script>

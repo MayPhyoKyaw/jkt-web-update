@@ -69,30 +69,33 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              サービス <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              会社の事業 <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">海外での雇用</a>
-              <a class="dropdown-item" href="./business.html">ビジネスコンサルタント</a>
+              <a class="dropdown-item category-title" href="./services.html">サービス</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">海外での雇用</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">ビジネスコンサルタント</a>
               <!-- <a class="dropdown-item" href="./announcement.html"
                   >ITサービス</a
                 > -->
-              <a class="dropdown-item" href="./travels.html">旅行サービス</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="./trainings.html" class="nav-link active" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              トレーニング <i class="fas fa-angle-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
-              <a class="dropdown-item" href="./jp-school.php">日本語学校</a>
-              <a class="dropdown-item" href="./digital-institute.php">デジタル学院</a>
-              <a class="dropdown-item" href="./announcement.html">人材トレーニング</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">旅行サービス</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title" href="./trainings.html">トレーニング</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">日本語学校</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">デジタル学院</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">人材トレーニング</a>
             </div>
           </li>
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> お問い合わせ </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -126,7 +129,7 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
   <!-- JP School header start -->
   <section>
     <div class="header">
-      <h3>ビジネスコンサルタントサービス - Appointment Form</h3>
+      <h3>ビジネスコンサルタントサービス - 予約フォーム</h3>
       <div class="bg-cover"></div>
       <img src="../assets/images/cover/cover.jpg" alt="jpschool-cover" />
     </div>
@@ -336,6 +339,7 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="../assets/js/jquery-3.6.0.js"></script>

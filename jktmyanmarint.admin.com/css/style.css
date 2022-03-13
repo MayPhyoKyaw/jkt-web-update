@@ -225,7 +225,10 @@ input[type="checkbox"] {
 .tb-row:hover {
   background-color: #eff5ff;
 }
-
+.applicant-detail-table > thead > tr > th, 
+.applicant-detail-table > tbody > tr > td {
+  text-align: left !important;
+}
 .preview-input-edit {
   display: none;
 }
@@ -245,6 +248,13 @@ input[type="checkbox"] {
 }
 .form-group p {
   display: inline;
+}
+.form-control > input[type="radio"] {
+  margin-right: 30px;
+}
+
+.resume {
+  padding-bottom: 37px;
 }
 
 .pending-badge {

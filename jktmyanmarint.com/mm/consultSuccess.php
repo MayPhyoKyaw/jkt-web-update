@@ -32,203 +32,86 @@
 </head>
 
 <body>
-<nav
-      class="navbar navbar-light navbar-expand-lg gray-dark float-panel"
-      data-top="0"
-      data-scroll="300"
-    >
-      <div class="container-fluid mynav">
-        <a href="./index.html" class="navbar-brand mm-nav-brand">
-          <img
-            src="../assets/images/logo.jpg"
-            alt=""
-            height="50px"
-            width="50px"
-          />
-          <span style="font-weight: bolder; font-size: larger; color: #029eff"
-            >JKT</span
-          >
-          Myanmar International
-        </a>
-        <a href="./index.html" class="small-brand">
-          <img
-            src="../assets/images/logo.jpg"
-            alt=""
-            height="50px"
-            width="50px"
-          />
-          <span style="font-weight: bolder; font-size: larger; color: #029eff"
-            >JKT</span
-          >
-          Myanmar International
-        </a>
-        <a href="./index.html" class="icon-brand">
-          <img
-            src="../assets/images/logo.jpg"
-            alt=""
-            height="50px"
-            width="50px"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarCollapse"
-        >
-          <span class="navbar-toggler-icon toggler-icon-color"></span>
-        </button>
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto text-sm-start">
-            <li class="nav-item mm-nav">
-              <a href="./index.html" class="nav-link active"> ပင်မစာမျက်နှာ </a>
-            </li>
-            <li class="nav-item mm-nav">
-              <a href="./about.html" class="nav-link active">
-                ကျွန်ုပ်တို့‌အကြောင်း
-              </a>
-            </li>
-            <li class="nav-item mm-nav">
-              <a href="./activities.html" class="nav-link active">
-                လှုပ်ရှားမှုများ
-              </a>
-            </li>
-            <li class="nav-item dropdown mm-nav">
-              <a
-                href="./services.html"
-                class="nav-link"
-                id="serviceNavbarDropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                ၀န်ဆောင်မှုများ <i class="fas fa-angle-down"></i>
-              </a>
-              <div
-                class="dropdown-menu"
-                aria-labelledby="serviceNavbarDropdown"
-              >
-                <a class="dropdown-item" href="./overseas.html"
-                  >နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a
-                >
-                <a class="dropdown-item" href="./business.html"
-                  >စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a
-                >
-                <!-- <a class="dropdown-item" href="./announcement.html"
+  <nav class="navbar navbar-light navbar-expand-lg gray-dark float-panel" data-top="0" data-scroll="300">
+    <div class="container-fluid mynav">
+      <a href="./index.html" class="navbar-brand mm-nav-brand">
+        <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
+        <span style="font-weight: bolder; font-size: larger; color: #029eff">JKT</span>
+        Myanmar International
+      </a>
+      <a href="./index.html" class="small-brand">
+        <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
+        <span style="font-weight: bolder; font-size: larger; color: #029eff">JKT</span>
+        Myanmar International
+      </a>
+      <a href="./index.html" class="icon-brand">
+        <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon toggler-icon-color"></span>
+      </button>
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto text-sm-start">
+          <li class="nav-item mm-nav">
+            <a href="./index.html" class="nav-link active"> ပင်မစာမျက်နှာ </a>
+          </li>
+          <li class="nav-item mm-nav">
+            <a href="./about.html" class="nav-link active">
+              ကျွန်ုပ်တို့‌အကြောင်း
+            </a>
+          </li>
+          <li class="nav-item mm-nav">
+            <a href="./activities.html" class="nav-link active">
+              လှုပ်ရှားမှုများ
+            </a>
+          </li>
+          <li class="nav-item dropdown mm-nav">
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              လုပ်ငန်းများ <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
+              <a class="dropdown-item category-title-mm" href="./services.html">၀န်ဆောင်မှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a>
+              <!-- <a class="dropdown-item" href="./announcement.html"
                   >အိုင်တီနည်းပညာ ဆိုင်ရာ ၀န်ဆောင်မှု</a
                 > -->
-                <a class="dropdown-item" href="./travels.html"
-                  >ခရီးသွား ၀န်ဆောင်မှု</a
-                >
-              </div>
-            </li>
-            <li class="nav-item dropdown mm-nav">
-              <a
-                href="./trainings.html"
-                class="nav-link active"
-                id="trainingNavbarDropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                လေ့ကျင့်သင်ကြားမှုများ <i class="fas fa-angle-down"></i>
-              </a>
-              <div
-                class="dropdown-menu"
-                aria-labelledby="trainingNavbarDropdown"
-              >
-                <a class="dropdown-item" href="./jp-school.php"
-                  >ဂျပန်ဘာသာစကား သင်တန်း</a
-                >
-                <a class="dropdown-item" href="./digital-institute.php"
-                  >အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a
-                >
-                <a class="dropdown-item" href="./announcement.html"
-                  >လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a
-                >
-              </div>
-            </li>
-            <li class="nav-item mm-nav">
-              <a href="./contact.html" class="nav-link active"> ဆက်သွယ်ရန် </a>
-            </li>
-            <li class="lang">
-              <div class="btn-group" role="group" aria-label="First group">
-                <a href="../consultSuccess.php"
-                  ><button
-                    type="button"
-                    class="btn btn1"
-                  >
-                    <img
-                      src="../assets/images/icon/ukFlag.png"
-                      height="20px"
-                      width="25px"
-                    /></button
-                ></a>
-                <a href="./consultSuccess.php"
-                  ><button
-                    type="button"
-                    class="btn btn2"
-                    style="background-color: rgba(91, 175, 231, 0.5)"
-                  >
-                    <img
-                      src="../assets/images/icon/mmFlag.svg"
-                      height="20px"
-                      width="25px"
-                    /></button
-                ></a>
-                <a href="../jp/consultSuccess.php"
-                  ><button
-                    type="button"
-                    class="btn btn3"
-                  >
-                    <img
-                      src="../assets/images/icon/japanFlag.jpg"
-                      height="20px"
-                      width="25px"
-                    /></button
-                ></a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="btn-group lang-xl" role="group" aria-label="First group">
-          <a href="../consultSuccess.php"
-            ><button
-              type="button"
-              class="btn btn1"
-            >
-              <img
-                src="../assets/images/icon/ukFlag.png"
-                height="20px"
-                width="25px"
-              /></button
-          ></a>
-          <a href="./consultSuccess.php"
-            ><button
-              type="button"
-              class="btn btn2"
-              style="background-color: rgba(91, 175, 231, 0.5)"
-            >
-              <img
-                src="../assets/images/icon/mmFlag.svg"
-                height="20px"
-                width="25px"
-              /></button
-          ></a>
-          <a href="../jp/consultSuccess.php"
-            ><button
-              type="button"
-              class="btn btn3"
-            >
-              <img
-                src="../assets/images/icon/japanFlag.jpg"
-                height="20px"
-                width="25px"
-              /></button
-          ></a>
-        </div>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title-mm" href="./trainings.html">လေ့ကျင့်သင်ကြားမှုများ </a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a>
+            </div>
+          </li>
+          <li class="nav-item mm-nav">
+            <a href="./contact.html" class="nav-link active"> ဆက်သွယ်ရန် </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php"><button class="recruitment-btn">အလုပ်ခေါ်ခြင်း</button></a>
+          </li>
+          <li class="lang">
+            <div class="btn-group" role="group" aria-label="First group">
+              <a href="../consultSuccess.php"><button type="button" class="btn btn1">
+                  <img src="../assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
+              <a href="./consultSuccess.php"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
+                  <img src="../assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
+              <a href="../jp/consultSuccess.php"><button type="button" class="btn btn3">
+                  <img src="../assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </nav>
+      <div class="btn-group lang-xl" role="group" aria-label="First group">
+        <a href="../consultSuccess.php"><button type="button" class="btn btn1">
+            <img src="../assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
+        <a href="./consultSuccess.php"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
+            <img src="../assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
+        <a href="../jp/consultSuccess.php"><button type="button" class="btn btn3">
+            <img src="../assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
+      </div>
+    </div>
+  </nav>
 
   <!-- JP School header start -->
   <section>
@@ -241,13 +124,13 @@
   <!-- JP School header end -->
 
   <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-lg-block">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="./index.html">ပင်မစာမျက်နှာ</a></li>
-        <li class="breadcrumb-item"><a href="./services.html">၀န်ဆောင်မှုများ</a></li>
-        <li class="breadcrumb-item"><a href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a></li>
-        <li class="breadcrumb-item active" aria-current="page">ကြိုတင်ချိန်းဆိုမှုပြုလုပ်မှုအောင်မြင်ခြင်း </li>
-      </ol>
-    </nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="./index.html">ပင်မစာမျက်နှာ</a></li>
+      <li class="breadcrumb-item"><a href="./services.html">၀န်ဆောင်မှုများ</a></li>
+      <li class="breadcrumb-item"><a href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a></li>
+      <li class="breadcrumb-item active" aria-current="page">ကြိုတင်ချိန်းဆိုမှုပြုလုပ်မှုအောင်မြင်ခြင်း </li>
+    </ol>
+  </nav>
 
   <!-- Enrollment Form start -->
   <section>
@@ -255,24 +138,24 @@
       <div class="row justify-content-center">
         <div class="col-11 col-sm-10 col-md-10 col-lg-8 col-xl-6 text-center p-0 mt-3 mb-2">
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-              <fieldset id="success">
-                <div class="form-card">
-                  <h2 class="blue-text text-center"><strong>အောင်မြင်စွာ ကြိုတင်ချိန်းဆိုမှုပြုလုပ်ပြီးပါပြီ!</strong></h2> <br>
-                  <div class="row justify-content-center">
-                    <div class="col-3">
-                      <img src="../assets/images/blue-tick.png" class="fit-image">
-                    </div>
-                  </div> <br><br>
-                  <div class="row justify-content-center">
-                    <div class="col-7 text-center">
-                      <h5 class="blue-text text-center">အလုပ်ချိန် (9:00 ~ 17:00) အတွင်း ဆက်သွယ်ပါမည်။ .</h5>
-                    </div>
+            <fieldset id="success">
+              <div class="form-card">
+                <h2 class="blue-text text-center"><strong>အောင်မြင်စွာ ကြိုတင်ချိန်းဆိုမှုပြုလုပ်ပြီးပါပြီ!</strong></h2> <br>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <img src="../assets/images/blue-tick.png" class="fit-image">
                   </div>
-                  <div class="row justify-content-center mt-5 pt-1 mb-4">
-                    <a href="./business.html" class="back-to-courses">ပင်မစာမျက်နှာသို့</a>
+                </div> <br><br>
+                <div class="row justify-content-center">
+                  <div class="col-7 text-center">
+                    <h5 class="blue-text text-center">အလုပ်ချိန် (9:00 ~ 17:00) အတွင်း ဆက်သွယ်ပါမည်။ .</h5>
                   </div>
                 </div>
-              </fieldset>
+                <div class="row justify-content-center mt-5 pt-1 mb-4">
+                  <a href="./business.html" class="back-to-courses">ပင်မစာမျက်နှာသို့</a>
+                </div>
+              </div>
+            </fieldset>
           </div>
         </div>
       </div>
@@ -282,113 +165,88 @@
 
   <!-- footer start -->
   <footer class="footer">
-      <div class="left">
-        <a href="./index.html"><span>JKT</span> Myanmar International </a>
-        <div>
-          <a
-            href="https://www.facebook.com/JKT-Myanmar-International-CoLtd-2508681849366709"
-          >
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-instagram"></i>
-        </div>
+    <div class="left">
+      <a href="./index.html"><span>JKT</span> Myanmar International </a>
+      <div>
+        <a href="https://www.facebook.com/JKT-Myanmar-International-CoLtd-2508681849366709">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
       </div>
-      <div class="right">
-        <div class="footer-flex">
-          <div>
-            <header>လာရောက်ပူးပေါင်းဆောင်ရွက်ရန်ဖိတ်ခေါ်အပ်ပါသည်။</header>
-            <p>
-              လူကြီးမင်းတို့ နှင့် လုပ်ငန်းများ လက်တွဲလုပ်ဆောင်ဖို့
-              အဆင်သင့်ရှိပါသည်။
-            </p>
-          </div>
-          <a href="./contact.html"
-            ><button id="btn-contact" class="primary-btn">ဆက်သွယ်ရန်</button></a
-          >
+    </div>
+    <div class="right">
+      <div class="footer-flex">
+        <div>
+          <header>လာရောက်ပူးပေါင်းဆောင်ရွက်ရန်ဖိတ်ခေါ်အပ်ပါသည်။</header>
+          <p>
+            လူကြီးမင်းတို့ နှင့် လုပ်ငန်းများ လက်တွဲလုပ်ဆောင်ဖို့
+            အဆင်သင့်ရှိပါသည်။
+          </p>
         </div>
-        <div class="footer-flex-nav">
-          <div class="nav">
-            <header>၀န်ဆောင်မှုများ</header>
-            <ul class="footer-list" id="first">
-              <li>
-                <span
-                  ><a href="./overseas.html"
-                    >နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု
-                    (ဂျပန်နိုင်ငံတွင်သာ)</a
-                  ></span
-                >
-              </li>
-              <li>
-                <span
-                  ><a href="./business.html"
-                    >စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a
-                  ></span
-                >
-              </li>
-              <!-- <li>
+        <a href="./contact.html"><button id="btn-contact" class="primary-btn">ဆက်သွယ်ရန်</button></a>
+      </div>
+      <div class="footer-flex-nav">
+        <div class="nav">
+          <header>၀န်ဆောင်မှုများ</header>
+          <ul class="footer-list" id="first">
+            <li>
+              <span><a href="./overseas.html">နိုင်ငံခြား အလုပ်အကိုင် ရှာဖွေရေး ဝန်ဆောင်မှု
+                  (ဂျပန်နိုင်ငံတွင်သာ)</a></span>
+            </li>
+            <li>
+              <span><a href="./business.html">စီးပွားရေးဆိုင်ရာ အကြံပေးခြင်း ၀န်ဆောင်မှု</a></span>
+            </li>
+            <!-- <li>
                 <span
                   ><a href="./announcement.html"
                     >အိုင်တီနည်းပညာဆိုင်ရာ ၀န်ဆောင်မှု</a
                   ></span
                 >
               </li> -->
-              <li>
-                <span
-                  ><a href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု </a></span
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="nav">
-            <header>သင်တန်းများ</header>
-            <ul class="footer-list" id="second">
-              <li>
-                <span
-                  ><a href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a></span
-                >
-              </li>
-              <li>
-                <span
-                  ><a href="./digital-institute.php"
-                    >အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a
-                  ></span
-                >
-              </li>
-              <li>
-                <span
-                  ><a href="./announcement.html"
-                    >လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a
-                  ></span
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="nav">
-            <header>ဆက်သွယ်ရန်</header>
-            <ul class="footer-list" id="last">
-              <li>
-                <i class="fa fa-phone"></i
-                ><a href="tel:+959269564339">၀၉ ၂၆၉ ၅၆၄ ၃၃၉</a>
-              </li>
-              <li>
-                <i class="fa fa-phone"></i
-                ><a href="tel:+959770411708">၀၉ ၇၇၀ ၄၁၁ ၇၀၈</a>
-              </li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>နံပါတ် - ၈၆၊ ၃က၊
-                ရှင်စောပုလမ်း၊ ‌မြေနီကုန်း City Mart အနီး၊ စမ်းချောင်းမြို့နယ်၊
-                ရန်ကုန်မြို့။
-              </li>
-              <li>
-                <i class="fa fa-envelope"></i>
-                <a href="mailto:jkt.mm.int@gmail.com">jkt.mm.int@gmail.com</a>
-              </li>
-            </ul>
-          </div>
+            <li>
+              <span><a href="./travels.html">ခရီးသွား ၀န်ဆောင်မှု </a></span>
+            </li>
+          </ul>
+        </div>
+        <div class="nav">
+          <header>သင်တန်းများ</header>
+          <ul class="footer-list" id="second">
+            <li>
+              <span><a href="./jp-school.php">ဂျပန်ဘာသာစကား သင်တန်း</a></span>
+            </li>
+            <li>
+              <span><a href="./digital-institute.php">အိုင်တီနည်းပညာ သင်တန်းကျောင်း</a></span>
+            </li>
+            <li>
+              <span><a href="./announcement.html">လူ့စွမ်းအားအရင်းအမြစ် စီမံခန့်ခွဲမှု သင်တန်း</a></span>
+            </li>
+          </ul>
+        </div>
+        <div class="nav">
+          <header>ဆက်သွယ်ရန်</header>
+          <ul class="footer-list" id="last">
+            <li>
+              <i class="fa fa-phone"></i><a href="tel:+959269564339">၀၉ ၂၆၉ ၅၆၄ ၃၃၉</a>
+            </li>
+            <li>
+              <i class="fa fa-phone"></i><a href="tel:+959770411708">၀၉ ၇၇၀ ၄၁၁ ၇၀၈</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>နံပါတ် - ၈၆၊ ၃က၊
+              ရှင်စောပုလမ်း၊ ‌မြေနီကုန်း City Mart အနီး၊ စမ်းချောင်းမြို့နယ်၊
+              ရန်ကုန်မြို့။
+            </li>
+            <li>
+              <i class="fa fa-envelope"></i>
+              <a href="mailto:jkt.mm.int@gmail.com">jkt.mm.int@gmail.com</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="../assets/js/jquery-3.6.0.js"></script>

@@ -32,7 +32,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light navbar-expand-lg gray-dark float-panel" data-top="0" data-scroll="300">
+  <nav class="navbar navbar-light navbar-expand-lg gray-dark float-panel" data-top="0" data-scroll="300">
     <div class="container-fluid mynav">
       <a href="index.html" class="navbar-brand">
         <img src="../assets/images/logo.jpg" alt="" height="50px" width="50px" />
@@ -64,28 +64,33 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link active" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              サービス <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              会社の事業 <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">海外での雇用</a>
-              <a class="dropdown-item" href="./business.html">ビジネスコンサルタント</a>
-              <!-- <a class="dropdown-item" href="./announcement.html">ITサービス</a> -->
-              <a class="dropdown-item" href="./travels.html">旅行サービス</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="./trainings.html" class="nav-link" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              トレーニング <i class="fas fa-angle-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="trainingNavbarDropdown">
-              <a class="dropdown-item" href="./jp-school.php">日本語学校</a>
-              <a class="dropdown-item" href="./digital-institute.php">デジタル学院</a>
-              <a class="dropdown-item" href="./announcement.html">人材トレーニング</a>
+              <a class="dropdown-item category-title" href="./services.html">サービス</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">海外での雇用</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">ビジネスコンサルタント</a>
+              <!-- <a class="dropdown-item" href="./announcement.html"
+                  >ITサービス</a
+                > -->
+              <a class="dropdown-item nav-sub-item" href="./travels.html">旅行サービス</a>
+              <hr class="nav-dropdown-hr nav-sub-item" />
+              <a class="dropdown-item category-title" href="./trainings.html">トレーニング</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">日本語学校</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">デジタル学院</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">人材トレーニング</a>
             </div>
           </li>
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> お問い合わせ </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -137,41 +142,41 @@
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <!-- <h2 id="heading">Sign Up Your User Account</h2> -->
             <p class="enroll-description">すべてのフォームフィールドに入力して、次の手順に進みます</p>
-              <!-- progressbar -->
-              <ul id="progressbar">
-                <li class="active" id="personal"></li>
-                <li class="active" id="payment"></li>
-                <li class="active" id="confirm"></li>
-              </ul>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-              </div> <br> <!-- fieldsets -->
-              <fieldset id="success">
-                <div class="form-card">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="enrollForm-title">登録完了:</h2>
-                    </div>
-                    <div class="col-5">
-                      <h2 class="steps">ステップ 3 - 3</h2>
-                    </div>
-                  </div> <br><br>
-                  <h2 class="blue-text text-center"><strong>正常に登録されました!</strong></h2> <br>
-                  <div class="row justify-content-center">
-                    <div class="col-3">
-                      <img src="../assets/images/blue-tick.png" class="fit-image">
-                    </div>
-                  </div> <br><br>
-                  <div class="row justify-content-center">
-                    <div class="col-7 text-center">
-                      <h5 class="blue-text text-center">営業時間内（9時〜17時）にメールを送信します。お支払い情報についてはメールを確認してください。 </h5>
-                    </div>
+            <!-- progressbar -->
+            <ul id="progressbar">
+              <li class="active" id="personal"></li>
+              <li class="active" id="payment"></li>
+              <li class="active" id="confirm"></li>
+            </ul>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> <br> <!-- fieldsets -->
+            <fieldset id="success">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="enrollForm-title">登録完了:</h2>
                   </div>
-                  <div class="row justify-content-center mt-3">
-                    <a href="./jp-school.php" class="back-to-courses">クラスのスケジュールへ</a>
+                  <div class="col-5">
+                    <h2 class="steps">ステップ 3 - 3</h2>
+                  </div>
+                </div> <br><br>
+                <h2 class="blue-text text-center"><strong>正常に登録されました!</strong></h2> <br>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <img src="../assets/images/blue-tick.png" class="fit-image">
+                  </div>
+                </div> <br><br>
+                <div class="row justify-content-center">
+                  <div class="col-7 text-center">
+                    <h5 class="blue-text text-center">営業時間内（9時〜17時）にメールを送信します。お支払い情報についてはメールを確認してください。 </h5>
                   </div>
                 </div>
-              </fieldset>
+                <div class="row justify-content-center mt-3">
+                  <a href="./jp-school.php" class="back-to-courses">クラスのスケジュールへ</a>
+                </div>
+              </div>
+            </fieldset>
           </div>
         </div>
       </div>
@@ -253,6 +258,7 @@
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="../assets/js/jquery-3.6.0.js"></script>

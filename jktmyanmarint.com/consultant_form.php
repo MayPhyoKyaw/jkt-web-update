@@ -69,16 +69,22 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a href="./services.html" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              SERVICES <i class="fas fa-angle-down"></i>
+            <a href="#" class="nav-link" id="serviceNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              OUR BUSINESS <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="serviceNavbarDropdown">
-              <a class="dropdown-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
-              <a class="dropdown-item" href="./business.html">BUSINESS CONSULTANT</a>
-              <a class="dropdown-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <a class="dropdown-item category-title" href="./services.html">SERVICES</a>
+              <a class="dropdown-item nav-sub-item" href="./overseas.html">OVERSEAS EMPLOYMENT</a>
+              <a class="dropdown-item nav-sub-item" href="./business.html">BUSINESS CONSULTANT</a>
+              <a class="dropdown-item nav-sub-item" href="./travels.html">TRAVEL AND TOURS</a>
+              <hr class="nav-dropdown-hr nav-sub-item">
+              <a class="dropdown-item category-title" href="./trainings.html">TRAININGS</a>
+              <a class="dropdown-item nav-sub-item" href="./jp-school.php">JAPANESE LANGUAGE SCHOOL</a>
+              <a class="dropdown-item nav-sub-item" href="./digital-institute.php">DIGITAL INSTITUTE</a>
+              <a class="dropdown-item nav-sub-item" href="./announcement.html">HR TRAINING</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a href="./trainings.html" class="nav-link active" id="trainingNavbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
               TRAININGS <i class="fas fa-angle-down"></i>
             </a>
@@ -87,9 +93,16 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
               <a class="dropdown-item" href="./digital-institute.php">Digital Institute</a>
               <a class="dropdown-item" href="./announcement.html">HR TRAINING</a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="./contact.html" class="nav-link active"> CONTACT </a>
+          </li>
+          <li class="recruitment-li">
+            <a href="./recruitment.php">
+              <button class="recruitment-btn">
+                <img src="./assets/images/icon/job-search.png" width="20" height="20" />&nbsp; Jobs
+              </button>
+            </a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
@@ -174,11 +187,11 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
 
             <div class="pb-4 mb-2 appointment-date">
               <label class="appointment-label">
-                  Consultant Time <span class="consultant-required-tag">required &nbsp; *</span>
+                Consultant Time <span class="consultant-required-tag">required &nbsp; *</span>
               </label>
               <div class="date-picker">
                 <div class="input">
-                  <input type="text" class="result" name="appointment_date" placeholder="Select Date:" id="appointment_date" value="" required/>
+                  <input type="text" class="result" name="appointment_date" placeholder="Select Date:" id="appointment_date" value="" required />
                   <!-- <div class="result">Select Date: <span></span></div>  -->
                   <button onclick="event.preventDefault()"><i class="fa fa-calendar"></i></button>
                 </div>
@@ -216,15 +229,15 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
 
             <div class="pb-4 mb-2">
               <label for="description" id="description-label" class="appointment-label">About Your Consultant ? <span class="consultant-required-tag">required &nbsp; *</span></label><br />
-              <textarea placeholder="Enter About Your Consultant" id="description" name="about_consultant" class="appointment-textarea" rows="4" cols="50" ></textarea>
+              <textarea placeholder="Enter About Your Consultant" id="description" name="about_consultant" class="appointment-textarea" rows="4" cols="50"></textarea>
             </div>
 
             <div class="text-right">
-              <button id="submit" type="submit" class="appointment-button">Send Appointment</button>
+              <button id="appointmentSubmit" type="button" class="appointment-button">Send Appointment</button>
             </div>
           </form>
+        </div>
       </div>
-    </div>
   </section>
 
   <!-- The Confirmation Modal -->
@@ -250,10 +263,15 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
           <button type="button" class="btn-cancel" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn-submit" id="consultSubmit" data-dismiss="modal">Submit</button>
         </div>
-
       </div>
     </div>
   </div>
+
+  <!-- to top button -->
+  <button class="to-top-btn" id="toTop">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+  <!-- end to top button -->
 
   <!-- footer start -->
   <footer class="footer">
@@ -329,12 +347,11 @@ $response = isset($_SESSION["response"]) ? $_SESSION["response"] : null;
       </div>
     </div>
   </footer>
+  <div class="footer-copyright">Copyright © 2021 | JKT Myanmar International Co., Ltd.</div>
 
   <!-- script -->
   <script src="./assets/js/jquery-3.6.0.js"></script>
   <script src="./assets/js/jquery-ui-1.11.2.min.js"></script>
-  <script src="./assets/js/validation.js"></script>
-  <script src="./assets/js/additional-methods"></script>
   <script src="./assets/js/validation.js"></script>
   <script src="./assets/js/additional-methods"></script>
   <script src="./assets/js/popper.min.js"></script>
