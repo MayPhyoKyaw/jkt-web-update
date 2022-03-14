@@ -441,7 +441,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['location'] ?></td>
                                                             <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
                                                             <td><?= $row['updated_at'] ?></td>
-                                                            <td><button class="tb-btn tb-btn-edit" onclick="setCurrentJobEdit(this)" data-toggle="modal" data-target="#editingModal"><i class="fa fa-pencil"></i></button></td>
+                                                            <td><a class="tb-btn tb-btn-edit" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
                                                     <?php endwhile; ?>
