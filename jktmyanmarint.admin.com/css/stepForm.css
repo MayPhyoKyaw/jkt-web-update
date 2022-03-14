@@ -237,6 +237,22 @@ p.nxt-prev-button {
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
 }
+.action-btn-disabled {
+  width: 100px;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: not-allowed;
+  padding: 10px 5px;
+  margin: 0 5px;
+  background-color: #4087b6;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
 .action-button:hover,
 .action-button:focus {
   box-shadow: 0 0 0 2px white, 0 0 0 3px #5bafe7;
@@ -376,7 +392,6 @@ textarea {
   display: block;
   width: 60px;
   height: 34px;
-  
 }
 
 .switch input {
@@ -395,7 +410,6 @@ textarea {
   background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  
 }
 
 .slider:before {
@@ -520,7 +534,4 @@ input:checked + .slider:before {
   text-align: left;
   color: #888;
   font-size: medium;
-}
-.employ_error{
-
 }

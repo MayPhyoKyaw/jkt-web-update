@@ -228,7 +228,7 @@ $annual_income_row = mysqli_fetch_assoc($annual_income_result);
                                 <?php while ($row = mysqli_fetch_assoc($noti_result)) : ?>
                                     <a class="dropdown-item d-flex align-items-center" href="notiView.php?id=<?php echo $row["noti_id"] ?>">
                                         <div class="mr-3">
-                                            <?php if ($row["type"] == "PENDING_REQUEST") : ?>
+                                        <?php if ($row["type"] == "PENDING_REQUEST") : ?>
                                                 <div class="icon-circle bg-primary">
                                                     <i class="fas fa-user-plus text-white"></i>
                                                 </div>
@@ -240,6 +240,10 @@ $annual_income_row = mysqli_fetch_assoc($annual_income_result);
                                                 <div class="icon-circle bg-secondary">
                                                     <i class="fas fa-user-tie text-white"></i>
                                                 </div>
+                                            <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
+                                                <div class="icon-circle bg-info">
+                                                    <i class="fas fa-solid fa-briefcase text-white"></i>
+                                                </div>    
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>

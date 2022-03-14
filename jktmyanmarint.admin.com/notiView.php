@@ -226,23 +226,27 @@ if (!isset($_GET["id"])) {
                                     <a class="dropdown-item d-flex align-items-center" href="notiView.php?id=<?php echo $row['noti_id'] ?>">
                                         <div class="mr-3">
                                             <div class="icon-circle bg-primary">
-                                                <?php if ($row["type"] == "PENDING_REQUEST") : ?>
-                                                    <div class="icon-circle bg-primary">
-                                                        <i class="fas fa-user-plus text-white"></i>
-                                                    </div>
-                                                <?php elseif ($row["type"] == "PENDING_PAYMENT") : ?>
-                                                    <div class="icon-circle bg-success">
-                                                        <i class="fas fa-donate text-white"></i>
-                                                    </div>
-                                                <?php elseif ($row["type"] == "NEW_APPOINTMENT") : ?>
-                                                    <div class="icon-circle bg-secondary">
-                                                        <i class="fas fa-user-tie text-white"></i>
-                                                    </div>
-                                                <?php else :  ?>
-                                                    <div class="icon-circle bg-warning">
-                                                        <i class="fas fa-exclamation-triangle text-white"></i>
-                                                    </div>
-                                                <?php endif; ?>
+                                            <?php if ($row["type"] == "PENDING_REQUEST") : ?>
+                                                <div class="icon-circle bg-primary">
+                                                    <i class="fas fa-user-plus text-white"></i>
+                                                </div>
+                                            <?php elseif ($row["type"] == "PENDING_PAYMENT") : ?>
+                                                <div class="icon-circle bg-success">
+                                                    <i class="fas fa-donate text-white"></i>
+                                                </div>
+                                            <?php elseif ($row["type"] == "NEW_APPOINTMENT") : ?>
+                                                <div class="icon-circle bg-secondary">
+                                                    <i class="fas fa-user-tie text-white"></i>
+                                                </div>
+                                            <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
+                                                <div class="icon-circle bg-info">
+                                                    <i class="fas fa-solid fa-briefcase text-white"></i>
+                                                </div>    
+                                            <?php else :  ?>
+                                                <div class="icon-circle bg-warning">
+                                                    <i class="fas fa-exclamation-triangle text-white"></i>
+                                                </div>
+                                            <?php endif; ?>
                                             </div>
                                         </div>
                                         <div>

@@ -328,7 +328,7 @@ function setCurrentTypeDel(idx) {
 }
 
 // policy crud
-function setCurrentPolicyEdit(row,categoryId) {
+function setCurrentPolicyEdit(row, categoryId) {
   var tr = row.closest("tr");
   var tds = tr.children;
   var rowArr = [];
@@ -502,55 +502,57 @@ function setCurrentCourseEdit(event, row, catId, typeId) {
   // }
   instructor.value = rowArr[6] == "-" ? "" : rowArr[6];
   services.textContent = rowArr[10] == "-" ? "" : rowArr[10];
-  note.textContent = rowArr[12] == "-" ? "" : rowArr[12].replace(/\r?\n|\r/g, " ").trim();
+  note.textContent =
+    rowArr[12] == "-" ? "" : rowArr[12].replace(/\r?\n|\r/g, " ").trim();
 }
 
 // course edit new section
-btnAddSect && btnAddSect.addEventListener("click", function (event) {
-  event.preventDefault();
-  curSectionNo++;
-  var mainLabel = $(
-    `<label class='mb-2 d-block mt-3' class='sectionNo'>Section ${curSectionNo}</label>`
-  );
-
-  var chkbos = $(`<div class="row justify-content-between px-3 mt-2"></div>`);
-  for (const day of daysArr) {
-    var chkbox = $(
-      `<input type="checkbox" id="day${curSectionNo}${day.st}" value="${day.st}" name="days${curSectionNo}[]" class="day-chck">`
+btnAddSect &&
+  btnAddSect.addEventListener("click", function (event) {
+    event.preventDefault();
+    curSectionNo++;
+    var mainLabel = $(
+      `<label class='mb-2 d-block mt-3' class='sectionNo'>Section ${curSectionNo}</label>`
     );
-    var label = $(
-      `<label class="mb-0 mt-1" for="day${curSectionNo}${day.st}">${day.lg}</label>`
-    );
-    var chkbcontainer = $(
-      `<div class="custom-control custom-checkbox small days-checkbox form-day-check"></div>`
-    );
-    chkbcontainer.append(chkbox, label);
-    chkbos.append(chkbcontainer);
-  }
-  var timeLeft = $(`<div class=" input-left mb-3 mb-md-0"></div>`);
-  var stLabel = $(
-    `<label for="startTime${curSectionNo}">Class Starts At:<span class="my-required-field">Required*</span></label>`
-  );
-  var stTime = $(
-    `<input type="time" class="form-control" id="startTime${curSectionNo}" name="startTime${curSectionNo}" aria-describedby="startTimeField" />`
-  );
-  timeLeft.append(stLabel, stTime);
-  var timeRight = $(`<div class=" input-right"></div>`);
-  var endLabel = $(
-    `<label for="endTime${curSectionNo}">Class ends At:<span class="my-required-field">Required*</span></label>`
-  );
-  var endTime = $(
-    `<input type="time" class="form-control" id="endTime${curSectionNo}" name="endTime${curSectionNo}" aria-describedby="endTimeField" />`
-  );
-  timeRight.append(endLabel, endTime);
 
-  var timeContainer = $(
-    `<div class="mt-4 mb-3 mx-auto row justify-content-between"></div>`
-  );
-  timeContainer.append(timeLeft, timeRight);
+    var chkbos = $(`<div class="row justify-content-between px-3 mt-2"></div>`);
+    for (const day of daysArr) {
+      var chkbox = $(
+        `<input type="checkbox" id="day${curSectionNo}${day.st}" value="${day.st}" name="days${curSectionNo}[]" class="day-chck">`
+      );
+      var label = $(
+        `<label class="mb-0 mt-1" for="day${curSectionNo}${day.st}">${day.lg}</label>`
+      );
+      var chkbcontainer = $(
+        `<div class="custom-control custom-checkbox small days-checkbox form-day-check"></div>`
+      );
+      chkbcontainer.append(chkbox, label);
+      chkbos.append(chkbcontainer);
+    }
+    var timeLeft = $(`<div class=" input-left mb-3 mb-md-0"></div>`);
+    var stLabel = $(
+      `<label for="startTime${curSectionNo}">Class Starts At:<span class="my-required-field">Required*</span></label>`
+    );
+    var stTime = $(
+      `<input type="time" class="form-control" id="startTime${curSectionNo}" name="startTime${curSectionNo}" aria-describedby="startTimeField" />`
+    );
+    timeLeft.append(stLabel, stTime);
+    var timeRight = $(`<div class=" input-right"></div>`);
+    var endLabel = $(
+      `<label for="endTime${curSectionNo}">Class ends At:<span class="my-required-field">Required*</span></label>`
+    );
+    var endTime = $(
+      `<input type="time" class="form-control" id="endTime${curSectionNo}" name="endTime${curSectionNo}" aria-describedby="endTimeField" />`
+    );
+    timeRight.append(endLabel, endTime);
 
-  $("#timeSection").append($(`<hr />`), mainLabel, chkbos, timeContainer);
-});
+    var timeContainer = $(
+      `<div class="mt-4 mb-3 mx-auto row justify-content-between"></div>`
+    );
+    timeContainer.append(timeLeft, timeRight);
+
+    $("#timeSection").append($(`<hr />`), mainLabel, chkbos, timeContainer);
+  });
 
 // course detail show
 function setCurrentCourseDetail(row) {
@@ -629,8 +631,45 @@ function setCurrentCourseDel(event, idx) {
   // console.log(idx);
 }
 
+// SET CURRENT JOB DETAIL
+function jobDetail(event, row, createdAt, req, ben, memo, photos) {
+  $("#detailModal").modal("show");
+  event.stopPropagation();
+  var tds = row.children;
+  var rowArr = [];
+  for (var i = 0; i < tds.length; i++) {
+    rowArr.push(tds[i].textContent);
+  }
+  $("#detailJobId").text(rowArr[0]);
+  $("#detailJobTitle").text(rowArr[1]);
+  $("#detailCompany").text(rowArr[2]);
+  $("#detailType").text(rowArr[3]);
+  $("#detailWage").text(rowArr[4]);
+  $("#detailOverTime").text(rowArr[5]);
+  $("#detailHolidays").text(rowArr[6]);
+  $("#detailWorkingHr").text(rowArr[7]);
+  $("#detailBreakTime").text(rowArr[8]);
+  $("#detailLocation").text(rowArr[9]);
+  if (rowArr[10] == "✅") {
+    $("#detailAvailable").text("Available");
+    $("#detailAvailable").css({ backgroundColor: "#00B74A" });
+  } else {
+    $("#detailAvailable").text("Unavailable");
+    $("#detailAvailable").css({ backgroundColor: "#F93154" });
+  }
+  $("#detailCreatedAt").text(createdAt);
+  $("#detailUpdatedAt").text(rowArr[11]);
+  $("#detailReq").text(req);
+  $("#detailBen").text(ben);
+  $("#detailNote").text(memo);
+  $("#detailPhoto1").attr("src", "./backend/" + photos.split("|")[0]);
+  $("#detailPhoto2").attr("src", "./backend/" + photos.split("|")[1]);
+}
+
 // SET CURRENT DELETING ID JOB
-function setCurrentJobDel(idx) {
+function setCurrentJobDel(event, idx) {
+  $("#deletingModal").modal("show");
+  event.stopPropagation();
   jobIdDel.value = idx;
   console.log("setting");
 }
