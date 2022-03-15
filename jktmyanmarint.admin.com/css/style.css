@@ -617,7 +617,8 @@ canvas {
     color: #4e73df;
     font-size: 1em;
     font-weight: bold;
-    margin: 1.25em auto;
+    margin-right: 0px;
+    /* margin: 1.25em auto; */
     /*20px/16px 0*/
     overflow: hidden;
     padding: 0.5em 0.875em;
@@ -640,7 +641,7 @@ canvas {
 .fileUpload input.upload {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 100%;
     margin: 0 0 0 100%;
     padding: 0;
     font-size: 20px;
