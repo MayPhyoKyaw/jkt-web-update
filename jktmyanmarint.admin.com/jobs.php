@@ -34,6 +34,77 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .jd-top,
+        .jd-mid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .jd-mid p {
+            width: 50%;
+            text-align: left;
+        }
+
+        .jd-mid .left,
+        .jd-mid .middle {
+            margin-right: 20px;
+        }
+
+        .jd-mid .right {
+            margin-left: 20px;
+        }
+
+        .jd-mid label {
+            display: block;
+            font-weight: 600;
+        }
+
+        .jd-img {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+            margin-left: 30px;
+        }
+
+        .property {
+            width: 150px;
+        }
+
+        .value {
+            width: 250px;
+        }
+
+        .status-pillow {
+            padding: 5px 6px;
+            font-style: italic;
+            font-size: small;
+            color: #fff;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+        }
+
+        .borderless {
+            width: 400px;
+        }
+
+        .borderless td,
+        .borderless th {
+            border: none;
+        }
+
+        .addon {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -93,7 +164,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-graduation-cap"></i>
                     <span>Courses</span>
@@ -148,7 +219,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     <span>Consultants</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRecruitment" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <span>Recruitment</span>
@@ -219,7 +290,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <?php while ($row = mysqli_fetch_assoc($noti_result)) : ?>
                                     <a class="dropdown-item d-flex align-items-center" href="notiView.php?id=<?php echo $row["noti_id"] ?>">
                                         <div class="mr-3">
-                                            <?php if ($row["type"] == "PENDING_REQUEST") : ?>
+                                        <?php if ($row["type"] == "PENDING_REQUEST") : ?>
                                                 <div class="icon-circle bg-primary">
                                                     <i class="fas fa-user-plus text-white"></i>
                                                 </div>
@@ -231,6 +302,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <div class="icon-circle bg-secondary">
                                                     <i class="fas fa-user-tie text-white"></i>
                                                 </div>
+                                            <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
+                                                <div class="icon-circle bg-info">
+                                                    <i class="fas fa-solid fa-briefcase text-white"></i>
+                                                </div>    
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -353,7 +428,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 </thead>
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($en_result)) : ?>
-                                                        <tr>
+                                                        <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
                                                             <td><?= $row['company_name'] ?></td>
@@ -364,10 +439,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['working_hour'] ?></td>
                                                             <td><?= $row['breaktime'] ?></td>
                                                             <td><?= $row['location'] ?></td>
-                                                            <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;"?></td>
+                                                            <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
                                                             <td><?= $row['updated_at'] ?></td>
-                                                            <td><button class="tb-btn tb-btn-edit" onclick="setCurrentJobEdit(this)" data-toggle="modal" data-target="#editingModal"><i class="fa fa-pencil"></i></button></td>
-                                                            <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel('<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
+                                                            <td><a class="tb-btn tb-btn-edit" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
+                                                            <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
                                                     <?php endwhile; ?>
                                                 </tbody>
@@ -397,7 +472,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 </thead>
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($mm_result)) : ?>
-                                                        <tr>
+                                                        <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
                                                             <td><?= $row['company_name'] ?></td>
@@ -408,10 +483,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['working_hour'] ?></td>
                                                             <td><?= $row['breaktime'] ?></td>
                                                             <td><?= $row['location'] ?></td>
-                                                            <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;"?></td>
+                                                            <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
                                                             <td><?= $row['updated_at'] ?></td>
                                                             <td><button class="tb-btn tb-btn-edit" onclick="setCurrentJobEdit(this)" data-toggle="modal" data-target="#editingModal"><i class="fa fa-pencil"></i></button></td>
-                                                            <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(<?php echo $row['job_id'] ?>)" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
+                                                            <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
                                                     <?php endwhile; ?>
                                                 </tbody>
@@ -441,7 +516,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 </thead>
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($jp_result)) : ?>
-                                                        <tr>
+                                                        <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
                                                             <td><?= $row['company_name'] ?></td>
@@ -452,10 +527,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['working_hour'] ?></td>
                                                             <td><?= $row['breaktime'] ?></td>
                                                             <td><?= $row['location'] ?></td>
-                                                            <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;"?></td>
+                                                            <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
                                                             <td><?= $row['updated_at'] ?></td>
                                                             <td><button class="tb-btn tb-btn-edit" onclick="setCurrentJobEdit(this)" data-toggle="modal" data-target="#editingModal"><i class="fa fa-pencil"></i></button></td>
-                                                            <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(<?php echo $row['job_id'] ?>)" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
+                                                            <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
                                                     <?php endwhile; ?>
                                                 </tbody>
@@ -486,7 +561,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                         <div class="modal-body">
                             <form class="col-12" id="editingModal" action="backend/editJob.php" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="jobIdEdit" id="jobIdEdit">
-                                
+
                                 <hr />
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                 <input class="btn btn-primary" type="submit" value="Update">
@@ -522,6 +597,116 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     </div>
                 </div>
             </div>
+            <!-- detail modal -->
+            <div class="modal fade" id="detailModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title px-2">Job Detail</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mx-0">
+                                <div class="jd-top">
+                                    <table class="table text-left px-3 borderless">
+                                        <tbody>
+                                            <tr>
+                                            <tr class="property">
+                                                <td class="property">
+                                                    Job ID
+                                                </td>
+                                                <td class="value" id="detailJobId">
+                                                    ID
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="property">Job Title</td>
+                                                <td class="value" id="detailJobTitle">the Title</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="property">Company Name</td>
+                                                <td class="value" id="detailCompany">Company</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="property">Status</td>
+                                                <td class="value"><span id="detailAvailable" class="status-pillow">Unavailable</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="property">Created At</td>
+                                                <td class="value" id="detailCreatedAt">12/3/2022</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="property">Updated At</td>
+                                                <td class="value" id="detailUpdatedAt">18/3/2022</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <img id="detailPhoto1" alt="" class="jd-img">
+                                        <img id="detailPhoto2" alt="" class="jd-img">
+                                    </div>
+                                </div>
+                                <div class="jd-mid px-3 my-3">
+                                    <p class="left">
+                                        <label>Working Hours</label>
+                                        <span id="detailWorkingHr">Working Hours</span>
+                                    </p>
+                                    <p class="middle">
+                                        <label>Holidays</label>
+                                        <span id="detailHolidays">Holidays</span>
+                                    </p>
+                                    <p class="right">
+                                        <label class="text-danger">Break-time</label>
+                                        <span id="detailBreakTime">break-time</span>
+                                    </p>
+                                </div>
+                                <div class="jd-mid px-3 my-3">
+                                    <p class="left">
+                                        <label>Employment Type</label>
+                                        <span id="detailType"></span>
+                                    </p>
+                                    <p class="middle">
+                                        <label>Salary</label>
+                                        <span id="detailWage">100,000 Yen Monthly</span>
+                                    </p>
+                                    <p class="right">
+                                        <label class="text-warning">Over-time wage</label>
+                                        <span id="detailOverTime">3000 Yen Daily</span>
+                                    </p>
+                                </div>
+                                <hr />
+                                <div class="jd-mid px-3 my-3">
+                                    <p class="left">
+                                        <label>Requirements</label>
+                                        <span id="detailReq">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Dis parturient montes nascetur ridiculus. Egestas tellus rutrum tellus pellentesque eu tincidunt.</span>
+                                    </p>
+                                    <p class="right">
+                                        <label>Benefits</label>
+                                        <span id="detailBen">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Dis parturient montes nascetur ridiculus. Egestas tellus rutrum tellus pellentesque eu tincidunt.</span>
+                                    </p>
+                                </div>
+                                <hr />
+                                <div class="jd-mid px-3 my-3">
+                                    <p class="left">
+                                        <label>Work Location</label>
+                                        <span id="detailLocation">Egestas tellus rutrum tellus pellentesque eu tincidunt.</span>
+                                    </p>
+                                    <p class="right addon px-3 py-3">
+                                        <label class="text-success">Additional Note</label>
+                                        <span id="detailNote">Dis parturient montes nascetur ridiculus. Egestas tellus rutrum tellus pellentesque eu tincidunt.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer mr-3">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">

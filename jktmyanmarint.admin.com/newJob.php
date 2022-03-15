@@ -226,6 +226,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <div class="icon-circle bg-secondary">
                                                     <i class="fas fa-user-tie text-white"></i>
                                                 </div>
+                                            <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
+                                                <div class="icon-circle bg-info">
+                                                    <i class="fas fa-solid fa-briefcase text-white"></i>
+                                                </div>    
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -407,6 +411,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             </div>
                             <p class="nxt-prev-button"><input type="button" name="next" class="fs_next_btn action-button" value="Next" /></p>
                         </div>
+
+
                         <!-- Step 02 -->
                         <div class="multistep-box">
                             <div class="title-box">
@@ -518,7 +524,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <span id="jp_error_memo"></span>
                             </p>
                             <p class="nxt-prev-button"><input type="button" name="previous" class="previous action-button" value="Previous" />
-                                <input type="submit" name="submit" class="submit_btn ts_next_btn action-button" value="Submit" />
+                                <input name="submit" id="submitBtn" value="Submit" class="submit_btn ts_next_btn action-button" />
                             </p>
                         </div>
                     </form>
@@ -540,6 +546,34 @@ $noti_result = mysqli_query($conn, $get_notifications);
     </a>
 
     <!-- MODALS -->
+
+    <!-- CONFIRM Modal-->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ready to Submit Job Information?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Please click <span class="text-primary">Confirm</span> button to confirm informaiton and click <span class="text-secondary">Cancel</span> button to recheck the data.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" id="confirmBtn" type="submit" form="multistep_form">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- custom confirm modal -->
+
+    <!-- <div class="custom-confirm" id="customConfirm">
+        <div class="confirm-card">
+            <button class="confirm-now" id="confirmNow">Confirm</button>
+            <button class="cancel" id="confirmCancel">Cancel</button>
+        </div>
+    </div> -->
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1310,16 +1344,16 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
 
 
+
+    <!-- Core plugin JavaScript-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.js" type="text/javascript"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <script src="js/newJobStepForm.js"></script>

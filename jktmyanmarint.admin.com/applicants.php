@@ -75,7 +75,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
             <!-- Nav Item - Pages Collapse Menu -->
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="./students.php">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Students</span>
@@ -156,6 +156,22 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     <span>Consultants</span></a>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRecruitment" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <span>Recruitment</span>
+                </a>
+                <div id="collapseRecruitment" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="./jobs.php">
+                            <i class="fas fa-fw fa-suitcase"></i>
+                            <span>All jobs</span></a>
+                        <a class="collapse-item" href="./applicants.php">
+                            <i class="fas fa-fw fa-users"></i>
+                            <span>Applicants</span></a>
+                    </div>
+                </div>
+            </li>
             <hr class="sidebar-divider d-none d-md-block my-1">
 
             <li class="nav-item">
@@ -186,7 +202,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     </button>
 
                     <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search nav-title">
-                        <h3>Students</h3>
+                        <h3>Applicants</h3>
                     </div>
 
 
@@ -299,10 +315,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <!-- <th class="filter-link">Nrc</th> -->
                                                 <th>Gender</th>
                                                 <th>JLPT Level</th>
-                                                <!-- <th>Resume</th>
+                                                <th>Resume</th>
                                                 <th>Facebook Profile Link</th>
                                                 <th>Porfolio Link</th>
-                                                <th>Additional Note</th> -->
+                                                <th>Additional Note</th>
                                                 <th>created_at</th>
                                                 <th>updated_at</th>
                                                 <th>Edit</th>
@@ -315,7 +331,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             $applications_result = mysqli_query($jobs_db_conn, $get_applications);
                                             while ($row1 = mysqli_fetch_assoc($applications_result)) :
                                             ?>
-                                                <tr onclick="applicant_detail(this)" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                <tr onclick="applicantDetail(this,<?= $row1['applicant_id'] ?>,'<?= $row1['resume'] ?>','<?= $row1['fb_profile_link'] ?>','<?= $row1['porfolio_link'] ?>','<?= $row1['additional_note'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                     <td style="max-width : 100px;"><?= $row1['applicant_name'] ?></td>
                                                     <td><?= $row1['job_id'] ?></td>
                                                     <td><?= $row1['applicant_email'] ?></td>
@@ -335,7 +351,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                     </td>
                                                     <td><?= date('Y-m-d', strtotime($row1['created_at'])) ?></td>
                                                     <td><?= date('Y-m-d', strtotime($row1['updated_at'])) ?></td>
-                                                    <td><button class="tb-btn tb-btn-edit" onclick="applicant_edit(event,this,<?php echo $row1['applicant_id'] ?>)" data-toggle="modal" data-target="#editingApplicantModal"><i class="fa fa-pencil"></i></button></td>
+                                                    <td><button class="tb-btn tb-btn-edit" onclick="applicant_edit(event,this,<?php echo $row1['applicant_id'] ?>,'<?= $row1['resume'] ?>','<?= $row1['fb_profile_link'] ?>','<?= $row1['porfolio_link'] ?>','<?= $row1['additional_note'] ?>')" data-toggle="modal" data-target="#editingApplicantModal"><i class="fa fa-pencil"></i></button></td>
                                                     <td><button class="tb-btn tb-btn-delete" onclick="applicant_delete(event,this,<?php echo $row1['applicant_id'] ?>)" data-toggle="modal" data-target="#deletingApplicantModal"><i class="fa fa-trash"></button></i></td>
                                                 </tr>
                                             <?php endwhile; ?>
@@ -491,8 +507,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
                         <input type="hidden" name="applicantId" id="applicantId" />
                         <input type="hidden" name="createdAt" id="createdAt" />
                         <div class="form-group mb-4">
-                            <label for="applicantName">Enter Applicant Name<span class="my-required-field">Required*</span></label>
-                            <input type="text" name="applicantName" id="applicantName" class="form-control" required />
+                            <label for="applicantEditName">Enter Applicant Name<span class="my-required-field">Required*</span></label>
+                            <input type="text" name="applicantEditName" id="applicantEditName" class="form-control" required />
                         </div>
                         <div class="form-group mb-4">
                             <label for="jobId">Enter Job ID<span class="my-required-field">Required*</span></label>
@@ -531,8 +547,17 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             </select>
                         </div>
                         <div class="form-group mb-4">
-                            <label for="resume">Enter Resume</label>
-                            <input type="file" name="resume" id="resume" class="form-control resume" placeholder="University or High School" />
+                            <div class="form-control">
+                                <div class="fileUpload">
+                                    <input type="file" class="upload" />
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+                                    </svg>
+                                    <span>Upload</span>
+                                </div>
+                            </div>
+                            <!-- <label for="resume">Enter Resume</label>
+                            <input type="file" name="resume" id="resume" class=" resume" accept=".doc,.docx,.pdf,.xls,.xlsx" /> -->
                         </div>
                         <div class="form-group mb-4">
                             <label for="fbPfLink">Enter Facebook Profile Link</label>
@@ -567,10 +592,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>You are going to delete <span id="stuName" class="font-weight-bold"></span>.
+                    <p>You are going to delete <span id="applicantDelName" class="font-weight-bold"></span>.
                         This can't be undone. <span style="color: red; font-weight: bold; font-style: italic;">Are you sure to delete?</span></p>
                     <form action="backend/deleteApplicant.php" id="deleteApplicantForm" method="POST">
-                        <input type="hidden" name="applicantId" id="applicantId" />
+                        <input type="hidden" name="applicantDelId" id="applicantDelId" value="" />
                         <hr />
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <button class="btn btn-primary" type="submit">Delete</button>

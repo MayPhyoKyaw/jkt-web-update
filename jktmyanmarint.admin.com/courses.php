@@ -220,7 +220,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <?php while ($row = mysqli_fetch_assoc($noti_result)) : ?>
                                     <a class="dropdown-item d-flex align-items-center" href="notiView.php?id=<?php echo $row["noti_id"] ?>">
                                         <div class="mr-3">
-                                            <?php if ($row["type"] == "PENDING_REQUEST") : ?>
+                                        <?php if ($row["type"] == "PENDING_REQUEST") : ?>
                                                 <div class="icon-circle bg-primary">
                                                     <i class="fas fa-user-plus text-white"></i>
                                                 </div>
@@ -232,6 +232,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <div class="icon-circle bg-secondary">
                                                     <i class="fas fa-user-tie text-white"></i>
                                                 </div>
+                                            <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
+                                                <div class="icon-circle bg-info">
+                                                    <i class="fas fa-solid fa-briefcase text-white"></i>
+                                                </div>    
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -464,13 +468,13 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 </table>
                             </div>
                         </div>
-                        <!-- <div class="modal-footer row justify-content-between px-5 mx-2">
-                            <div>
+                        <div class="modal-footer px-5 mx-2">
+                            <!-- <div>
                                 <button class="tb-btn d-inline tb-btn-edit"><i class="fa fa-pencil mr-1"></i>Edit</button>
                                 <button class="tb-btn d-inline tb-btn-delete"><i class="fa fa-trash mr-1"></i>Delete</button>
-                            </div>
+                            </div> -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

@@ -168,6 +168,142 @@ function resize_image($file, $ext, $mHW)
 // EN_JOBS INSERT
 
 // Get Image Dimension
+// if (!file_exists($_FILES['photo_two']['tmp_name']) || !is_uploaded_file($_FILES['photo_two']['tmp_name'])) {
+//     $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
+//     $org_width1 = $fileinfo1[0];
+//     $org_height1 = $fileinfo1[1];
+//     $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
+//     $file1 = $_FILES['photo_one']['name'];
+
+//     if ($org_width1 > "150" || $org_height1 > "150") {
+//         if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
+//         $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
+//         move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
+
+//         if (resize_image("./" . $target1, $file_extension1, 150)) {
+//             // continue to insert to db cuz image upload succeed.
+//             $target2 = "nofile";
+//             $photos = $target1 . "|" . $target2;
+
+//             // eng table insert
+//             $en_sql = "INSERT INTO en_jobs(job_id, 
+//             photos, 
+//             company_name, 
+//             job_title, 
+//             employment_type, 
+//             job_type,
+//             wage, 
+//             overtime, 
+//             holidays, 
+//             working_hour, 
+//             breaktime, 
+//             requirements, 
+//             benefits, 
+//             location, 
+//             memo, 
+//             isavailable, 
+//             created_at, 
+//             updated_at) 
+//             VALUES ('$job_id','$photos','$eng_company_name','$eng_job_title','$emp_arr[0]','$job_arr[0]','$eng_wage','$eng_ot','$eng_holidays','$eng_workinghr','$eng_breaktime','$eng_requirements','$eng_benefits','$eng_location','$eng_memo',$isavailable,now(), now())";
+//             // echo $en_sql;
+//             mysqli_query($jobs_db_conn, $en_sql);
+
+//             // MM table insert
+//             $mm_sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+//             VALUES ('$job_id','$photos','$mm_company_name','$mm_job_title','$emp_arr[1]','$job_arr[1]','$mm_wage','$mm_ot','$mm_holidays','$mm_workinghr','$mm_breaktime','$mm_requirements','$mm_benefits','$mm_location','$mm_memo',$isavailable,now(), now())";
+//             // echo $mm_sql;
+//             mysqli_query($jobs_db_conn, $mm_sql);
+
+//             // JP table insert
+//             $jp_sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+//             VALUES ('$job_id','$photos','$jp_company_name','$jp_job_title','$emp_arr[2]','$job_arr[2]','$jp_wage','$jp_ot','$jp_holidays','$jp_workinghr','$jp_breaktime','$jp_requirements','$jp_benefits','$jp_location','$jp_memo',$isavailable,now(), now())";
+//             // echo $jp_sql;
+//             mysqli_query($jobs_db_conn, $jp_sql);
+//             header("location: ../jobs.php");
+//         } else {
+//             // echo "resize fail";
+//             header("location: ../jobs.php");
+//         }
+//     }
+// } else {
+//     $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
+//     $org_width1 = $fileinfo1[0];
+//     $org_height1 = $fileinfo1[1];
+//     $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
+//     $file1 = $_FILES['photo_one']['name'];
+
+//     $fileinfo2 = @getimagesize($_FILES["photo_two"]["tmp_name"]);
+//     $org_width2 = $fileinfo2[0];
+//     $org_height2 = $fileinfo2[1];
+//     $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
+//     $file2 = $_FILES['photo_two']['name'];
+
+//     if ($org_width1 > "150" || $org_height1 > "150") {
+//         if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
+//         $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
+//         move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
+
+//         if (resize_image("./" . $target1, $file_extension1, 150)) {
+//             // continue to insert to db cuz image upload succeed.
+//             if ($org_width2 > "150" || $org_height2 > "150") {
+//                 if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
+//                 $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
+//                 move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
+
+//                 if (resize_image("./" . $target2, $file_extension2, 150)) {
+//                     // continue to insert to db cuz image upload succeed.
+
+//                     $photos = $target1 . "|" . $target2;
+
+//                     // eng table insert
+//                     $en_sql = "INSERT INTO en_jobs(job_id, 
+//                     photos, 
+//                     company_name, 
+//                     job_title, 
+//                     employment_type, 
+//                     job_type,
+//                     wage, 
+//                     overtime, 
+//                     holidays, 
+//                     working_hour, 
+//                     breaktime, 
+//                     requirements, 
+//                     benefits, 
+//                     location, 
+//                     memo, 
+//                     isavailable, 
+//                     created_at, 
+//                     updated_at) 
+//                     VALUES ('$job_id','$photos','$eng_company_name','$eng_job_title','$emp_arr[0]','$job_arr[0]','$eng_wage','$eng_ot','$eng_holidays','$eng_workinghr','$eng_breaktime','$eng_requirements','$eng_benefits','$eng_location','$eng_memo',$isavailable,now(), now())";
+//                     // echo $en_sql;
+//                     mysqli_query($jobs_db_conn, $en_sql);
+
+//                     // MM table insert
+//                     $mm_sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+//                     VALUES ('$job_id','$photos','$mm_company_name','$mm_job_title','$emp_arr[1]','$job_arr[1]','$mm_wage','$mm_ot','$mm_holidays','$mm_workinghr','$mm_breaktime','$mm_requirements','$mm_benefits','$mm_location','$mm_memo',$isavailable,now(), now())";
+//                     // echo $mm_sql;
+//                     mysqli_query($jobs_db_conn, $mm_sql);
+
+//                     // JP table insert
+//                     $jp_sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+//                     VALUES ('$job_id','$photos','$jp_company_name','$jp_job_title','$emp_arr[2]','$job_arr[2]','$jp_wage','$jp_ot','$jp_holidays','$jp_workinghr','$jp_breaktime','$jp_requirements','$jp_benefits','$jp_location','$jp_memo',$isavailable,now(), now())";
+//                     // echo $jp_sql;
+//                     mysqli_query($jobs_db_conn, $jp_sql);
+//                     header("location: ../jobs.php");
+//                 } else {
+//                     // echo "resize fail";
+//                     header("location: ../jobs.php");
+//                 }
+//             }
+//         } else {
+//             // echo "resize fail";
+//             header("location: ../jobs.php");
+//         }
+//     }
+// }
+
+
+
 if (!file_exists($_FILES['photo_two']['tmp_name']) || !is_uploaded_file($_FILES['photo_two']['tmp_name'])) {
     $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
     $org_width1 = $fileinfo1[0];
@@ -184,20 +320,41 @@ if (!file_exists($_FILES['photo_two']['tmp_name']) || !is_uploaded_file($_FILES[
             // continue to insert to db cuz image upload succeed.
             $target2 = "nofile";
             $photos = $target1 . "|" . $target2;
-            
-            // ENG table insert
-            $sql = "INSERT INTO en_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
-                    VALUES ('$job_id','$photos','$eng_company_name','$eng_job_title','$emp_arr[0]','$job_arr[0]','$eng_wage','$eng_ot','$eng_holidays','$eng_workinghr','$eng_breaktime','$eng_requirements','$eng_benefits','$eng_location','$eng_memo',$isavailable,now(), now())";
-            
+
+            // eng table insert
+            $en_sql = "INSERT INTO en_jobs(job_id, 
+            photos, 
+            company_name, 
+            job_title, 
+            employment_type, 
+            job_type,
+            wage, 
+            overtime, 
+            holidays, 
+            working_hour, 
+            breaktime, 
+            requirements, 
+            benefits, 
+            location, 
+            memo, 
+            isavailable, 
+            created_at, 
+            updated_at) 
+            VALUES ('$job_id','$photos','$eng_company_name','$eng_job_title','$emp_arr[0]','$job_arr[0]','$eng_wage','$eng_ot','$eng_holidays','$eng_workinghr','$eng_breaktime','$eng_requirements','$eng_benefits','$eng_location','$eng_memo',$isavailable,now(), now())";
+            // echo $en_sql;
+            mysqli_query($jobs_db_conn, $en_sql);
+
             // MM table insert
-            $sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+            $mm_sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
             VALUES ('$job_id','$photos','$mm_company_name','$mm_job_title','$emp_arr[1]','$job_arr[1]','$mm_wage','$mm_ot','$mm_holidays','$mm_workinghr','$mm_breaktime','$mm_requirements','$mm_benefits','$mm_location','$mm_memo',$isavailable,now(), now())";
+            // echo $mm_sql;
+            mysqli_query($jobs_db_conn, $mm_sql);
 
             // JP table insert
-            $sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+            $jp_sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
             VALUES ('$job_id','$photos','$jp_company_name','$jp_job_title','$emp_arr[2]','$job_arr[2]','$jp_wage','$jp_ot','$jp_holidays','$jp_workinghr','$jp_breaktime','$jp_requirements','$jp_benefits','$jp_location','$jp_memo',$isavailable,now(), now())";
-
-            mysqli_query($jobs_db_conn, $sql);
+            // echo $jp_sql;
+            mysqli_query($jobs_db_conn, $jp_sql);
             header("location: ../jobs.php");
         } else {
             // echo "resize fail";
@@ -235,7 +392,7 @@ if (!file_exists($_FILES['photo_two']['tmp_name']) || !is_uploaded_file($_FILES[
                     $photos = $target1 . "|" . $target2;
 
                     // eng table insert
-                    $sql = "INSERT INTO en_jobs(job_id, 
+                    $en_sql = "INSERT INTO en_jobs(job_id, 
                     photos, 
                     company_name, 
                     job_title, 
@@ -254,17 +411,20 @@ if (!file_exists($_FILES['photo_two']['tmp_name']) || !is_uploaded_file($_FILES[
                     created_at, 
                     updated_at) 
                     VALUES ('$job_id','$photos','$eng_company_name','$eng_job_title','$emp_arr[0]','$job_arr[0]','$eng_wage','$eng_ot','$eng_holidays','$eng_workinghr','$eng_breaktime','$eng_requirements','$eng_benefits','$eng_location','$eng_memo',$isavailable,now(), now())";
-                    mysqli_query($jobs_db_conn, $sql);
-                    
+                    // echo $en_sql;
+                    mysqli_query($jobs_db_conn, $en_sql);
+
                     // MM table insert
-                    $sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+                    $mm_sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
                     VALUES ('$job_id','$photos','$mm_company_name','$mm_job_title','$emp_arr[1]','$job_arr[1]','$mm_wage','$mm_ot','$mm_holidays','$mm_workinghr','$mm_breaktime','$mm_requirements','$mm_benefits','$mm_location','$mm_memo',$isavailable,now(), now())";
-                    mysqli_query($jobs_db_conn, $sql);
-                    
+                    // echo $mm_sql;
+                    mysqli_query($jobs_db_conn, $mm_sql);
+
                     // JP table insert
-                    $sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
+                    $jp_sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) 
                     VALUES ('$job_id','$photos','$jp_company_name','$jp_job_title','$emp_arr[2]','$job_arr[2]','$jp_wage','$jp_ot','$jp_holidays','$jp_workinghr','$jp_breaktime','$jp_requirements','$jp_benefits','$jp_location','$jp_memo',$isavailable,now(), now())";
-                    mysqli_query($jobs_db_conn, $sql);
+                    // echo $jp_sql;
+                    mysqli_query($jobs_db_conn, $jp_sql);
                     header("location: ../jobs.php");
                 } else {
                     // echo "resize fail";
@@ -277,5 +437,3 @@ if (!file_exists($_FILES['photo_two']['tmp_name']) || !is_uploaded_file($_FILES[
         }
     }
 }
-
-// header("location: ../jobs.php");

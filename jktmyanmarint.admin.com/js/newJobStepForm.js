@@ -6,6 +6,7 @@ var error = false;
 var wageParent = $("#eng_wage_parent");
 var curWageType = 1;
 
+$("#customConfirm").css({ display: "none" });
 // TEXTAREA INPUT KEY DOWN PREVENT
 $(".no-keydown").keydown(function (e) {
   e.preventDefault();
@@ -629,6 +630,7 @@ $(".ts_next_btn").click(function () {
     $("#jp_error_job_title").text("Please enter job title.");
     $("#jp_job_title").addClass("box_error");
     error = true;
+    $(".submit_btn").prop("disabled", true);
   }
   if ($("#jp_wage").val() == "") {
     $("#jp_error_wage").text("Please enter wage.");
@@ -688,37 +690,42 @@ $(".ts_next_btn").click(function () {
     $("#progress_header li img")
       .eq($(".multistep-box").index(next_slide))
       .addClass("versionFlag-active");
-    next_slide.show();
-    current_slide.animate(
-      {
-        opacity: 0,
-      },
-      {
-        step: function (now, mx) {
-          scale = 1 - (1 - now) * 0.2;
-          left = now * 50 + "%";
-          opacity = 1 - now;
-          current_slide.css({
-            transform: "scale(" + scale + ")",
-          });
-          next_slide.css({
-            left: left,
-            opacity: opacity,
-          });
-        },
-        duration: 800,
-        complete: function () {
-          current_slide.hide();
-          animation = false;
-        },
-        easing: "easeInOutBack",
-      }
-    );
+    // next_slide.show();
+    // current_slide.animate(
+    //   {
+    //     opacity: 0,
+    //   },
+    //   {
+    //     step: function (now, mx) {
+    //       scale = 1 - (1 - now) * 0.2;
+    //       left = now * 50 + "%";
+    //       opacity = 1 - now;
+    //       current_slide.css({
+    //         transform: "scale(" + scale + ")",
+    //       });
+    //       next_slide.css({
+    //         left: left,
+    //         opacity: opacity,
+    //       });
+    //     },
+    //     duration: 800,
+    //     complete: function () {
+    //       current_slide.hide();
+    //       animation = false;
+    //     },
+    //     easing: "easeInOutBack",
+    //   }
+    // );
+  } else {
+    $(".submit_btn").prop("disabled", true);
+    $(".submit_btn").removeClass("action-button");
+    $(".submit_btn").addClass("action-btn-disabled");
   }
 });
 // previous
 $(".previous").click(function () {
-  if (animation) return false;
+  console.log("go previous");
+  // if (animation) return false;
   animation = true;
 
   current_slide = $(this).parent().parent();
@@ -758,9 +765,19 @@ $(".previous").click(function () {
   );
 });
 
-$(".submit_btn").click(function () {
-  $("#multistep_form").submit();
+$("#submitBtn").click(function (e) {
+  console.log("stop submit");
+  e.preventDefault();
+  if (CheckAll()) {
+    $("#confirmModal").modal("show");
+  } else {
+    // do not show modal
+  }
 });
+// $("#confirmCancel").click(function (e) {
+//   $("#customConfirm").css({ display: "none" });
+// });
+
 
 // ADD NEW BUTTON FROM ENG VERSION
 $("#EngAddNewWage").click(function (event) {
@@ -881,6 +898,31 @@ function removeWageType(el) {
   $(el).parent().parent().remove();
 }
 
+// FUNCTION TO CHECK ALL ERROR FIEL VALID
+function CheckAll() {
+  if (
+    $("#jp_company_name").val() == "" ||
+    $("#jp_job_title").val() == "" ||
+    $("#jp_wage").val() == "" ||
+    $("#jp_holidays").val() == "" ||
+    $("#jp_workinghr").val() == "" ||
+    $("#jp_breaktime").val() == "" ||
+    $("#jp_requirements").val() == "" ||
+    $("#jp_benefits").val() == "" ||
+    $("#jp_location").val() == ""
+  ) {
+    $(".submit_btn").prop("disabled", true);
+    $(".submit_btn").removeClass("action-button");
+    $(".submit_btn").addClass("action-btn-disabled");
+    return false;
+  } else {
+    $(".submit_btn").prop("disabled", false);
+    $(".submit_btn").removeClass("action-btn-disabled");
+    $(".submit_btn").addClass("action-button");
+    return true;
+  }
+}
+
 // TEXTAREA RETURN VALUE TO FORM METHODS
 
 // JOB ID
@@ -936,6 +978,7 @@ function addTextToNameJp() {
     $("#jp_company_name").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // JOB TITLE
@@ -977,6 +1020,7 @@ function addTextToTitleJp() {
     $("#jp_job_title").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // WAGE
@@ -1018,6 +1062,7 @@ function addTextToWageJp() {
     $("#jp_wage").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 // WAGE
 function addTextToWageEng() {
@@ -1058,6 +1103,7 @@ function addTextToWageJp() {
     $("#jp_wage").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // OVERTIME PAYMENT
@@ -1113,6 +1159,7 @@ function addTextToHolidaysJp() {
     $("#jp_holidays").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // WORKING HOURS
@@ -1154,6 +1201,7 @@ function addTextToWorkinghrJp() {
     $("#jp_workinghr").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 // BREAK TIME
 function addTextToBreaktimeEng() {
@@ -1194,6 +1242,7 @@ function addTextToBreaktimeJp() {
     $("#jp_breaktime").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // REQUIREMENTS
@@ -1236,6 +1285,7 @@ function addTextToReqJp() {
     $("#jp_requirements").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // BENEFITS
@@ -1277,6 +1327,7 @@ function addTextToBenJp() {
     $("#jp_benefits").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // Work Location
@@ -1318,6 +1369,7 @@ function addTextToLocationJp() {
     $("#jp_location").removeClass("box_error");
     error = false;
   }
+  CheckAll();
 }
 
 // MEMO
