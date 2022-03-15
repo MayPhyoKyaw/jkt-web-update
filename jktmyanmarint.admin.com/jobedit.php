@@ -11,20 +11,20 @@ $get_job_en = "SELECT * FROM en_jobs WHERE job_id='$jobId'";
 $get_job_mm = "SELECT * FROM mm_jobs WHERE job_id='$jobId'";
 $get_job_jp = "SELECT * FROM jp_jobs WHERE job_id='$jobId'";
 
-$result_en = mysqli_query($jobs_db_conn,$get_job_en);
-$result_mm = mysqli_query($jobs_db_conn,$get_job_mm);
-$result_jp = mysqli_query($jobs_db_conn,$get_job_jp);
+$result_en = mysqli_query($jobs_db_conn, $get_job_en);
+$result_mm = mysqli_query($jobs_db_conn, $get_job_mm);
+$result_jp = mysqli_query($jobs_db_conn, $get_job_jp);
 
 
-while ($row = mysqli_fetch_assoc($result_en)){
+while ($row = mysqli_fetch_assoc($result_en)) {
     $en_result = $row;
 }
 
-while ($row = mysqli_fetch_assoc($result_mm)){
+while ($row = mysqli_fetch_assoc($result_mm)) {
     $mm_result = $row;
 }
 
-while ($row = mysqli_fetch_assoc($result_jp)){
+while ($row = mysqli_fetch_assoc($result_jp)) {
     $jp_result = $row;
 }
 
@@ -267,7 +267,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                                             <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
                                                 <div class="icon-circle bg-info">
                                                     <i class="fas fa-solid fa-briefcase text-white"></i>
-                                                </div>    
+                                                </div>
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -322,7 +322,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
 
                 <!-- Begin Page Content -->
                 <div class="container">
-                    <form id="multistep_form" action="./backend/newJob.php" method="POST" enctype="multipart/form-data">
+                    <form id="multistep_form" action="./backend/editJob.php" method="POST" enctype="multipart/form-data">
                         <!-- progressbar -->
                         <ul id="progress_header">
                             <li><img src="./img/ukFlag.png" alt="" class="versionFlag versionFlag-active"></li>
@@ -331,6 +331,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                         </ul>
                         <!-- Step 01 -->
                         <div class="multistep-box">
+                            <input type="hidden" id="h_photos" name="h_photos" value="<?= $en_result['photos'] ?>" />
                             <div class="title-box">
                                 <h2>Fill In English</h2>
                             </div>
@@ -356,69 +357,84 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                             </p>
                             <hr />
                             <p>
-                                <textarea class="no-keydown" name="job_id" placeholder="Job ID" id="job_id" data-toggle="modal" data-target="#JobIdInput"><?= $en_result['job_id'] ?></textarea>
+                                <input type="hidden" name="job_id" id="job_id" value="<?= $en_result['job_id'] ?>">
+                                <label>Job ID</label>
+                                <textarea class="no-keydown disabled-text" placeholder="Job ID" data-toggle="modal" data-target="#JobIdInput" disabled><?= $en_result['job_id'] ?></textarea>
                                 <span id="error_job_id"></span>
                             </p>
                             <p>
-                                <textarea class="no-keydown" name="eng_company_name" placeholder="Company Name" id="eng_company_name" data-toggle="modal" data-target="#EngNameInput"><?= $en_result['company_name'] ?></textarea>
-                                <span id="eng_error_company_name"></span>
-                            </p>
-                            <p>
+                                <label for="eng_job_title">Job Title</label>
                                 <textarea class="no-keydown" name="eng_job_title" placeholder="Job Title" id="eng_job_title" data-toggle="modal" data-target="#EngTitleInput"><?= $en_result['job_title'] ?></textarea>
                                 <span id="eng_error_job_title"></span>
                             </p>
-                            <div class="my-3">
+                            <p>
+                                <label for="eng_company_name">Company Name</label>
+                                <textarea class="no-keydown" name="eng_company_name" placeholder="Company Name" id="eng_company_name" data-toggle="modal" data-target="#EngNameInput"><?= $en_result['company_name'] ?></textarea>
+                                <span id="eng_error_company_name"></span>
+                            </p>
+                            <div class="my-3 text-left">
+                                <label>Job Type</label>
                                 <div class="employment-container">
                                     <label for="it">IT</label>
-                                    <input class="radio-input" type="radio" id="it" value="IT-mm-jp" name="job_type" <?php if($en_result['job_type'] == "IT") echo "checked='checked'"?>>
+                                    <input class="radio-input" type="radio" id="it" value="IT-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "IT") echo "checked='checked'" ?>>
                                     <label for="tokutei" class="ml-4">Tokukeiginou</label>
-                                    <input class="radio-input" type="radio" id="tokutei" value="Tokutei-mm-jp" name="job_type" <?php if($en_result['job_type'] == "Tokutei") echo "checked='checked'" ?>>
+                                    <input class="radio-input" type="radio" id="tokutei" value="Tokutei-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "Tokutei") echo "checked='checked'" ?>>
                                     <label for="general" class="ml-4">General</label>
-                                    <input class="radio-input" type="radio" id="general" value="General-mm-jp" name="job_type" <?php if($en_result['job_type'] == "General") echo "checked='checked'" ?>>
+                                    <input class="radio-input" type="radio" id="general" value="General-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "General") echo "checked='checked'" ?>>
                                 </div>
                             </div>
-                            <div class="my-3">
+                            <div class="my-3 text-left">
+                                <label>Employment Type</label>
                                 <div class="employment-container">
                                     <label for="permanent">Permanent</label>
-                                    <input class="radio-input" type="radio" id="permanent" value="Permanent-mm-jp" name="employment_type" <?php if($en_result['employment_type'] == "Permanent") echo "checked='checked'"?>>
+                                    <input class="radio-input" type="radio" id="permanent" value="Permanent-mm-jp" name="employment_type" <?php if ($en_result['employment_type'] == "Permanent") echo "checked='checked'" ?>>
                                     <label for="contract" class="ml-4">Contract</label>
-                                    <input class="radio-input" type="radio" id="contract" value="Contract-mm-jp" name="employment_type" <?php if($en_result['employment_type'] == "Contract") echo "checked='checked'"?>>
+                                    <input class="radio-input" type="radio" id="contract" value="Contract-mm-jp" name="employment_type" <?php if ($en_result['employment_type'] == "Contract") echo "checked='checked'" ?>>
                                 </div>
                             </div>
-                            <div class="my-3">
+                            <div class="my-3 text-left">
+                                <label for="eng_wage">Wage</label>
                                 <textarea class="no-keydown" name="eng_wage" placeholder="Wage in YEN (eg. 10,000)" id="eng_wage" class="input-number" data-toggle="modal" data-target="#EngWageInput"><?= $en_result['wage'] ?></textarea>
                                 <span id="eng_error_wage" class="d-block text-left"></span>
                             </div>
                             <p class="my-3">
+                                <label for="eng_ot">Overtime Wage</label>
                                 <textarea class="no-keydown ta-input" name="eng_ot" id="eng_ot" placeholder="Overtime payment" data-toggle="modal" data-target="#EngOtInput"><?= $en_result['overtime'] ?></textarea>
                                 <!-- <span id="eng_error_ot">asdasd</span> -->
                             </p>
                             <p class="my-3">
+                                <label for="eng_holidays">Holidays</label>
                                 <textarea class="no-keydown ta-input" name="eng_holidays" id="eng_holidays" placeholder="Holidays (Eg. Sat, Sun, Public holidays)" data-toggle="modal" data-target="#EngHolidaysInput"><?= $en_result['holidays'] ?></textarea>
                                 <span id="eng_error_holidays"></span>
                             </p>
                             <p class="my-3">
+                                <label for="eng_workinghr">Working Hour</label>
                                 <textarea class="no-keydown ta-input" name="eng_workinghr" id="eng_workinghr" placeholder="Working Hour (Eg. 9:00 AM ~ 5:00 PM)" data-toggle="modal" data-target="#EngWorkinghrInput"><?= $en_result['working_hour'] ?></textarea>
                                 <span id="eng_error_workinghr"></span>
                             </p>
                             <p class="my-3">
+                                <label for="eng_breaktime">Breaktime</label>
                                 <textarea class="no-keydown ta-input" name="eng_breaktime" id="eng_breaktime" placeholder="Break Time (Eg. 12:00 PM ~ 1:00 PM)" data-toggle="modal" data-target="#EngBreakTimeInput"><?= $en_result['breaktime'] ?></textarea>
                                 <span id="eng_error_breaktime"></span>
                             </p>
                             <p class="my-3">
+                                <label for="eng_requirements">Requirements</label>
                                 <textarea class="no-keydown ta-input" name="eng_requirements" id="eng_requirements" data-toggle="modal" data-target="#EngtextAreaInputReq" placeholder="Requirements"><?= $en_result['requirements'] ?></textarea>
                                 <span id="eng_error_requirements"></span>
                             </p>
                             <p class="my-3">
+                                <label for="eng_benefits">Benefits</label>
                                 <textarea class="no-keydown ta-input" name="eng_benefits" id="eng_benefits" data-toggle="modal" data-target="#EngtextAreaInputBen" placeholder="Benefits"><?= $en_result['benefits'] ?></textarea>
                                 <span id="eng_error_benefits"></span>
                             </p>
                             <p class="my-3">
+                                <label for="eng_location">Location</label>
                                 <textarea class="no-keydown ta-input" rows="4" name="eng_location" id="eng_location" placeholder="Company Address" data-toggle="modal" data-target="#EngLocationInput"><?= $en_result['location'] ?></textarea>
                                 <span id="eng_error_location"></span>
                             </p>
 
                             <p class="my-3">
+                                <label for="eng_memo">Additional Note</label>
                                 <textarea class="no-keydown ta-input" rows="4" name="eng_memo" id="eng_memo" placeholder="Any additional note" data-toggle="modal" data-target="#EngMemoInput"><?= $en_result['memo'] ?></textarea>
                                 <span id="eng_error_memo"></span>
                             </p>
@@ -441,7 +457,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                                     <p class="switch">
                                         <!-- isremote -->
                                         <label>
-                                            <input type="checkbox" name="available" <?php if($en_result['isavailable'] == 1) echo "checked='checked'"?>>
+                                            <input type="checkbox" name="available" <?php if ($en_result['isavailable'] == 1) echo "checked='checked'" ?>>
                                             <span class="slider round"></span>
                                         </label>
                                     </p>
@@ -458,49 +474,60 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                             </div>
 
                             <p>
-                                <textarea class="no-keydown" name="mm_company_name" placeholder="ကုမ္ပဏီအမည်" id="mm_company_name" data-toggle="modal" data-target="#MmNameInput"></textarea>
+                                <label for="mm_company_name">label</label>
+                                <textarea class="no-keydown" name="mm_company_name" placeholder="ကုမ္ပဏီအမည်" id="mm_company_name" data-toggle="modal" data-target="#MmNameInput"><?= $mm_result['company_name'] ?></textarea>
                                 <span id="mm_error_company_name"></span>
                             </p>
                             <p>
-                                <textarea class="no-keydown" name="mm_job_title" placeholder="အလုပ်အကိုင်အမည်" id="mm_job_title" data-toggle="modal" data-target="#MmTitleInput"></textarea>
+                                <label for="mm_job_title">label</label>
+                                <textarea class="no-keydown" name="mm_job_title" placeholder="အလုပ်အကိုင်အမည်" id="mm_job_title" data-toggle="modal" data-target="#MmTitleInput"><?= $mm_result['job_title'] ?></textarea>
                                 <span id="mm_error_job_title"></span>
                             </p>
 
-                            <div class="my-3">
-                                <textarea class="no-keydown" name="mm_wage" placeholder="လုပ်အားခ (ဥပမာ. ၁၀,၀၀၀ ယန်း)" id="mm_wage" class="input-number" data-toggle="modal" data-target="#MmWageInput"></textarea>
+                            <div class="my-3 text-left">
+                                <label for="mm_wage">label</label>
+                                <textarea class="no-keydown" name="mm_wage" placeholder="လုပ်အားခ (ဥပမာ. ၁၀,၀၀၀ ယန်း)" id="mm_wage" class="input-number" data-toggle="modal" data-target="#MmWageInput"><?= $mm_result['wage'] ?></textarea>
                                 <span id="mm_error_wage" class="d-block text-left"></span>
                             </div>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="mm_ot" id="mm_ot" placeholder="အချိန်ပိုလုပ်အားခ" data-toggle="modal" data-target="#MmOtInput"></textarea>
+                                <label for="mm_ot">label</label>
+                                <textarea class="no-keydown ta-input" name="mm_ot" id="mm_ot" placeholder="အချိန်ပိုလုပ်အားခ" data-toggle="modal" data-target="#MmOtInput"><?= $mm_result['overtime'] ?></textarea>
                                 <!-- <span id="mm_error_ot">asdasd</span> -->
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="mm_holidays" id="mm_holidays" placeholder="အားလပ်ရက်များ (ဥပမာ စနေ၊ နေ၊ အစိုးရရုံးပိတ်ရက်)" data-toggle="modal" data-target="#MmHolidaysInput"></textarea>
+                                <label for="mm_holidays">label</label>
+                                <textarea class="no-keydown ta-input" name="mm_holidays" id="mm_holidays" placeholder="အားလပ်ရက်များ (ဥပမာ စနေ၊ နေ၊ အစိုးရရုံးပိတ်ရက်)" data-toggle="modal" data-target="#MmHolidaysInput"><?= $mm_result['holidays'] ?></textarea>
                                 <span id="mm_error_holidays"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="mm_workinghr" id="mm_workinghr" placeholder="အလုပ်ချိန် (ဥပမာ မနက် ၉:၀၀ ~ ညနေ ၅:၀၀)" data-toggle="modal" data-target="#MmWorkinghrInput"></textarea>
+                                <label for="mm_workinghr">label</label>
+                                <textarea class="no-keydown ta-input" name="mm_workinghr" id="mm_workinghr" placeholder="အလုပ်ချိန် (ဥပမာ မနက် ၉:၀၀ ~ ညနေ ၅:၀၀)" data-toggle="modal" data-target="#MmWorkinghrInput"><?= $mm_result['working_hour'] ?></textarea>
                                 <span id="mm_error_workinghr"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="mm_breaktime" id="mm_breaktime" placeholder="နားချိန် (ဥပမာ နေ့လည် ၁၂:၀၀ ~ နေ့လည် ၁:၀၀)" data-toggle="modal" data-target="#MmBreakTimeInput"></textarea>
+                                <label for="mm_breaktime">label</label>
+                                <textarea class="no-keydown ta-input" name="mm_breaktime" id="mm_breaktime" placeholder="နားချိန် (ဥပမာ နေ့လည် ၁၂:၀၀ ~ နေ့လည် ၁:၀၀)" data-toggle="modal" data-target="#MmBreakTimeInput"><?= $mm_result['breaktime'] ?></textarea>
                                 <span id="mm_error_breaktime"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="mm_requirements" id="mm_requirements" data-toggle="modal" data-target="#MmtextAreaInputReq" placeholder="လိုအပ်ချက်များ"></textarea>
+                                <label for="mm_requirements">label</label>
+                                <textarea class="no-keydown ta-input" name="mm_requirements" id="mm_requirements" data-toggle="modal" data-target="#MmtextAreaInputReq" placeholder="လိုအပ်ချက်များ"><?= $mm_result['requirements'] ?></textarea>
                                 <span id="mm_error_requirements"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="mm_benefits" id="mm_benefits" data-toggle="modal" data-target="#MmtextAreaInputBen" placeholder="Benefits"></textarea>
+                                <label for="mm_benefits">label</label>
+                                <textarea class="no-keydown ta-input" name="mm_benefits" id="mm_benefits" data-toggle="modal" data-target="#MmtextAreaInputBen" placeholder="Benefits"><?= $mm_result['benefits'] ?></textarea>
                                 <span id="mm_error_benefits"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" rows="4" name="mm_location" id="mm_location" placeholder="Company Address" data-toggle="modal" data-target="#MmLocationInput"></textarea>
+                                <label for="mm_location">label</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="mm_location" id="mm_location" placeholder="Company Address" data-toggle="modal" data-target="#MmLocationInput"><?= $mm_result['location'] ?></textarea>
                                 <span id="mm_error_location"></span>
                             </p>
 
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" rows="4" name="mm_memo" id="mm_memo" placeholder="Any additional note" data-toggle="modal" data-target="#MmMemoInput"></textarea>
+                                <label for="mm_memo">label</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="mm_memo" id="mm_memo" placeholder="Any additional note" data-toggle="modal" data-target="#MmMemoInput"><?= $mm_result['memo'] ?></textarea>
                                 <span id="mm_error_memo"></span>
                             </p>
 
@@ -516,49 +543,60 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                             </div>
 
                             <p>
-                                <textarea class="no-keydown" name="jp_company_name" placeholder="Company Name" id="jp_company_name" data-toggle="modal" data-target="#JpNameInput"></textarea>
+                                <label for="jp_company_name">label</label>
+                                <textarea class="no-keydown" name="jp_company_name" placeholder="Company Name" id="jp_company_name" data-toggle="modal" data-target="#JpNameInput"><?= $jp_result['company_name'] ?></textarea>
                                 <span id="jp_error_company_name"></span>
                             </p>
                             <p>
-                                <textarea class="no-keydown" name="jp_job_title" placeholder="Job Title" id="jp_job_title" data-toggle="modal" data-target="#JpTitleInput"></textarea>
+                                <label for="jp_job_title">label</label>
+                                <textarea class="no-keydown" name="jp_job_title" placeholder="Job Title" id="jp_job_title" data-toggle="modal" data-target="#JpTitleInput"><?= $jp_result['job_title'] ?></textarea>
                                 <span id="jp_error_job_title"></span>
                             </p>
 
-                            <div class="my-3">
-                                <textarea class="no-keydown" name="jp_wage" placeholder="Wage in YEN (eg. 10,000)" id="jp_wage" class="input-number" data-toggle="modal" data-target="#JpWageInput"></textarea>
+                            <div class="my-3 text-left">
+                                <label for="jp_wage">label</label>
+                                <textarea class="no-keydown" name="jp_wage" placeholder="Wage in YEN (eg. 10,000)" id="jp_wage" class="input-number" data-toggle="modal" data-target="#JpWageInput"><?= $jp_result['wage'] ?></textarea>
                                 <span id="jp_error_wage" class="d-block text-left"></span>
                             </div>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="jp_ot" id="jp_ot" placeholder="Overtime payment" data-toggle="modal" data-target="#JpOtInput"></textarea>
+                                <label for="jp_ot">label</label>
+                                <textarea class="no-keydown ta-input" name="jp_ot" id="jp_ot" placeholder="Overtime payment" data-toggle="modal" data-target="#JpOtInput"><?= $jp_result['overtime'] ?></textarea>
                                 <!-- <span id="jp_error_ot">asdasd</span> -->
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="jp_holidays" id="jp_holidays" placeholder="Holidays (Eg. Sat, Sun, Public holidays)" data-toggle="modal" data-target="#JpHolidaysInput"></textarea>
+                                <label for="jp_holidays">label</label>
+                                <textarea class="no-keydown ta-input" name="jp_holidays" id="jp_holidays" placeholder="Holidays (Eg. Sat, Sun, Public holidays)" data-toggle="modal" data-target="#JpHolidaysInput"><?= $jp_result['holidays'] ?></textarea>
                                 <span id="jp_error_holidays"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="jp_workinghr" id="jp_workinghr" placeholder="Working Hour (Eg. 9:00 AM ~ 5:00 PM)" data-toggle="modal" data-target="#JpWorkinghrInput"></textarea>
+                                <label for="jp_workinghr">label</label>
+                                <textarea class="no-keydown ta-input" name="jp_workinghr" id="jp_workinghr" placeholder="Working Hour (Eg. 9:00 AM ~ 5:00 PM)" data-toggle="modal" data-target="#JpWorkinghrInput"><?= $jp_result['working_hour'] ?></textarea>
                                 <span id="jp_error_workinghr"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="jp_breaktime" id="jp_breaktime" placeholder="Break Time (Eg. 12:00 PM ~ 1:00 PM)" data-toggle="modal" data-target="#JpBreakTimeInput"></textarea>
+                                <label for="jp_breaktime">label</label>
+                                <textarea class="no-keydown ta-input" name="jp_breaktime" id="jp_breaktime" placeholder="Break Time (Eg. 12:00 PM ~ 1:00 PM)" data-toggle="modal" data-target="#JpBreakTimeInput"><?= $jp_result['breaktime'] ?></textarea>
                                 <span id="jp_error_breaktime"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="jp_requirements" id="jp_requirements" data-toggle="modal" data-target="#JptextAreaInputReq" placeholder="Requirements"></textarea>
+                                <label for="jp_requirements">label</label>
+                                <textarea class="no-keydown ta-input" name="jp_requirements" id="jp_requirements" data-toggle="modal" data-target="#JptextAreaInputReq" placeholder="Requirements"><?= $jp_result['company_name'] ?></textarea>
                                 <span id="jp_error_requirements"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" name="jp_benefits" id="jp_benefits" data-toggle="modal" data-target="#JptextAreaInputBen" placeholder="Benefits"></textarea>
+                                <label for="jp_benefits">label</label>
+                                <textarea class="no-keydown ta-input" name="jp_benefits" id="jp_benefits" data-toggle="modal" data-target="#JptextAreaInputBen" placeholder="Benefits"><?= $jp_result['benefits'] ?></textarea>
                                 <span id="jp_error_benefits"></span>
                             </p>
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" rows="4" name="jp_location" id="jp_location" placeholder="Company Address" data-toggle="modal" data-target="#JpLocationInput"></textarea>
+                                <label for="jp_location">label</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="jp_location" id="jp_location" placeholder="Company Address" data-toggle="modal" data-target="#JpLocationInput"><?= $jp_result['location'] ?></textarea>
                                 <span id="jp_error_location"></span>
                             </p>
 
                             <p class="my-3">
-                                <textarea class="no-keydown ta-input" rows="4" name="jp_memo" id="jp_memo" placeholder="Any additional note" data-toggle="modal" data-target="#JpMemoInput"></textarea>
+                                <label for="jp_memo">label</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="jp_memo" id="jp_memo" placeholder="Any additional note" data-toggle="modal" data-target="#JpMemoInput"><?= $jp_result['memo'] ?></textarea>
                                 <span id="jp_error_memo"></span>
                             </p>
                             <p class="nxt-prev-button"><input type="button" name="previous" class="previous action-button" value="Previous" />
@@ -645,7 +683,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert JOB ID as the format below:</label>
-                    <textarea name="JobIdTextArea" id="JobIdTextArea" cols="30" rows="5" placeholder="IT000001"></textarea>
+                    <textarea name="JobIdTextArea" id="JobIdTextArea" cols="30" rows="5" placeholder="IT000001"><?= $en_result['job_id'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToJobId()">Sure</a>
@@ -667,7 +705,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert company name below:</label>
-                    <textarea name="EngNameTextArea" id="EngNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
+                    <textarea name="EngNameTextArea" id="EngNameTextArea" cols="30" rows="10" placeholder="Company name"><?= $en_result['company_name'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameEng()">Sure</a>
@@ -690,7 +728,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert company name below:</label>
-                    <textarea name="MmNameTextArea" id="MmNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
+                    <textarea name="MmNameTextArea" id="MmNameTextArea" cols="30" rows="10" placeholder="Company name"><?= $mm_result['company_name'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameMm()">Sure</a>
@@ -711,7 +749,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert company name below:</label>
-                    <textarea name="JpNameTextArea" id="JpNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
+                    <textarea name="JpNameTextArea" id="JpNameTextArea" cols="30" rows="10" placeholder="Company name"><?= $jp_result['company_name'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameJp()">Sure</a>
@@ -733,7 +771,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert job title below:</label>
-                    <textarea name="EngTitleTextArea" id="EngTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
+                    <textarea name="EngTitleTextArea" id="EngTitleTextArea" cols="30" rows="10" placeholder="Job Title"><?= $en_result['job_title'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleEng()">Sure</a>
@@ -754,7 +792,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert job title below:</label>
-                    <textarea name="MmTitleTextArea" id="MmTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
+                    <textarea name="MmTitleTextArea" id="MmTitleTextArea" cols="30" rows="10" placeholder="Job Title"><?= $mm_result['job_title'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleMm()">Sure</a>
@@ -775,7 +813,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert job title below:</label>
-                    <textarea name="JpTitleTextArea" id="JpTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
+                    <textarea name="JpTitleTextArea" id="JpTitleTextArea" cols="30" rows="10" placeholder="Job Title"><?= $jp_result['job_title'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleJp()">Sure</a>
@@ -798,7 +836,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert wage as the format below:</label>
-                    <textarea name="EngWageTextArea" id="EngWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
+                    <textarea name="EngWageTextArea" id="EngWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $en_result['wage'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageEng()">Sure</a>
@@ -819,7 +857,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert wage as the format below:</label>
-                    <textarea name="MmWageTextArea" id="MmWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
+                    <textarea name="MmWageTextArea" id="MmWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $mm_result['wage'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageMm()">Sure</a>
@@ -841,7 +879,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert wage as the format below:</label>
-                    <textarea name="JpWageTextArea" id="JpWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
+                    <textarea name="JpWageTextArea" id="JpWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $jp_result['wage'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageJp()">Sure</a>
@@ -864,7 +902,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert over-time payment as the format below:</label>
-                    <textarea name="EngOtTextArea" id="EngOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
+                    <textarea name="EngOtTextArea" id="EngOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $en_result['overtime'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtEng()">Sure</a>
@@ -885,7 +923,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert over-time payment as the format below:</label>
-                    <textarea name="MmOtTextArea" id="MmOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
+                    <textarea name="MmOtTextArea" id="MmOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $mm_result['overtime'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtMm()">Sure</a>
@@ -907,7 +945,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert over-time payment as the format below:</label>
-                    <textarea name="JpOtTextArea" id="JpOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
+                    <textarea name="JpOtTextArea" id="JpOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $jp_result['overtime'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtJp()">Sure</a>
@@ -930,7 +968,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert holidays as the format below:</label>
-                    <textarea name="EngHolidaysTextArea" id="EngHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"></textarea>
+                    <textarea name="EngHolidaysTextArea" id="EngHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"><?= $en_result['holidays'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysEng()">Sure</a>
@@ -951,7 +989,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert holidays as the format below:</label>
-                    <textarea name="MmHolidaysTextArea" id="MmHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"></textarea>
+                    <textarea name="MmHolidaysTextArea" id="MmHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"><?= $mm_result['holidays'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysMm()">Sure</a>
@@ -973,7 +1011,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert holidays as the format below:</label>
-                    <textarea name="JpHolidaysTextArea" id="JpHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"></textarea>
+                    <textarea name="JpHolidaysTextArea" id="JpHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"><?= $jp_result['holidays'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysJp()">Sure</a>
@@ -996,7 +1034,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert working hours as the format below:</label>
-                    <textarea name="EngWorkinghrTextArea" id="EngWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"></textarea>
+                    <textarea name="EngWorkinghrTextArea" id="EngWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $en_result['working_hour'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrEng()">Sure</a>
@@ -1017,7 +1055,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert working hour as the format below:</label>
-                    <textarea name="MmWorkinghrTextArea" id="MmWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"></textarea>
+                    <textarea name="MmWorkinghrTextArea" id="MmWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $mm_result['working_hour'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrMm()">Sure</a>
@@ -1039,7 +1077,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert working hours as the format below:</label>
-                    <textarea name="JpWorkinghrTextArea" id="JpWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"></textarea>
+                    <textarea name="JpWorkinghrTextArea" id="JpWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $jp_result['working_hour'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrJp()">Sure</a>
@@ -1062,7 +1100,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert break-time as the format below:</label>
-                    <textarea name="EngBreaktimeTextArea" id="EngBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"></textarea>
+                    <textarea name="EngBreaktimeTextArea" id="EngBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $en_result['breaktime'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeEng()">Sure</a>
@@ -1083,7 +1121,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert break-time as the format below:</label>
-                    <textarea name="MmBreaktimeTextArea" id="MmBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"></textarea>
+                    <textarea name="MmBreaktimeTextArea" id="MmBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $mm_result['breaktime'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeMm()">Sure</a>
@@ -1105,7 +1143,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert break-time as the format below:</label>
-                    <textarea name="JpBreaktimeTextArea" id="JpBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"></textarea>
+                    <textarea name="JpBreaktimeTextArea" id="JpBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $jp_result['breaktime'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeJp()">Sure</a>
@@ -1128,7 +1166,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert requirements as the format below:</label>
-                    <textarea name="EngReqTextArea" id="EngReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"></textarea>
+                    <textarea name="EngReqTextArea" id="EngReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $en_result['requirements'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqEng()">Sure</a>
@@ -1150,7 +1188,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert requirements as the format below:</label>
-                    <textarea name="MMReqTextArea" id="MmReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"></textarea>
+                    <textarea name="MMReqTextArea" id="MmReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $mm_result['requirements'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqMm()">Sure</a>
@@ -1172,7 +1210,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert requirements as the format below:</label>
-                    <textarea name="JpReqTextArea" id="JpReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"></textarea>
+                    <textarea name="JpReqTextArea" id="JpReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $jp_result['requirements'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqJp()">Sure</a>
@@ -1194,7 +1232,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert benefits as the format below:</label>
-                    <textarea name="EngbenTextArea" id="EngbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"></textarea>
+                    <textarea name="EngbenTextArea" id="EngbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $en_result['benefits'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenEng()">Sure</a>
@@ -1216,7 +1254,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert benefits as the format below:</label>
-                    <textarea name="MmbenTextArea" id="MmbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"></textarea>
+                    <textarea name="MmbenTextArea" id="MmbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $mm_result['benefits'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenMm()">Sure</a>
@@ -1238,7 +1276,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert benefits as the format below:</label>
-                    <textarea name="JpbenTextArea" id="JpbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"></textarea>
+                    <textarea name="JpbenTextArea" id="JpbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $jp_result['benefits'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenJp()">Sure</a>
@@ -1261,7 +1299,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert working location as the format below:</label>
-                    <textarea name="EngLocationTextArea" id="EngLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"></textarea>
+                    <textarea name="EngLocationTextArea" id="EngLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"><?= $en_result['location'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationEng()">Sure</a>
@@ -1282,7 +1320,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert work location as the format below:</label>
-                    <textarea name="MmLocationTextArea" id="MmLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"></textarea>
+                    <textarea name="MmLocationTextArea" id="MmLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"><?= $mm_result['location'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationMm()">Sure</a>
@@ -1304,7 +1342,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert work location as the format below:</label>
-                    <textarea name="JpLocationTextArea" id="JpLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"></textarea>
+                    <textarea name="JpLocationTextArea" id="JpLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"><?= $jp_result['location'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationJp()">Sure</a>
@@ -1327,7 +1365,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert additional note:</label>
-                    <textarea name="EngMemoTextArea" id="EngMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"></textarea>
+                    <textarea name="EngMemoTextArea" id="EngMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"><?= $en_result['memo'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoEng()">Sure</a>
@@ -1348,7 +1386,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert additional note:</label>
-                    <textarea name="MmMemoTextArea" id="MmMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"></textarea>
+                    <textarea name="MmMemoTextArea" id="MmMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"><?= $en_result['memo'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoMm()">Sure</a>
@@ -1370,7 +1408,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
                 </div>
                 <div class="modal-body">
                     <label>Please insert additional note:</label>
-                    <textarea name="JpMemoTextArea" id="JpMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"></textarea>
+                    <textarea name="JpMemoTextArea" id="JpMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"><?= $jp_result['memo'] ?></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoJp()">Sure</a>
@@ -1394,7 +1432,7 @@ while ($row = mysqli_fetch_assoc($result_jp)){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.js" type="text/javascript"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-    <script src="js/newJobStepForm.js"></script>
+    <script src="js/jobEditForm.js"></script>
     <script>
         function auto_grow(element) {
             element.style.height = "5px";
