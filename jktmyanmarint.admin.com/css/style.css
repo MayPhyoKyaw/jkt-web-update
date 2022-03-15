@@ -225,7 +225,10 @@ input[type="checkbox"] {
 .tb-row:hover {
   background-color: #eff5ff;
 }
-
+.applicant-detail-table > thead > tr > th, 
+.applicant-detail-table > tbody > tr > td {
+  text-align: left !important;
+}
 .preview-input-edit {
   display: none;
 }
@@ -245,6 +248,13 @@ input[type="checkbox"] {
 }
 .form-group p {
   display: inline;
+}
+.form-control > input[type="radio"] {
+  margin-right: 30px;
+}
+
+.resume {
+  padding-bottom: 37px;
 }
 
 .pending-badge {
@@ -495,7 +505,7 @@ canvas {
 
 .tabs {
   margin: 0 auto;
-  width: 100%;
+  width : 100%;
 }
 
 .tabs > input[type="radio"],
@@ -516,8 +526,7 @@ canvas {
   display: block;
 }
 
-.tabs > label,
-.outsidetablabel {
+.tabs > label, .outsidetablabel {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -531,8 +540,7 @@ canvas {
   cursor: pointer;
   position: relative;
   top: 1px;
-  -webkit-transition: color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   -moz-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   -ms-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
@@ -543,7 +551,7 @@ canvas {
   -o-border-radius: 5px;
 }
 
-.outsidetablabel {
+.outsidetablabel{
   width: 32px;
 }
 /* .tabs > label:not(:first-of-type) {
@@ -552,24 +560,17 @@ canvas {
 
 .tabs > input[type="radio"]:checked + label {
   background-color: #1a5de4;
-  color: #ffffff;
+  color : #ffffff;
   /* border-bottom: 1px solid #fff; */
 }
-.outsidetab:checked + label {
+.outsidetab:checked + label{
   /* border: 1px solid red; */
 }
 /* tab style end  */
 .dropdown-toggle:focus {
-  border: 1px solid #ddd;
+  border : 1px solid #ddd;
   box-shadow: none;
 }
-
-/* .btn-disabled {
-  background: #5bafe7b3;
-  cursor : not-allowed;
-} */
-
-/* JOB PAGE END */
 
 @media only screen and (max-width: 991px) {
   .mychart-left,
