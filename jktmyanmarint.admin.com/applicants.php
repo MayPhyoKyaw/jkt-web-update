@@ -351,7 +351,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                     </td>
                                                     <td><?= date('Y-m-d', strtotime($row1['created_at'])) ?></td>
                                                     <td><?= date('Y-m-d', strtotime($row1['updated_at'])) ?></td>
-                                                    <td><button class="tb-btn tb-btn-edit" onclick="applicant_edit(event,this,<?php echo $row1['applicant_id'] ?>,'<?= $row1['resume'] ?>','<?= $row1['fb_profile_link'] ?>','<?= $row1['porfolio_link'] ?>','<?= $row1['additional_note'] ?>')" data-toggle="modal" data-target="#editingApplicantModal"><i class="fa fa-pencil"></i></button></td>
+                                                    <td><button class="tb-btn tb-btn-edit" onclick="applicant_edit(event,this,<?= $row1['applicant_id'] ?>,'<?= $row1['resume'] ?>','<?= $row1['fb_profile_link'] ?>','<?= $row1['porfolio_link'] ?>','<?= $row1['additional_note'] ?>')" data-toggle="modal" data-target="#editingApplicantModal"><i class="fa fa-pencil"></i></button></td>
                                                     <td><button class="tb-btn tb-btn-delete" onclick="applicant_delete(event,this,<?php echo $row1['applicant_id'] ?>)" data-toggle="modal" data-target="#deletingApplicantModal"><i class="fa fa-trash"></button></i></td>
                                                 </tr>
                                             <?php endwhile; ?>
@@ -503,8 +503,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="col-12" id="editingApplicantModal" action="backend/editApplicant.php" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="applicantId" id="applicantId" />
+                    <form class="col-12" id="editingApplicant" action="backend/editApplicant.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="applicantEditId" id="applicantEditId" value="" />
                         <input type="hidden" name="createdAt" id="createdAt" />
                         <div class="form-group mb-4">
                             <label for="applicantEditName">Enter Applicant Name<span class="my-required-field">Required*</span></label>
@@ -528,7 +528,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                         </div>
                         <div class="form-group mb-4 ">
                             <label>Gender<span class="my-required-field">Required*</span></label><br>
-                            <div class="form-control">
+                            <div class="form-control gender-form-control">
                                 <label for="gender">Male</label>
                                 <input type="radio" name="gender" id="gender" value="Male" required />
                                 <label for="gender">Female</label>
@@ -546,35 +546,43 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <option value="N1">N1</option>
                             </select>
                         </div>
-                        <div class="form-group mb-4">
-                            <div class="form-control">
-                                <div class="fileUpload">
-                                    <input type="file" class="upload" />
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
-                                    </svg>
-                                    <span>Upload</span>
+                        <div class="form-group mb-4 w-100">
+                            <div class="resume-label">Upload Resume</div>
+                                <div class="resume-form-control">
+                                    <!-- <div class="col-7"> -->
+                                        <label for="new_edit_resume" id="resumeName" class="resume-name">Choose Resume</label>
+                                    <!-- </div>
+                                    <div class="col-5 text-right"> -->
+                                        <div class="fileUpload">
+                                            <input type="file" name="new_edit_resume" id="new_edit_resume" class="upload" />
+                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+                                            </svg>
+                                            <span>Upload</span>
+                                        </div>
+                                    <!-- </div> -->
+                                    <input type="hidden" value="" name="origin_resume" id="origin_resume" />
                                 </div>
-                            </div>
-                            <!-- <label for="resume">Enter Resume</label>
+                                <span class="resume-help-block" id="resumeHelp"></span>
+                                <!-- <label for="resume">Enter Resume</label>
                             <input type="file" name="resume" id="resume" class=" resume" accept=".doc,.docx,.pdf,.xls,.xlsx" /> -->
                         </div>
                         <div class="form-group mb-4">
                             <label for="fbPfLink">Enter Facebook Profile Link</label>
-                            <input type="text" name="fbPfLink" id="fbPfLink" class="form-control" placeholder="University or High School" />
+                            <input type="text" name="fbPfLink" id="fbPfLink" class="form-control" placeholder="https://www.facebook.com/{some facebook id}" />
                         </div>
                         <div class="form-group mb-4">
                             <label for="porfolio">Enter Porfolio Link</label>
-                            <textarea name="porfolio" id="porfolio" cols="30" rows="5" class="form-control" placeholder="eg. No - , Yangon"></textarea>
+                            <textarea name="porfolio" id="porfolio" cols="30" rows="5" class="form-control" placeholder="https://github.com/{git-user-name}"></textarea>
                         </div>
                         <div class="form-group mb-4">
                             <label for="note">Enter Additional Note</label>
-                            <textarea name="note" id="note" cols="30" rows="5" class="form-control" placeholder="eg. No - , Yangon"></textarea>
+                            <textarea name="note" id="note" cols="30" rows="5" class="form-control" placeholder="Enter Additional Note What You Want"></textarea>
                         </div>
 
                         <hr />
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <input class="btn btn-primary" type="submit" value="Update">
+                        <input class="btn btn-primary" type="submit" value="Update" id="editSubmit" >
                     </form>
                 </div>
             </div>
@@ -609,6 +617,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery-3.6.0.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -619,6 +628,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="vendor/jquery/validation.js"></script>
+    <script src="vendor/jquery/additional-methods.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/applicants.js"></script>

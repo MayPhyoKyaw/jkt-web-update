@@ -13,7 +13,7 @@ if (isset($_POST['paymentSubmit'])) {
 
     $paymentSS_name = "ss" . $enrollment_id;
 
-    $dst = "./paymentUploads/" . $paymentSS_name .".". $ssExtension;
+    $dst = "paymentUploads/" . $paymentSS_name .".". $ssExtension;
 
     var_dump($_POST);
 
