@@ -487,9 +487,9 @@ function encrypt_decrypt($action, $string)
             </div>
         </div>
     </footer>
-    <!-- <div class="footer-copyright">
+    <div class="footer-copyright">
         Copyright © 2021 | JKT Myanmar International Co., Ltd.
-    </div> -->
+    </div>
     <!-- script -->
     <script src="./assets/js/jquery-3.6.0.js"></script>
     <script src="./assets/js/jquery-ui-1.11.2.min.js"></script>

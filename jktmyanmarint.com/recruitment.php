@@ -524,9 +524,9 @@ include_once "../jktmyanmarint.admin.com/confs/jobs_config.php";
             </div>
         </div>
     </footer>
-    <!-- <div class="footer-copyright">
+    <div class="footer-copyright">
         Copyright © 2021 | JKT Myanmar International Co., Ltd.
-    </div> -->
+    </div>
     <!-- script -->
     <script src="./assets/js/jquery-3.6.0.js"></script>
     <script src="./assets/js/popper.min.js"></script>
