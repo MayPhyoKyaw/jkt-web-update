@@ -1,3 +1,25 @@
+var selected = [];
+
+function addToSelected(event, id) {
+  var src = event.target.src;
+  var root = src.slice(0, -5);
+  var checkBox = src.slice(-5);
+  if (checkBox == "1.png") {
+    event.target.src = root + "2.png";
+  } else {
+    event.target.src = root + "1.png";
+  }
+  event.stopPropagation();
+  if (!selected.includes(id)) {
+    selected.push(id);
+  } else {
+    if(selected.indexOf(id) !== -1){
+        selected.splice(selected.indexOf(id),1)
+    }
+  }
+  console.log(selected);
+}
+
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
   $("#enDT").DataTable({
@@ -80,20 +102,42 @@ $(document).ready(function () {
     // dom : '<"mybg"fB><"bottom"lrtpi>',
     buttons: [
       {
-        extend: "copyHtml5",
         text: '<i class="fa fa-files-o"></i>',
-        titleAttr: "Copy",
-        exportOptions: {
-          modifier: {
-            // DataTables core
-            order: "index", // 'current', 'applied',
-            //'index', 'original'
-            page: "all", // 'all', 'current'
-            search: "none", // 'none', 'applied', 'removed'
-          },
-          columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        action: function (e, dt, node, config) {
+          // alert("Button activated");
+          console.log(selected);
+          $.ajax({
+            url : "../backend/newJob.php",
+            type: "POST",
+            data : {
+              
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                //data - response from server
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
         },
       },
+      // {
+      //   extend: "copyHtml5",
+      //   text: '<i class="fa fa-files-o"></i>',
+      //   titleAttr: "Copy",
+      //   exportOptions: {
+      //     modifier: {
+      //       // DataTables core
+      //       order: "index", // 'current', 'applied',
+      //       //'index', 'original'
+      //       page: "all", // 'all', 'current'
+      //       search: "none", // 'none', 'applied', 'removed'
+      //     },
+      //     columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      //   },
+      // },
       {
         extend: "excelHtml5",
         text: '<i class="fa fa-file-excel-o"></i>',
@@ -221,20 +265,26 @@ $(document).ready(function () {
     // dom : '<"mybg"fB><"bottom"lrtpi>',
     buttons: [
       {
-        extend: "copyHtml5",
         text: '<i class="fa fa-files-o"></i>',
-        titleAttr: "Copy",
-        exportOptions: {
-          modifier: {
-            // DataTables core
-            order: "index", // 'current', 'applied',
-            //'index', 'original'
-            page: "all", // 'all', 'current'
-            search: "none", // 'none', 'applied', 'removed'
-          },
-          columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        action: function (e, dt, node, config) {
+          alert("Button activated");
         },
       },
+      // {
+      //   extend: "copyHtml5",
+      //   text: '<i class="fa fa-files-o"></i>',
+      //   titleAttr: "Copy",
+      //   exportOptions: {
+      //     modifier: {
+      //       // DataTables core
+      //       order: "index", // 'current', 'applied',
+      //       //'index', 'original'
+      //       page: "all", // 'all', 'current'
+      //       search: "none", // 'none', 'applied', 'removed'
+      //     },
+      //     columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      //   },
+      // },
       {
         extend: "excelHtml5",
         text: '<i class="fa fa-file-excel-o"></i>',
@@ -355,27 +405,39 @@ $(document).ready(function () {
     },
 
     // dom: 'fBlrtpi',
+    // initComplete: function () {
+    //   $("div.toolbar").html(
+    //     '<button type="button" id="any_button" onclick="">Click Me!</button>'
+    //   );
+    // },
     dom:
-      "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
+      "<'row' <'col-sm-12 col-md-2'l> <'col-md-6 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+
     // dom : '<"mybg"fB><"bottom"lrtpi>',
     buttons: [
       {
-        extend: "copyHtml5",
         text: '<i class="fa fa-files-o"></i>',
-        titleAttr: "Copy",
-        exportOptions: {
-          modifier: {
-            // DataTables core
-            order: "index", // 'current', 'applied',
-            //'index', 'original'
-            page: "all", // 'all', 'current'
-            search: "none", // 'none', 'applied', 'removed'
-          },
-          columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        action: function (e, dt, node, config) {
+          alert("Button activated");
         },
       },
+      // {
+      //   extend: "copyHtml5",
+      //   text: '<i class="fa fa-files-o"></i>',
+      //   titleAttr: "Copy",
+      //   exportOptions: {
+      //     modifier: {
+      //       // DataTables core
+      //       order: "index", // 'current', 'applied',
+      //       //'index', 'original'
+      //       page: "all", // 'all', 'current'
+      //       search: "none", // 'none', 'applied', 'removed'
+      //     },
+      //     columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      //   },
+      // },
       {
         extend: "excelHtml5",
         text: '<i class="fa fa-file-excel-o"></i>',

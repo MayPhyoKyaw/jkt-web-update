@@ -359,6 +359,14 @@ $("#jp_location").keyup(function() {
 // START ENG STEP VALIDATION
 $(".fs_next_btn").click(function() {
 
+    if ($("#error_photo_one").text() !== "") {
+        // console.log("photo 1 error exist");
+        error = true;
+    }
+    if ($("#error_photo_two").text() !== "") {
+        // console.log("photo 2 error exist");
+        error = true;
+    }
     if ($("#job_id").val() == "") {
         $("#error_job_id").text("Please enter Job ID.");
         $("#job_id").addClass("box_error");

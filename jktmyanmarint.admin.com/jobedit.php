@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include_once 'auth/authenticate.php';
+include_once 'auth/authenticate.php';
 include_once 'confs/config.php';
 include_once 'confs/jobs_config.php';
 $get_notifications = "SELECT * FROM notifications WHERE seen=0 AND created_at >= DATE_SUB(NOW(),INTERVAL 6 HOUR)";
@@ -359,7 +359,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                             <p>
                                 <input type="hidden" name="job_id" id="job_id" value="<?= $en_result['job_id'] ?>">
                                 <label>Job ID</label>
-                                <textarea class="no-keydown disabled-text" placeholder="Job ID" data-toggle="modal" data-target="#JobIdInput" disabled><?= $en_result['job_id'] ?></textarea>
+                                <textarea class="disabled-text" rows="1" placeholder="Job ID" disabled><?= $en_result['job_id'] ?></textarea>
                                 <span id="error_job_id"></span>
                             </p>
                             <p>
@@ -463,7 +463,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                                     </p>
                                 </div>
                             </div>
-                            <p class="nxt-prev-button"><input type="button" name="next" class="fs_next_btn action-button" value="Next" /></p>
+                            <p class="nxt-prev-button"><button type="button" name="next" class="fs_next_btn action-button"><img class="form-control-icon" src="img/next.png" alt="form-control-next" /></button></p>
                         </div>
 
 
@@ -532,8 +532,8 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                             </p>
 
                             <p class="nxt-prev-button">
-                                <input type="button" name="previous" class="previous action-button" value="Previous" />
-                                <input type="button" name="next" class="ss_next_btn action-button" value="Next" />
+                                <button type="button" name="previous" class="action-button previous"><img class="form-control-icon" src="img/previous.png" alt="form-control-previous"></button>
+                                <button type="button" name="next" class="ss_next_btn action-button"><img class="form-control-icon" src="img/next.png" alt="form-control-next"></button>
                             </p>
                         </div>
                         <!-- Step 03 -->
@@ -541,7 +541,6 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                             <div class="title-box">
                                 <h2>Fill In Japanese</h2>
                             </div>
-
                             <p>
                                 <label for="jp_company_name">label</label>
                                 <textarea class="no-keydown" name="jp_company_name" placeholder="Company Name" id="jp_company_name" data-toggle="modal" data-target="#JpNameInput"><?= $jp_result['company_name'] ?></textarea>
@@ -599,8 +598,9 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                                 <textarea class="no-keydown ta-input" rows="4" name="jp_memo" id="jp_memo" placeholder="Any additional note" data-toggle="modal" data-target="#JpMemoInput"><?= $jp_result['memo'] ?></textarea>
                                 <span id="jp_error_memo"></span>
                             </p>
-                            <p class="nxt-prev-button"><input type="button" name="previous" class="previous action-button" value="Previous" />
-                                <input name="submit" id="submitBtn" value="Submit" class="submit_btn ts_next_btn action-button" />
+                            <p class="nxt-prev-button">
+                                <button type="button" name="previous" class="previous action-button"><img class="form-control-icon" src="img/previous.png" alt="form-control-previous" /></button>
+                                <button name="submit" id="submitBtn" class="submit_btn ts_next_btn action-button text-center"><img class="form-control-submit-icon" src="img/check-mark.png" alt="form-control-next" /></button>
                             </p>
                         </div>
                     </form>

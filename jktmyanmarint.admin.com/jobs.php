@@ -290,7 +290,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <?php while ($row = mysqli_fetch_assoc($noti_result)) : ?>
                                     <a class="dropdown-item d-flex align-items-center" href="notiView.php?id=<?php echo $row["noti_id"] ?>">
                                         <div class="mr-3">
-                                        <?php if ($row["type"] == "PENDING_REQUEST") : ?>
+                                            <?php if ($row["type"] == "PENDING_REQUEST") : ?>
                                                 <div class="icon-circle bg-primary">
                                                     <i class="fas fa-user-plus text-white"></i>
                                                 </div>
@@ -305,7 +305,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
                                                 <div class="icon-circle bg-info">
                                                     <i class="fas fa-solid fa-briefcase text-white"></i>
-                                                </div>    
+                                                </div>
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -410,6 +410,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <table class="table table-bordered" id="enDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
+                                                        <th></th>
                                                         <th>ID</th>
                                                         <th>Title</th>
                                                         <th class="en-company-filter">Company</th>
@@ -429,6 +430,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($en_result)) : ?>
                                                         <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                            <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')"/></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
                                                             <td><?= $row['company_name'] ?></td>
@@ -441,7 +443,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['location'] ?></td>
                                                             <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
                                                             <td><?= $row['updated_at'] ?></td>
-                                                            <td><a class="tb-btn tb-btn-edit" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
+                                                            <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
                                                     <?php endwhile; ?>
@@ -485,7 +487,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['location'] ?></td>
                                                             <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
                                                             <td><?= $row['updated_at'] ?></td>
-                                                            <td><button class="tb-btn tb-btn-edit" onclick="setCurrentJobEdit(this)" data-toggle="modal" data-target="#editingModal"><i class="fa fa-pencil"></i></button></td>
+                                                            <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
                                                     <?php endwhile; ?>
@@ -529,7 +531,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['location'] ?></td>
                                                             <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
                                                             <td><?= $row['updated_at'] ?></td>
-                                                            <td><button class="tb-btn tb-btn-edit" onclick="setCurrentJobEdit(this)" data-toggle="modal" data-target="#editingModal"><i class="fa fa-pencil"></i></button></td>
+                                                            <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
                                                     <?php endwhile; ?>
@@ -766,6 +768,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <!-- <script src="js/demo/datatables-demo.js"></script> -->
     <script src="js/style.js"></script>
     <script src="js/job-filter.js"></script>
+    <script src="js/jobs.js"></script>
     <!-- for excel print -->
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>

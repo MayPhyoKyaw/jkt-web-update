@@ -1,5 +1,5 @@
 <?php
- $dbhost = "localhost";
+ $dbhost = "127.0.0.1:3307";
  $dbuser = "root";
  $dbpass = "";
  $dbname = "jobs_db";

@@ -229,7 +229,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
                                                 <div class="icon-circle bg-info">
                                                     <i class="fas fa-solid fa-briefcase text-white"></i>
-                                                </div>    
+                                                </div>
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -409,7 +409,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                     </p>
                                 </div>
                             </div>
-                            <p class="nxt-prev-button"><input type="button" name="next" class="fs_next_btn action-button" value="Next" /></p>
+                            <p class="nxt-prev-button"><button type="button" name="next" class="fs_next_btn action-button"><img class="form-control-icon" src="img/next.png" alt="form-control-next" /></button></p>
                         </div>
 
 
@@ -467,8 +467,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             </p>
 
                             <p class="nxt-prev-button">
-                                <input type="button" name="previous" class="previous action-button" value="Previous" />
-                                <input type="button" name="next" class="ss_next_btn action-button" value="Next" />
+                                <button type="button" name="previous" class="action-button previous"><img class="form-control-icon" src="img/previous.png" alt="form-control-previous"></button>
+                                <button type="button" name="next" class="ss_next_btn action-button"><img class="form-control-icon" src="img/next.png" alt="form-control-next"></button>
                             </p>
                         </div>
                         <!-- Step 03 -->
@@ -523,8 +523,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <textarea class="no-keydown ta-input" rows="4" name="jp_memo" id="jp_memo" placeholder="Any additional note" data-toggle="modal" data-target="#JpMemoInput"></textarea>
                                 <span id="jp_error_memo"></span>
                             </p>
-                            <p class="nxt-prev-button"><input type="button" name="previous" class="previous action-button" value="Previous" />
-                                <input name="submit" id="submitBtn" value="Submit" class="submit_btn ts_next_btn action-button" />
+                            <p class="nxt-prev-button">
+                            <button type="button" name="previous" class="previous action-button"><img class="form-control-icon" src="img/previous.png" alt="form-control-previous" /></button>
+                                <button name="submit" id="submitBtn" class="submit_btn ts_next_btn action-button text-center"><img class="form-control-submit-icon" src="img/check-mark.png" alt="form-control-next" /></button>
                             </p>
                         </div>
                     </form>

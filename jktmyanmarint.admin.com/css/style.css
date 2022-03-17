@@ -714,6 +714,14 @@ canvas {
 }
 /* applicant input file design end */
 
+/* jobs table start */
+.check-icon{
+    height: 15px;
+    width : 15px;
+    margin-top: 5px;
+}
+/* jobs table end */
+
 @media only screen and (max-width: 991px) {
   .mychart-left,
   .mychart-right {
