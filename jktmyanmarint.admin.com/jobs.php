@@ -411,18 +411,18 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <thead>
                                                     <tr>
                                                         <th></th>
-                                                        <th>ID</th>
-                                                        <th>Title</th>
-                                                        <th class="en-company-filter">Company</th>
-                                                        <th class="en-type-filter">Type</th>
-                                                        <th>Wage</th>
-                                                        <th>OT wage</th>
-                                                        <th>holidays</th>
-                                                        <th>working_hour</th>
-                                                        <th>breaktime</th>
-                                                        <th>location</th>
-                                                        <th class="en-available-filter">Available</th>
-                                                        <th>Updated At</th>
+                                                        <th class="id">ID</th>
+                                                        <th class="title">Title</th>
+                                                        <th class="en-company-filter company">Company</th>
+                                                        <th class="en-type-filter type">Type</th>
+                                                        <th class="wage">Wage</th>
+                                                        <th class="ot">OT wage</th>
+                                                        <th class="holidays">holidays</th>
+                                                        <th class="workingHours">Working Hours</th>
+                                                        <th class="breaktime">breaktime</th>
+                                                        <th class="location">location</th>
+                                                        <th class="en-available-filter ava">Available</th>
+                                                        <th class="updated">Updated At</th>
                                                         <th>Edit</th>
                                                         <th>Delete</th>
                                                     </tr>
@@ -430,7 +430,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($en_result)) : ?>
                                                         <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
-                                                            <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')"/></td>
+                                                            <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
                                                             <td><?= $row['company_name'] ?></td>
@@ -456,18 +456,19 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <table class="table table-bordered" id="mmDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>Title</th>
-                                                        <th class="mm-company-filter">Company</th>
-                                                        <th class="mm-type-filter">Type</th>
-                                                        <th>Wage</th>
-                                                        <th>OT wage</th>
-                                                        <th>holidays</th>
-                                                        <th>working_hour</th>
-                                                        <th>breaktime</th>
-                                                        <th>location</th>
-                                                        <th class="mm-available-filter">Available</th>
-                                                        <th>Updated At</th>
+                                                        <th></th>
+                                                        <th class="id">ID</th>
+                                                        <th class="title">Title</th>
+                                                        <th class="mm-company-filter company">Company</th>
+                                                        <th class="mm-type-filter type">Type</th>
+                                                        <th class="wage">Wage</th>
+                                                        <th class="ot">OT wage</th>
+                                                        <th class="holidays">holidays</th>
+                                                        <th class="workingHours">Working Hours</th>
+                                                        <th class="breaktime">breaktime</th>
+                                                        <th class="location">location</th>
+                                                        <th class="mm-available-filter ava">Available</th>
+                                                        <th class="updated">Updated At</th>
                                                         <th>Edit</th>
                                                         <th>Delete</th>
                                                     </tr>
@@ -475,6 +476,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($mm_result)) : ?>
                                                         <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                            <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
                                                             <td><?= $row['company_name'] ?></td>
@@ -500,18 +502,19 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <table class="table table-bordered" id="jpDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>Title</th>
-                                                        <th class="jp-company-filter">Company</th>
-                                                        <th class="jp-type-filter">Type</th>
-                                                        <th>Wage</th>
-                                                        <th>OT wage</th>
-                                                        <th>holidays</th>
-                                                        <th>working_hour</th>
-                                                        <th>breaktime</th>
-                                                        <th>location</th>
-                                                        <th class="jp-available-filter">Available</th>
-                                                        <th>Updated At</th>
+                                                        <th></th>
+                                                        <th class="id">ID</th>
+                                                        <th class="title">Title</th>
+                                                        <th class="jp-company-filter company">Company</th>
+                                                        <th class="jp-type-filter type">Type</th>
+                                                        <th class="wage">Wage</th>
+                                                        <th class="ot">OT wage</th>
+                                                        <th class="holidays">holidays</th>
+                                                        <th class="workingHours">Working Hours</th>
+                                                        <th class="breaktime">breaktime</th>
+                                                        <th class="location">location</th>
+                                                        <th class="jp-available-filter ava">Available</th>
+                                                        <th class="updated">Updated At</th>
                                                         <th>Edit</th>
                                                         <th>Delete</th>
                                                     </tr>
@@ -519,6 +522,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($jp_result)) : ?>
                                                         <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                            <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
                                                             <td><?= $row['company_name'] ?></td>
