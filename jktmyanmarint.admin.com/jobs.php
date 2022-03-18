@@ -3,9 +3,9 @@ session_start();
 include_once 'auth/authenticate.php';
 include("confs/config.php");
 include("confs/jobs_config.php");
-$en_result = mysqli_query($jobs_db_conn, "SELECT * FROM en_jobs");
-$mm_result = mysqli_query($jobs_db_conn, "SELECT * FROM mm_jobs");
-$jp_result = mysqli_query($jobs_db_conn, "SELECT * FROM jp_jobs");
+$en_result = mysqli_query($jobs_db_conn, "SELECT * FROM en_jobs ORDER BY updated_at DESC");
+$mm_result = mysqli_query($jobs_db_conn, "SELECT * FROM mm_jobs ORDER BY updated_at DESC");
+$jp_result = mysqli_query($jobs_db_conn, "SELECT * FROM jp_jobs ORDER BY updated_at DESC");
 
 $get_notifications = "SELECT * FROM notifications WHERE seen=0 AND created_at >= DATE_SUB(NOW(),INTERVAL 6 HOUR)";
 $noti_result = mysqli_query($conn, $get_notifications);
@@ -429,7 +429,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 </thead>
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($en_result)) : ?>
-                                                        <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                        <tr onclick="jobDetail(event,this,'<?php echo $row['created_at'] ?>','<?php echo $row['requirements'] ?>','<?php echo $row['benefits'] ?>','<?php echo $row['memo'] ?>','<?php echo $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                             <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
@@ -442,7 +442,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['breaktime'] ?></td>
                                                             <td><?= $row['location'] ?></td>
                                                             <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
-                                                            <td><?= $row['updated_at'] ?></td>
+                                                            <td><?= date('Y-m-d', strtotime($row['updated_at'])) ?></td>
                                                             <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
@@ -488,7 +488,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['breaktime'] ?></td>
                                                             <td><?= $row['location'] ?></td>
                                                             <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
-                                                            <td><?= $row['updated_at'] ?></td>
+                                                            <td><?= date('Y-m-d', strtotime($row['updated_at'])) ?></td>
                                                             <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
@@ -534,7 +534,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= $row['breaktime'] ?></td>
                                                             <td><?= $row['location'] ?></td>
                                                             <td><?php echo $row['isavailable'] == 1 ? "&#9989;" : "&#10060;" ?></td>
-                                                            <td><?= $row['updated_at'] ?></td>
+                                                            <td><?= date('Y-m-d', strtotime($row['updated_at'])) ?></td>
                                                             <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
                                                         </tr>
