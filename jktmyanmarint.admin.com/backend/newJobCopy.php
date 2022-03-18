@@ -5,7 +5,7 @@
 include("../confs/jobs_config.php");
 
 $ids = $_POST["job_ids"];
-// $ids = ["asdf","asdf-copy6232e55d0c7d1"];
+// $ids = ["IT0001"];
 // var_dump($_POST);
 foreach ($ids as $id) {
     $en_select = "SELECT * FROM en_jobs WHERE job_id='$id'";
@@ -46,7 +46,8 @@ foreach ($ids as $id) {
     $en_location = $en_result['location'];
     $en_memo = $en_result['memo'];
     $en_isavailable = $en_result['isavailable'];
-    $en_created_at = str_replace(' ', '', $en_result['created_at']);
+    // $en_created_at = str_replace(' ', '', $en_result['created_at']);
+    $en_created_at = $en_result['created_at'];
     $en_updated_at = $en_result['updated_at'];
 
 
@@ -67,7 +68,8 @@ foreach ($ids as $id) {
     $mm_location = $mm_result['location'];
     $mm_memo = $mm_result['memo'];
     $mm_isavailable = $mm_result['isavailable'];
-    $mm_created_at = str_replace(' ', '', $mm_result['created_at']);
+    // $mm_created_at = str_replace(' ', '', $mm_result['created_at']);
+    $mm_created_at = $mm_result['created_at'];
     $mm_updated_at = $mm_result['updated_at'];
 
 
@@ -88,7 +90,8 @@ foreach ($ids as $id) {
     $jp_location = $jp_result['location'];
     $jp_memo = $jp_result['memo'];
     $jp_isavailable = $jp_result['isavailable'];
-    $jp_created_at = str_replace(' ', '', $jp_result['created_at']);
+    // $jp_created_at = str_replace(' ', '', $jp_result['created_at']);
+    $jp_created_at = $jp_result['created_at'];
     $jp_updated_at = $jp_result['updated_at'];
 
     // $randHex = bin2hex($random_bytes(15));
@@ -110,23 +113,23 @@ foreach ($ids as $id) {
     mysqli_query($jobs_db_conn, $jp_sql);
 }
 
-$en_select_all = "SELECT * FROM en_jobs";
-$mm_select_all = "SELECT * FROM mm_jobs";
-$jp_select_all = "SELECT * FROM jp_jobs";
+$en_select_all = "SELECT * FROM en_jobs ORDER BY updated_at DESC";
+$mm_select_all = "SELECT * FROM mm_jobs ORDER BY updated_at DESC";
+$jp_select_all = "SELECT * FROM jp_jobs ORDER BY updated_at DESC";
 
 $en_data_result = mysqli_query($jobs_db_conn, $en_select_all);
 $mm_data_result = mysqli_query($jobs_db_conn, $mm_select_all);
 $jp_data_result = mysqli_query($jobs_db_conn, $jp_select_all);
 
-while ($row = mysqli_fetch_array($en_data_result)) {
+while ($row = mysqli_fetch_assoc($en_data_result)) {
     $en_data[] = $row;
 }
 
-while ($row = mysqli_fetch_array($mm_data_result)) {
+while ($row = mysqli_fetch_assoc($mm_data_result)) {
     $mm_data[] = $row;
 }
 
-while ($row = mysqli_fetch_array($jp_data_result)) {
+while ($row = mysqli_fetch_assoc($jp_data_result)) {
     $jp_data[] = $row;
 }
 
