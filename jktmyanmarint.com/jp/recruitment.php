@@ -178,7 +178,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
     <!-- JP School header start -->
     <section>
         <div class="header">
-            <h3>Recruitment</h3>
+            <h3>採用</h3>
             <div class="bg-cover"></div>
             <img src="../assets/images/cover/cover.jpg" alt="jpschool-cover" />
         </div>
@@ -187,8 +187,8 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
 
     <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Recruitment</li>
+            <li class="breadcrumb-item"><a href="./index.html">ホーム</a></li>
+            <li class="breadcrumb-item active" aria-current="page">採用</li>
         </ol>
     </nav>
 
@@ -197,15 +197,15 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
             <div class="tab-container">
                 <ul class="tab-header">
                     <li class="side-li"></li>
-                    <li id="it" class="tab-nav active"><i class="fas fa-laptop"></i>&nbsp; IT Jobs</li>
-                    <li id="tokutei" class="tab-nav"><i class="fas fa-industry"></i>&nbsp;&nbsp; Tokutei Ginou Jobs</li>
-                    <li id="general" class="tab-nav"><i class="fas fa-briefcase"></i>&nbsp; General Jobs</li>
+                    <li id="it" class="tab-nav active"><i class="fas fa-laptop"></i>&nbsp; ITの仕事</li>
+                    <li id="tokutei" class="tab-nav"><i class="fas fa-industry"></i>&nbsp;&nbsp; 特定技能の仕事</li>
+                    <li id="general" class="tab-nav"><i class="fas fa-briefcase"></i>&nbsp; 他の仕事</li>
                     <li class="side-li"></li>
                 </ul>
                 <div class="tab-body">
                     <div id="it-jobs" class="tab-data active">
                         <?php
-                        $application = "SELECT * FROM en_jobs WHERE job_type = 'IT' ORDER BY created_at DESC, isavailable DESC";
+                        $application = "SELECT * FROM jp_jobs WHERE job_type = 'IT' ORDER BY created_at DESC, isavailable DESC";
                         $application_result = mysqli_query($jobs_db_conn, $application);
                         while ($row = mysqli_fetch_array($application_result)) {
                         ?>
@@ -234,7 +234,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                         <table class="table recruitment-info-table">
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; Salary</th>
+                                                    <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; 給料</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
                                                                                     echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
@@ -292,7 +292,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                     </div>
                     <div id="tokutei-jobs" class="tab-data">
                         <?php
-                        $application = "SELECT * FROM en_jobs WHERE job_type = 'Tokutei' ORDER BY created_at DESC, isavailable DESC";
+                        $application = "SELECT * FROM jp_jobs WHERE job_type = 'Tokutei' ORDER BY created_at DESC, isavailable DESC";
                         $application_result = mysqli_query($jobs_db_conn, $application);
                         while ($row = mysqli_fetch_array($application_result)) {
                         ?>
@@ -321,7 +321,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                         <table class="table recruitment-info-table">
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; Salary</th>
+                                                    <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; 給料</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
                                                                                     echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
@@ -379,7 +379,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                     </div>
                     <div id="general-jobs" class="tab-data">
                         <?php
-                        $application = "SELECT * FROM en_jobs WHERE job_type = 'General' ORDER BY created_at DESC, isavailable DESC";
+                        $application = "SELECT * FROM jp_jobs WHERE job_type = 'General' ORDER BY created_at DESC, isavailable DESC";
                         $application_result = mysqli_query($jobs_db_conn, $application);
                         while ($row = mysqli_fetch_array($application_result)) {
                         ?>
@@ -397,7 +397,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     <div class="col-12 col-lg-5 text-lg-right text-center mt-4">
                                         <a href="recruitmentForm.php?job_id=<?= encrypt_decrypt("encrypt", $row["job_id"]) ?>">
                                             <button class="recruitment-apply" <?php echo $row['isavailable'] === "0" ? 'disabled' : '' ?>>
-                                                Apply Now &nbsp;<i class='fas fa-location-arrow'></i>
+                                                申し込む &nbsp;<i class='fas fa-location-arrow'></i>
                                             </button>
                                         </a>
                                     </div>
@@ -408,7 +408,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                         <table class="table recruitment-info-table">
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; Salary</th>
+                                                    <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; 給料</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
                                                                                     echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
@@ -416,15 +416,15 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                                                 ?></td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; Working Hours</th>
+                                                    <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; 労働時間</th>
                                                     <td><?= $row["working_hour"] ?></td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; Holidays</th>
+                                                    <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; 休日</th>
                                                     <td><?= $row["holidays"] ?></td>
                                                 </tr>
                                                 <tr class="last-row">
-                                                    <th scope="row" class="info-table-header"><i class="fas fa-map-marker-alt"></i>&nbsp; Location</th>
+                                                    <th scope="row" class="info-table-header"><i class="fas fa-map-marker-alt"></i>&nbsp; 勤務地</th>
                                                     <td><?= $row["location"] ?></td>
                                                 </tr>
                                             </tbody>
@@ -438,7 +438,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-lg-6 col-xl-7 requirements-col">
-                                        <span class="requirements-title mt-4"><i class='fas fa-tags'></i> Requirements:</span>
+                                        <span class="requirements-title mt-4"><i class='fas fa-tags'></i> 必要な資格:</span>
                                         <ul>
                                             <?php
                                             $requirementList = explode("\n", $row["requirements"]);
@@ -449,7 +449,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                         </ul>
                                     </div>
                                     <div class="col-12 col-lg-6 col-xl-5">
-                                        <span class="benefits-title"><i class='fas fa-medal'></i> Benefits:</span><br>
+                                        <span class="benefits-title"><i class='fas fa-medal'></i> 待遇:</span><br>
                                         <ul>
                                             <?php
                                             $benefitList = explode("\n", $row["benefits"]);

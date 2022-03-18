@@ -116,7 +116,7 @@
           <li class="recruitment-li">
             <a href="./recruitment.php">
               <button class="recruitment-btn-mm">
-                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp;အလုပ်ခေါ်ခြင်း
+                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp;အလုပ်ခေါ်စာများ
               </button>
             </a>
           </li>
@@ -146,7 +146,7 @@
   <!-- JP School header start -->
   <section>
     <div class="header">
-      <h3>Recruitment</h3>
+      <h3>အလုပ်လျှောက်ထားခြင်း</h3>
       <div class="bg-cover"></div>
       <img src="../assets/images/cover/cover.jpg" alt="jpschool-cover" />
     </div>
@@ -155,9 +155,9 @@
 
   <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="./recruitment.php">Jobs Recruitment</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Successful Resume Submission </li>
+      <li class="breadcrumb-item"><a href="./index.html">ပင်မစာမျက်နှာ</a></li>
+      <li class="breadcrumb-item"><a href="./recruitment.php">အလုပ်အကိုင်များ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">အလုပ်လျှောက်ထားမှုအောင်မြင်ခြင်း</li>
     </ol>
   </nav>
 
@@ -169,7 +169,7 @@
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <fieldset id="success">
               <div class="form-card">
-                <h2 class="blue-text text-center"><strong>Successfully Submitted!</strong></h2> <br>
+                <h2 class="blue-text text-center"><strong>‌ပေးပို့မှုအောင်မြင်ပါသည်။</strong></h2> <br>
                 <div class="row justify-content-center">
                   <div class="col-3">
                     <img src="../assets/images/blue-tick.png" class="fit-image">
@@ -181,7 +181,7 @@
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">
-                  <a href="./business.html" class="back-to-courses">Home Page</a>
+                  <a href="./recruitment.php" class="back-to-courses">အလုပ်အကိုင်များ ရှာဖွေရန်သို့</a>
                 </div>
               </div>
             </fieldset>

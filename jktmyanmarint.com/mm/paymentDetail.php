@@ -119,7 +119,7 @@ function encrypt_decrypt($action, $string)
             <a href="./contact.html" class="nav-link"> ဆက်သွယ်ရန် </a>
           </li>
           <li class="recruitment-li">
-            <a href="./recruitment.php"><button class="recruitment-btn">အလုပ်ခေါ်ခြင်း</button></a>
+            <a href="./recruitment.php"><button class="recruitment-btn-mm">အလုပ်ခေါ်စာများ</button></a>
           </li>
           <?php $getID = $_GET['enroll_id'] ?>
           <li class="lang">

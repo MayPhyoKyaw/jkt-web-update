@@ -185,7 +185,7 @@
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">
-                  <a href="./business.html" class="back-to-courses">Home Page</a>
+                  <a href="./recruitment.php" class="back-to-courses">Home Page</a>
                 </div>
               </div>
             </fieldset>

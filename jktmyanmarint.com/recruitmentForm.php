@@ -125,24 +125,27 @@ function encrypt_decrypt($action, $string)
                             </button>
                         </a>
                     </li>
+                    <?php
+                        $getJobId = $_GET["job_id"];
+                    ?>
                     <li class="lang">
                         <div class="btn-group" role="group" aria-label="First group">
-                            <a href="./recruitment.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
+                            <a href="./recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
                                     <img src="./assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-                            <a href="./mm/recruitment.php"><button type="button" class="btn btn2">
+                            <a href="./mm/recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn2">
                                     <img src="./assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-                            <a href="./jp/recruitment.php"><button type="button" class="btn btn3">
+                            <a href="./jp/recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn3">
                                     <img src="./assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="btn-group lang-xl" role="group" aria-label="First group">
-                <a href="./recruitment.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
+                <a href="./recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
                         <img src="./assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-                <a href="./mm/recruitment.php"><button type="button" class="btn btn2">
+                <a href="./mm/recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn2">
                         <img src="./assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-                <a href="./jp/recruitment.php"><button type="button" class="btn btn3">
+                <a href="./jp/recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn3">
                         <img src="./assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
             </div>
         </div>
@@ -170,16 +173,15 @@ function encrypt_decrypt($action, $string)
         <div>
             <div class="container">
                 <div class="row text-center mt-4 mt-lg-0">
-                    <div class="col-12 col-md-10 mx-auto">
-                        <img src="./assets/images/process.jpeg" class="job-process" alt="Process Image" width="100%" height="320" />
+                    <div class="col-11 col-md-10 mx-auto job-process-block">
+                        <img src="./assets/images/en_process.png" class="job-process" alt="Process Image" width="100%" height="320" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-10 text-center mt-4 d-block d-lg-flex">
-                        <div class="tabs d-block d-lg-none">
+                    <div class="col-12 col-md-11 text-center mt-4 d-block d-lg-flex mx-auto">
+                        <div class="tabs d-block d-lg-none mx-auto">
                             <div class="tab">
                                 <?php
-                                $getJobId = $_GET["job_id"];
                                 $decrypted_job_id = encrypt_decrypt("decrypt", $getJobId);
                                 $job_id = isset($decrypted_job_id) ? $decrypted_job_id : null;
                                 include_once "../jktmyanmarint.admin.com/confs/jobs_config.php";
@@ -301,7 +303,7 @@ function encrypt_decrypt($action, $string)
 
                             <div class="pb-4 mb-2">
                                 <label for="phone" id="phone-label" class="appointment-label">Facebook Profile Link</label><br />
-                                <input type="text" id="fbProfileLink" name="fbProfileLink" placeholder="Enter Your Facebook Profile Link" class="appointment-input form-field" />
+                                <input type="text" id="fbProfileLink" name="fbProfileLink" placeholder="https://www.facebook.com/{some facebook id}" class="appointment-input form-field" />
                             </div>
 
                             <div class="pb-4 mb-2">

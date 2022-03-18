@@ -101,22 +101,22 @@
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
-              <a href="./consultSuccess.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
+              <a href="./recruitmentFormSuccess.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
                   <img src="./assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-              <a href="./mm/consultSuccess.php"><button type="button" class="btn btn2">
+              <a href="./mm/recruitmentFormSuccess.php"><button type="button" class="btn btn2">
                   <img src="./assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-              <a href="./jp/consultSuccess.php"><button type="button" class="btn btn3">
+              <a href="./jp/recruitmentFormSuccess.php"><button type="button" class="btn btn3">
                   <img src="./assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
             </div>
           </li>
         </ul>
       </div>
       <div class="btn-group lang-xl" role="group" aria-label="First group">
-        <a href="./consultSuccess.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
+        <a href="./recruitmentFormSuccess.php"><button type="button" class="btn btn1" style="background-color: rgba(91, 175, 231, 0.5)">
             <img src="./assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-        <a href="./mm/consultSuccess.php"><button type="button" class="btn btn2">
+        <a href="./mm/recruitmentFormSuccess.php"><button type="button" class="btn btn2">
             <img src="./assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-        <a href="./jp/consultSuccess.php"><button type="button" class="btn btn3">
+        <a href="./jp/recruitmentFormSuccess.php"><button type="button" class="btn btn3">
             <img src="./assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
       </div>
     </div>
@@ -160,7 +160,7 @@
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">
-                  <a href="./business.html" class="back-to-courses">Home Page</a>
+                  <a href="./recruitment.php" class="back-to-courses">Home Page</a>
                 </div>
               </div>
             </fieldset>

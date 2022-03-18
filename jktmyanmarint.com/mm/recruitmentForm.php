@@ -142,28 +142,31 @@ function encrypt_decrypt($action, $string)
                     <li class="recruitment-li">
                         <a href="./recruitment.php">
                             <button class="recruitment-btn-mm">
-                                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp;အလုပ်ခေါ်ခြင်း
+                                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp;အလုပ်ခေါ်စာများ
                             </button>
                         </a>
                     </li>
+                    <?php
+                    $getJobId = $_GET["job_id"];
+                    ?>
                     <li class="lang">
                         <div class="btn-group" role="group" aria-label="First group">
-                            <a href="../recruitmentForm.php"><button type="button" class="btn btn1">
+                            <a href="../recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn1">
                                     <img src="../assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-                            <a href="./recruitmentForm.php"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
+                            <a href="./recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
                                     <img src="../assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-                            <a href="../jp/recruitmentForm.php"><button type="button" class="btn btn3">
+                            <a href="../jp/recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn3">
                                     <img src="../assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="btn-group lang-xl" role="group" aria-label="First group">
-                <a href="../recruitmentForm.php"><button type="button" class="btn btn1">
+                <a href="../recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn1">
                         <img src="../assets/images/icon/ukFlag.png" height="20px" width="25px" /></button></a>
-                <a href="./recruitmentForm.php"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
+                <a href="./recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn2" style="background-color: rgba(91, 175, 231, 0.5)">
                         <img src="../assets/images/icon/mmFlag.svg" height="20px" width="25px" /></button></a>
-                <a href="../jp/recruitmentForm.php"><button type="button" class="btn btn3">
+                <a href="../jp/recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn3">
                         <img src="../assets/images/icon/japanFlag.jpg" height="20px" width="25px" /></button></a>
             </div>
         </div>
@@ -172,18 +175,18 @@ function encrypt_decrypt($action, $string)
     <!-- JP School header start -->
     <section>
         <div class="header">
-            <h3>Recruitment - Apply Form</h3>
+            <h3>အလုပ်လျှောက်ထားရန်</h3>
             <div class="bg-cover"></div>
-            <img src="./assets/images/cover/cover.jpg" alt="jpschool-cover" />
+            <img src="../assets/images/cover/cover.jpg" alt="jpschool-cover" />
         </div>
     </section>
     <!-- JP School header end -->
 
     <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="./recruitment.php">Recruitment</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Recruitment Form</li>
+            <li class="breadcrumb-item"><a href="./index.html">ပင်မစာမျက်နှာ</a></li>
+            <li class="breadcrumb-item"><a href="./recruitment.php">အလုပ်အကိုင်များ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">အလုပ်လျှောက်ထားရန်</li>
         </ol>
     </nav>
 
@@ -191,20 +194,19 @@ function encrypt_decrypt($action, $string)
         <div>
             <div class="container">
                 <div class="row text-center mt-4 mt-lg-0">
-                    <div class="col-12 col-md-10 mx-auto">
-                        <img src="../assets/images/process.jpeg" class="job-process" alt="Process Image" width="100%" height="320" />
+                    <div class="col-11 col-md-10 mx-auto job-process-block">
+                        <img src="../assets/images/mm_process.png" class="job-process" alt="Process Image" width="100%" height="320" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-10 text-center mt-4 d-block d-lg-flex">
+                    <div class="col-12 col-md-11 text-center mt-4 d-block d-lg-flex mx-auto">
                         <div class="tabs d-block d-lg-none">
                             <div class="tab">
                                 <?php
-                                $getJobId = $_GET["job_id"];
                                 $decrypted_job_id = encrypt_decrypt("decrypt", $getJobId);
                                 $job_id = isset($decrypted_job_id) ? $decrypted_job_id : null;
                                 include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
-                                $get_job = "SELECT * FROM en_jobs WHERE job_id = '$job_id'";
+                                $get_job = "SELECT * FROM mm_jobs WHERE job_id = '$job_id'";
                                 $job_result = mysqli_query($jobs_db_conn, $get_job);
                                 $row = mysqli_fetch_array($job_result);
                                 ?>
@@ -262,49 +264,49 @@ function encrypt_decrypt($action, $string)
                     </div>
                     <div class="col-12 col-md-10 col-lg-8 mb-5 mt-4 mx-auto w-100">
                         <p id="description">
-                            Please fill in all the fields of the form. <br>
-                            Thanks for Joining With Us!!
+                            ကျေးဇူးပြု၍ ဖောင်၏ အကွက်အားလုံးကို ဖြည့်ပါ။ <br>
+                            ကျွန်ုပ်တို့နှင့်ပူးပေါင်းသည့်အတွက် ကျေးဇူးတင်ပါသည်။
                         </p>
                         <form id="recruitmentForm" action="../backend/newRecruitment.php" method="POST" enctype="multipart/form-data">
                             <div class="pb-4 mb-2">
-                                <label for="name" id="name-label" class="appointment-label">Name <span class="consultant-required-tag">required &nbsp; *</span></label><br />
-                                <input type="text" id="recruitmentName" name="recruitmentName" placeholder="Enter Your Name" required class="appointment-input form-field" />
+                                <label for="name" id="name-label" class="appointment-label">အမည် <span class="consultant-required-tag">required &nbsp; *</span></label><br />
+                                <input type="text" id="recruitmentName" name="recruitmentName" placeholder="အမည်ရေးသွင်းရန်" required class="appointment-input form-field" />
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="email" id="email-label" class="appointment-label">Email <span class="consultant-required-tag">required &nbsp; *</span></label><br />
-                                <input type="email" id="recruitmentEmail" name="recruitmentEmail" placeholder="Enter Your Email" class="appointment-input form-field" required />
+                                <label for="email" id="email-label" class="appointment-label">အီးမေးလ် <span class="consultant-required-tag">required &nbsp; *</span></label><br />
+                                <input type="email" id="recruitmentEmail" name="recruitmentEmail" placeholder="အီးမေးလ်ရေးသွင်းရန်" class="appointment-input form-field" required />
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="phone" id="phone-label" class="appointment-label">Phone Number <span class="consultant-required-tag">required &nbsp; *</span></label><br />
-                                <input type="text" id="recruitmentPhone" name="recruitmentPhone" placeholder="Enter Your Phone Number" class="appointment-input form-field" required />
+                                <label for="phone" id="phone-label" class="appointment-label">ဖုန်းနံပါတ် <span class="consultant-required-tag">required &nbsp; *</span></label><br />
+                                <input type="text" id="recruitmentPhone" name="recruitmentPhone" placeholder="ဖုန်းနံပါတ်ရေးသွင်းရန်" class="appointment-input form-field" required />
                             </div>
 
                             <div class="pb-4 mb-2 appointment-date">
-                                <label class="appointment-label">Date of Birth <span class="consultant-required-tag">required &nbsp; *</span></label>
-                                <input type="date" id="recruitmentDob" name="recruitmentDob" placeholder="Enter Your Phone Number" class="appointment-input form-field" required />
+                                <label class="appointment-label">မွေးသက္ကရာဇ် <span class="consultant-required-tag">required &nbsp; *</span></label>
+                                <input type="date" id="recruitmentDob" name="recruitmentDob" class="appointment-input form-field" required />
                             </div>
 
                             <div class="pb-4 mb-2 appointment-type">
                                 <fieldset class="appointment-fieldset">
-                                    <legend class="appointment-legend">Gender <span class="consultant-required-tag">required &nbsp; *</span></legend>
+                                    <legend class="appointment-legend">ကျား/မ <span class="consultant-required-tag">required &nbsp; *</span></legend>
 
                                     <input type="radio" id="male" name="gender" value="Male" />
-                                    <label for="male" id="gender" class="recruitment-gender-label">Male</label><br />
+                                    <label for="male" id="gender" class="recruitment-gender-label">ကျား</label><br />
 
                                     <input type="radio" id="female" name="gender" value="Female" />
-                                    <label for="female" id="gender" class="recruitment-gender-label">Female</label><br />
+                                    <label for="female" id="gender" class="recruitment-gender-label">မ</label><br />
                                 </fieldset>
                             </div>
 
                             <div class="pb-4 mb-2">
                                 <label for="dropdown" id="dropdown-label" class="appointment-label">
-                                    Japanese Skills Level <span class="consultant-required-tag">required &nbsp; *</span>
+                                    ဂျပန်စာအရည်အချင်း <span class="consultant-required-tag">required &nbsp; *</span>
                                 </label>
                                 <select id="dropdown" name="recruitmentJpSkill" class="appointment-select">
                                     <option value="" disabled selected>
-                                        Select Your Japanese Skill Level
+                                        ဂျပန်စာအရည်အချင်း ကို ရွေးချယ်ပါ
                                     </option>
                                     <option value="N5">N5</option>
                                     <option value="N4">N4</option>
@@ -315,14 +317,14 @@ function encrypt_decrypt($action, $string)
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label class="appointment-label">Resume</label>
+                                <label class="appointment-label">ကိုယ်ရေးအကျဥ်း </label>
                                 <input type="file" id="recruitmentCv" name="recruitmentCv" placeholder="Please attach your cv" class="cv-input form-field" />
                                 <span class="resume-help-block" id="resumeHelp"></span>
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="phone" id="phone-label" class="appointment-label">Facebook Profile Link</label><br />
-                                <input type="text" id="fbProfileLink" name="fbProfileLink" placeholder="Enter Your Facebook Profile Link" class="appointment-input form-field" />
+                                <label for="phone" id="phone-label" class="appointment-label">ဖေ့စ်ဘွတ်စာမျက်နှာလင့်ခ်</label><br />
+                                <input type="text" id="fbProfileLink" name="fbProfileLink" placeholder="https://www.facebook.com/{some facebook id}" class="appointment-input form-field" />
                             </div>
 
                             <div class="pb-4 mb-2">
@@ -331,12 +333,12 @@ function encrypt_decrypt($action, $string)
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="description" id="description-label" class="appointment-label">Additional Note</label><br />
-                                <textarea placeholder="Additional Note" id="recruitmentNote" name="recruitmentNote" class="appointment-textarea" rows="4" cols="50"></textarea>
+                                <label for="description" id="description-label" class="appointment-label">မှတ်ချက်</label><br />
+                                <textarea placeholder="မှတ်ချက်ရေးရန်" id="recruitmentNote" name="recruitmentNote" class="appointment-textarea" rows="4" cols="50"></textarea>
                             </div>
 
                             <div class="text-right">
-                                <button id="recruitmentSend" type="button" class="appointment-button">Send</button>
+                                <button id="recruitmentSend" type="button" class="appointment-button">ပေးပို့ရန်</button>
                             </div>
                         </form>
                     </div>

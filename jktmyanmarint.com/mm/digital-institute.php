@@ -115,7 +115,7 @@ function encrypt_decrypt($action, $string)
             <a href="./contact.html" class="nav-link active"> ဆက်သွယ်ရန် </a>
           </li>
           <li class="recruitment-li">
-            <a href="./recruitment.php"><button class="recruitment-btn">အလုပ်ခေါ်ခြင်း</button></a>
+            <a href="./recruitment.php"><button class="recruitment-btn-mm">အလုပ်ခေါ်စာများ</button></a>
           </li>
           <li class="lang">
             <div class="btn-group" role="group" aria-label="First group">
