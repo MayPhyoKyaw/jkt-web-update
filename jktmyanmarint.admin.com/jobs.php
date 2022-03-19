@@ -410,7 +410,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <table class="table table-bordered" id="enDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th></th>
+                                                        <th><img class="check-icon" id="select-all-en" src="img/1.png"/></th>
                                                         <th class="id">ID</th>
                                                         <th class="title">Title</th>
                                                         <th class="en-company-filter company">Company</th>
@@ -425,6 +425,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                         <th class="updated">Updated At</th>
                                                         <th>Edit</th>
                                                         <th>Delete</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -445,6 +448,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= date('Y-m-d', strtotime($row['updated_at'])) ?></td>
                                                             <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                     <?php endwhile; ?>
                                                 </tbody>
@@ -456,7 +462,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <table class="table table-bordered" id="mmDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th></th>
+                                                        <th><img class="check-icon" id="select-all-mm" src="img/1.png"/></th>
                                                         <th class="id">ID</th>
                                                         <th class="title">Title</th>
                                                         <th class="mm-company-filter company">Company</th>
@@ -471,6 +477,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                         <th class="updated">Updated At</th>
                                                         <th>Edit</th>
                                                         <th>Delete</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -491,6 +500,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= date('Y-m-d', strtotime($row['updated_at'])) ?></td>
                                                             <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                     <?php endwhile; ?>
                                                 </tbody>
@@ -502,7 +514,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <table class="table table-bordered" id="jpDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th></th>
+                                                        <th><img class="check-icon" id="select-all-jp" src="img/1.png"/></th>
                                                         <th class="id">ID</th>
                                                         <th class="title">Title</th>
                                                         <th class="jp-company-filter company">Company</th>
@@ -517,6 +529,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                         <th class="updated">Updated At</th>
                                                         <th>Edit</th>
                                                         <th>Delete</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -537,6 +552,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                             <td><?= date('Y-m-d', strtotime($row['updated_at'])) ?></td>
                                                             <td><a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=<?php echo $row['job_id'] ?>"><i class="fa fa-pencil"></i></a></td>
                                                             <td><button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'<?php echo $row['job_id'] ?>')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button></i></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                     <?php endwhile; ?>
                                                 </tbody>
