@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // include('checkUser.php');
 
 include("../confs/jobs_config.php");
@@ -16,8 +16,9 @@ $allowed_image_extension = array(
 
 // COMMON FIELDS
 $job_id = $_POST['job_id'];
-// $photo1 = $_FILES['photo_one'];
-// $photo2 = isset($_FILES['photo_two']) && $_FILES['photo_two'];
+// $job_id = "yyy";
+$photo1 = $_FILES['photo_one'];
+$photo2 = isset($_FILES['photo_two']) && $_FILES['photo_two'];
 
 $job_type = $_POST['job_type'];
 $employment_type = $_POST['employment_type'];
@@ -29,6 +30,14 @@ if (isset($_POST['available']) && $_POST['available'] == "on") {
     $isavailable = 1;
 } else {
     $isavailable = 0;
+}
+
+$checkID = "SELECT COUNT(job_id) FROM en_jobs WHERE job_id='$job_id'";
+$countResult = mysqli_query($jobs_db_conn, $checkID);
+
+if (mysqli_num_rows($countResult) > 0) {
+    $_SESSION['insertError'] = "Job ID [$job_id] already exists. Please choose different job id!";
+    header("location: ../jobedit.php?job_id=$job_id");
 }
 
 // ENG
@@ -238,6 +247,7 @@ if(!file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo
 
     // echo $jp_sql;
     mysqli_query($jobs_db_conn, $jp_sql);
+    unset($_SESSION['insertError']);
     header("location: ../jobs.php");
 }elseif(!file_exists($_FILES['photo_two']['tmp_name'])) {
     $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
@@ -327,6 +337,7 @@ if(!file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo
 
             // echo $jp_sql;
             mysqli_query($jobs_db_conn, $jp_sql);
+            unset($_SESSION['insertError']);
             header("location: ../jobs.php");
         } else {
             // echo "resize fail";
@@ -422,6 +433,7 @@ if(!file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo
 
             // echo $jp_sql;
             mysqli_query($jobs_db_conn, $jp_sql);
+            unset($_SESSION['insertError']);
             header("location: ../jobs.php");
         } else {
             // echo "resize fail";
