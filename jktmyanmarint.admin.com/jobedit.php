@@ -483,60 +483,60 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                             </div>
 
                             <p>
-                                <label for="mm_company_name">label</label>
+                                <label for="mm_company_name">ကုမ္ပဏီအမည်</label>
                                 <textarea class="no-keydown" name="mm_company_name" placeholder="ကုမ္ပဏီအမည်" id="mm_company_name" data-toggle="modal" data-target="#MmNameInput"><?= $mm_result['company_name'] ?></textarea>
                                 <span id="mm_error_company_name"></span>
                             </p>
                             <p>
-                                <label for="mm_job_title">label</label>
+                                <label for="mm_job_title">အလုပ်အကိုင်အမည်</label>
                                 <textarea class="no-keydown" name="mm_job_title" placeholder="အလုပ်အကိုင်အမည်" id="mm_job_title" data-toggle="modal" data-target="#MmTitleInput"><?= $mm_result['job_title'] ?></textarea>
                                 <span id="mm_error_job_title"></span>
                             </p>
 
                             <div class="my-3 text-left">
-                                <label for="mm_wage">label</label>
+                                <label for="mm_wage">လုပ်အားခ</label>
                                 <textarea class="no-keydown" name="mm_wage" placeholder="လုပ်အားခ (ဥပမာ. ၁၀,၀၀၀ ယန်း)" id="mm_wage" class="input-number" data-toggle="modal" data-target="#MmWageInput"><?= $mm_result['wage'] ?></textarea>
                                 <span id="mm_error_wage" class="d-block text-left"></span>
                             </div>
                             <p class="my-3">
-                                <label for="mm_ot">label</label>
+                                <label for="mm_ot">အချိန်ပိုလုပ်အားခ</label>
                                 <textarea class="no-keydown ta-input" name="mm_ot" id="mm_ot" placeholder="အချိန်ပိုလုပ်အားခ" data-toggle="modal" data-target="#MmOtInput"><?= $mm_result['overtime'] ?></textarea>
                                 <!-- <span id="mm_error_ot">asdasd</span> -->
                             </p>
                             <p class="my-3">
-                                <label for="mm_holidays">label</label>
+                                <label for="mm_holidays">အားလပ်ရက်များ</label>
                                 <textarea class="no-keydown ta-input" name="mm_holidays" id="mm_holidays" placeholder="အားလပ်ရက်များ (ဥပမာ စနေ၊ နေ၊ အစိုးရရုံးပိတ်ရက်)" data-toggle="modal" data-target="#MmHolidaysInput"><?= $mm_result['holidays'] ?></textarea>
                                 <span id="mm_error_holidays"></span>
                             </p>
                             <p class="my-3">
-                                <label for="mm_workinghr">label</label>
+                                <label for="mm_workinghr">အလုပ်ချိန်</label>
                                 <textarea class="no-keydown ta-input" name="mm_workinghr" id="mm_workinghr" placeholder="အလုပ်ချိန် (ဥပမာ မနက် ၉:၀၀ ~ ညနေ ၅:၀၀)" data-toggle="modal" data-target="#MmWorkinghrInput"><?= $mm_result['working_hour'] ?></textarea>
                                 <span id="mm_error_workinghr"></span>
                             </p>
                             <p class="my-3">
-                                <label for="mm_breaktime">label</label>
+                                <label for="mm_breaktime">နားချိန်</label>
                                 <textarea class="no-keydown ta-input" name="mm_breaktime" id="mm_breaktime" placeholder="နားချိန် (ဥပမာ နေ့လည် ၁၂:၀၀ ~ နေ့လည် ၁:၀၀)" data-toggle="modal" data-target="#MmBreakTimeInput"><?= $mm_result['breaktime'] ?></textarea>
                                 <span id="mm_error_breaktime"></span>
                             </p>
                             <p class="my-3">
-                                <label for="mm_requirements">label</label>
+                                <label for="mm_requirements">လိုအပ်ချက်များ</label>
                                 <textarea class="no-keydown ta-input" name="mm_requirements" id="mm_requirements" data-toggle="modal" data-target="#MmtextAreaInputReq" placeholder="လိုအပ်ချက်များ"><?= $mm_result['requirements'] ?></textarea>
                                 <span id="mm_error_requirements"></span>
                             </p>
                             <p class="my-3">
-                                <label for="mm_benefits">label</label>
-                                <textarea class="no-keydown ta-input" name="mm_benefits" id="mm_benefits" data-toggle="modal" data-target="#MmtextAreaInputBen" placeholder="Benefits"><?= $mm_result['benefits'] ?></textarea>
+                                <label for="mm_benefits">အကျိုးခံစားခွင့်များ</label>
+                                <textarea class="no-keydown ta-input" name="mm_benefits" id="mm_benefits" data-toggle="modal" data-target="#MmtextAreaInputBen" placeholder="အကျိုးခံစားခွင့်များ"><?= $mm_result['benefits'] ?></textarea>
                                 <span id="mm_error_benefits"></span>
                             </p>
                             <p class="my-3">
-                                <label for="mm_location">label</label>
-                                <textarea class="no-keydown ta-input" rows="4" name="mm_location" id="mm_location" placeholder="Company Address" data-toggle="modal" data-target="#MmLocationInput"><?= $mm_result['location'] ?></textarea>
+                                <label for="mm_location">အလုပ်နေရာ</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="mm_location" id="mm_location" placeholder="အလုပ်နေရာ" data-toggle="modal" data-target="#MmLocationInput"><?= $mm_result['location'] ?></textarea>
                                 <span id="mm_error_location"></span>
                             </p>
 
                             <p class="my-3">
-                                <label for="mm_memo">label</label>
-                                <textarea class="no-keydown ta-input" rows="4" name="mm_memo" id="mm_memo" placeholder="Any additional note" data-toggle="modal" data-target="#MmMemoInput"><?= $mm_result['memo'] ?></textarea>
+                                <label for="mm_memo">အခြားမှတ်ချက်</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="mm_memo" id="mm_memo" placeholder="အခြားမှတ်ချက်" data-toggle="modal" data-target="#MmMemoInput"><?= $mm_result['memo'] ?></textarea>
                                 <span id="mm_error_memo"></span>
                             </p>
 
@@ -548,63 +548,63 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                         <!-- Step 03 -->
                         <div class="multistep-box">
                             <div class="title-box">
-                                <h2>Fill In Japanese</h2>
+                                <h2>日本語で記入してください</h2>
                             </div>
                             <p>
-                                <label for="jp_company_name">label</label>
-                                <textarea class="no-keydown" name="jp_company_name" placeholder="Company Name" id="jp_company_name" data-toggle="modal" data-target="#JpNameInput"><?= $jp_result['company_name'] ?></textarea>
+                                <label for="jp_company_name">会社名</label>
+                                <textarea class="no-keydown" name="jp_company_name" placeholder="会社名" id="jp_company_name" data-toggle="modal" data-target="#JpNameInput"><?= $jp_result['company_name'] ?></textarea>
                                 <span id="jp_error_company_name"></span>
                             </p>
                             <p>
-                                <label for="jp_job_title">label</label>
-                                <textarea class="no-keydown" name="jp_job_title" placeholder="Job Title" id="jp_job_title" data-toggle="modal" data-target="#JpTitleInput"><?= $jp_result['job_title'] ?></textarea>
+                                <label for="jp_job_title">役職名</label>
+                                <textarea class="no-keydown" name="jp_job_title" placeholder="役職名" id="jp_job_title" data-toggle="modal" data-target="#JpTitleInput"><?= $jp_result['job_title'] ?></textarea>
                                 <span id="jp_error_job_title"></span>
                             </p>
 
                             <div class="my-3 text-left">
-                                <label for="jp_wage">label</label>
-                                <textarea class="no-keydown" name="jp_wage" placeholder="Wage in YEN (eg. 10,000)" id="jp_wage" class="input-number" data-toggle="modal" data-target="#JpWageInput"><?= $jp_result['wage'] ?></textarea>
+                                <label for="jp_wage">給与</label>
+                                <textarea class="no-keydown" name="jp_wage" placeholder="給与（円）" id="jp_wage" class="input-number" data-toggle="modal" data-target="#JpWageInput"><?= $jp_result['wage'] ?></textarea>
                                 <span id="jp_error_wage" class="d-block text-left"></span>
                             </div>
                             <p class="my-3">
-                                <label for="jp_ot">label</label>
-                                <textarea class="no-keydown ta-input" name="jp_ot" id="jp_ot" placeholder="Overtime payment" data-toggle="modal" data-target="#JpOtInput"><?= $jp_result['overtime'] ?></textarea>
+                                <label for="jp_ot">残業代</label>
+                                <textarea class="no-keydown ta-input" name="jp_ot" id="jp_ot" placeholder="残業代（円）" data-toggle="modal" data-target="#JpOtInput"><?= $jp_result['overtime'] ?></textarea>
                                 <!-- <span id="jp_error_ot">asdasd</span> -->
                             </p>
                             <p class="my-3">
-                                <label for="jp_holidays">label</label>
-                                <textarea class="no-keydown ta-input" name="jp_holidays" id="jp_holidays" placeholder="Holidays (Eg. Sat, Sun, Public holidays)" data-toggle="modal" data-target="#JpHolidaysInput"><?= $jp_result['holidays'] ?></textarea>
+                                <label for="jp_holidays">休日</label>
+                                <textarea class="no-keydown ta-input" name="jp_holidays" id="jp_holidays" placeholder="休日" data-toggle="modal" data-target="#JpHolidaysInput"><?= $jp_result['holidays'] ?></textarea>
                                 <span id="jp_error_holidays"></span>
                             </p>
                             <p class="my-3">
-                                <label for="jp_workinghr">label</label>
-                                <textarea class="no-keydown ta-input" name="jp_workinghr" id="jp_workinghr" placeholder="Working Hour (Eg. 9:00 AM ~ 5:00 PM)" data-toggle="modal" data-target="#JpWorkinghrInput"><?= $jp_result['working_hour'] ?></textarea>
+                                <label for="jp_workinghr">勤務時間</label>
+                                <textarea class="no-keydown ta-input" name="jp_workinghr" id="jp_workinghr" placeholder="勤務時間" data-toggle="modal" data-target="#JpWorkinghrInput"><?= $jp_result['working_hour'] ?></textarea>
                                 <span id="jp_error_workinghr"></span>
                             </p>
                             <p class="my-3">
-                                <label for="jp_breaktime">label</label>
-                                <textarea class="no-keydown ta-input" name="jp_breaktime" id="jp_breaktime" placeholder="Break Time (Eg. 12:00 PM ~ 1:00 PM)" data-toggle="modal" data-target="#JpBreakTimeInput"><?= $jp_result['breaktime'] ?></textarea>
+                                <label for="jp_breaktime">休憩時間</label>
+                                <textarea class="no-keydown ta-input" name="jp_breaktime" id="jp_breaktime" placeholder="休憩時間" data-toggle="modal" data-target="#JpBreakTimeInput"><?= $jp_result['breaktime'] ?></textarea>
                                 <span id="jp_error_breaktime"></span>
                             </p>
                             <p class="my-3">
-                                <label for="jp_requirements">label</label>
-                                <textarea class="no-keydown ta-input" name="jp_requirements" id="jp_requirements" data-toggle="modal" data-target="#JptextAreaInputReq" placeholder="Requirements"><?= $jp_result['company_name'] ?></textarea>
+                                <label for="jp_requirements">必要な資格</label>
+                                <textarea class="no-keydown ta-input" name="jp_requirements" id="jp_requirements" data-toggle="modal" data-target="#JptextAreaInputReq" placeholder="必要な資格"><?= $jp_result['company_name'] ?></textarea>
                                 <span id="jp_error_requirements"></span>
                             </p>
                             <p class="my-3">
-                                <label for="jp_benefits">label</label>
-                                <textarea class="no-keydown ta-input" name="jp_benefits" id="jp_benefits" data-toggle="modal" data-target="#JptextAreaInputBen" placeholder="Benefits"><?= $jp_result['benefits'] ?></textarea>
+                                <label for="jp_benefits">待遇</label>
+                                <textarea class="no-keydown ta-input" name="jp_benefits" id="jp_benefits" data-toggle="modal" data-target="#JptextAreaInputBen" placeholder="待遇"><?= $jp_result['benefits'] ?></textarea>
                                 <span id="jp_error_benefits"></span>
                             </p>
                             <p class="my-3">
-                                <label for="jp_location">label</label>
-                                <textarea class="no-keydown ta-input" rows="4" name="jp_location" id="jp_location" placeholder="Company Address" data-toggle="modal" data-target="#JpLocationInput"><?= $jp_result['location'] ?></textarea>
+                                <label for="jp_location">勤務地</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="jp_location" id="jp_location" placeholder="勤務地" data-toggle="modal" data-target="#JpLocationInput"><?= $jp_result['location'] ?></textarea>
                                 <span id="jp_error_location"></span>
                             </p>
 
                             <p class="my-3">
-                                <label for="jp_memo">label</label>
-                                <textarea class="no-keydown ta-input" rows="4" name="jp_memo" id="jp_memo" placeholder="Any additional note" data-toggle="modal" data-target="#JpMemoInput"><?= $jp_result['memo'] ?></textarea>
+                                <label for="jp_memo">追記</label>
+                                <textarea class="no-keydown ta-input" rows="4" name="jp_memo" id="jp_memo" placeholder="追記" data-toggle="modal" data-target="#JpMemoInput"><?= $jp_result['memo'] ?></textarea>
                                 <span id="jp_error_memo"></span>
                             </p>
                             <p class="nxt-prev-button">
@@ -680,8 +680,8 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
     </div>
 
 
-    <!-- JOB ID INPUT -->
-    <div class="modal fade" id="JobIdInput" tabindex="-1" role="dialog">
+   <!-- JOB ID INPUT -->
+   <div class="modal fade" id="JobIdInput" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -692,7 +692,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert JOB ID as the format below:</label>
-                    <textarea name="JobIdTextArea" id="JobIdTextArea" cols="30" rows="5" placeholder="IT000001"><?= $en_result['job_id'] ?></textarea>
+                    <textarea name="JobIdTextArea" id="JobIdTextArea" cols="30" rows="5" placeholder="IT000001"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToJobId()">Sure</a>
@@ -714,7 +714,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert company name below:</label>
-                    <textarea name="EngNameTextArea" id="EngNameTextArea" cols="30" rows="10" placeholder="Company name"><?= $en_result['company_name'] ?></textarea>
+                    <textarea name="EngNameTextArea" id="EngNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameEng()">Sure</a>
@@ -730,14 +730,14 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Company Name</h5>
+                    <h5 class="modal-title">ကုမ္ပဏီအမည်</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert company name below:</label>
-                    <textarea name="MmNameTextArea" id="MmNameTextArea" cols="30" rows="10" placeholder="Company name"><?= $mm_result['company_name'] ?></textarea>
+                    <label>ကုမ္ပဏီအမည်ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
+                    <textarea name="MmNameTextArea" id="MmNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameMm()">Sure</a>
@@ -757,11 +757,11 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert company name below:</label>
-                    <textarea name="JpNameTextArea" id="JpNameTextArea" cols="30" rows="10" placeholder="Company name"><?= $jp_result['company_name'] ?></textarea>
+                    <label>以下に会社名を入力してください。</label>
+                    <textarea name="JpNameTextArea" id="JpNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -780,7 +780,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert job title below:</label>
-                    <textarea name="EngTitleTextArea" id="EngTitleTextArea" cols="30" rows="10" placeholder="Job Title"><?= $en_result['job_title'] ?></textarea>
+                    <textarea name="EngTitleTextArea" id="EngTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleEng()">Sure</a>
@@ -794,17 +794,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Job Title</h5>
+                    <h5 class="modal-title">အလုပ်အကိုင်ရာထူး</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert job title below:</label>
-                    <textarea name="MmTitleTextArea" id="MmTitleTextArea" cols="30" rows="10" placeholder="Job Title"><?= $mm_result['job_title'] ?></textarea>
+                    <label>အလုပ်အကိုင်ရာထူးကို ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
+                    <textarea name="MmTitleTextArea" id="MmTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -815,17 +815,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Job Title</h5>
+                    <h5 class="modal-title">役職名</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert job title below:</label>
-                    <textarea name="JpTitleTextArea" id="JpTitleTextArea" cols="30" rows="10" placeholder="Job Title"><?= $jp_result['job_title'] ?></textarea>
+                    <label>以下に肩書きを入力してください。</label>
+                    <textarea name="JpTitleTextArea" id="JpTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -845,7 +845,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert wage as the format below:</label>
-                    <textarea name="EngWageTextArea" id="EngWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $en_result['wage'] ?></textarea>
+                    <textarea name="EngWageTextArea" id="EngWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageEng()">Sure</a>
@@ -859,17 +859,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Wage</h5>
+                    <h5 class="modal-title">လုပ်ခလစာ (ယန်းဖြင့်)</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert wage as the format below:</label>
-                    <textarea name="MmWageTextArea" id="MmWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $mm_result['wage'] ?></textarea>
+                    <label>လုပ်ခလစာကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MmWageTextArea" id="MmWageTextArea" cols="30" rows="10" placeholder="လုပ်ခလစာ ယန်း (နာရီအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (လအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (နှစ်အလိုက်)"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -881,17 +881,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Wage</h5>
+                    <h5 class="modal-title">給与（円）</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert wage as the format below:</label>
-                    <textarea name="JpWageTextArea" id="JpWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $jp_result['wage'] ?></textarea>
+                    <label>以下の形式で給与を入力してください。</label>
+                    <textarea name="JpWageTextArea" id="JpWageTextArea" cols="30" rows="10" placeholder="１０００ 円 (時給)&#10;１０００００ 円 (月給)&#10;１００００００ 円 (年収)"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -911,7 +911,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert over-time payment as the format below:</label>
-                    <textarea name="EngOtTextArea" id="EngOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $en_result['overtime'] ?></textarea>
+                    <textarea name="EngOtTextArea" id="EngOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtEng()">Sure</a>
@@ -920,44 +920,44 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
             </div>
         </div>
     </div>
-    <!-- MM WAGE INPUT -->
+    <!-- MM OT WAGE INPUT -->
     <div class="modal fade" id="MmOtInput" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Over-time Pyament</h5>
+                    <h5 class="modal-title">အချိန်ပိုလုပ်အားခ</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert over-time payment as the format below:</label>
-                    <textarea name="MmOtTextArea" id="MmOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $mm_result['overtime'] ?></textarea>
+                    <label>အချိန်ပိုလုပ်အားခကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MmOtTextArea" id="MmOtTextArea" cols="30" rows="10" placeholder="လုပ်ခလစာ ယန်း (နာရီအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (လအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (နှစ်အလိုက်)"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JP WAGE INPUT -->
+    <!-- JP OT WAGE INPUT -->
     <div class="modal fade" id="JpOtInput" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Over-time Pyament</h5>
+                    <h5 class="modal-title">残業代</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert over-time payment as the format below:</label>
-                    <textarea name="JpOtTextArea" id="JpOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"><?= $jp_result['overtime'] ?></textarea>
+                    <label>以下の形式で残業代を入力してください。</label>
+                    <textarea name="JpOtTextArea" id="JpOtTextArea" cols="30" rows="10" placeholder="１０００ 円 (時給)&#10;１０００００ 円 (月給)&#10;１００００００ 円 (年収)"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -977,7 +977,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert holidays as the format below:</label>
-                    <textarea name="EngHolidaysTextArea" id="EngHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"><?= $en_result['holidays'] ?></textarea>
+                    <textarea name="EngHolidaysTextArea" id="EngHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysEng()">Sure</a>
@@ -991,17 +991,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Holidays</h5>
+                    <h5 class="modal-title">ပိတ်ရက်များ</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert holidays as the format below:</label>
-                    <textarea name="MmHolidaysTextArea" id="MmHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"><?= $mm_result['holidays'] ?></textarea>
+                    <label>ပိတ်ရက်များကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MmHolidaysTextArea" id="MmHolidaysTextArea" cols="30" rows="10" placeholder="စနေ, တနင်္ဂနွေ&#10;အစိုးရရုံးပိတ်ရက်&#10;"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -1013,17 +1013,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Holidays</h5>
+                    <h5 class="modal-title">休日</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert holidays as the format below:</label>
-                    <textarea name="JpHolidaysTextArea" id="JpHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"><?= $jp_result['holidays'] ?></textarea>
+                    <label>以下の形式で休日を入力してください。</label>
+                    <textarea name="JpHolidaysTextArea" id="JpHolidaysTextArea" cols="30" rows="10" placeholder="土曜日, 日曜日&#10;祝日&#10;"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -1043,7 +1043,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert working hours as the format below:</label>
-                    <textarea name="EngWorkinghrTextArea" id="EngWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $en_result['working_hour'] ?></textarea>
+                    <textarea name="EngWorkinghrTextArea" id="EngWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrEng()">Sure</a>
@@ -1057,17 +1057,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Working Hours</h5>
+                    <h5 class="modal-title">အလုပ်အချိန်</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert working hour as the format below:</label>
-                    <textarea name="MmWorkinghrTextArea" id="MmWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $mm_result['working_hour'] ?></textarea>
+                    <label>အလုပ်အချိန်ကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MmWorkinghrTextArea" id="MmWorkinghrTextArea" cols="30" rows="10" placeholder="မနက် ၉း၀၀ ~ ညနေ ၅း၀၀ &#10;"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -1079,17 +1079,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Working Hours</h5>
+                    <h5 class="modal-title">勤務時間</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert working hours as the format below:</label>
-                    <textarea name="JpWorkinghrTextArea" id="JpWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $jp_result['working_hour'] ?></textarea>
+                    <label>以下の形式で勤務時間を入力してください。</label>
+                    <textarea name="JpWorkinghrTextArea" id="JpWorkinghrTextArea" cols="30" rows="10" placeholder="９：００ 午前 ~ ５：００ 午後 &#10;"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -1109,7 +1109,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert break-time as the format below:</label>
-                    <textarea name="EngBreaktimeTextArea" id="EngBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $en_result['breaktime'] ?></textarea>
+                    <textarea name="EngBreaktimeTextArea" id="EngBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeEng()">Sure</a>
@@ -1123,17 +1123,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Break Time</h5>
+                    <h5 class="modal-title">အလုပ်နားချိန်</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert break-time as the format below:</label>
-                    <textarea name="MmBreaktimeTextArea" id="MmBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $mm_result['breaktime'] ?></textarea>
+                    <label>အလုပ်နားချိန်ကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MmBreaktimeTextArea" id="MmBreaktimeTextArea" cols="30" rows="10" placeholder="မနက် ၉း၀၀ ~ ညနေ 5:00 &#10;"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -1145,17 +1145,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Break Time</h5>
+                    <h5 class="modal-title">休憩時間</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert break-time as the format below:</label>
-                    <textarea name="JpBreaktimeTextArea" id="JpBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;placeholder2&#10;"><?= $jp_result['breaktime'] ?></textarea>
+                    <label>以下の形式で休憩時間を入力してください。</label>
+                    <textarea name="JpBreaktimeTextArea" id="JpBreaktimeTextArea" cols="30" rows="10" placeholder="１２：００ 午前 ~ １：００ 午後 &#10;"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -1175,7 +1175,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert requirements as the format below:</label>
-                    <textarea name="EngReqTextArea" id="EngReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $en_result['requirements'] ?></textarea>
+                    <textarea name="EngReqTextArea" id="EngReqTextArea" cols="30" rows="10" placeholder="Requirement 1&#10;placeholder2&#10;Requirement 3&#10;Requirement 4"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqEng()">Sure</a>
@@ -1190,17 +1190,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="inputFormatLabel">Job Requirements</h5>
+                    <h5 class="modal-title" id="inputFormatLabel">အလုပ်၏လိုအပ်ချက်များ</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert requirements as the format below:</label>
-                    <textarea name="MMReqTextArea" id="MmReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $mm_result['requirements'] ?></textarea>
+                    <label>အလုပ်၏လိုအပ်ချက်များကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MMReqTextArea" id="MmReqTextArea" cols="30" rows="10" placeholder="အလုပ်လိုအပ်ချက် ၁&#10;အလုပ်လိုအပ်ချက် ၂&#10;အလုပ်လိုအပ်ချက် ၃&#10;အလုပ်လိုအပ်ချက် ၄"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -1212,17 +1212,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="inputFormatLabel">Job Requirements</h5>
+                    <h5 class="modal-title" id="inputFormatLabel">必要な資格</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert requirements as the format below:</label>
-                    <textarea name="JpReqTextArea" id="JpReqTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $jp_result['requirements'] ?></textarea>
+                    <label>以下の形式で必要な資格を入力してください。</label>
+                    <textarea name="JpReqTextArea" id="JpReqTextArea" cols="30" rows="10" placeholder="必要な資格 １&#10;必要な資格　２&#10;必要な資格　３&#10;必要な資格　４"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -1241,7 +1241,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert benefits as the format below:</label>
-                    <textarea name="EngbenTextArea" id="EngbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $en_result['benefits'] ?></textarea>
+                    <textarea name="EngbenTextArea" id="EngbenTextArea" cols="30" rows="10" placeholder="Benefits 1&#10;Benefits 2&#10;Benefits 3&#10;Benefits 4"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenEng()">Sure</a>
@@ -1256,17 +1256,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Job Benefits</h5>
+                    <h5 class="modal-title">အကျိုးခံစားခွင့်များ</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert benefits as the format below:</label>
-                    <textarea name="MmbenTextArea" id="MmbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $mm_result['benefits'] ?></textarea>
+                    <label>အကျိုးခံစားခွင့်များကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MmbenTextArea" id="MmbenTextArea" cols="30" rows="10" placeholder="အကျိုးခံစားခွင့် ၁&#10;အကျိုးခံစားခွင့် ၂&#10;အကျိုးခံစားခွင့် ၃&#10;အကျိုးခံစားခွင့် ၄"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -1278,17 +1278,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Job Benefits</h5>
+                    <h5 class="modal-title">待遇</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert benefits as the format below:</label>
-                    <textarea name="JpbenTextArea" id="JpbenTextArea" cols="30" rows="10" placeholder="placeholder1&#10;placeholder2&#10;placeholder3&#10;placeholder4"><?= $jp_result['benefits'] ?></textarea>
+                    <label>以下の形式で待遇を入力してください。</label>
+                    <textarea name="JpbenTextArea" id="JpbenTextArea" cols="30" rows="10" placeholder="待遇 １&#10;待遇　２&#10;待遇　３&#10;待遇　４"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -1308,7 +1308,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert working location as the format below:</label>
-                    <textarea name="EngLocationTextArea" id="EngLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"><?= $en_result['location'] ?></textarea>
+                    <textarea name="EngLocationTextArea" id="EngLocationTextArea" cols="30" rows="10" placeholder="Eg. Sapporo, Hokkaido"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationEng()">Sure</a>
@@ -1322,17 +1322,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Work Location</h5>
+                    <h5 class="modal-title">အလုပ်နေရာ</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert work location as the format below:</label>
-                    <textarea name="MmLocationTextArea" id="MmLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"><?= $mm_result['location'] ?></textarea>
+                    <label>အလုပ်နေရာကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
+                    <textarea name="MmLocationTextArea" id="MmLocationTextArea" cols="30" rows="10" placeholder="ဥပမာ စပိုရို, ဟိုကိုင်းဒိုး"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -1344,17 +1344,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Work Location</h5>
+                    <h5 class="modal-title">勤務地</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert work location as the format below:</label>
-                    <textarea name="JpLocationTextArea" id="JpLocationTextArea" cols="30" rows="10" placeholder="Sapporo, Hokkaido"><?= $jp_result['location'] ?></textarea>
+                    <label>以下の形式で勤務地を入力してください。</label>
+                    <textarea name="JpLocationTextArea" id="JpLocationTextArea" cols="30" rows="10" placeholder="例えば。　札幌, 北海道"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationJp()">定か</a>
                     </div>
                 </div>
             </div>
@@ -1374,7 +1374,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 </div>
                 <div class="modal-body">
                     <label>Please insert additional note:</label>
-                    <textarea name="EngMemoTextArea" id="EngMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"><?= $en_result['memo'] ?></textarea>
+                    <textarea name="EngMemoTextArea" id="EngMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoEng()">Sure</a>
@@ -1388,17 +1388,17 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Additional Note</h5>
+                    <h5 class="modal-title">အခြားမှတ်ချက်</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert additional note:</label>
-                    <textarea name="MmMemoTextArea" id="MmMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"><?= $en_result['memo'] ?></textarea>
+                    <label>အခြားမှတ်ချက်ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
+                    <textarea name="MmMemoTextArea" id="MmMemoTextArea" cols="30" rows="10" placeholder="Memo တစ်ခုခုရေးရန်နေရာ (အက်မင်သာ မြင်နိုင်ပါသည်)"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoMm()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoMm()">သေချာသည်</a>
                     </div>
                 </div>
             </div>
@@ -1410,22 +1410,22 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Additional Note</h5>
+                    <h5 class="modal-title">追記</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Please insert additional note:</label>
-                    <textarea name="JpMemoTextArea" id="JpMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"><?= $jp_result['memo'] ?></textarea>
+                    <label>以下に追記を入力してください。</label>
+                    <textarea name="JpMemoTextArea" id="JpMemoTextArea" cols="30" rows="10" placeholder="どれかメモ（管理者だけがこれを見ることができます）"></textarea>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoJp()">Sure</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
+                        <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoJp()">定か</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
 
 
