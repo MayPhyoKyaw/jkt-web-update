@@ -157,7 +157,10 @@
                 </div> <br><br>
                 <div class="row justify-content-center">
                   <div class="col-7 text-center">
-                    <h5 class="blue-text text-center">We will contact you during business hours (9:00~17:00).</h5>
+                    <h5 class="blue-text text-center">
+                      <b>Thanks for your interest in our service.</b>
+                      We will contact you during business hours (9:00~17:00).
+                    </h5>
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">

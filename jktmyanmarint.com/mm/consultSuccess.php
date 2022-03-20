@@ -148,7 +148,10 @@
                 </div> <br><br>
                 <div class="row justify-content-center">
                   <div class="col-7 text-center">
-                    <h5 class="blue-text text-center">အလုပ်ချိန် (9:00 ~ 17:00) အတွင်း ဆက်သွယ်ပါမည်။ .</h5>
+                    <h5 class="blue-text text-center">
+                      <b>ဝန်ဆောင်မှုကို စိတ်ဝင်စားသည့်အတွက် အထူးကျေးဇူးတင်ရှိပါသည်။</b>
+                      အလုပ်ချိန် (9:00 ~ 17:00) အတွင်း ဆက်သွယ်ပါမည်။
+                    </h5>
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">

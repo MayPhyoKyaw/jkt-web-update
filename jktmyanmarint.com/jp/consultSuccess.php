@@ -156,7 +156,10 @@
                 </div> <br><br>
                 <div class="row justify-content-center">
                   <div class="col-7 text-center">
-                    <h5 class="blue-text text-center">営業時間内（9時 〜 17時）にご連絡いたします。</h5>
+                    <h5 class="blue-text text-center">
+                      <b>サービスに関心をお寄せいただいたのでありがとうございます。</b>
+                      営業時間内（9時 〜 17時）にご連絡いたします。
+                    </h5>
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">
