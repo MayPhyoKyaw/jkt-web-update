@@ -121,15 +121,15 @@ $en_data_result = mysqli_query($jobs_db_conn, $en_select_all);
 $mm_data_result = mysqli_query($jobs_db_conn, $mm_select_all);
 $jp_data_result = mysqli_query($jobs_db_conn, $jp_select_all);
 
-while ($row = mysqli_fetch_assoc($en_data_result)) {
+while ($row = mysqli_fetch_array($en_data_result)) {
     $en_data[] = $row;
 }
 
-while ($row = mysqli_fetch_assoc($mm_data_result)) {
+while ($row = mysqli_fetch_array($mm_data_result)) {
     $mm_data[] = $row;
 }
 
-while ($row = mysqli_fetch_assoc($jp_data_result)) {
+while ($row = mysqli_fetch_array($jp_data_result)) {
     $jp_data[] = $row;
 }
 
@@ -137,7 +137,9 @@ while ($row = mysqli_fetch_assoc($jp_data_result)) {
 // $mm_data = mysqli_fetch_assoc($en_data_result);
 // $jp_data = mysqli_fetch_assoc($en_data_result);
 
-echo json_encode(array("en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data));
+if (count($en_data) > 0 && count($mm_data) > 0 && count($jp_data) > 0) {
+    echo json_encode(array("en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data));
+}
 // header("location: ../jobs.php");
 
 // // COMMON FIELDS

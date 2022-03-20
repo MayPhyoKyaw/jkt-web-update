@@ -286,6 +286,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="container">
                     <form id="multistep_form" action="./backend/newJob.php" method="POST" enctype="multipart/form-data">
                         <!-- progressbar -->
+                        <?php if (!empty($_SESSION['insertError'])) : ?>
+                            <p class="error-alert alert alert-danger my-5 col-9 mx-auto"><?php echo $_SESSION['insertError'] ?> <i id="close-alert" class="fa fa-close"></i></p>
+                        <?php endif ?>
                         <ul id="progress_header">
                             <li><img src="./img/ukFlag.png" alt="" class="versionFlag versionFlag-active"></li>
                             <li><img src="./img/mmFlag.svg" alt="" class="versionFlag"></li>
@@ -524,7 +527,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <span id="jp_error_memo"></span>
                             </p>
                             <p class="nxt-prev-button">
-                            <button type="button" name="previous" class="previous action-button"><img class="form-control-icon" src="img/previous.png" alt="form-control-previous" /></button>
+                                <button type="button" name="previous" class="previous action-button"><img class="form-control-icon" src="img/previous.png" alt="form-control-previous" /></button>
                                 <button name="submit" id="submitBtn" class="submit_btn ts_next_btn action-button text-center"><img class="form-control-submit-icon" src="img/check-mark.png" alt="form-control-next" /></button>
                             </p>
                         </div>
@@ -1363,6 +1366,11 @@ $noti_result = mysqli_query($conn, $get_notifications);
             element.style.height = "5px";
             element.style.height = (element.scrollHeight) + "px";
         }
+    </script>
+    <script>
+        $('#close-alert').click(function(event) {
+            $(this).parent().hide();
+        });
     </script>
 </body>
 

@@ -4,17 +4,17 @@
 
 include("../confs/jobs_config.php");
 
-$ids = $_POST["job_ids"];
 // var_dump($_POST);
-foreach ($ids as $id) {
-    $en_delete = "DELETE FROM en_jobs WHERE job_id='$id'";
-    $mm_delete = "DELETE FROM mm_jobs WHERE job_id='$id'";
-    $jp_delete = "DELETE FROM jp_jobs WHERE job_id='$id'";
 
-    mysqli_query($jobs_db_conn, $en_delete);
-    mysqli_query($jobs_db_conn, $mm_delete);
-    mysqli_query($jobs_db_conn, $jp_delete);
-}
+$en_delete = "DELETE FROM en_jobs";
+$mm_delete = "DELETE FROM mm_jobs";
+$jp_delete = "DELETE FROM jp_jobs";
+
+mysqli_query($jobs_db_conn, $del_en);
+
+mysqli_query($jobs_db_conn, $del_mm);
+
+mysqli_query($jobs_db_conn, $del_jp);
 
 $en_select_all = "SELECT * FROM en_jobs ORDER BY updated_at DESC";
 $mm_select_all = "SELECT * FROM mm_jobs ORDER BY updated_at DESC";

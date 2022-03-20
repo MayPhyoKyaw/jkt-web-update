@@ -323,6 +323,10 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                 <!-- Begin Page Content -->
                 <div class="container">
                     <form id="multistep_form" action="./backend/editJob.php" method="POST" enctype="multipart/form-data">
+
+                        <?php if (!empty($_SESSION['insertError'])) : ?>
+                            <p class="error-alert alert alert-danger my-5 col-9 mx-auto"><?php echo $_SESSION['insertError'] ?> <i id="close-alert" class="fa fa-close"></i></p>
+                        <?php endif ?>
                         <!-- progressbar -->
                         <ul id="progress_header">
                             <li><img src="./img/ukFlag.png" alt="" class="versionFlag versionFlag-active"></li>
@@ -356,10 +360,15 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                             </div>
                             </p>
                             <hr />
-                            <p>
+                            <!-- <p>
                                 <input type="hidden" name="job_id" id="job_id" value="<?= $en_result['job_id'] ?>">
                                 <label>Job ID</label>
-                                <textarea class="disabled-text" rows="1" placeholder="Job ID" disabled><?= $en_result['job_id'] ?></textarea>
+                                <textarea class="disabled-text" rows="1" placeholder="Job ID"><?= $en_result['job_id'] ?></textarea>
+                                <span id="error_job_id"></span>
+                            </p> -->
+                            <p>
+                                <label for="job_id">Job ID</label>
+                                <textarea class="no-keydown" name="job_id" placeholder="Job ID" id="job_id" data-toggle="modal" data-target="#JobIdInput"><?= $en_result['job_id'] ?></textarea>
                                 <span id="error_job_id"></span>
                             </p>
                             <p>
@@ -1438,6 +1447,11 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
             element.style.height = "5px";
             element.style.height = (element.scrollHeight) + "px";
         }
+    </script>
+    <script>
+        $('#close-alert').click(function(event){
+            $(this).parent().hide();
+        });
     </script>
 </body>
 
