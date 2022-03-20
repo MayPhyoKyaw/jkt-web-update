@@ -328,8 +328,8 @@ function encrypt_decrypt($action, $string)
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="description" id="description-label" class="appointment-label">Porfolio Links</label><br />
-                                <textarea placeholder="https://github.com/{git user name}/{user repository}" id="porfolioLinks" name="porfolioLinks" class="appointment-textarea" rows="4" cols="50"></textarea>
+                                <label for="description" id="description-label" class="appointment-label">Portfolio Links</label><br />
+                                <textarea placeholder="https://github.com/{git user name}/{user repository}" id="portfolioLinks" name="portfolioLinks" class="appointment-textarea" rows="4" cols="50"></textarea>
                             </div>
 
                             <div class="pb-4 mb-2">
@@ -410,7 +410,7 @@ function encrypt_decrypt($action, $string)
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Confirmation</h4>
+                    <h4 class="modal-title">အတည်ပြုချက်</h4>
                     <button class="btn-close" data-dismiss="modal">
                         <i class='fas fa-times' style='font-size:24px; color: grey'></i>
                     </button>
@@ -418,13 +418,13 @@ function encrypt_decrypt($action, $string)
 
                 <!-- Modal body -->
                 <div class="modal-body confirm-modal-body">
-                    Are you sure, you want to submit your recruitment form?
+                    အလုပ်လျှောက်ထားခြင်းအတွက် အချက်အလက်များပေးပို့ရန် သေချာပါသလား?
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn-cancel" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn-submit" id="recruitmentSubmit" data-dismiss="modal">Submit</button>
+                    <button type="button" class="btn-cancel" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+                    <button type="button" class="btn-submit" id="recruitmentSubmit" data-dismiss="modal">ပေးပို့ပါ</button>
                 </div>
             </div>
         </div>

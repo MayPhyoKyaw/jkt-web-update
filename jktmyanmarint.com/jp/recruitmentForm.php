@@ -163,10 +163,10 @@ function encrypt_decrypt($action, $string)
                 </ul>
             </div>
             <div class="btn-group lang-xl" role="group" aria-label="First group">
-                <a href="../recruitmentForm?job_id=<?= $getJobId ?>"><button type="button" class="btn btn1">
+                <a href="../recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn1">
                         <img src="../assets/images/icon/ukFlag.png" height="20px" width="25px" />
                     </button></a>
-                <a href="../mm/recruitmentForm?job_id=<?= $getJobId ?>"><button type="button" class="btn btn2">
+                <a href="../mm/recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn2">
                         <img src="../assets/images/icon/mmFlag.svg" height="20px" width="25px" />
                     </button></a>
                 <a href="./recruitmentForm.php?job_id=<?= $getJobId ?>"><button type="button" class="btn btn3" style="background-color: rgba(91, 175, 231, 0.5)">
@@ -179,7 +179,7 @@ function encrypt_decrypt($action, $string)
     <!-- JP School header start -->
     <section>
         <div class="header">
-            <h3>Recruitment - Apply Form</h3>
+            <h3>応募フォーム</h3>
             <div class="bg-cover"></div>
             <img src="../assets/images/cover/cover.jpg" alt="jpschool-cover" />
         </div>
@@ -188,9 +188,9 @@ function encrypt_decrypt($action, $string)
 
     <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="./recruitment.php">Recruitment</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Recruitment Form</li>
+            <li class="breadcrumb-item"><a href="./index.html">ホーム</a></li>
+            <li class="breadcrumb-item"><a href="./recruitment.php">採用</a></li>
+            <li class="breadcrumb-item active" aria-current="page">応募フォーム</li>
         </ol>
     </nav>
 
@@ -268,49 +268,49 @@ function encrypt_decrypt($action, $string)
                     </div>
                     <div class="col-12 col-md-10 col-lg-8 mb-5 mt-4 mx-auto w-100">
                         <p id="description">
-                            Please fill in all the fields of the form. <br>
-                            Thanks for Joining With Us!!
+                            フォームのすべてのフィールドに入力してください。 <br>
+                            ご参加いただきありがとうございます！！
                         </p>
                         <form id="recruitmentForm" action="../backend/newRecruitment.php" method="POST" enctype="multipart/form-data">
                             <div class="pb-4 mb-2">
-                                <label for="name" id="name-label" class="appointment-label">Name <span class="consultant-required-tag">required &nbsp; *</span></label><br />
-                                <input type="text" id="recruitmentName" name="recruitmentName" placeholder="Enter Your Name" required class="appointment-input form-field" />
+                                <label for="name" id="name-label" class="appointment-label">名前 <span class="consultant-required-tag">必須 &nbsp; *</span></label><br />
+                                <input type="text" id="recruitmentName" name="recruitmentName" placeholder="名前を入力してください" required class="appointment-input form-field" />
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="email" id="email-label" class="appointment-label">Email <span class="consultant-required-tag">required &nbsp; *</span></label><br />
-                                <input type="email" id="recruitmentEmail" name="recruitmentEmail" placeholder="Enter Your Email" class="appointment-input form-field" required />
+                                <label for="email" id="email-label" class="appointment-label">メール <span class="consultant-required-tag">必須 &nbsp; *</span></label><br />
+                                <input type="email" id="recruitmentEmail" name="recruitmentEmail" placeholder="メールを入力してください" class="appointment-input form-field" required />
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="phone" id="phone-label" class="appointment-label">Phone Number <span class="consultant-required-tag">required &nbsp; *</span></label><br />
-                                <input type="text" id="recruitmentPhone" name="recruitmentPhone" placeholder="Enter Your Phone Number" class="appointment-input form-field" required />
+                                <label for="phone" id="phone-label" class="appointment-label">電話番号 <span class="consultant-required-tag">必須 &nbsp; *</span></label><br />
+                                <input type="text" id="recruitmentPhone" name="recruitmentPhone" placeholder="電話番号を入力してください" class="appointment-input form-field" required />
                             </div>
 
                             <div class="pb-4 mb-2 appointment-date">
-                                <label class="appointment-label">Date of Birth <span class="consultant-required-tag">required &nbsp; *</span></label>
+                                <label class="appointment-label">生年月日 <span class="consultant-required-tag">必須 &nbsp; *</span></label>
                                 <input type="date" id="recruitmentDob" name="recruitmentDob" placeholder="Enter Your Phone Number" class="appointment-input form-field" required />
                             </div>
 
                             <div class="pb-4 mb-2 appointment-type">
                                 <fieldset class="appointment-fieldset">
-                                    <legend class="appointment-legend">Gender <span class="consultant-required-tag">required &nbsp; *</span></legend>
+                                    <legend class="appointment-legend">性別 <span class="consultant-required-tag">必須 &nbsp; *</span></legend>
 
                                     <input type="radio" id="male" name="gender" value="Male" />
-                                    <label for="male" id="gender" class="recruitment-gender-label">Male</label><br />
+                                    <label for="male" id="gender" class="recruitment-gender-label">男性</label><br />
 
                                     <input type="radio" id="female" name="gender" value="Female" />
-                                    <label for="female" id="gender" class="recruitment-gender-label">Female</label><br />
+                                    <label for="female" id="gender" class="recruitment-gender-label">女性</label><br />
                                 </fieldset>
                             </div>
 
                             <div class="pb-4 mb-2">
                                 <label for="dropdown" id="dropdown-label" class="appointment-label">
-                                    Japanese Skills Level <span class="consultant-required-tag">required &nbsp; *</span>
+                                    日本語能力レベル <span class="consultant-required-tag">必須 &nbsp; *</span>
                                 </label>
                                 <select id="dropdown" name="recruitmentJpSkill" class="appointment-select">
                                     <option value="" disabled selected>
-                                        Select Your Japanese Skill Level
+                                        日本語能力レベルを選んでください
                                     </option>
                                     <option value="N5">N5</option>
                                     <option value="N4">N4</option>
@@ -321,28 +321,28 @@ function encrypt_decrypt($action, $string)
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label class="appointment-label">Resume</label>
+                                <label class="appointment-label">履歴書 </label>
                                 <input type="file" id="recruitmentCv" name="recruitmentCv" placeholder="Please attach your cv" class="cv-input form-field" />
                                 <span class="resume-help-block" id="resumeHelp"></span>
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="phone" id="phone-label" class="appointment-label">Facebook Profile Link</label><br />
+                                <label for="phone" id="phone-label" class="appointment-label">フェイスブック　プロフィールリンク</label><br />
                                 <input type="text" id="fbProfileLink" name="fbProfileLink" placeholder="https://www.facebook.com/{some facebook id}" class="appointment-input form-field" />
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="description" id="description-label" class="appointment-label">Porfolio Links</label><br />
-                                <textarea placeholder="https://github.com/{git user name}/{user repository}" id="porfolioLinks" name="porfolioLinks" class="appointment-textarea" rows="4" cols="50"></textarea>
+                                <label for="description" id="description-label" class="appointment-label">ポートフォリオ リンク</label><br />
+                                <textarea placeholder="https://github.com/{git user name}/{user repository}" id="portfolioLinks" name="portfolioLinks" class="appointment-textarea" rows="4" cols="50"></textarea>
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="description" id="description-label" class="appointment-label">Additional Note</label><br />
-                                <textarea placeholder="Additional Note" id="recruitmentNote" name="recruitmentNote" class="appointment-textarea" rows="4" cols="50"></textarea>
+                                <label for="description" id="description-label" class="appointment-label">追記</label><br />
+                                <textarea placeholder="追加メモを入力してください" id="recruitmentNote" name="recruitmentNote" class="appointment-textarea" rows="4" cols="50"></textarea>
                             </div>
 
                             <div class="text-right">
-                                <button id="recruitmentSend" type="button" class="appointment-button">Send</button>
+                                <button id="recruitmentSend" type="button" class="appointment-button">送信</button>
                             </div>
                         </form>
                     </div>
@@ -414,7 +414,7 @@ function encrypt_decrypt($action, $string)
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Confirmation</h4>
+                    <h4 class="modal-title">確認</h4>
                     <button class="btn-close" data-dismiss="modal">
                         <i class='fas fa-times' style='font-size:24px; color: grey'></i>
                     </button>
@@ -422,13 +422,13 @@ function encrypt_decrypt($action, $string)
 
                 <!-- Modal body -->
                 <div class="modal-body confirm-modal-body">
-                    Are you sure, you want to submit your recruitment form?
+                    よろしいですか、採用フォームを送信しますか？
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn-cancel" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn-submit" id="recruitmentSubmit" data-dismiss="modal">Submit</button>
+                    <button type="button" class="btn-cancel" data-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn-submit" id="recruitmentSubmit" data-dismiss="modal">送信</button>
                 </div>
             </div>
         </div>

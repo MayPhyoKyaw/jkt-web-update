@@ -172,12 +172,16 @@
                 <h2 class="blue-text text-center"><strong>‌ပေးပို့မှုအောင်မြင်ပါသည်။</strong></h2> <br>
                 <div class="row justify-content-center">
                   <div class="col-3">
-                    <img src="../assets/images/blue-tick.png" class="fit-image">
+                    <img src="../assets/images/tick.png" class="fit-image">
                   </div>
                 </div> <br><br>
                 <div class="row justify-content-center">
-                  <div class="col-7 text-center">
-                    <h5 class="blue-text text-center">We will contact you during business hours (9:00~17:00).</h5>
+                  <div class="col-10 text-center">
+                    <h5 class="blue-text recruitment-success text-center">
+                      <b>အလုပ်ခေါ်ယူမှုကို စိတ်ပါဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်။</b><br>
+                      လျှောက်ထားသူအားလုံးများကို စစ်ဆေးပြီး ချိတ်ဆက်ထားသည့် အလုပ်ခေါ်ယူမည့်ကုမ္ပဏီ၏ လိုအပ်ချက်များနှင့် ကိုက်ညီသော အရည်အချင်းများရှိသည့် လျှောက်ထားသူများကို ရွေးချယ်ပါမည်။<br>
+                      နောက်တစ်ဆင့်သို့ ရွေးချယ်ခံရပါက သင့်အား ဆက်သွယ်ပေးပါမည်။
+                    </h5>
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">

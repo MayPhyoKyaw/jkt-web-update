@@ -807,8 +807,8 @@ function encrypt_decrypt($action, $string)
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn-cancel" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn-submit" id="submitConfirm" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn-cancel" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
+          <button type="button" class="btn-submit" id="submitConfirm" data-dismiss="modal">ပေးပို့ပါ</button>
         </div>
 
       </div>

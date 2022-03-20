@@ -150,7 +150,7 @@
   <!-- JP School header start -->
   <section>
     <div class="header">
-      <h3>Recruitment</h3>
+      <h3>応募フォーム</h3>
       <div class="bg-cover"></div>
       <img src="../assets/images/cover/cover.jpg" alt="jpschool-cover" />
     </div>
@@ -159,9 +159,9 @@
 
   <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="./recruitment.php">Jobs Recruitment</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Successful Resume Submission </li>
+      <li class="breadcrumb-item"><a href="./index.html">ホーム</a></li>
+      <li class="breadcrumb-item"><a href="./recruitment.php">採用</a></li>
+      <li class="breadcrumb-item active" aria-current="page">応募フォームの完成</li>
     </ol>
   </nav>
 
@@ -173,19 +173,23 @@
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <fieldset id="success">
               <div class="form-card">
-                <h2 class="blue-text text-center"><strong>Successfully Submitted!</strong></h2> <br>
+                <h2 class="blue-text text-center"><strong>正常に登録されました！</strong></h2> <br>
                 <div class="row justify-content-center">
                   <div class="col-3">
-                    <img src="../assets/images/blue-tick.png" class="fit-image">
+                    <img src="../assets/images/tick.png" class="fit-image">
                   </div>
                 </div> <br><br>
                 <div class="row justify-content-center">
-                  <div class="col-7 text-center">
-                    <h5 class="blue-text text-center">We will contact you during business hours (9:00~17:00).</h5>
+                  <div class="col-10 text-center">
+                    <h5 class="blue-text recruitment-success text-center">
+                      <b>採用にご関心をお寄せいただいたので、ありがとうございました。</b><br>
+                      すべての応募者の申し込みをチェックして、資格がクライアントのニーズを満たしていると思われる候補者を選択します。<br>
+                      そして、採用プロセスで選択された場合は、ご連絡いたします。
+                    </h5>  
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">
-                  <a href="./recruitment.php" class="back-to-courses">Home Page</a>
+                  <a href="./recruitment.php" class="back-to-courses">採用ページ</a>
                 </div>
               </div>
             </fieldset>

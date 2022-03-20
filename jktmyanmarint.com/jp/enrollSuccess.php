@@ -161,7 +161,7 @@
                     <h2 class="steps">ステップ 3 - 3</h2>
                   </div>
                 </div> <br><br>
-                <h2 class="blue-text text-center"><strong>正常に登録されました!</strong></h2> <br>
+                <h2 class="blue-text text-center"><strong>正常に登録されました！</strong></h2> <br>
                 <div class="row justify-content-center">
                   <div class="col-3">
                     <img src="../assets/images/blue-tick.png" class="fit-image">

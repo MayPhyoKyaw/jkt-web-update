@@ -307,8 +307,8 @@ function encrypt_decrypt($action, $string)
                             </div>
 
                             <div class="pb-4 mb-2">
-                                <label for="description" id="description-label" class="appointment-label">Porfolio Links</label><br />
-                                <textarea placeholder="https://github.com/{git user name}/{user repository}" id="porfolioLinks" name="porfolioLinks" class="appointment-textarea" rows="4" cols="50"></textarea>
+                                <label for="description" id="description-label" class="appointment-label">Portfolio Links</label><br />
+                                <textarea placeholder="https://github.com/{git user name}/{user repository}" id="portfolioLinks" name="portfolioLinks" class="appointment-textarea" rows="4" cols="50"></textarea>
                             </div>
 
                             <div class="pb-4 mb-2">

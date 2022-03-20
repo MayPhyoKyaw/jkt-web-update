@@ -136,7 +136,7 @@
       <li class="breadcrumb-item"><a href="./index.html">ホーム</a></li>
       <li class="breadcrumb-item"><a href="./services.html">サービス</a></li>
       <li class="breadcrumb-item"><a href="./business.html">ビジネスコンサルタントサービス</a></li>
-      <li class="breadcrumb-item active" aria-current="page">首尾よく登録</li>
+      <li class="breadcrumb-item active" aria-current="page">登録の完成</li>
     </ol>
   </nav>
 
@@ -148,7 +148,7 @@
           <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <fieldset id="success">
               <div class="form-card">
-                <h2 class="blue-text text-center"><strong>正常に登録されました!</strong></h2> <br>
+                <h2 class="blue-text text-center"><strong>正常に登録されました！</strong></h2> <br>
                 <div class="row justify-content-center">
                   <div class="col-3">
                     <img src="../assets/images/blue-tick.png" class="fit-image">

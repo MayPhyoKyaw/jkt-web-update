@@ -151,12 +151,16 @@
                 <h2 class="blue-text text-center"><strong>Successfully Submitted!</strong></h2> <br>
                 <div class="row justify-content-center">
                   <div class="col-3">
-                    <img src="./assets/images/blue-tick.png" class="fit-image">
+                    <img src="./assets/images/tick.png" class="fit-image">
                   </div>
                 </div> <br><br>
                 <div class="row justify-content-center">
-                  <div class="col-7 text-center">
-                    <h5 class="blue-text text-center">We will contact you during business hours (9:00~17:00).</h5>
+                  <div class="col-10 text-center">
+                    <h5 class="blue-text recruitment-success text-center">
+                      <b>Thanks for your interest in our job recruitments.</b><br>
+                      We will screen all applicants and select candidates whose qualifications seem to meet our client needs.<br>
+                      And We will contact you if you are selected to continue in the recruitment process.
+                    </h5>
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5 pt-1 mb-4">
