@@ -1171,7 +1171,7 @@ $(document).ready(function() {
                                 // mm version destroy
                                 $("#mmDT").DataTable().destroy();
                                 // jp version destroy
-                                $("#mmDT").DataTable().destroy();
+                                $("#jpDT").DataTable().destroy();
 
                                 // download update
                                 buttons_en.splice(1, 1, updatedDownloadBtn);
@@ -1402,7 +1402,7 @@ $(document).ready(function() {
                                     // mm version destroy
                                     $("#mmDT").DataTable().destroy();
                                     // jp version destroy
-                                    $("#mmDT").DataTable().destroy();
+                                    $("#jpDT").DataTable().destroy();
 
                                     // download update
                                     buttons_en.splice(1, 1, updatedDownloadBtn);
@@ -1642,7 +1642,7 @@ $(document).ready(function() {
                             // mm version destroy
                             $("#mmDT").DataTable().destroy();
                             // jp version destroy
-                            $("#mmDT").DataTable().destroy();
+                            $("#jpDT").DataTable().destroy();
 
                             // download update
                             buttons_en.splice(1, 1, updatedDownloadBtn);
