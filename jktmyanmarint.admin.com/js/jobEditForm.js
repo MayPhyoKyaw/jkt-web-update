@@ -1540,7 +1540,7 @@ var photos = $("#h_photos").val();
 // console.log(photos);
 if (photos.split("|")[1]) {
     setPreview1(photos.split("|")[0]);
-    setPreview1(photos.split("|")[1]);
+    setPreview2(photos.split("|")[1]);
 } else {
     setPreview1(photos.split("|")[0]);
 }

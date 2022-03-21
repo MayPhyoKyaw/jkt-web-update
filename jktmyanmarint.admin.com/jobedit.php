@@ -382,7 +382,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                                     <div class="employment-container">
                                         <label for="it">IT</label>
                                         <input class="radio-input" type="radio" id="it" value="IT-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "IT") echo "checked='checked'" ?>>
-                                        <label for="tokutei" class="ml-4">Tokukeiginou</label>
+                                        <label for="tokutei" class="ml-4">Tokutei Ginou</label>
                                         <input class="radio-input" type="radio" id="tokutei" value="Tokutei-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "Tokutei") echo "checked='checked'" ?>>
                                         <label for="general" class="ml-4">General</label>
                                         <input class="radio-input" type="radio" id="general" value="General-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "General") echo "checked='checked'" ?>>

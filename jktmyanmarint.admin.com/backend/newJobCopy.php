@@ -97,7 +97,7 @@ foreach ($ids as $id) {
     // $randHex = bin2hex($random_bytes(15));
 
     if(str_contains($en_job_id, '-copy')){
-       $originalID =  substr($en_job_id,0, -18);
+       $originalID = explode("-",$en_job_id)[0];
     }else {
         $originalID = $en_job_id;
     }

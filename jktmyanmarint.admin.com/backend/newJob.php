@@ -228,7 +228,7 @@ if (intval($result[0]) > 0) {
                 echo $jp_sql;
                 mysqli_query($jobs_db_conn, $jp_sql);
                 unset($_SESSION['insertError']);
-                // header("location: ../jobs.php");
+                header("location: ../jobs.php");
             // } else {
             //     echo "resize fail";
                 // header("location: ../jobs.php");
@@ -301,7 +301,7 @@ if (intval($result[0]) > 0) {
                         echo $jp_sql;
                         mysqli_query($jobs_db_conn, $jp_sql);
                         unset($_SESSION['insertError']);
-                        // header("location: ../jobs.php");
+                        header("location: ../jobs.php");
                     // } else {
                     //     echo "resize fail";
                     //     // header("location: ../jobs.php");

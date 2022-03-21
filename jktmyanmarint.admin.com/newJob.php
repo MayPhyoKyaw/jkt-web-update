@@ -336,7 +336,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <div class="employment-container">
                                     <label for="it">IT</label>
                                     <input class="radio-input" type="radio" id="it" value="IT-အိုင်တီ-IT" name="job_type" checked="checked">
-                                    <label for="tokutei" class="ml-4">Tokukeiginou</label>
+                                    <label for="tokutei" class="ml-4">Tokutei Ginou</label>
                                     <input class="radio-input" type="radio" id="tokutei" value="Tokutei-Tokutei-特定技能" name="job_type">
                                     <label for="general" class="ml-4">General</label>
                                     <input class="radio-input" type="radio" id="general" value="General-အခြားအလုပ်အမျိုးအစားများ-その他" name="job_type">
@@ -656,7 +656,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 </div>
                 <div class="modal-body">
                     <label>ကုမ္ပဏီအမည်ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
-                    <textarea name="MmNameTextArea" id="MmNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
+                    <textarea name="MmNameTextArea" id="MmNameTextArea" cols="30" rows="10" placeholder="ကုမ္ပဏီအမည်"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameMm()">Sure</a>
@@ -670,14 +670,14 @@ $noti_result = mysqli_query($conn, $get_notifications);
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Company Name</h5>
+                    <h5 class="modal-title">会社名</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <label>以下に会社名を入力してください。</label>
-                    <textarea name="JpNameTextArea" id="JpNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
+                    <textarea name="JpNameTextArea" id="JpNameTextArea" cols="30" rows="10" placeholder="会社名"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameJp()">定か</a>
@@ -720,7 +720,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 </div>
                 <div class="modal-body">
                     <label>အလုပ်အကိုင်ရာထူးကို ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
-                    <textarea name="MmTitleTextArea" id="MmTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
+                    <textarea name="MmTitleTextArea" id="MmTitleTextArea" cols="30" rows="10" placeholder="အလုပ်အကိုင်ရာထူး"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleMm()">သေချာသည်</a>
@@ -741,7 +741,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 </div>
                 <div class="modal-body">
                     <label>以下に肩書きを入力してください。</label>
-                    <textarea name="JpTitleTextArea" id="JpTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
+                    <textarea name="JpTitleTextArea" id="JpTitleTextArea" cols="30" rows="10" placeholder="役職名"></textarea>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleJp()">定か</a>
