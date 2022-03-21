@@ -271,7 +271,7 @@ function encrypt_decrypt($action, $string)
                             フォームのすべてのフィールドに入力してください。 <br>
                             ご参加いただきありがとうございます！！
                         </p>
-                        <form id="recruitmentForm" action="../backend/newRecruitment.php" method="POST" enctype="multipart/form-data">
+                        <form id="jpRecruitmentForm" action="../backend/newRecruitment.php" method="POST" enctype="multipart/form-data">
                             <div class="pb-4 mb-2">
                                 <label for="name" id="name-label" class="appointment-label">名前 <span class="consultant-required-tag">必須 &nbsp; *</span></label><br />
                                 <input type="text" id="recruitmentName" name="recruitmentName" placeholder="名前を入力してください" required class="appointment-input form-field" />
@@ -289,7 +289,7 @@ function encrypt_decrypt($action, $string)
 
                             <div class="pb-4 mb-2 appointment-date">
                                 <label class="appointment-label">生年月日 <span class="consultant-required-tag">必須 &nbsp; *</span></label>
-                                <input type="date" id="recruitmentDob" name="recruitmentDob" placeholder="Enter Your Phone Number" class="appointment-input form-field" required />
+                                <input type="date" id="recruitmentDob" name="recruitmentDob" placeholder="生年月日を入力してください" class="appointment-input form-field" required />
                             </div>
 
                             <div class="pb-4 mb-2 appointment-type">
@@ -342,7 +342,7 @@ function encrypt_decrypt($action, $string)
                             </div>
 
                             <div class="text-right">
-                                <button id="recruitmentSend" type="button" class="appointment-button">送信</button>
+                                <button id="jpRecruitmentSend" type="button" class="appointment-button">送信</button>
                             </div>
                         </form>
                     </div>
