@@ -1444,9 +1444,9 @@ function validateTypeAndSize1(uploadCtrl) {
                     var imgHeight = this.height;
                     var imgWidth = this.width;
                     // console.log(imgHeight, imgWidth);
-                    if (!(imgHeight === 150 || imgWidth === 150)) {
+                    if (!(imgHeight === imgWidth)) {
                         $("#error_photo_one")
-                            .text("Please upload image size (150x150).")
+                            .text("Photo Height and Width must be equal.")
                             .show();
                         $("#photo1-preview").prop("src", "./img/cmp-default.png");
                     } else {
@@ -1499,9 +1499,9 @@ function validateTypeAndSize2(uploadCtrl) {
                     var imgHeight = this.height;
                     var imgWidth = this.width;
                     // console.log(imgHeight, imgWidth);
-                    if (!(imgHeight === 150 || imgWidth === 150)) {
+                    if (!(imgHeight === imgWidth)) {
                         $("#error_photo_two")
-                            .text("Please upload image size (150x150).")
+                            .text("Photo Height and Width must be equal.")
                             .show();
                         $("#photo2-preview").prop("src", "./img/cmp-default.png");
                     } else {

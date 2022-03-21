@@ -285,10 +285,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <!-- Begin Page Content -->
                 <div class="container">
                     <form id="multistep_form" action="./backend/newJob.php" method="POST" enctype="multipart/form-data">
-                        <!-- progressbar -->
                         <?php if (!empty($_SESSION['insertError'])) : ?>
                             <p class="error-alert alert alert-danger my-5 col-9 mx-auto"><?php echo $_SESSION['insertError'] ?> <i id="close-alert" class="fa fa-close"></i></p>
                         <?php endif ?>
+                        <!-- progressbar -->
                         <ul id="progress_header">
                             <li><img src="./img/ukFlag.png" alt="" class="versionFlag versionFlag-active"></li>
                             <li><img src="./img/mmFlag.svg" alt="" class="versionFlag"></li>

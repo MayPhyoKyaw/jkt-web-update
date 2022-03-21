@@ -140,7 +140,7 @@ $("#eng_location").keyup(function() {
 $("#mm_company_name").keyup(function() {
     var name = $("#name").val();
     if (name == "") {
-        $("#mm_error_company_name").text("Please enter company Name");
+        $("#mm_error_company_name").text("ကုမ္ပဏီနာမည် ကို ဖြည့်ပေးပါ");
         $("#mm_company_name").addClass("box_error");
         error = true;
     } else {
@@ -152,7 +152,7 @@ $("#mm_company_name").keyup(function() {
 $("#mm_job_title").keyup(function() {
     var title = $("#mm_job_title").val();
     if (title == "") {
-        $("#mm_error_job_title").text("Please enter job title");
+        $("#mm_error_job_title").text("အလုပ်အကိုင်အမည် ကို ဖြည့်ပေးပါ");
         $("#mm_job_title").addClass("box_error");
         error = true;
     } else {
@@ -164,7 +164,7 @@ $("#mm_job_title").keyup(function() {
 $("#mm_wage").keyup(function() {
     var wage = $("#mm_wage").val();
     if (wage == "") {
-        $("#mm_error_wage").text("Please enter wage");
+        $("#mm_error_wage").text("လုပ်အားခ ကို ဖြည့်ပေးပါ");
         $("#mm_wage").addClass("box_error");
         error = true;
     } else {
@@ -176,7 +176,7 @@ $("#mm_wage").keyup(function() {
 $("#mm_holidays").keyup(function() {
     var val = $("#mm_holidays").val();
     if (val == "") {
-        $("#mm_error_holidays").text("Please enter holidays");
+        $("#mm_error_holidays").text("အားလပ်ရက်များ ကို ဖြည့်ပေးပါ");
         $("#mm_holidays").addClass("box_error");
         error = true;
     } else {
@@ -188,7 +188,7 @@ $("#mm_holidays").keyup(function() {
 $("#mm_workinghr").keyup(function() {
     var val = $("#mm_workinghr").val();
     if (val == "") {
-        $("#mm_error_workinghr").text("Please enter working hours");
+        $("#mm_error_workinghr").text("အလုပ်ချိန် ကို ဖြည့်ပေးပါ");
         $("#mm_workinghr").addClass("box_error");
         error = true;
     } else {
@@ -200,7 +200,7 @@ $("#mm_workinghr").keyup(function() {
 $("#mm_breaktime").keyup(function() {
     var val = $("#mm_breaktime").val();
     if (val == "") {
-        $("#mm_error_breaktime").text("Please enter break-time");
+        $("#mm_error_breaktime").text("နားချိန် ကို ဖြည့်ပေးပါ");
         $("#mm_breaktime").addClass("box_error");
         error = true;
     } else {
@@ -212,7 +212,7 @@ $("#mm_breaktime").keyup(function() {
 $("#mm_requirements").keyup(function() {
     var val = $("#mm_requirements").val();
     if (val == "") {
-        $("#mm_error_requirements").text("Please enter requirements");
+        $("#mm_error_requirements").text("လိုအပ်ချက်များ ကို ဖြည့်ပေးပါ");
         $("#mm_requirements").addClass("box_error");
         error = true;
     } else {
@@ -224,7 +224,7 @@ $("#mm_requirements").keyup(function() {
 $("#mm_benefits").keyup(function() {
     var val = $("#mm_benefits").val();
     if (val == "") {
-        $("#mm_error_benefits").text("Please enter benefits");
+        $("#mm_error_benefits").text("အကျိုးခံစားခွင့်များ ကို ဖြည့်ပေးပါ");
         $("#mm_benefits").addClass("box_error");
         error = true;
     } else {
@@ -236,7 +236,7 @@ $("#mm_benefits").keyup(function() {
 $("#mm_location").keyup(function() {
     var val = $("#mm_location").val();
     if (val == "") {
-        $("#mm_error_location").text("Please enter location");
+        $("#mm_error_location").text("အလုပ်နေရာ ကို ဖြည့်ပေးပါ");
         $("#mm_location").addClass("box_error");
         error = true;
     } else {
@@ -250,7 +250,7 @@ $("#mm_location").keyup(function() {
 $("#jp_company_name").keyup(function() {
     var name = $("#name").val();
     if (name == "") {
-        $("#jp_error_company_name").text("Please enter company Name");
+        $("#jp_error_company_name").text("会社名を入力してください。");
         $("#jp_company_name").addClass("box_error");
         error = true;
     } else {
@@ -262,7 +262,7 @@ $("#jp_company_name").keyup(function() {
 $("#jp_job_title").keyup(function() {
     var title = $("#jp_job_title").val();
     if (title == "") {
-        $("#jp_error_job_title").text("Please enter job title");
+        $("#jp_error_job_title").text("役職名を入力してください。");
         $("#jp_job_title").addClass("box_error");
         error = true;
     } else {
@@ -274,7 +274,7 @@ $("#jp_job_title").keyup(function() {
 $("#jp_wage").keyup(function() {
     var wage = $("#jp_wage").val();
     if (wage == "") {
-        $("#jp_error_wage").text("Please enter wage");
+        $("#jp_error_wage").text("給与を入力してください。");
         $("#jp_wage").addClass("box_error");
         error = true;
     } else {
@@ -286,7 +286,7 @@ $("#jp_wage").keyup(function() {
 $("#jp_holidays").keyup(function() {
     var val = $("#jp_holidays").val();
     if (val == "") {
-        $("#jp_error_holidays").text("Please enter holidays");
+        $("#jp_error_holidays").text("休日を入力してください。");
         $("#jp_holidays").addClass("box_error");
         error = true;
     } else {
@@ -298,7 +298,7 @@ $("#jp_holidays").keyup(function() {
 $("#jp_workinghr").keyup(function() {
     var val = $("#jp_workinghr").val();
     if (val == "") {
-        $("#jp_error_workinghr").text("Please enter working hours");
+        $("#jp_error_workinghr").text("勤務時間を入力してください。");
         $("#jp_workinghr").addClass("box_error");
         error = true;
     } else {
@@ -310,7 +310,7 @@ $("#jp_workinghr").keyup(function() {
 $("#jp_breaktime").keyup(function() {
     var val = $("#jp_breaktime").val();
     if (val == "") {
-        $("#jp_error_breaktime").text("Please enter break-time");
+        $("#jp_error_breaktime").text("休憩時間を入力してください。");
         $("#jp_breaktime").addClass("box_error");
         error = true;
     } else {
@@ -322,7 +322,7 @@ $("#jp_breaktime").keyup(function() {
 $("#jp_requirements").keyup(function() {
     var val = $("#jp_requirements").val();
     if (val == "") {
-        $("#jp_error_requirements").text("Please enter requirements");
+        $("#jp_error_requirements").text("必要な資格を入力してください。");
         $("#jp_requirements").addClass("box_error");
         error = true;
     } else {
@@ -334,7 +334,7 @@ $("#jp_requirements").keyup(function() {
 $("#jp_benefits").keyup(function() {
     var val = $("#jp_benefits").val();
     if (val == "") {
-        $("#jp_error_benefits").text("Please enter benefits");
+        $("#jp_error_benefits").text("待遇を入力してください。");
         $("#jp_benefits").addClass("box_error");
         error = true;
     } else {
@@ -346,7 +346,7 @@ $("#jp_benefits").keyup(function() {
 $("#jp_location").keyup(function() {
     var val = $("#jp_location").val();
     if (val == "") {
-        $("#jp_error_location").text("Please enter location");
+        $("#jp_error_location").text("勤務地を入力してください。");
         $("#jp_location").addClass("box_error");
         error = true;
     } else {
@@ -487,47 +487,47 @@ $(".fs_next_btn").click(function() {
 // START MM STEP VALIDATION
 $(".ss_next_btn").click(function() {
     if ($("#mm_company_name").val() == "") {
-        $("#mm_error_company_name").text("Please enter company name.");
+        $("#mm_error_company_name").text("ကုမ္ပဏီနာမည် ကို ဖြည့်ပေးပါ");
         $("#mm_company_name").addClass("box_error");
         error = true;
     }
     if ($("#mm_job_title").val() == "") {
-        $("#mm_error_job_title").text("Please enter job title.");
+        $("#mm_error_job_title").text("အလုပ်အကိုင်အမည် ကို ဖြည့်ပေးပါ");
         $("#mm_job_title").addClass("box_error");
         error = true;
     }
     if ($("#mm_wage").val() == "") {
-        $("#mm_error_wage").text("Please enter wage.");
+        $("#mm_error_wage").text("လုပ်အားခ ကို ဖြည့်ပေးပါ");
         $("#mm_wage").addClass("box_error");
         error = true;
     }
     if ($("#mm_holidays").val() == "") {
-        $("#mm_error_holidays").text("Please enter holidays.");
+        $("#mm_error_holidays").text("အားလပ်ရက်များ ကို ဖြည့်ပေးပါ");
         $("#mm_holidays").addClass("box_error");
         error = true;
     }
     if ($("#mm_workinghr").val() == "") {
-        $("#mm_error_workinghr").text("Please enter working hours.");
+        $("#mm_error_workinghr").text("အလုပ်ချိန် ကို ဖြည့်ပေးပါ");
         $("#mm_workinghr").addClass("box_error");
         error = true;
     }
     if ($("#mm_breaktime").val() == "") {
-        $("#mm_error_breaktime").text("Please enter break-time.");
+        $("#mm_error_breaktime").text("နားချိန် ကို ဖြည့်ပေးပါ");
         $("#mm_breaktime").addClass("box_error");
         error = true;
     }
     if ($("#mm_requirements").val() == "") {
-        $("#mm_error_requirements").text("Please enter requirements.");
+        $("#mm_error_requirements").text("လိုအပ်ချက်များ ကို ဖြည့်ပေးပါ");
         $("#mm_requirements").addClass("box_error");
         error = true;
     }
     if ($("#mm_benefits").val() == "") {
-        $("#mm_error_benefits").text("Please enter benefits.");
+        $("#mm_error_benefits").text("အကျိုးခံစားခွင့်များ ကို ဖြည့်ပေးပါ");
         $("#mm_benefits").addClass("box_error");
         error = true;
     }
     if ($("#mm_location").val() == "") {
-        $("#mm_error_location").text("Please enter work location.");
+        $("#mm_error_location").text("အလုပ်နေရာ ကို ဖြည့်ပေးပါ");
         $("#mm_location").addClass("box_error");
         error = true;
     }
@@ -633,48 +633,48 @@ $(".ss_next_btn").click(function() {
 // START JP STEP VALIDATION
 $(".ts_next_btn").click(function() {
     if ($("#jp_company_name").val() == "") {
-        $("#jp_error_company_name").text("Please enter company name.");
+        $("#jp_error_company_name").text("会社名を入力してください。");
         $("#jp_company_name").addClass("box_error");
         error = true;
     }
     if ($("#jp_job_title").val() == "") {
-        $("#jp_error_job_title").text("Please enter job title.");
+        $("#jp_error_job_title").text("役職名を入力してください。");
         $("#jp_job_title").addClass("box_error");
         error = true;
         $(".submit_btn").prop("disabled", true);
     }
     if ($("#jp_wage").val() == "") {
-        $("#jp_error_wage").text("Please enter wage.");
+        $("#jp_error_wage").text("給与を入力してください。");
         $("#jp_wage").addClass("box_error");
         error = true;
     }
     if ($("#jp_holidays").val() == "") {
-        $("#jp_error_holidays").text("Please enter holidays.");
+        $("#jp_error_holidays").text("休日を入力してください。");
         $("#jp_holidays").addClass("box_error");
         error = true;
     }
     if ($("#jp_workinghr").val() == "") {
-        $("#jp_error_workinghr").text("Please enter working hours.");
+        $("#jp_error_workinghr").text("勤務時間を入力してください。");
         $("#jp_workinghr").addClass("box_error");
         error = true;
     }
     if ($("#jp_breaktime").val() == "") {
-        $("#jp_error_breaktime").text("Please enter break-time.");
+        $("#jp_error_breaktime").text("休憩時間を入力してください。");
         $("#jp_breaktime").addClass("box_error");
         error = true;
     }
     if ($("#jp_requirements").val() == "") {
-        $("#jp_error_requirements").text("Please enter requirements.");
+        $("#jp_error_requirements").text("必要な資格を入力してください。");
         $("#jp_requirements").addClass("box_error");
         error = true;
     }
     if ($("#jp_benefits").val() == "") {
-        $("#jp_error_benefits").text("Please enter benefits.");
+        $("#jp_error_benefits").text("待遇を入力してください。");
         $("#jp_benefits").addClass("box_error");
         error = true;
     }
     if ($("#jp_location").val() == "") {
-        $("#jp_error_location").text("Please enter work location.");
+        $("#jp_error_location").text("勤務地を入力してください。");
         $("#jp_location").addClass("box_error");
         error = true;
     }
@@ -965,7 +965,7 @@ function addTextToNameMm() {
     var val = $("textarea#MmNameTextArea").val();
     $("textArea#mm_company_name").val(val);
     if (val == "") {
-        $("#mm_error_company_name").text("Please enter company name");
+        $("#mm_error_company_name").text("ကုမ္ပဏီနာမည် ကို ဖြည့်ပေးပါ");
         $("#mm_company_name").addClass("box_error");
         error = true;
     } else {
@@ -979,7 +979,7 @@ function addTextToNameJp() {
     var val = $("textarea#JpNameTextArea").val();
     $("textArea#jp_company_name").val(val);
     if (val == "") {
-        $("#jp_error_company_name").text("Please enter company name");
+        $("#jp_error_company_name").text("会社名を入力してください。");
         $("#jp_company_name").addClass("box_error");
         error = true;
     } else {
@@ -1009,7 +1009,7 @@ function addTextToTitleMm() {
     var val = $("textarea#MmTitleTextArea").val();
     $("textArea#mm_job_title").val(val);
     if (val == "") {
-        $("#mm_error_job_title").text("Please enter job title");
+        $("#mm_error_job_title").text("ကုမ္ပဏီနာမည် ကို ဖြည့်ပေးပါ");
         $("#mm_job_title").addClass("box_error");
         error = true;
     } else {
@@ -1023,7 +1023,7 @@ function addTextToTitleJp() {
     var val = $("textarea#JpTitleTextArea").val();
     $("textArea#jp_job_title").val(val);
     if (val == "") {
-        $("#jp_error_job_title").text("Please enter job title");
+        $("#jp_error_job_title").text("役職名を入力してください。");
         $("#jp_job_title").addClass("box_error");
         error = true;
     } else {
@@ -1053,7 +1053,7 @@ function addTextToWageMm() {
     var val = $("textarea#MmWageTextArea").val();
     $("textArea#mm_wage").val(val);
     if (val == "") {
-        $("#mm_error_wage").text("Please enter wage");
+        $("#mm_error_wage").text("လုပ်အားခ ကို ဖြည့်ပေးပါ");
         $("#mm_wage").addClass("box_error");
         error = true;
     } else {
@@ -1067,50 +1067,7 @@ function addTextToWageJp() {
     var val = $("textarea#JpWageTextArea").val();
     $("textArea#jp_wage").val(val);
     if (val == "") {
-        $("#jp_error_wage").text("Please enter wage");
-        $("#jp_wage").addClass("box_error");
-        error = true;
-    } else {
-        $("#jp_error_wage").text("");
-        $("#jp_wage").removeClass("box_error");
-        error = false;
-    }
-    CheckAll();
-}
-// WAGE
-function addTextToWageEng() {
-    var val = $("textarea#EngWageTextArea").val();
-    $("textArea#eng_wage").val(val);
-    if (val == "") {
-        $("#eng_error_wage").text("Please enter wage");
-        $("#eng_wage").addClass("box_error");
-        error = true;
-    } else {
-        $("#eng_error_wage").text("");
-        $("#eng_wage").removeClass("box_error");
-        error = false;
-    }
-}
-
-function addTextToWageMm() {
-    var val = $("textarea#MmWageTextArea").val();
-    $("textArea#mm_wage").val(val);
-    if (val == "") {
-        $("#mm_error_wage").text("Please enter wage");
-        $("#mm_wage").addClass("box_error");
-        error = true;
-    } else {
-        $("#mm_error_wage").text("");
-        $("#mm_wage").removeClass("box_error");
-        error = false;
-    }
-}
-
-function addTextToWageJp() {
-    var val = $("textarea#JpWageTextArea").val();
-    $("textArea#jp_wage").val(val);
-    if (val == "") {
-        $("#jp_error_wage").text("Please enter wage");
+        $("#jp_error_wage").text("給与を入力してください。");
         $("#jp_wage").addClass("box_error");
         error = true;
     } else {
@@ -1156,7 +1113,7 @@ function addTextToHolidaysMm() {
     var val = $("textarea#MmHolidaysTextArea").val();
     $("textArea#mm_holidays").val(val);
     if (val == "") {
-        $("#mm_error_holidays").text("Please enter holidays");
+        $("#mm_error_holidays").text("အားလပ်ရက်များ ကို ဖြည့်ပေးပါ");
         $("#mm_holidays").addClass("box_error");
         error = true;
     } else {
@@ -1170,7 +1127,7 @@ function addTextToHolidaysJp() {
     var val = $("textarea#JpHolidaysTextArea").val();
     $("textArea#jp_holidays").val(val);
     if (val == "") {
-        $("#jp_error_holidays").text("Please enter holidays");
+        $("#jp_error_holidays").text("休日を入力してください。");
         $("#jp_holidays").addClass("box_error");
         error = true;
     } else {
@@ -1200,7 +1157,7 @@ function addTextToWorkinghrMm() {
     var val = $("textarea#MmWorkinghrTextArea").val();
     $("textArea#mm_workinghr").val(val);
     if (val == "") {
-        $("#mm_error_workinghr").text("Please enter holidays");
+        $("#mm_error_workinghr").text("အလုပ်ချိန် ကို ဖြည့်ပေးပါ");
         $("#mm_workinghr").addClass("box_error");
         error = true;
     } else {
@@ -1214,7 +1171,7 @@ function addTextToWorkinghrJp() {
     var val = $("textarea#JpWorkinghrTextArea").val();
     $("textArea#jp_workinghr").val(val);
     if (val == "") {
-        $("#jp_error_workinghr").text("Please enter holidays");
+        $("#jp_error_workinghr").text("勤務時間を入力してください。");
         $("#jp_workinghr").addClass("box_error");
         error = true;
     } else {
@@ -1243,7 +1200,7 @@ function addTextToBreaktimeMm() {
     var val = $("textarea#MmBreaktimeTextArea").val();
     $("textArea#mm_breaktime").val(val);
     if (val == "") {
-        $("#mm_error_breaktime").text("Please enter break-time");
+        $("#mm_error_breaktime").text("နားချိန် ကို ဖြည့်ပေးပါ");
         $("#mm_breaktime").addClass("box_error");
         error = true;
     } else {
@@ -1257,7 +1214,7 @@ function addTextToBreaktimeJp() {
     var val = $("textarea#JpBreaktimeTextArea").val();
     $("textArea#jp_breaktime").val(val);
     if (val == "") {
-        $("#jp_error_breaktime").text("Please enter break-time");
+        $("#jp_error_breaktime").text("休憩時間を入力してください。");
         $("#jp_breaktime").addClass("box_error");
         error = true;
     } else {
@@ -1287,7 +1244,7 @@ function addTextToReqMm() {
     var val = $("textarea#MmReqTextArea").val();
     $("textArea#mm_requirements").val(val);
     if (val == "") {
-        $("#mm_error_requirements").text("Please enter requirements");
+        $("#mm_error_requirements").text("လိုအပ်ချက်များ ကို ဖြည့်ပေးပါ");
         $("#mm_requirements").addClass("box_error");
         error = true;
     } else {
@@ -1301,7 +1258,7 @@ function addTextToReqJp() {
     var val = $("textarea#JpReqTextArea").val();
     $("textArea#jp_requirements").val(val);
     if (val == "") {
-        $("#jp_error_requirements").text("Please enter requirements");
+        $("#jp_error_requirements").text("必要な資格を入力してください。");
         $("#jp_requirements").addClass("box_error");
         error = true;
     } else {
@@ -1331,7 +1288,7 @@ function addTextToBenMm() {
     var val = $("textarea#MmBenTextArea").val();
     $("textArea#mm_benefits").val(val);
     if (val == "") {
-        $("#mm_error_benefits").text("Please enter benefits");
+        $("#mm_error_benefits").text("အကျိုးခံစားခွင့်များ ကို ဖြည့်ပေးပါ");
         $("#mm_benefits").addClass("box_error");
         error = true;
     } else {
@@ -1345,7 +1302,7 @@ function addTextToBenJp() {
     var val = $("textarea#JpBenTextArea").val();
     $("textArea#jp_benefits").val(val);
     if (val == "") {
-        $("#jp_error_benefits").text("Please enter benefits");
+        $("#jp_error_benefits").text("待遇を入力してください。");
         $("#jp_benefits").addClass("box_error");
         error = true;
     } else {
@@ -1375,7 +1332,7 @@ function addTextToLocationMm() {
     var val = $("textarea#MmLocationTextArea").val();
     $("textArea#mm_location").val(val);
     if (val == "") {
-        $("#mm_error_location").text("Please enter work location");
+        $("#mm_error_location").text("အလုပ်နေရာ ကို ဖြည့်ပေးပါ");
         $("#mm_location").addClass("box_error");
         error = true;
     } else {
@@ -1389,7 +1346,7 @@ function addTextToLocationJp() {
     var val = $("textarea#JpLocationTextArea").val();
     $("textArea#jp_location").val(val);
     if (val == "") {
-        $("#jp_error_location").text("Please enter work location");
+        $("#jp_error_location").text("勤務地を入力してください。");
         $("#jp_location").addClass("box_error");
         error = true;
     } else {
@@ -1459,9 +1416,9 @@ function validateTypeAndSize1(uploadCtrl) {
                     var imgHeight = this.height;
                     var imgWidth = this.width;
                     // console.log(imgHeight, imgWidth);
-                    if (!(imgHeight === 150 || imgWidth === 150)) {
+                    if (!(imgHeight === imgWidth)) {
                         $("#error_photo_one")
-                            .text("Please upload image size (150x150).")
+                            .text("Photo Height and Width must be equal.")
                             .show();
                         $("#photo1-preview").prop("src", "./img/cmp-default.png");
                     } else {
@@ -1514,9 +1471,9 @@ function validateTypeAndSize2(uploadCtrl) {
                     var imgHeight = this.height;
                     var imgWidth = this.width;
                     // console.log(imgHeight, imgWidth);
-                    if (!(imgHeight === 150 || imgWidth === 150)) {
+                    if (!(imgHeight === imgWidth)) {
                         $("#error_photo_two")
-                            .text("Please upload image size (150x150).")
+                            .text("Photo Height and Width must be equal.")
                             .show();
                         $("#photo2-preview").prop("src", "./img/cmp-default.png");
                     } else {
