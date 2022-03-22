@@ -314,6 +314,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                     <table class="table table-bordered my-table" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
+                                                <th><img class="check-icon" style="cursor:pointer;" id="select-all" src="img/1.png"/></th>
                                                 <th>Photo</th>
                                                 <!-- <th>Course</th> -->
                                                 <th>Name</th>
@@ -336,6 +337,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                         <tbody>
                                             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                                 <tr onclick="student_detail(this)" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                    <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>    
                                                     <td><img class="stu-img-table" src="<?= 'https://jktmyanmarint.com/backend/' . $row['photo'] ?>" alt="<?= $row['photo'] ?>"></td>
                                                     <td style="max-width : 100px;"><?= $row['student_name'] ?></td>
                                                     <td><?= $row['dob'] ?></td>

@@ -410,7 +410,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <table class="table table-bordered" id="enDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th><img class="check-icon" id="select-all-en" src="img/1.png"/></th>
+                                                        <th><img class="check-icon" style="cursor:pointer;" id="select-all-en" src="img/1.png"/></th>
                                                         <th class="id">ID</th>
                                                         <th class="title">Title</th>
                                                         <th class="en-company-filter company">Company</th>
