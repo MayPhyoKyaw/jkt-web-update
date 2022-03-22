@@ -2,15 +2,22 @@
 
 // include('checkUser.php');
 
+// header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+// header('Access-Control-Max-Age: 604800');
+// header('Access-Control-Allow-Headers: x-requested-with');
+// header('Content-Type: application/json'); 
+
 include("../confs/jobs_config.php");
 
-$ids = $_POST["job_ids"];
-// $ids = ["IT0001"];
-// var_dump($_POST);
+$job_str = substr($_POST["job_ids"], 1, -1);
+$ids = explode(',',$job_str);
+
 foreach ($ids as $id) {
-    $en_select = "SELECT * FROM en_jobs WHERE job_id='$id'";
-    $mm_select = "SELECT * FROM mm_jobs WHERE job_id='$id'";
-    $jp_select = "SELECT * FROM jp_jobs WHERE job_id='$id'";
+    $newID = trim($id,'"');
+    $en_select = "SELECT * FROM en_jobs WHERE job_id='$newID'";
+    $mm_select = "SELECT * FROM mm_jobs WHERE job_id='$newID'";
+    $jp_select = "SELECT * FROM jp_jobs WHERE job_id='$newID'";
 
     $result_en = mysqli_query($jobs_db_conn, $en_select);
     $result_mm = mysqli_query($jobs_db_conn, $mm_select);
@@ -51,7 +58,7 @@ foreach ($ids as $id) {
     $en_updated_at = $en_result['updated_at'];
 
 
-    // mm columns
+    // // mm columns
     $mm_job_id = $mm_result['job_id'];
     $mm_photos = $mm_result['photos'];
     $mm_company_name = $mm_result['company_name'];
@@ -73,7 +80,7 @@ foreach ($ids as $id) {
     $mm_updated_at = $mm_result['updated_at'];
 
 
-    // jp columns
+    // // jp columns
     $jp_job_id = $jp_result['job_id'];
     $jp_photos = $jp_result['photos'];
     $jp_company_name = $jp_result['company_name'];
@@ -96,8 +103,9 @@ foreach ($ids as $id) {
 
     // $randHex = bin2hex($random_bytes(15));
 
-    if(str_contains($en_job_id, '-copy')){
-       $originalID = explode("-",$en_job_id)[0];
+    $search = "-copy";
+    if(preg_match("/{$search}/i", $en_job_id)){
+      $originalID = explode("-",$en_job_id)[0];
     }else {
         $originalID = $en_job_id;
     }
@@ -140,5 +148,7 @@ while ($row = mysqli_fetch_array($jp_data_result)) {
 
 
 if (count($en_data) > 0 && count($mm_data) > 0 && count($jp_data) > 0) {
-    echo json_encode(array("en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data));
+    // echo json_encode(array("ensql"=>$en_sql,"mmsql"=>$mm_sql,"jpsql"=>$jp_sql));
+    echo json_encode(array("ids"=>$newIds,"en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data,"en_query"=>$en_select, "mm_select"=>$mm_select,"jp_select"=>$jp_select));
+    // echo json_encode(array("ids"=>$_POST['job_ids']));
 }

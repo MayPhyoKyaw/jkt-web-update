@@ -4,12 +4,15 @@
 
 include("../confs/jobs_config.php");
 
-$ids = $_POST["job_ids"];
+$job_str = substr($_POST["job_ids"], 1, -1);
+$ids = explode(',',$job_str);
+
 // var_dump($_POST);
 foreach ($ids as $id) {
-    $en_delete = "DELETE FROM en_jobs WHERE job_id='$id'";
-    $mm_delete = "DELETE FROM mm_jobs WHERE job_id='$id'";
-    $jp_delete = "DELETE FROM jp_jobs WHERE job_id='$id'";
+    $newID = trim($id,'"');
+    $en_delete = "DELETE FROM en_jobs WHERE job_id='$newID'";
+    $mm_delete = "DELETE FROM mm_jobs WHERE job_id='$newID'";
+    $jp_delete = "DELETE FROM jp_jobs WHERE job_id='$newID'";
 
     mysqli_query($jobs_db_conn, $en_delete);
     mysqli_query($jobs_db_conn, $mm_delete);
