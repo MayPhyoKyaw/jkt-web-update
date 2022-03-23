@@ -213,7 +213,10 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     }
                                     ?>
                                     <div class="col-12 col-lg-7 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
-                                        <h4><?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?></h4>
+                                        <h4>
+                                            <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">Only In Japan</span><?php } ?>
+                                        </h4>
                                         <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?= $row["employment_type"] ?></span>
                                     </div>
                                     <div class="col-12 col-lg-5 text-lg-right text-center mt-4">
@@ -300,7 +303,10 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     }
                                     ?>
                                     <div class="col-12 col-lg-7 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
-                                        <h4><?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?></h4>
+                                        <h4>
+                                            <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">Only In Japan</span><?php } ?>
+                                        </h4>
                                         <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?= $row["employment_type"] ?></span>
                                     </div>
                                     <div class="col-12 col-lg-5 text-lg-right text-center mt-4">
@@ -387,7 +393,10 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     }
                                     ?>
                                     <div class="col-12 col-lg-7 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
-                                        <h4><?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?></h4>
+                                        <h4>
+                                            <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">Only In Japan</span><?php } ?>
+                                        </h4>
                                         <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?= $row["employment_type"] ?></span>
                                     </div>
                                     <div class="col-12 col-lg-5 text-lg-right text-center mt-4">
