@@ -11,7 +11,6 @@ $ids = explode(',', $stu_str);
 foreach ($ids as $id) {
     $newID = intval(trim($id, '"'));
     $stu_delete = "DELETE FROM students WHERE student_id=$newID";
-
     mysqli_query($conn, $stu_delete);
 }
 
@@ -23,4 +22,4 @@ while ($row = mysqli_fetch_array($data_result)) {
     $data[] = $row;
 }
 
-echo json_encode(array("students" => $data));
+echo json_encode(array("query" => $stu_delete, "students" => $data));
