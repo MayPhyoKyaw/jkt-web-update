@@ -220,7 +220,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <?php while ($row = mysqli_fetch_assoc($noti_result)) : ?>
                                     <a class="dropdown-item d-flex align-items-center" href="notiView.php?id=<?php echo $row["noti_id"] ?>">
                                         <div class="mr-3">
-                                        <?php if ($row["type"] == "PENDING_REQUEST") : ?>
+                                            <?php if ($row["type"] == "PENDING_REQUEST") : ?>
                                                 <div class="icon-circle bg-primary">
                                                     <i class="fas fa-user-plus text-white"></i>
                                                 </div>
@@ -235,7 +235,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
                                                 <div class="icon-circle bg-info">
                                                     <i class="fas fa-solid fa-briefcase text-white"></i>
-                                                </div>    
+                                                </div>
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -314,6 +314,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
+                                                <th><img class="check-icon" style="cursor:pointer;" id="select-all" src="img/1.png" /></th>
                                                 <th>Course ID</th>
                                                 <th class="select-category-filter">Category Title</th>
                                                 <th>Course Title</th>
@@ -340,6 +341,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 // var_dump($sections);
                                             ?>
                                                 <tr onclick="setCurrentCourseDetail(this)" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                    <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['course_id'] ?>')" /></td>
                                                     <td><?= $row['course_id'] ?></td>
                                                     <td><?= $row['category_title'] ?></td>
                                                     <td><?= $row['course_title'] ?></td>
@@ -649,13 +651,13 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    
+
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    
+
     <!-- for excel print -->
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -671,7 +673,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
         })
     </script>
     <script src="js/style.js"></script>
-    
+
 
 </body>
 
