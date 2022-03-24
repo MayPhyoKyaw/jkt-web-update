@@ -5,14 +5,14 @@ session_start();
 include("../confs/jobs_config.php");
 
 // Allow image extensions
-$allowed_image_extension = array(
-    "png",
-    "PNG",
-    "jpg",
-    "JPG",
-    "jpeg",
-    "JPEG"
-);
+// $allowed_image_extension = array(
+//     "png",
+//     "PNG",
+//     "jpg",
+//     "JPG",
+//     "jpeg",
+//     "JPEG"
+// );
 
 // COMMON FIELDS
 $old_job_id = $_POST['old_job_id'];
@@ -96,76 +96,86 @@ $jp_memo = $_POST['jp_memo'];
 
 
 // FUNCTION TO RESIZE IMAGE - CURRENTLY NOT USED
-function resize_image($file, $ext, $mHW)
+// function resize_image($file, $ext, $mHW)
+// {
+//     if (file_exists($file)) {
+//         switch ($ext) {
+//             case "jpeg":
+//                 $original_image = imagecreatefromjpeg($file);
+//                 break;
+//             case "JPEG":
+//                 $original_image = imagecreatefromjpeg($file);
+//                 break;
+//             case "jpg":
+//                 $original_image = imagecreatefromjpeg($file);
+//                 break;
+//             case "JPG":
+//                 $original_image = imagecreatefromjpeg($file);
+//                 break;
+//             case "png":
+//                 $original_image = imagecreatefrompng($file);
+//                 break;
+//             case "PNG":
+//                 $original_image = imagecreatefrompng($file);
+//         }
+
+//         // resolution
+//         $original_width = imagesx($original_image);
+//         $original_height = imagesx($original_image);
+
+//         // try width first
+//         $ratio = $mHW / $original_width;
+//         $new_width = $mHW;
+//         $new_height = $original_height * $ratio;
+
+//         // if that doesn't work
+//         if ($new_height > $mHW) {
+//             $ratio = $mHW / $original_height;
+//             $new_height = $mHW;
+//             $new_width = $original_width * $ratio;
+//         }
+//         if ($original_image) {
+//             $new_image = imagecreatetruecolor($new_width, $new_height);
+//             imagecopyresampled($new_image, $original_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
+
+//             switch ($ext) {
+//                 case "jpeg":
+//                     imagejpeg($new_image, $file, 90);
+//                     return TRUE;
+//                     break;
+//                 case "JPEG":
+//                     imagejpeg($new_image, $file, 90);
+//                     return TRUE;
+//                     break;
+//                 case "jpg":
+//                     imagejpeg($new_image, $file, 90);
+//                     return TRUE;
+//                     break;
+//                 case "JPG":
+//                     imagejpeg($new_image, $file, 90);
+//                     return TRUE;
+//                     break;
+//                 case "png":
+//                     imagepng($new_image, $file, 9);
+//                     return TRUE;
+//                     break;
+//                 case "PNG":
+//                     imagepng($new_image, $file, 9);
+//                     return TRUE;
+//                     break;
+//             }
+//         }
+//     }
+// }
+
+function UnlinkFile($id, $where)
 {
-    if (file_exists($file)) {
-        switch ($ext) {
-            case "jpeg":
-                $original_image = imagecreatefromjpeg($file);
-                break;
-            case "JPEG":
-                $original_image = imagecreatefromjpeg($file);
-                break;
-            case "jpg":
-                $original_image = imagecreatefromjpeg($file);
-                break;
-            case "JPG":
-                $original_image = imagecreatefromjpeg($file);
-                break;
-            case "png":
-                $original_image = imagecreatefrompng($file);
-                break;
-            case "PNG":
-                $original_image = imagecreatefrompng($file);
-        }
-
-        // resolution
-        $original_width = imagesx($original_image);
-        $original_height = imagesx($original_image);
-
-        // try width first
-        $ratio = $mHW / $original_width;
-        $new_width = $mHW;
-        $new_height = $original_height * $ratio;
-
-        // if that doesn't work
-        if ($new_height > $mHW) {
-            $ratio = $mHW / $original_height;
-            $new_height = $mHW;
-            $new_width = $original_width * $ratio;
-        }
-        if ($original_image) {
-            $new_image = imagecreatetruecolor($new_width, $new_height);
-            imagecopyresampled($new_image, $original_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
-
-            switch ($ext) {
-                case "jpeg":
-                    imagejpeg($new_image, $file, 90);
-                    return TRUE;
-                    break;
-                case "JPEG":
-                    imagejpeg($new_image, $file, 90);
-                    return TRUE;
-                    break;
-                case "jpg":
-                    imagejpeg($new_image, $file, 90);
-                    return TRUE;
-                    break;
-                case "JPG":
-                    imagejpeg($new_image, $file, 90);
-                    return TRUE;
-                    break;
-                case "png":
-                    imagepng($new_image, $file, 9);
-                    return TRUE;
-                    break;
-                case "PNG":
-                    imagepng($new_image, $file, 9);
-                    return TRUE;
-                    break;
-            }
-        }
-    }
+    if (file_exists("./companies/$id" . '-' . $where . ".png")) unlink("./companies/$id" . '-' . $where . ".png");
+    if (file_exists("./companies/$id" . '-' . $where . ".PNG")) unlink("./companies/$id" . '-' . $where . ".PNG");
+    if (file_exists("./companies/$id" . '-' . $where . ".jpg")) unlink("./companies/$id" . '-' . $where . ".jpg");
+    if (file_exists("./companies/$id" . '-' . $where . ".JPG")) unlink("./companies/$id" . '-' . $where . ".JPG");
+    if (file_exists("./companies/$id" . '-' . $where . ".jpeg")) unlink("./companies/$id" . '-' . $where . ".jpeg");
+    if (file_exists("./companies/$id" . '-' . $where . ".JPEG")) unlink("./companies/$id" . '-' . $where . ".JPEG");
 }
 
 // CHECKING IF ID CHANGED
@@ -176,88 +186,94 @@ if ($job_id == $old_job_id) {
         $photos = $_POST["h_photos"];
         // eng table update
         $en_sql = "UPDATE en_jobs
-    SET
-    job_id = '$job_id',
-    photos='$photos', 
-    company_name='$eng_company_name', 
-    job_title='$eng_job_title', 
-    employment_type='$emp_arr[0]', 
-    job_type='$job_arr[0]',
-    wage='$eng_wage', 
-    overtime='$eng_ot', 
-    holidays='$eng_holidays', 
-    working_hour='$eng_workinghr', 
-    breaktime='$eng_breaktime', 
-    requirements='$eng_requirements', 
-    benefits='$eng_benefits', 
-    location='$eng_location', 
-    memo='$eng_memo', 
-    isavailable='$isavailable', 
-    updated_at=now()
-    WHERE job_id='$old_job_id'";
+            SET
+            job_id = '$job_id',
+            photos='$photos', 
+            company_name='$eng_company_name', 
+            job_title='$eng_job_title', 
+            employment_type='$emp_arr[0]', 
+            job_type='$job_arr[0]',
+            wage='$eng_wage', 
+            overtime='$eng_ot', 
+            holidays='$eng_holidays', 
+            working_hour='$eng_workinghr', 
+            breaktime='$eng_breaktime', 
+            requirements='$eng_requirements', 
+            benefits='$eng_benefits', 
+            location='$eng_location', 
+            memo='$eng_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
 
         echo $en_sql;
         mysqli_query($jobs_db_conn, $en_sql);
 
         // MM table update
         $mm_sql = "UPDATE mm_jobs
-    SET
-    job_id = '$job_id',
-    photos='$photos', 
-    company_name='$mm_company_name', 
-    job_title='$mm_job_title', 
-    employment_type='$emp_arr[1]', 
-    job_type='$job_arr[1]',
-    wage='$mm_wage', 
-    overtime='$mm_ot', 
-    holidays='$mm_holidays', 
-    working_hour='$mm_workinghr', 
-    breaktime='$mm_breaktime', 
-    requirements='$mm_requirements', 
-    benefits='$mm_benefits', 
-    location='$mm_location', 
-    memo='$mm_memo', 
-    isavailable='$isavailable', 
-    updated_at=now()
-    WHERE job_id='$old_job_id'";
+            SET
+            job_id = '$job_id',
+            photos='$photos', 
+            company_name='$mm_company_name', 
+            job_title='$mm_job_title', 
+            employment_type='$emp_arr[1]', 
+            job_type='$job_arr[1]',
+            wage='$mm_wage', 
+            overtime='$mm_ot', 
+            holidays='$mm_holidays', 
+            working_hour='$mm_workinghr', 
+            breaktime='$mm_breaktime', 
+            requirements='$mm_requirements', 
+            benefits='$mm_benefits', 
+            location='$mm_location', 
+            memo='$mm_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
 
         echo $mm_sql;
         mysqli_query($jobs_db_conn, $mm_sql);
 
         // JP table update
         $jp_sql = "UPDATE jp_jobs
-    SET
-    job_id = '$job_id',
-    photos='$photos', 
-    company_name='$jp_company_name', 
-    job_title='$jp_job_title', 
-    employment_type='$emp_arr[1]', 
-    job_type='$job_arr[1]',
-    wage='$jp_wage', 
-    overtime='$jp_ot', 
-    holidays='$jp_holidays', 
-    working_hour='$jp_workinghr', 
-    breaktime='$jp_breaktime', 
-    requirements='$jp_requirements', 
-    benefits='$jp_benefits', 
-    location='$jp_location', 
-    memo='$jp_memo', 
-    isavailable='$isavailable', 
-    updated_at=now()
-    WHERE job_id='$old_job_id'";
+            SET
+            job_id = '$job_id',
+            photos='$photos', 
+            company_name='$jp_company_name', 
+            job_title='$jp_job_title', 
+            employment_type='$emp_arr[1]', 
+            job_type='$job_arr[1]',
+            wage='$jp_wage', 
+            overtime='$jp_ot', 
+            holidays='$jp_holidays', 
+            working_hour='$jp_workinghr', 
+            breaktime='$jp_breaktime', 
+            requirements='$jp_requirements', 
+            benefits='$jp_benefits', 
+            location='$jp_location', 
+            memo='$jp_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
         echo $jp_sql;
         mysqli_query($jobs_db_conn, $jp_sql);
         unset($_SESSION['insertError']);
         header("location: ../jobs.php");
-    } elseif (!file_exists($_FILES['photo_two']['tmp_name'])) {
-        $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
-        $org_width1 = $fileinfo1[0];
-        $org_height1 = $fileinfo1[1];
+    } elseif (file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo_two']['tmp_name'])) {
+
+        // only photo 1 exists
+
+        // $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
+        // $org_width1 = $fileinfo1[0];
+        // $org_height1 = $fileinfo1[1];
+
         $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
         $file1 = $_FILES['photo_one']['name'];
 
         // if ($org_width1 > "150" || $org_height1 > "150") {
-        if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
+
+
+        UnlinkFile($job_id, "1");
         $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
         move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
 
@@ -347,21 +363,125 @@ if ($job_id == $old_job_id) {
         //     header("location: ../jobs.php");
         // }
         // }
-    } else {
-        $fileinfo2 = @getimagesize($_FILES["photo_two"]["tmp_name"]);
-        $org_width2 = $fileinfo2[0];
-        $org_height2 = $fileinfo2[1];
+    } else if (!file_exists($_FILES['photo_one']['tmp_name']) && file_exists($_FILES['photo_two']['tmp_name'])) {
+        // only photo two exists
+
         $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
         $file2 = $_FILES['photo_two']['name'];
 
-        // if ($org_width2 > "150" || $org_height2 > "150") {
-        if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
+        // if ($org_width1 > "150" || $org_height1 > "150") {
+        UnlinkFile($job_id, "2");
+        // if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
         $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
+        move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
+
+        // if (resize_image("./" . $target1, $file_extension1, 150)) {
+        // continue to insert to db cuz image upload succeed.
+        $target1 = explode("|", $_POST["h_photos"])[0];
+        $update_photos = $target1 . "|" . $target2;
+
+        // eng table update
+        $en_sql = "UPDATE en_jobs
+            SET
+            job_id='$job_id',
+            photos='$update_photos', 
+            company_name='$eng_company_name', 
+            job_title='$eng_job_title', 
+            employment_type='$emp_arr[0]', 
+            job_type='$job_arr[0]',
+            wage='$eng_wage', 
+            overtime='$eng_ot', 
+            holidays='$eng_holidays', 
+            working_hour='$eng_workinghr', 
+            breaktime='$eng_breaktime', 
+            requirements='$eng_requirements', 
+            benefits='$eng_benefits', 
+            location='$eng_location', 
+            memo='$eng_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
+
+        echo $en_sql;
+        mysqli_query($jobs_db_conn, $en_sql);
+
+        // MM table update
+        $mm_sql = "UPDATE mm_jobs
+            SET
+            job_id='$job_id',
+            photos='$update_photos', 
+            company_name='$mm_company_name', 
+            job_title='$mm_job_title', 
+            employment_type='$emp_arr[1]', 
+            job_type='$job_arr[1]',
+            wage='$mm_wage', 
+            overtime='$mm_ot', 
+            holidays='$mm_holidays', 
+            working_hour='$mm_workinghr', 
+            breaktime='$mm_breaktime', 
+            requirements='$mm_requirements', 
+            benefits='$mm_benefits', 
+            location='$mm_location', 
+            memo='$mm_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
+
+        echo $mm_sql;
+        mysqli_query($jobs_db_conn, $mm_sql);
+
+        // JP table update
+        $jp_sql = "UPDATE jp_jobs
+            SET
+            job_id='$job_id',
+            photos='$update_photos', 
+            company_name='$jp_company_name', 
+            job_title='$jp_job_title', 
+            employment_type='$emp_arr[1]', 
+            job_type='$job_arr[1]',
+            wage='$jp_wage', 
+            overtime='$jp_ot', 
+            holidays='$jp_holidays', 
+            working_hour='$jp_workinghr', 
+            breaktime='$jp_breaktime', 
+            requirements='$jp_requirements', 
+            benefits='$jp_benefits', 
+            location='$jp_location', 
+            memo='$jp_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
+
+        echo $jp_sql;
+        mysqli_query($jobs_db_conn, $jp_sql);
+        unset($_SESSION['insertError']);
+        header("location: ../jobs.php");
+    } else {
+        // BOTH PHOTOS UPLOADED
+        // $fileinfo2 = @getimagesize($_FILES["photo_two"]["tmp_name"]);
+        // $org_width2 = $fileinfo2[0];
+        // $org_height2 = $fileinfo2[1];
+
+        $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
+        $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
+        $file1 = $_FILES['photo_one']['name'];
+        $file2 = $_FILES['photo_two']['name'];
+
+        // if ($org_width2 > "150" || $org_height2 > "150") {
+        UnlinkFile($job_id, "1");
+        UnlinkFile($job_id, "2");
+        // if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
+        // if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
+
+        $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
+        $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
+
+        move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
         move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
 
         // if (resize_image("./" . $target2, $file_extension2, 150)) {
         // continue to insert to db cuz image upload succeed.
-        $target1 = explode("|", $_POST["h_photos"])[0];
+        // $target1 = explode("|", $_POST["h_photos"])[0];
         $update_photos = $target1 . "|" . $target2;
 
         // eng table update
@@ -448,6 +568,7 @@ if ($job_id == $old_job_id) {
     }
 } else {
     // WHEN ID IS NOT OLD ID
+
     $checkID = "SELECT COUNT(job_id) FROM en_jobs WHERE job_id='$job_id'";
     $countResult = mysqli_query($jobs_db_conn, $checkID);
     $result = mysqli_fetch_array($countResult);
@@ -464,88 +585,89 @@ if ($job_id == $old_job_id) {
             $update_photos = $_POST["h_photos"];
             // eng table update
             $en_sql = "UPDATE en_jobs
-        SET
-        job_id = '$job_id',
-        photos='$update_photos', 
-        company_name='$eng_company_name', 
-        job_title='$eng_job_title', 
-        employment_type='$emp_arr[0]', 
-        job_type='$job_arr[0]',
-        wage='$eng_wage', 
-        overtime='$eng_ot', 
-        holidays='$eng_holidays', 
-        working_hour='$eng_workinghr', 
-        breaktime='$eng_breaktime', 
-        requirements='$eng_requirements', 
-        benefits='$eng_benefits', 
-        location='$eng_location', 
-        memo='$eng_memo', 
-        isavailable='$isavailable', 
-        updated_at=now()
-        WHERE job_id='$old_job_id'";
+            SET
+            job_id = '$job_id',
+            photos='$update_photos', 
+            company_name='$eng_company_name', 
+            job_title='$eng_job_title', 
+            employment_type='$emp_arr[0]', 
+            job_type='$job_arr[0]',
+            wage='$eng_wage', 
+            overtime='$eng_ot', 
+            holidays='$eng_holidays', 
+            working_hour='$eng_workinghr', 
+            breaktime='$eng_breaktime', 
+            requirements='$eng_requirements', 
+            benefits='$eng_benefits', 
+            location='$eng_location', 
+            memo='$eng_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
 
             echo $en_sql;
             mysqli_query($jobs_db_conn, $en_sql);
 
             // MM table update
             $mm_sql = "UPDATE mm_jobs
-        SET
-        job_id = '$job_id',
-        photos='$update_photos', 
-        company_name='$mm_company_name', 
-        job_title='$mm_job_title', 
-        employment_type='$emp_arr[1]', 
-        job_type='$job_arr[1]',
-        wage='$mm_wage', 
-        overtime='$mm_ot', 
-        holidays='$mm_holidays', 
-        working_hour='$mm_workinghr', 
-        breaktime='$mm_breaktime', 
-        requirements='$mm_requirements', 
-        benefits='$mm_benefits', 
-        location='$mm_location', 
-        memo='$mm_memo', 
-        isavailable='$isavailable', 
-        updated_at=now()
-        WHERE job_id='$old_job_id'";
+            SET
+            job_id = '$job_id',
+            photos='$update_photos', 
+            company_name='$mm_company_name', 
+            job_title='$mm_job_title', 
+            employment_type='$emp_arr[1]', 
+            job_type='$job_arr[1]',
+            wage='$mm_wage', 
+            overtime='$mm_ot', 
+            holidays='$mm_holidays', 
+            working_hour='$mm_workinghr', 
+            breaktime='$mm_breaktime', 
+            requirements='$mm_requirements', 
+            benefits='$mm_benefits', 
+            location='$mm_location', 
+            memo='$mm_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
 
             echo $mm_sql;
             mysqli_query($jobs_db_conn, $mm_sql);
 
             // JP table update
             $jp_sql = "UPDATE jp_jobs
-        SET
-        job_id = '$job_id',
-        photos='$update_photos', 
-        company_name='$jp_company_name', 
-        job_title='$jp_job_title', 
-        employment_type='$emp_arr[1]', 
-        job_type='$job_arr[1]',
-        wage='$jp_wage', 
-        overtime='$jp_ot', 
-        holidays='$jp_holidays', 
-        working_hour='$jp_workinghr', 
-        breaktime='$jp_breaktime', 
-        requirements='$jp_requirements', 
-        benefits='$jp_benefits', 
-        location='$jp_location', 
-        memo='$jp_memo', 
-        isavailable='$isavailable', 
-        updated_at=now()
-        WHERE job_id='$old_job_id'";
+            SET
+            job_id = '$job_id',
+            photos='$update_photos', 
+            company_name='$jp_company_name', 
+            job_title='$jp_job_title', 
+            employment_type='$emp_arr[1]', 
+            job_type='$job_arr[1]',
+            wage='$jp_wage', 
+            overtime='$jp_ot', 
+            holidays='$jp_holidays', 
+            working_hour='$jp_workinghr', 
+            breaktime='$jp_breaktime', 
+            requirements='$jp_requirements', 
+            benefits='$jp_benefits', 
+            location='$jp_location', 
+            memo='$jp_memo', 
+            isavailable='$isavailable', 
+            updated_at=now()
+            WHERE job_id='$old_job_id'";
             echo $jp_sql;
             mysqli_query($jobs_db_conn, $jp_sql);
             unset($_SESSION['insertError']);
             header("location: ../jobs.php");
-        } elseif (!file_exists($_FILES['photo_two']['tmp_name'])) {
-            $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
-            $org_width1 = $fileinfo1[0];
-            $org_height1 = $fileinfo1[1];
+        } else if (file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo_two']['tmp_name'])) {
+            // $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
+            // $org_width1 = $fileinfo1[0];
+            // $org_height1 = $fileinfo1[1];
             $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
             $file1 = $_FILES['photo_one']['name'];
 
             // if ($org_width1 > "150" || $org_height1 > "150") {
-            if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
+            UnlinkFile($old_job_id, "1");
+            // if (file_exists("./companies/$old_job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
             $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
             move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
 
@@ -635,21 +757,128 @@ if ($job_id == $old_job_id) {
             //     header("location: ../jobs.php");
             // }
             // }
-        } else {
-            $fileinfo2 = @getimagesize($_FILES["photo_two"]["tmp_name"]);
-            $org_width2 = $fileinfo2[0];
-            $org_height2 = $fileinfo2[1];
+        } else if (!file_exists($_FILES['photo_one']['tmp_name']) && file_exists($_FILES['photo_two']['tmp_name'])) {
             $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
             $file2 = $_FILES['photo_two']['name'];
 
-            // if ($org_width2 > "150" || $org_height2 > "150") {
-            if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
+            // if ($org_width1 > "150" || $org_height1 > "150") {
+            UnlinkFile($old_job_id, "2");
+            // if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
             $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
+            move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
+
+            // if (resize_image("./" . $target1, $file_extension1, 150)) {
+            // continue to insert to db cuz image upload succeed.
+            $target1 = explode("|", $_POST["h_photos"])[0];
+            $update_photos = $target1 . "|" . $target2;
+
+            // eng table update
+            $en_sql = "UPDATE en_jobs
+                SET
+                job_id='$job_id',
+                photos='$update_photos', 
+                company_name='$eng_company_name', 
+                job_title='$eng_job_title', 
+                employment_type='$emp_arr[0]', 
+                job_type='$job_arr[0]',
+                wage='$eng_wage', 
+                overtime='$eng_ot', 
+                holidays='$eng_holidays', 
+                working_hour='$eng_workinghr', 
+                breaktime='$eng_breaktime', 
+                requirements='$eng_requirements', 
+                benefits='$eng_benefits', 
+                location='$eng_location', 
+                memo='$eng_memo', 
+                isavailable='$isavailable', 
+                updated_at=now()
+                WHERE job_id='$old_job_id'";
+
+            echo $en_sql;
+            mysqli_query($jobs_db_conn, $en_sql);
+
+            // MM table update
+            $mm_sql = "UPDATE mm_jobs
+                SET
+                job_id='$job_id',
+                photos='$update_photos', 
+                company_name='$mm_company_name', 
+                job_title='$mm_job_title', 
+                employment_type='$emp_arr[1]', 
+                job_type='$job_arr[1]',
+                wage='$mm_wage', 
+                overtime='$mm_ot', 
+                holidays='$mm_holidays', 
+                working_hour='$mm_workinghr', 
+                breaktime='$mm_breaktime', 
+                requirements='$mm_requirements', 
+                benefits='$mm_benefits', 
+                location='$mm_location', 
+                memo='$mm_memo', 
+                isavailable='$isavailable', 
+                updated_at=now()
+                WHERE job_id='$old_job_id'";
+
+            echo $mm_sql;
+            mysqli_query($jobs_db_conn, $mm_sql);
+
+            // JP table update
+            $jp_sql = "UPDATE jp_jobs
+                SET
+                job_id='$job_id',
+                photos='$update_photos', 
+                company_name='$jp_company_name', 
+                job_title='$jp_job_title', 
+                employment_type='$emp_arr[1]', 
+                job_type='$job_arr[1]',
+                wage='$jp_wage', 
+                overtime='$jp_ot', 
+                holidays='$jp_holidays', 
+                working_hour='$jp_workinghr', 
+                breaktime='$jp_breaktime', 
+                requirements='$jp_requirements', 
+                benefits='$jp_benefits', 
+                location='$jp_location', 
+                memo='$jp_memo', 
+                isavailable='$isavailable', 
+                updated_at=now()
+                WHERE job_id='$old_job_id'";
+
+            echo $jp_sql;
+            mysqli_query($jobs_db_conn, $jp_sql);
+            unset($_SESSION['insertError']);
+            header("location: ../jobs.php");
+            // } else {
+            //     // echo "resize fail";
+            //     header("location: ../jobs.php");
+            // }
+            // }
+        } else {
+            echo "both photos uploaded";
+            // BOTH PHOTOS UPLOADED
+            // $fileinfo2 = @getimagesize($_FILES["photo_two"]["tmp_name"]);
+            // $org_width2 = $fileinfo2[0];
+            // $org_height2 = $fileinfo2[1];
+            $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
+            $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
+
+            $file1 = $_FILES['photo_one']['name'];
+            $file2 = $_FILES['photo_two']['name'];
+
+            // if ($org_width2 > "150" || $org_height2 > "150") {
+            UnlinkFile($old_job_id, "1");
+            UnlinkFile($old_job_id, "2");
+            // if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
+            // if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
+
+            $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
+            $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
+
+            move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
             move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
 
             // if (resize_image("./" . $target2, $file_extension2, 150)) {
             // continue to insert to db cuz image upload succeed.
-            $target1 = explode("|", $_POST["h_photos"])[0];
             $update_photos = $target1 . "|" . $target2;
 
             // eng table update
