@@ -63,60 +63,48 @@ let updatedDownloadBtn = {
       page: "all", // 'all', 'current'
       search: "none", // 'none', 'applied', 'removed'
     },
-    columns: [1, 2, 3, 4, 5, 7, 8, 6, 10, 11],
-    // format: {
-    //     header: function(data, columnIdx) {
-    //         switch (columnIdx) {
-    //             case 1:
-    //                 return "Name";
-    //                 break;
-    //             case 2:
-    //                 return "DOB";
-    //                 break;
-    //             case 3:
-    //                 return "FatherName";
-    //                 break;
-    //             case 4:
-    //                 return "NRC";
-    //                 break;
-    //             case 5:
-    //                 return "Email";
-    //                 break;
-    //             case 6:
-    //                 return "Phone";
-    //                 break;
-    //             case 7:
-    //                 return "Education";
-    //                 break;
-    //             case 8:
-    //                 return "Address";
-    //                 break;
-    //             case 9:
-    //                 return "Created At";
-    //                 break;
-    //             case 10:
-    //                 return "Updated At";
-    //                 break;
-    //             default:
-    //                 return data;
-    //         }
-    //     },
-    //     // body: function(data, row, column, node) {
-    //     //     // Strip $ from salary column to make it numeric
-    //     //     switch (column) {
-    //     //         case 10:
-    //     //             // return data.replace(/[1,]/g, "&#9989;");
-    //     //             // return "ava";
-    //     //             return data === "1" ? "✅" : "❌";
-    //     //             break;
-    //     //         case 17:
-    //     //             return data.replace(/[-,]/g, "/");
-    //     //             break;
-    //     //         default:
-    //     //             return data;
-    //     //     }
-    //     // },
-    // },
+    columns: [2, 5, 7, 8, 9, 10, 11],
+    format: {
+      header: function (data, columnIdx) {
+        switch (columnIdx) {
+          case 2:
+            return "Course";
+            break;
+          case 5:
+            return "Student Name";
+            break;
+          case 7:
+            return "Payment";
+            break;
+          case 8:
+            return "Paid Percentage";
+            break;
+          case 9:
+            return "Approved";
+            break;
+          case 10:
+            return "Created At";
+            break;
+          case 11:
+            return "Updated At";
+            break;
+          default:
+            return data;
+        }
+      },
+      body: function(data, row, column, node) {
+          // Strip $ from salary column to make it numeric
+          switch (column) {
+              case 4:
+                  // return data.replace(/[1,]/g, "&#9989;");
+                  // return "ava";
+                  return data === "0" ? "❌" : "✅";
+                  break;
+              default:
+                  return data;
+          }
+      },
+    },
   },
 };
 
@@ -133,7 +121,7 @@ var buttons = [
         page: "all", // 'all', 'current'
         search: "none", // 'none', 'applied', 'removed'
       },
-      columns: [1, 2, 3, 4, 5, 6, 7, 8],
+      columns: [2, 3, 4, 5, 6, 7, 8],
     },
   },
   {
@@ -216,7 +204,7 @@ var buttons = [
                                           onclick = "addToSelected(event, '${data[0]}')" />`);
 
                       $("td:eq(1)", row).html(
-                        `<img class="stu-img-table" src="https://jktmyanmarint.com/backend/'${data["photo"]}" alt="${data["photo"]}">`
+                        `<img class="stu-img-table" src="https://jktmyanmarint.com/backend/${data["photo"]}" alt="${data["photo"]}">`
                       );
                       $("td:eq(2)", row).text(`${data["title"]}`);
                       $("td:eq(3)", row).html(
@@ -242,7 +230,14 @@ var buttons = [
                       // console.log(data);
                     },
                     order: [[8, "asc"]],
-                    columnDefs: [{ orderable: false, targets: [0, 1, 9, 10] }],
+                    columnDefs: [
+                      { orderable: false, targets: [0, 1, 9, 10] },
+                      {
+                        targets: [11],
+                        visible: false,
+                        searchable: false,
+                      },
+                    ],
                   });
                 }
               },
@@ -261,7 +256,14 @@ var buttons = [
 $(document).ready(function () {
   $("#dataTable").DataTable({
     order: [[8, "desc"]],
-    columnDefs: [{ orderable: false, targets: [0, 1, 9, 10] }],
+    columnDefs: [
+      { orderable: false, targets: [0, 1, 9, 10] },
+      {
+        targets: [11],
+        visible: false,
+        searchable: false,
+      },
+    ],
     initComplete: function () {
       this.api()
         .columns(".select-course-filter")

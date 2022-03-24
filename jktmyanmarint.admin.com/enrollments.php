@@ -333,6 +333,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <th>updated_at</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -354,6 +355,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                     <td><?= date('Y-m-d', strtotime($row['updated_at'])) ?></td>
                                                     <td><button class="tb-btn tb-btn-edit" onclick="setCurrentEditing(event,this,<?php echo $row['enrollment_id'] ?>,<?php echo $row['course_id'] ?>,<?php echo $row['fee'] ?>)" data-toggle="modal" data-target="#editingModal"><i class="fa fa-pencil"></i></button></td>
                                                     <td><button class="tb-btn tb-btn-delete" onclick="setCurrentDeleting(event,this,<?php echo $row['enrollment_id'] ?>)" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></i></button></td>
+                                                    <td></td>
                                                 </tr>
                                             <?php endwhile; ?>
                                         </tbody>
