@@ -4,19 +4,7 @@ include_once 'auth/authenticate.php';
 // include('checkUser.php');
 include("confs/config.php");
 include("confs/jobs_config.php");
-// $currentEditingID = "";
-// $currentDeletingID = "";
 
-// function setCurrentEditing($id)
-// {
-//     global $currentEditingID;
-//     $currentEditingID = $id;
-// }
-// function setCurrentDeleting($id)
-// {
-//     global $currentDeletingID;
-//     $currentDeletingID = $id;
-// }
 $get_notifications = "SELECT * FROM notifications WHERE seen=0 AND created_at >= DATE_SUB(NOW(),INTERVAL 6 HOUR)";
 $noti_result = mysqli_query($conn, $get_notifications);
 ?>
@@ -41,6 +29,8 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -239,6 +229,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 <div class="icon-circle bg-secondary">
                                                     <i class="fas fa-user-tie text-white"></i>
                                                 </div>
+                                            <?php elseif ($row["type"] == "NEW_JOB_APPLICATION") :  ?>
+                                                <div class="icon-circle bg-info">
+                                                    <i class="fas fa-solid fa-briefcase text-white"></i>
+                                                </div>
                                             <?php else :  ?>
                                                 <div class="icon-circle bg-warning">
                                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -363,6 +357,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
                     </div>
                 </div>
+
                 <!-- /.container-fluid -->
 
             </div>
@@ -548,23 +543,23 @@ $noti_result = mysqli_query($conn, $get_notifications);
                         </div>
                         <div class="form-group mb-4 w-100">
                             <div class="resume-label">Upload Resume</div>
-                                <div class="resume-form-control">
-                                    <!-- <div class="col-7"> -->
-                                        <label for="new_edit_resume" id="resumeName" class="resume-name">Choose Resume</label>
-                                    <!-- </div>
+                            <div class="resume-form-control">
+                                <!-- <div class="col-7"> -->
+                                <label for="new_edit_resume" id="resumeName" class="resume-name">Choose Resume</label>
+                                <!-- </div>
                                     <div class="col-5 text-right"> -->
-                                        <div class="fileUpload">
-                                            <input type="file" name="new_edit_resume" id="new_edit_resume" class="upload" />
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
-                                            </svg>
-                                            <span>Upload</span>
-                                        </div>
-                                    <!-- </div> -->
-                                    <input type="hidden" value="" name="origin_resume" id="origin_resume" />
+                                <div class="fileUpload">
+                                    <input type="file" name="new_edit_resume" id="new_edit_resume" class="upload" />
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+                                    </svg>
+                                    <span>Upload</span>
                                 </div>
-                                <span class="resume-help-block" id="resumeHelp"></span>
-                                <!-- <label for="resume">Enter Resume</label>
+                                <!-- </div> -->
+                                <input type="hidden" value="" name="origin_resume" id="origin_resume" />
+                            </div>
+                            <span class="resume-help-block" id="resumeHelp"></span>
+                            <!-- <label for="resume">Enter Resume</label>
                             <input type="file" name="resume" id="resume" class=" resume" accept=".doc,.docx,.pdf,.xls,.xlsx" /> -->
                         </div>
                         <div class="form-group mb-4">
@@ -582,7 +577,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
                         <hr />
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <input class="btn btn-primary" type="submit" value="Update" id="editSubmit" >
+                        <input class="btn btn-primary" type="submit" value="Update" id="editSubmit">
                     </form>
                 </div>
             </div>
@@ -630,6 +625,14 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="vendor/jquery/validation.js"></script>
     <script src="vendor/jquery/additional-methods.js"></script>
+
+    <!-- for excel print -->
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/applicants.js"></script>
