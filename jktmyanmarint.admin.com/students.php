@@ -32,7 +32,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
     <meta name="author" content="">
 
     <link rel="shortcut icon" href="img/logo.jpg" />
-    <title>JKT Admin - All Enrollments</title>
+    <title>JKT Admin - All Students</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -314,6 +314,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                     <table class="table table-bordered my-table" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
+                                                <th><img class="check-icon" style="cursor:pointer;" id="select-all" src="img/1.png"/></th>
                                                 <th>Photo</th>
                                                 <!-- <th>Course</th> -->
                                                 <th>Name</th>
@@ -334,8 +335,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                             </tr>
                                         </thead>
                                         <tbody>
+                                           
                                             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                                 <tr onclick="student_detail(this)" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                    <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['student_id'] ?>')" /></td>    
                                                     <td><img class="stu-img-table" src="<?= 'https://jktmyanmarint.com/backend/' . $row['photo'] ?>" alt="<?= $row['photo'] ?>"></td>
                                                     <td style="max-width : 100px;"><?= $row['student_name'] ?></td>
                                                     <td><?= $row['dob'] ?></td>

@@ -782,3 +782,9 @@ canvas {
     margin-bottom: 10px;
   }
 }
+
+
+
+.maxw-100{
+  max-width: 100px;
+}

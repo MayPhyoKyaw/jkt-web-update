@@ -406,11 +406,12 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <div class="tabs">
 
                                     <div id="content-1">
+                                    
                                         <div class="table-responsive">
                                             <table class="table table-bordered" id="enDT" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th><img class="check-icon" id="select-all-en" src="img/1.png"/></th>
+                                                        <th><img class="check-icon" style="cursor:pointer;" id="select-all-en" src="img/1.png"/></th>
                                                         <th class="id">ID</th>
                                                         <th class="title">Title</th>
                                                         <th class="en-company-filter company">Company</th>
@@ -773,6 +774,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
     </div>
 
     <!-- Bootstrap core JavaScript-->
+    <script src="js/moment.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

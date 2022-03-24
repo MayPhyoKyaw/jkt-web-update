@@ -20,6 +20,21 @@ function addToSelected(event, id) {
     }
 }
 
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+    // var returnDate = new Date();
+    return [year, month, day].join('-');
+    // return moment([year, month, day].join('-')).format('L');;
+}
+
 var selectAllBtnEn = document.getElementById("select-all-en");
 var selectAllBtnMm = document.getElementById("select-all-mm");
 var selectAllBtnJp = document.getElementById("select-all-jp");
@@ -170,7 +185,7 @@ $(document).ready(function() {
                         success: function(data, textStatus, jqXHR) {
                             //data - response from server
                             //  console.log("success");
-                            //  console.log(data);
+                            // console.log(data.en_data);
                             selected = [];
                             // var data = jQuery.parseJSON(data);
                             // eng version destroy
@@ -210,6 +225,8 @@ $(document).ready(function() {
                                             );
                                         });
 
+                                        var updateDate = new Date(data["updated_at"]);
+                                        // console.log(formatDate(updateDate));
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
                                       src = "img/1.png"
@@ -232,7 +249,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -243,9 +260,12 @@ $(document).ready(function() {
                                         );
                                         // }
                                     },
-                                    order: [
-                                        [12, "desc"]
-                                    ],
+                                    // order: [
+                                    //     [12, "desc"]
+                                    // ],
+                                    // "aaSorting": [],
+                                    ordering: false,
+                                    // bSort: true,
                                     columnDefs: [
                                         { orderable: false, targets: [0, 13, 14] },
                                         {
@@ -278,6 +298,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
+                                        var updateDate = new Date(data["updated_at"]);
 
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
@@ -301,7 +322,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -312,9 +333,10 @@ $(document).ready(function() {
                                         );
                                         // }
                                     },
-                                    order: [
-                                        [12, "desc"]
-                                    ],
+                                    // order: [
+                                    //     [12, "desc"]
+                                    // ],
+                                    ordering: false,
                                     columnDefs: [
                                         { orderable: false, targets: [0, 13, 14] },
                                         {
@@ -335,6 +357,7 @@ $(document).ready(function() {
                                     buttons: buttons_jp,
                                     rowCallback: function(row, data) {
                                         // if (data[4] == "A") {
+
                                         $(row).on("click", function(event) {
                                             // alert("hello");
                                             jobDetail(
@@ -347,6 +370,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
+                                        var updateDate = new Date(data["updated_at"]);
 
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
@@ -370,7 +394,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -381,9 +405,10 @@ $(document).ready(function() {
                                         );
                                         // }
                                     },
-                                    order: [
-                                        [12, "desc"]
-                                    ],
+                                    // order: [
+                                    //     [12, "desc"]
+                                    // ],
+                                    ordering: false,
                                     columnDefs: [
                                         { orderable: false, targets: [0, 13, 14] },
                                         {
@@ -429,8 +454,7 @@ $(document).ready(function() {
                 },
                 columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             },
-        },
-        {
+        }, {
             text: '<i class="fa fa-trash"></i>',
             action: function(e, dt, node, config) {
                 // alert("Button activated");
@@ -724,7 +748,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                                 src = "img/1.png"
@@ -747,7 +771,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -758,9 +782,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -792,7 +817,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                                 src = "img/1.png"
@@ -815,7 +840,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -826,9 +851,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -860,7 +886,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                                 src = "img/1.png"
@@ -894,9 +920,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -986,7 +1013,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
-
+                                        var updateDate = new Date(data["updated_at"]);
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
                                       src = "img/1.png"
@@ -1009,7 +1036,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1054,7 +1081,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
-
+                                        var updateDate = new Date(data["updated_at"]);
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
                                       src = "img/1.png"
@@ -1077,7 +1104,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1122,7 +1149,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
-
+                                        var updateDate = new Date(data["updated_at"]);
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
                                       src = "img/1.png"
@@ -1145,7 +1172,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1156,9 +1183,10 @@ $(document).ready(function() {
                                         );
                                         // }
                                     },
-                                    order: [
-                                        [12, "desc"]
-                                    ],
+                                    // order: [
+                                    //     [12, "desc"]
+                                    // ],
+                                    ordering: false,
                                     columnDefs: [
                                         { orderable: false, targets: [0, 13, 14] },
                                         {
@@ -1484,7 +1512,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                           src = "img/1.png"
@@ -1507,7 +1535,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1518,9 +1546,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -1552,7 +1581,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                           src = "img/1.png"
@@ -1575,7 +1604,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1586,9 +1615,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -1620,7 +1650,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                           src = "img/1.png"
@@ -1643,7 +1673,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${format(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1654,9 +1684,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -1732,7 +1763,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
-
+                                        var updateDate = new Date(data["updated_at"]);
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
                                       src = "img/1.png"
@@ -1755,7 +1786,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${format(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1766,9 +1797,10 @@ $(document).ready(function() {
                                         );
                                         // }
                                     },
-                                    order: [
-                                        [12, "desc"]
-                                    ],
+                                    // order: [
+                                    //     [12, "desc"]
+                                    // ],
+                                    ordering: false,
                                     columnDefs: [
                                         { orderable: false, targets: [0, 13, 14] },
                                         {
@@ -1800,7 +1832,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
-
+                                        var updateDate = new Date(data["updated_at"]);
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
                                       src = "img/1.png"
@@ -1823,7 +1855,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1834,9 +1866,10 @@ $(document).ready(function() {
                                         );
                                         // }
                                     },
-                                    order: [
-                                        [12, "desc"]
-                                    ],
+                                    // order: [
+                                    //     [12, "desc"]
+                                    // ],
+                                    ordering: false,
                                     columnDefs: [
                                         { orderable: false, targets: [0, 13, 14] },
                                         {
@@ -1868,7 +1901,7 @@ $(document).ready(function() {
                                                 data["photos"]
                                             );
                                         });
-
+                                        var updateDate = new Date(data["updated_at"]);
                                         $(row).addClass("tb-row");
                                         $("td:eq(0)", row).html(`<img class = "check-icon"
                                       src = "img/1.png"
@@ -1891,7 +1924,7 @@ $(document).ready(function() {
                                         } else {
                                             $("td:eq(11)", row).html(`&#10060;`);
                                         }
-                                        $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                         $("td:eq(13)", row).html(
                                             `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1902,9 +1935,10 @@ $(document).ready(function() {
                                         );
                                         // }
                                     },
-                                    order: [
-                                        [12, "desc"]
-                                    ],
+                                    // order: [
+                                    //     [12, "desc"]
+                                    // ],
+                                    ordering: false,
                                     columnDefs: [
                                         { orderable: false, targets: [0, 13, 14] },
                                         {
@@ -2229,7 +2263,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                                 src = "img/1.png"
@@ -2252,7 +2286,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -2263,9 +2297,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -2297,7 +2332,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                                 src = "img/1.png"
@@ -2320,7 +2355,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -2331,9 +2366,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -2365,7 +2401,7 @@ $(document).ready(function() {
                                                         data["photos"]
                                                     );
                                                 });
-
+                                                var updateDate = new Date(data["updated_at"]);
                                                 $(row).addClass("tb-row");
                                                 $("td:eq(0)", row).html(`<img class = "check-icon"
                                                 src = "img/1.png"
@@ -2388,7 +2424,7 @@ $(document).ready(function() {
                                                 } else {
                                                     $("td:eq(11)", row).html(`&#10060;`);
                                                 }
-                                                $("td:eq(12)", row).text(`${data["updated_at"]}`);
+                                                $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                                                 $("td:eq(13)", row).html(
                                                     `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -2399,9 +2435,10 @@ $(document).ready(function() {
                                                 );
                                                 // }
                                             },
-                                            order: [
-                                                [12, "desc"]
-                                            ],
+                                            // order: [
+                                            //     [12, "desc"]
+                                            // ],
+                                            ordering: false,
                                             columnDefs: [
                                                 { orderable: false, targets: [0, 13, 14] },
                                                 {
@@ -2428,6 +2465,8 @@ $(document).ready(function() {
         order: [
             [12, "desc"]
         ],
+        // ordering: false,
+        bSort: true,
         columnDefs: [
             { orderable: false, targets: [0, 13, 14] },
             {
