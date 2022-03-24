@@ -394,18 +394,18 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                                         <label for="it">IT</label>
                                         <input class="radio-input" type="radio" id="it" value="IT-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "IT") echo "checked='checked'" ?>>
                                         <label for="tokutei" class="ml-4">Tokutei Ginou</label>
-                                        <input class="radio-input" type="radio" id="tokutei" value="Tokutei-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "Tokutei") echo "checked='checked'" ?>>
+                                        <input class="radio-input" type="radio" id="tokutei" value="Tokutei-Tokutei-Tokutei" name="job_type" <?php if ($en_result['job_type'] == "Tokutei") echo "checked='checked'" ?>>
                                         <label for="general" class="ml-4">General</label>
-                                        <input class="radio-input" type="radio" id="general" value="General-mm-jp" name="job_type" <?php if ($en_result['job_type'] == "General") echo "checked='checked'" ?>>
+                                        <input class="radio-input" type="radio" id="general" value="General-General-General" name="job_type" <?php if ($en_result['job_type'] == "General") echo "checked='checked'" ?>>
                                     </div>
                                 </div>
                                 <div class="my-3 text-left">
                                     <label>Employment Type</label>
                                     <div class="employment-container">
                                         <label for="permanent">Permanent</label>
-                                        <input class="radio-input" type="radio" id="permanent" value="Permanent-mm-jp" name="employment_type" <?php if ($en_result['employment_type'] == "Permanent") echo "checked='checked'" ?>>
+                                        <input class="radio-input" type="radio" id="permanent" value="Permanent-Permanent-Permanent" name="employment_type" <?php if ($en_result['employment_type'] == "Permanent") echo "checked='checked'" ?>>
                                         <label for="contract" class="ml-4">Contract</label>
-                                        <input class="radio-input" type="radio" id="contract" value="Contract-mm-jp" name="employment_type" <?php if ($en_result['employment_type'] == "Contract") echo "checked='checked'" ?>>
+                                        <input class="radio-input" type="radio" id="contract" value="Contract-Contract-Contract" name="employment_type" <?php if ($en_result['employment_type'] == "Contract") echo "checked='checked'" ?>>
                                     </div>
                                 </div>
                                 <div class="my-3 text-left">

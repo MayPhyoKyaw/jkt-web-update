@@ -582,8 +582,18 @@ if ($job_id == $old_job_id) {
         // NO ID CONFLICT
 
         if (!file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo_two']['tmp_name'])) {
-            $update_photos = $_POST["h_photos"];
+
+            // RENAME PHOTO DUE TO ID CHANGE
+            $originalPhotos = explode("|", $_POST["h_photos"]);
+
+            $ext1 = explode(".", $originalPhotos[0])[1];
+            $ext2 = explode(".", $originalPhotos[1])[1];
+
+            $update_photos = "companies/" . "$job_id" . '-1.' . "$ext1" . "|" . "companies/" . "$job_id" . '-2.' . "$ext2";
             // eng table update
+
+            rename("../backend/" . $originalPhotos[0], "../backend/" . "companies/" . "$job_id" . '-1.' . "$ext1");
+            rename("../backend/" . $originalPhotos[1], "../backend/" . "companies/" . "$job_id" . '-2.' . "$ext2");
             $en_sql = "UPDATE en_jobs
             SET
             job_id = '$job_id',
@@ -659,21 +669,19 @@ if ($job_id == $old_job_id) {
             unset($_SESSION['insertError']);
             header("location: ../jobs.php");
         } else if (file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo_two']['tmp_name'])) {
-            // $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
-            // $org_width1 = $fileinfo1[0];
-            // $org_height1 = $fileinfo1[1];
+            // PHOTO ONE UPDATED AND PHOTO TWO NOT UPDATED
             $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
             $file1 = $_FILES['photo_one']['name'];
 
-            // if ($org_width1 > "150" || $org_height1 > "150") {
             UnlinkFile($old_job_id, "1");
-            // if (file_exists("./companies/$old_job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
             $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
             move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
 
-            // if (resize_image("./" . $target1, $file_extension1, 150)) {
-            // continue to insert to db cuz image upload succeed.
-            $target2 = explode("|", $_POST["h_photos"])[1];
+            $ext2 = explode(".", explode("|", $_POST["h_photos"])[1])[1];
+            
+            rename("../backend/" . explode("|", $_POST["h_photos"])[1], "../backend/" . "companies/" . "$job_id" . '-2.' . "$ext2");
+
+            $target2 = "companies/" . "$job_id" . '-2.' . "$ext2";
             $update_photos = $target1 . "|" . $target2;
 
             // eng table update
@@ -761,15 +769,15 @@ if ($job_id == $old_job_id) {
             $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
             $file2 = $_FILES['photo_two']['name'];
 
-            // if ($org_width1 > "150" || $org_height1 > "150") {
             UnlinkFile($old_job_id, "2");
-            // if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
             $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
             move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
 
-            // if (resize_image("./" . $target1, $file_extension1, 150)) {
-            // continue to insert to db cuz image upload succeed.
-            $target1 = explode("|", $_POST["h_photos"])[0];
+            $ext1 = explode(".", explode("|", $_POST["h_photos"])[0])[1];
+            
+            rename("../backend/" . explode("|", $_POST["h_photos"])[0], "../backend/" . "companies/" . "$job_id" . '-1.' . "$ext1");
+
+            $target1 = "companies/" . "$job_id" . '-1.' . "$ext1";
             $update_photos = $target1 . "|" . $target2;
 
             // eng table update
@@ -856,16 +864,13 @@ if ($job_id == $old_job_id) {
         } else {
             echo "both photos uploaded";
             // BOTH PHOTOS UPLOADED
-            // $fileinfo2 = @getimagesize($_FILES["photo_two"]["tmp_name"]);
-            // $org_width2 = $fileinfo2[0];
-            // $org_height2 = $fileinfo2[1];
             $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
             $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
 
             $file1 = $_FILES['photo_one']['name'];
             $file2 = $_FILES['photo_two']['name'];
 
-            // if ($org_width2 > "150" || $org_height2 > "150") {
+            
             UnlinkFile($old_job_id, "1");
             UnlinkFile($old_job_id, "2");
             // if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
@@ -877,8 +882,6 @@ if ($job_id == $old_job_id) {
             move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
             move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
 
-            // if (resize_image("./" . $target2, $file_extension2, 150)) {
-            // continue to insert to db cuz image upload succeed.
             $update_photos = $target1 . "|" . $target2;
 
             // eng table update

@@ -360,7 +360,7 @@ $("#jp_location").keyup(function() {
 $(".fs_next_btn").click(function() {
     error = false;
     if ($("#photo_one").val() == "") {
-        $("#error_photo_one").text("Please choose at least one photo.");
+        $("#error_photo_one").text("Company Photo is required");
         error = true;
     }
     if ($("#error_photo_one").text() !== "") {

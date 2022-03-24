@@ -335,19 +335,19 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             <div class="my-3">
                                 <div class="employment-container">
                                     <label for="it">IT</label>
-                                    <input class="radio-input" type="radio" id="it" value="IT-အိုင်တီ-IT" name="job_type" checked="checked">
+                                    <input class="radio-input" type="radio" id="it" value="IT-IT-IT" name="job_type" checked="checked">
                                     <label for="tokutei" class="ml-4">Tokutei Ginou</label>
-                                    <input class="radio-input" type="radio" id="tokutei" value="Tokutei-Tokutei-特定技能" name="job_type">
+                                    <input class="radio-input" type="radio" id="tokutei" value="Tokutei-Tokutei-Tokutei" name="job_type">
                                     <label for="general" class="ml-4">General</label>
-                                    <input class="radio-input" type="radio" id="general" value="General-အခြားအလုပ်အမျိုးအစားများ-その他" name="job_type">
+                                    <input class="radio-input" type="radio" id="general" value="General-General-General" name="job_type">
                                 </div>
                             </div>
                             <div class="my-3">
                                 <div class="employment-container">
                                     <label for="permanent">Permanent</label>
-                                    <input class="radio-input" type="radio" id="permanent" value="Permanent-အမြဲတမ်းဝန်ထမ်း-正社員" name="employment_type" checked="checked">
+                                    <input class="radio-input" type="radio" id="permanent" value="Permanent-Permanent-Permanent" name="employment_type" checked="checked">
                                     <label for="contract" class="ml-4">Contract</label>
-                                    <input class="radio-input" type="radio" id="contract" value="Contract-စာချုပ်ဝန်ထမ်း-契約社員" name="employment_type">
+                                    <input class="radio-input" type="radio" id="contract" value="Contract-Permanent-Permanent" name="employment_type">
                                 </div>
                             </div>
                             <div class="my-3">
