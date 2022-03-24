@@ -321,9 +321,9 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $get_applications = "SELECT * FROM applications ORDER BY updated_at DESC";
-                                            $applications_result = mysqli_query($jobs_db_conn, $get_applications);
-                                            while ($row1 = mysqli_fetch_assoc($applications_result)) :
+                                            $get_applicants = "SELECT * FROM applicants ORDER BY updated_at DESC";
+                                            $applicants_result = mysqli_query($jobs_db_conn, $get_applicants);
+                                            while ($row1 = mysqli_fetch_assoc($applicants_result)) :
                                             ?>
                                                 <tr onclick="applicantDetail(this,<?= $row1['applicant_id'] ?>,'<?= $row1['resume'] ?>','<?= $row1['fb_profile_link'] ?>','<?= $row1['porfolio_link'] ?>','<?= $row1['additional_note'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                     <td style="max-width : 100px;"><?= $row1['applicant_name'] ?></td>
