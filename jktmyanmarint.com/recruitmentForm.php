@@ -246,7 +246,7 @@ function encrypt_decrypt($action, $string)
                             Please fill in all the fields of the form. <br>
                             Thanks for Joining With Us!!
                         </p>
-                        <form id="enRecruitmentForm" action="./backend/newRecruitment.php" method="POST" enctype="multipart/form-data">
+                        <form id="enRecruitmentForm" action="./backend/en_newApplicants.php" method="POST" enctype="multipart/form-data">
                             <div class="pb-4 mb-2">
                                 <label for="name" id="name-label" class="appointment-label">Name <span class="consultant-required-tag">required &nbsp; *</span></label><br />
                                 <input type="text" id="recruitmentName" name="recruitmentName" placeholder="Enter Your Name" required class="appointment-input form-field" />

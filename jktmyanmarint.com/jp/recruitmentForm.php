@@ -271,7 +271,7 @@ function encrypt_decrypt($action, $string)
                             フォームのすべてのフィールドに入力してください。 <br>
                             ご参加いただきありがとうございます！！
                         </p>
-                        <form id="jpRecruitmentForm" action="../backend/newRecruitment.php" method="POST" enctype="multipart/form-data">
+                        <form id="jpRecruitmentForm" action="../backend/jp_newApplicants.php" method="POST" enctype="multipart/form-data">
                             <div class="pb-4 mb-2">
                                 <label for="name" id="name-label" class="appointment-label">名前 <span class="consultant-required-tag">必須 &nbsp; *</span></label><br />
                                 <input type="text" id="recruitmentName" name="recruitmentName" placeholder="名前を入力してください" required class="appointment-input form-field" />

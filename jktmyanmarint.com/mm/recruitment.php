@@ -203,23 +203,27 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                         <?php
                         $application = "SELECT * FROM mm_jobs WHERE job_type = 'IT' ORDER BY created_at DESC, isavailable DESC";
                         $application_result = mysqli_query($jobs_db_conn, $application);
+                        $getITCount = "SELECT COUNT(*) FROM en_jobs WHERE job_type = 'IT'";
+                        $ITCountFetch = mysqli_query($jobs_db_conn, $getITCount);
+                        $ITCountResult = mysqli_fetch_array($ITCountFetch);
+                        if($ITCountResult[0] > 0) {
                         while ($row = mysqli_fetch_array($application_result)) {
                         ?>
                             <div class="job-card it-job">
                                 <div class="row job-card-title">
                                     <?php
                                     if ($row["isavailable"] === "0") {
-                                        echo "<div class='ribbon ribbon-top-left'><span>Unavailable</span></div>";
+                                        echo "<div class='ribbon ribbon-top-left'><span>ဖောင်ပိတ်သွားပါပြီ</span></div>";
                                     }
                                     ?>
-                                    <div class="col-12 col-lg-7 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
+                                    <div class="col-12 col-lg-9 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
                                         <h4>
                                             <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
-                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">Only In Japan</span><?php } ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">ဂျပန်တွင်ရှိသူများသာ</span><?php } ?>
                                         </h4>
-                                        <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?= $row["employment_type"] ?></span>
+                                        <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?php echo $row["employment_type"] === "Permanent" ? "အမြဲတမ်းဝန်ထမ်း" : "စာချုပ်ဝန်ထမ်း"; ?></span>
                                     </div>
-                                    <div class="col-12 col-lg-5 text-lg-right text-center mt-4">
+                                    <div class="col-12 col-lg-3 text-lg-right text-center mt-4">
                                         <a href="recruitmentForm.php?job_id=<?= encrypt_decrypt("encrypt", $row["job_id"]) ?>">
                                             <button class="recruitment-apply" <?php echo $row['isavailable'] === "0" ? 'disabled' : '' ?>>
                                                 အလုပ်လျှောက်ရန် &nbsp;<i class='fas fa-location-arrow'></i>
@@ -286,30 +290,39 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                            <?php 
+                                    } 
+                                } else {
+                            ?>
+                            <h2 class="no-data">လက်ရှိတွင် အလုပ်ခေါ်စာများ မရှိသေးပါ။</h2>
+                            <?php } ?>
                         <div id="it-pagination-container"></div>
                     </div>
                     <div id="tokutei-jobs" class="tab-data">
                         <?php
                         $application = "SELECT * FROM mm_jobs WHERE job_type = 'Tokutei' ORDER BY created_at DESC, isavailable DESC";
                         $application_result = mysqli_query($jobs_db_conn, $application);
+                        $getTokuteiCount = "SELECT COUNT(*) FROM en_jobs WHERE job_type = 'Tokutei'";
+                        $TokuteiCountFetch = mysqli_query($jobs_db_conn, $getTokuteiCount);
+                        $TokuteiCountResult = mysqli_fetch_array($TokuteiCountFetch);
+                        if($TokuteiCountResult[0] > 0) {
                         while ($row = mysqli_fetch_array($application_result)) {
                         ?>
                             <div class="job-card it-job">
                                 <div class="row job-card-title">
                                     <?php
                                     if ($row["isavailable"] === "0") {
-                                        echo "<div class='ribbon ribbon-top-left'><span>Unavailable</span></div>";
+                                        echo "<div class='ribbon ribbon-top-left'><span>ဖောင်ပိတ်သွားပါပြီ</span></div>";
                                     }
                                     ?>
-                                    <div class="col-12 col-lg-7 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
+                                    <div class="col-12 col-lg-9 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
                                         <h4>
                                             <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
-                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">Only In Japan</span><?php } ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">ဂျပန်တွင်ရှိသူများသာ</span><?php } ?>
                                         </h4>
-                                        <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?= $row["employment_type"] ?></span>
+                                        <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?php echo $row["employment_type"] === "Permanent" ? "အမြဲတမ်းဝန်ထမ်း" : "စာချုပ်ဝန်ထမ်း"; ?></span>
                                     </div>
-                                    <div class="col-12 col-lg-5 text-lg-right text-center mt-4">
+                                    <div class="col-12 col-lg-3 text-lg-right text-center mt-4">
                                         <a href="recruitmentForm.php?job_id=<?= encrypt_decrypt("encrypt", $row["job_id"]) ?>">
                                             <button class="recruitment-apply" <?php echo $row['isavailable'] === "0" ? 'disabled' : '' ?>>
                                                 အလုပ်လျှောက်ရန် &nbsp;<i class='fas fa-location-arrow'></i>
@@ -376,30 +389,39 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                            <?php 
+                                } 
+                                } else {
+                            ?>
+                            <h2 class="no-data">လက်ရှိတွင် အလုပ်ခေါ်စာများ မရှိသေးပါ။</h2>
+                            <?php } ?>
                         <div id="tokutei-pagination-container"></div>
                     </div>
                     <div id="general-jobs" class="tab-data">
                         <?php
                         $application = "SELECT * FROM mm_jobs WHERE job_type = 'General' ORDER BY created_at DESC, isavailable DESC";
                         $application_result = mysqli_query($jobs_db_conn, $application);
+                        $getGeneralCount = "SELECT COUNT(*) FROM en_jobs WHERE job_type = 'General'";
+                        $GeneralCountFetch = mysqli_query($jobs_db_conn, $getGeneralCount);
+                        $GeneralCountResult = mysqli_fetch_array($GeneralCountFetch);
+                        if($GeneralCountResult[0] > 0) {
                         while ($row = mysqli_fetch_array($application_result)) {
                         ?>
                             <div class="job-card it-job">
                                 <div class="row job-card-title">
                                     <?php
                                     if ($row["isavailable"] === "0") {
-                                        echo "<div class='ribbon ribbon-top-left'><span>Unavailable</span></div>";
+                                        echo "<div class='ribbon ribbon-top-left'><span>ဖောင်ပိတ်သွားပါပြီ</span></div>";
                                     }
                                     ?>
-                                    <div class="col-12 col-lg-7 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
+                                    <div class="col-12 col-lg-9 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
                                         <h4>
                                             <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
-                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">Only In Japan</span><?php } ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">ဂျပန်တွင်ရှိသူများသာ</span><?php } ?>
                                         </h4>
-                                        <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?= $row["employment_type"] ?></span>
+                                        <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?php echo $row["employment_type"] === "Permanent" ? "အမြဲတမ်းဝန်ထမ်း" : "စာချုပ်ဝန်ထမ်း"; ?></span>
                                     </div>
-                                    <div class="col-12 col-lg-5 text-lg-right text-center mt-4">
+                                    <div class="col-12 col-lg-3 text-lg-right text-center mt-4">
                                         <a href="recruitmentForm.php?job_id=<?= encrypt_decrypt("encrypt", $row["job_id"]) ?>">
                                             <button class="recruitment-apply" <?php echo $row['isavailable'] === "0" ? 'disabled' : '' ?>>
                                                 အလုပ်လျှောက်ရန် &nbsp;<i class='fas fa-location-arrow'></i>
@@ -466,7 +488,12 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                            <?php 
+                                } 
+                                } else {
+                            ?>
+                            <h2 class="no-data">လက်ရှိတွင် အလုပ်ခေါ်စာများ မရှိသေးပါ။</h2>
+                            <?php } ?>
                         <div id="general-pagination-container"></div>
                     </div>
                 </div>

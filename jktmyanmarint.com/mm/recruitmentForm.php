@@ -267,7 +267,7 @@ function encrypt_decrypt($action, $string)
                             ကျေးဇူးပြု၍ ဖောင်၏ အကွက်အားလုံးကို ဖြည့်ပါ။ <br>
                             ကျွန်ုပ်တို့နှင့်ပူးပေါင်းသည့်အတွက် ကျေးဇူးတင်ပါသည်။
                         </p>
-                        <form id="mmRecruitmentForm" action="../backend/newRecruitment.php" method="POST" enctype="multipart/form-data">
+                        <form id="mmRecruitmentForm" action="../backend/mm_newApplicants.php" method="POST" enctype="multipart/form-data">
                             <div class="pb-4 mb-2">
                                 <label for="name" id="name-label" class="appointment-label">အမည် <span class="consultant-required-tag">required &nbsp; *</span></label><br />
                                 <input type="text" id="recruitmentName" name="recruitmentName" placeholder="အမည်ရေးသွင်းရန်" required class="appointment-input form-field" />

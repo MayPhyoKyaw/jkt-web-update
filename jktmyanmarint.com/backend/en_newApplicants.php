@@ -23,14 +23,14 @@ $resumeName = $recruitmentName . "-" . $splitDob[1] . $splitDob[2];
 $resume = "resumeUploads/" . $resumeName .".". $extension;
 
 if (move_uploaded_file($_FILES["recruitmentCv"]["tmp_name"], $resume)) {
-    $insert_into_application = "INSERT INTO applications 
+    $insert_into_application = "INSERT INTO applicants 
         (job_id, applicant_name, applicant_email, applicant_phone, applicant_dob, gender, jlpt_level, resume, fb_profile_link, porfolio_link, additional_note, created_at, updated_at) 
         VALUES ('1', '$recruitmentName', '$recruitmentEmail', '$recruitmentPhone', '$recruitmentDob', '$gender', '$recruitmentJpSkill', '$resume', '$fbProfileLink', '$portfolioLinks', '$recruitmentNote', now(),now())";
        echo $insert_into_application;
        mysqli_query($jobs_db_conn, $insert_into_application);
     header("location: ../recruitmentFormSuccess.php");
 } else {
-    $insert_into_application = "INSERT INTO applications
+    $insert_into_application = "INSERT INTO applicants
         (job_id, applicant_name, applicant_email, applicant_phone, applicant_dob, gender, jlpt_level, resume, fb_profile_link, porfolio_link, additional_note, created_at, updated_at) 
         VALUES ('1', '$recruitmentName', '$recruitmentEmail', '$recruitmentPhone', '$recruitmentDob', '$gender', '$recruitmentJpSkill', NULL, '$fbProfileLink', '$portfolioLinks', '$recruitmentNote', now(),now())";
         echo $insert_into_application;
