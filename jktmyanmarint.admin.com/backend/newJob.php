@@ -178,9 +178,11 @@ if (intval($result[0]) > 0) {
     }
     
     if (!file_exists($_FILES['photo_two']['tmp_name']) || !is_uploaded_file($_FILES['photo_two']['tmp_name'])) {
-        $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
-        $org_width1 = $fileinfo1[0];
-        $org_height1 = $fileinfo1[1];
+        // photo two not uploaded
+        
+        // $fileinfo1 = @getimagesize($_FILES["photo_one"]["tmp_name"]);
+        // $org_width1 = $fileinfo1[0];
+        // $org_height1 = $fileinfo1[1];
         $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
         $file1 = $_FILES['photo_one']['name'];
         // if ($org_width1 > 150) {

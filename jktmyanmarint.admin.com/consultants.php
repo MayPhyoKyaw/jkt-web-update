@@ -684,24 +684,10 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
                 // dom : '<"mybg"fB><"bottom"lrtpi>',
-                buttons: [{
-                        extend: 'copyHtml5',
-                        text: '<i class="fa fa-files-o"></i>',
-                        titleAttr: 'Copy',
-                        exportOptions: {
-                            modifier: {
-                                // DataTables core
-                                order: 'index', // 'current', 'applied',
-                                //'index', 'original'
-                                page: 'all', // 'all', 'current'
-                                search: 'none' // 'none', 'applied', 'removed'
-                            },
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                        }
-                    },
+                buttons: [
                     {
                         extend: 'excelHtml5',
-                        text: '<i class="fa fa-file-excel-o"></i>',
+                        text: '<i class="fa fa-download"></i>',
                         titleAttr: 'Excel',
                         exportOptions: {
                             modifier: {
@@ -714,52 +700,6 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                         }
                     },
-                    // {
-                    //     extend: 'csvHtml5',
-                    //     text: '<i class="fa fa-file-text-o"></i>',
-                    //     titleAttr: 'CSV',
-                    //     exportOptions: {
-                    //         modifier: {
-                    //             // DataTables core
-                    //             order: 'index', // 'current', 'applied',
-                    //             //'index', 'original'
-                    //             page: 'all', // 'all', 'current'
-                    //             search: 'none' // 'none', 'applied', 'removed'
-                    //         },
-                    //         columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                    //     }
-                    // },
-                    {
-                        extend: 'pdfHtml5',
-                        text: '<i class="fa fa-file-pdf-o"></i>',
-                        titleAttr: 'PDF',
-                        exportOptions: {
-                            modifier: {
-                                // DataTables core
-                                order: 'index', // 'current', 'applied',
-                                //'index', 'original'
-                                page: 'all', // 'all', 'current'
-                                search: 'none' // 'none', 'applied', 'removed'
-                            },
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        text: '<i class="fa fa-print"></i>',
-                        titleAttr: 'Print',
-                        exportOptions: {
-                            modifier: {
-                                // DataTables core
-                                order: 'index', // 'current', 'applied',
-                                //'index', 'original'
-                                page: 'all', // 'all', 'current'
-                                search: 'none' // 'none', 'applied', 'removed'
-                            },
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                        }
-                    },
-
                 ]
             });
         });

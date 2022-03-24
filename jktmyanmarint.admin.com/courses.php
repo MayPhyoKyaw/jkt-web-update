@@ -385,6 +385,13 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                     </table>
                                 </div>
                             </div>
+
+
+
+
+                            <form id="deleteSelectedId" action="./backend/deleteSelectedCourse.php" method="post">
+                                <input type="hidden" name="courses_ids" id="courses_ids"/>
+                            </form>
                         </div>
 
                     </div>

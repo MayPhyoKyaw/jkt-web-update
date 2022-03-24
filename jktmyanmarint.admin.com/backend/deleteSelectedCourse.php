@@ -4,12 +4,13 @@
 // db config
 include("../confs/config.php");
 
-$course_str = substr($_POST["course_ids"], 1, -1);
-$ids = explode(',', $course_str);
+$ids = explode(',', $_POST["courses_ids"]);
+
+// var_dump($_POST);
 
 // var_dump($_POST);
 foreach ($ids as $id) {
-    $newID = intval(trim($id, '"'));
+    $newID = intval($id);
     $course_delete = "DELETE FROM courses WHERE course_id=$newID";
     mysqli_query($conn, $course_delete);
 }
@@ -26,4 +27,4 @@ while ($row = mysqli_fetch_array($data_result)) {
     $data[] = $row;
 }
 
-echo json_encode(array("query" => $courses_all, "courses" => $data));
+header("location: ../courses.php");
