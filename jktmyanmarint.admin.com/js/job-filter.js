@@ -177,6 +177,7 @@ $(document).ready(function() {
                 if (selected.length <= 0) {
                     alert("please select at least one row to copy");
                 } else {
+                    console.log(selected);
                     $.ajax({
                         url: "./backend/newJobCopy.php",
                         type: "POST",
@@ -185,7 +186,7 @@ $(document).ready(function() {
                         success: function(data, textStatus, jqXHR) {
                             //data - response from server
                             //  console.log("success");
-                            // console.log(data.en_data);
+                            console.log(data.en_data);
                             selected = [];
                             // var data = jQuery.parseJSON(data);
                             // eng version destroy
@@ -202,7 +203,7 @@ $(document).ready(function() {
 
                             // EN TABLE REINITIALIZE
                             if (data) {
-                                // console.log(data.en_data);
+                                console.log(data.en_data);
                                 table_en = $("#enDT").dataTable({
                                     aaData: data.en_data,
                                     dom: "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +

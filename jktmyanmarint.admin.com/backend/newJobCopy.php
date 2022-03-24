@@ -11,10 +11,10 @@
 include("../confs/jobs_config.php");
 
 $job_str = substr($_POST["job_ids"], 1, -1);
-$ids = explode(',',$job_str);
+$ids = explode(',', $job_str);
 
 foreach ($ids as $id) {
-    $newID = trim($id,'"');
+    $newID = trim($id, '"');
     $en_select = "SELECT * FROM en_jobs WHERE job_id='$newID'";
     $mm_select = "SELECT * FROM mm_jobs WHERE job_id='$newID'";
     $jp_select = "SELECT * FROM jp_jobs WHERE job_id='$newID'";
@@ -104,24 +104,44 @@ foreach ($ids as $id) {
     // $randHex = bin2hex($random_bytes(15));
 
     $search = "-copy";
-    if(preg_match("/{$search}/i", $en_job_id)){
-      $originalID = explode("-",$en_job_id)[0];
-    }else {
+    if (preg_match("/{$search}/i", $en_job_id)) {
+        $originalID = explode("-", $en_job_id)[0];
+    } else {
         $originalID = $en_job_id;
     }
     $updateID = $originalID . "-copy" . uniqid();
     // echo $updateID;
-    $en_sql = "INSERT INTO en_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour,  breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$en_photos','$en_company_name','$en_job_title','$en_employment_type','$en_job_type','$en_wage','$en_overtime','$en_holidays','$en_working_hour','$en_breaktime','$en_requirements','$en_benefits','$en_location','$en_memo',$en_isavailable,'$en_created_at', now())";
+
+    $ext1 = explode(".",explode("|",$en_photos)[0])[1];
+    $ext2 = explode(".",explode("|",$en_photos)[1])[1];
+
+    $newPhotos = "companies/" . "$updateID" . '-1.' . "$ext1". "|" ."companies/" . "$updateID" . '-2.' . "$ext2";
+    $en_sql = "INSERT INTO en_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour,  breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$newPhotos','$en_company_name','$en_job_title','$en_employment_type','$en_job_type','$en_wage','$en_overtime','$en_holidays','$en_working_hour','$en_breaktime','$en_requirements','$en_benefits','$en_location','$en_memo',$en_isavailable,'$en_created_at', now())";
+    
+    if( !copy("../backend/".explode("|",$en_photos)[0], "../backend/"."companies/" . "$updateID" . '-1.' . "$ext1") ) { 
+        echo "File can't be copied! \n"; 
+    } 
+    else { 
+        //
+    } 
+    
+    if( !copy("../backend/".explode("|",$en_photos)[1], "../backend/"."companies/" . "$updateID" . '-2.' . "$ext2") ) { 
+        echo "File can't be copied! \n"; 
+    } 
+    else { 
+        //
+    } 
+    
     // echo $en_sql;
     mysqli_query($jobs_db_conn, $en_sql);
 
     // MM table insert
-    $mm_sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$mm_photos','$mm_company_name','$mm_job_title','$mm_employment_type','$mm_job_type','$mm_wage','$mm_overtime','$mm_holidays','$mm_working_hour','$mm_breaktime','$mm_requirements','$mm_benefits','$mm_location','$mm_memo',$mm_isavailable,'$mm_created_at', now())";
+    $mm_sql = "INSERT INTO mm_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$newPhotos','$mm_company_name','$mm_job_title','$mm_employment_type','$mm_job_type','$mm_wage','$mm_overtime','$mm_holidays','$mm_working_hour','$mm_breaktime','$mm_requirements','$mm_benefits','$mm_location','$mm_memo',$mm_isavailable,'$mm_created_at', now())";
     // echo $mm_sql;
     mysqli_query($jobs_db_conn, $mm_sql);
 
     // JP table insert
-    $jp_sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$jp_photos','$jp_company_name','$jp_job_title','$jp_employment_type','$jp_job_type','$jp_wage','$jp_overtime','$jp_holidays','$jp_working_hour','$jp_breaktime','$jp_requirements','$jp_benefits','$jp_location','$jp_memo',$jp_isavailable,'$jp_created_at', now())";
+    $jp_sql = "INSERT INTO jp_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$newPhotos','$jp_company_name','$jp_job_title','$jp_employment_type','$jp_job_type','$jp_wage','$jp_overtime','$jp_holidays','$jp_working_hour','$jp_breaktime','$jp_requirements','$jp_benefits','$jp_location','$jp_memo',$jp_isavailable,'$jp_created_at', now())";
     // echo $jp_sql;
     mysqli_query($jobs_db_conn, $jp_sql);
 }
@@ -148,7 +168,5 @@ while ($row = mysqli_fetch_array($jp_data_result)) {
 
 
 if (count($en_data) > 0 && count($mm_data) > 0 && count($jp_data) > 0) {
-    // echo json_encode(array("ensql"=>$en_sql,"mmsql"=>$mm_sql,"jpsql"=>$jp_sql));
-    echo json_encode(array("ids"=>$newIds,"en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data,"en_query"=>$en_select, "mm_select"=>$mm_select,"jp_select"=>$jp_select));
-    // echo json_encode(array("ids"=>$_POST['job_ids']));
+    echo json_encode(array("ids" => $newIds, "en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data, "en_query" => $en_select, "mm_select" => $mm_select, "jp_select" => $jp_select));
 }
