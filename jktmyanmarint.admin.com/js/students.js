@@ -297,13 +297,13 @@ var buttons = [{
                         success: function(data, textStatus, jqXHR) {
                             //checkbox unchecked
                             isAllChecked = false;
-                            var root = $("#select-all-en").attr("src").slice(0, -5);
-                            var checkBox = $("#select-all-en").attr("src").slice(-5);
+                            var root = $("#select-all").attr("src").slice(0, -5);
+                            var checkBox = $("#select-all").attr("src").slice(-5);
                             if (checkBox == "1.png") {
-                                $("#select-all-en").attr("src", root + "2.png");
+                                $("#select-all").attr("src", root + "2.png");
                                 isAllChecked = true;
                             } else {
-                                $("#select-all-en").attr("src", root + "1.png");
+                                $("#select-all").attr("src", root + "1.png");
                             }
                             // var data = jQuery.parseJSON(data);
                             // console.log(data.en_data);
