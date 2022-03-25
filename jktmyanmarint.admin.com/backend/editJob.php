@@ -862,7 +862,7 @@ if ($job_id == $old_job_id) {
             // }
             // }
         } else {
-            echo "both photos uploaded";
+            // echo "both photos uploaded";
             // BOTH PHOTOS UPLOADED
             $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
             $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);

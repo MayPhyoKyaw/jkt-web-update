@@ -1686,7 +1686,7 @@ $(document).ready(function () {
                         } else {
                           $("td:eq(11)", row).html(`&#10060;`);
                         }
-                        $("td:eq(12)", row).text(`${format(updateDate)}`);
+                        $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                         $("td:eq(13)", row).html(
                           `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
@@ -1801,7 +1801,7 @@ $(document).ready(function () {
                     } else {
                       $("td:eq(11)", row).html(`&#10060;`);
                     }
-                    $("td:eq(12)", row).text(`${format(updateDate)}`);
+                    $("td:eq(12)", row).text(`${formatDate(updateDate)}`);
 
                     $("td:eq(13)", row).html(
                       `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`

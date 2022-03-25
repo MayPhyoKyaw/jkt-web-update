@@ -666,6 +666,16 @@ function jobDetail(event, jobID, target) {
     data: { job_id: JSON.stringify(arr) },
     success: function (data, textStatus, jqXHR) {
       // console.log(data.job_data);
+
+      // <ul>
+      //     <?php
+      //     $requirementList = explode("\n", $row["requirements"]);
+      //     for ($i = 0; $i < count($requirementList); $i++) {
+      //     ?>
+      //         <li><?= $requirementList[$i] ?></li>
+      //     <?php } ?>
+      // </ul>
+
       var job = data.job_data[0];
       $("#detailJobId").text(job["job_id"]);
       $("#detailJobTitle").text(job["job_title"]);
@@ -686,8 +696,20 @@ function jobDetail(event, jobID, target) {
       }
       $("#detailCreatedAt").text(job["created_at"]);
       $("#detailUpdatedAt").text(job["updated_at"]);
-      $("#detailReq").text(job["requirements"]);
-      $("#detailBen").text(job["benefits"]);
+
+      var ulReq = $("<ul style='padding:15px'></ul>");
+      for (const req of job["requirements"].split("\n")) {
+        var li = $("<li></li>").text(req);
+        ulReq.append(li);
+      }
+      var ulBen = $("<ul style='padding:15px'></ul>");
+      for (const ben of job["benefits"].split("\n")) {
+        var li = $("<li></li>").text(ben);
+        ulBen.append(li);
+      }
+      
+      $("#detailReq").html(ulReq);
+      $("#detailBen").html(ulBen);
       $("#detailNote").text(job["memo"]);
       $("#detailPhoto1").attr(
         "src",

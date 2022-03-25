@@ -562,7 +562,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     </button>
                 </div>
                 <div class="modal-body">Please click <span class="text-primary">Confirm</span> button to confirm informaiton and click <span class="text-secondary">Cancel</span> button to recheck the data.</div>
-                <div class="modal-footer">
+                <div class="modal-footer px-0">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <button class="btn btn-primary" id="confirmBtn" type="submit" form="multistep_form">Confirm</button>
                 </div>
@@ -590,7 +590,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
+                <div class="modal-footer px-0">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="auth/logoutBackend.php">Logout</a>
                 </div>
@@ -612,7 +612,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert JOB ID as the format below:</label>
                     <textarea name="JobIdTextArea" id="JobIdTextArea" cols="30" rows="5" placeholder="IT000001"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToJobId()">Sure</a>
                     </div>
@@ -634,7 +634,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert company name below:</label>
                     <textarea name="EngNameTextArea" id="EngNameTextArea" cols="30" rows="10" placeholder="Company name"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameEng()">Sure</a>
                     </div>
@@ -657,7 +657,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>ကုမ္ပဏီအမည်ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
                     <textarea name="MmNameTextArea" id="MmNameTextArea" cols="30" rows="10" placeholder="ကုမ္ပဏီအမည်"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameMm()">Sure</a>
                     </div>
@@ -678,7 +678,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下に会社名を入力してください。</label>
                     <textarea name="JpNameTextArea" id="JpNameTextArea" cols="30" rows="10" placeholder="会社名"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToNameJp()">定か</a>
                     </div>
@@ -700,7 +700,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert job title below:</label>
                     <textarea name="EngTitleTextArea" id="EngTitleTextArea" cols="30" rows="10" placeholder="Job Title"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleEng()">Sure</a>
                     </div>
@@ -721,7 +721,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အလုပ်အကိုင်ရာထူးကို ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
                     <textarea name="MmTitleTextArea" id="MmTitleTextArea" cols="30" rows="10" placeholder="အလုပ်အကိုင်ရာထူး"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleMm()">သေချာသည်</a>
                     </div>
@@ -742,7 +742,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下に肩書きを入力してください。</label>
                     <textarea name="JpTitleTextArea" id="JpTitleTextArea" cols="30" rows="10" placeholder="役職名"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToTitleJp()">定か</a>
                     </div>
@@ -765,7 +765,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert wage as the format below:</label>
                     <textarea name="EngWageTextArea" id="EngWageTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageEng()">Sure</a>
                     </div>
@@ -786,7 +786,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>လုပ်ခလစာကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MmWageTextArea" id="MmWageTextArea" cols="30" rows="10" placeholder="လုပ်ခလစာ ယန်း (နာရီအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (လအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (နှစ်အလိုက်)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageMm()">သေချာသည်</a>
                     </div>
@@ -808,7 +808,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で給与を入力してください。</label>
                     <textarea name="JpWageTextArea" id="JpWageTextArea" cols="30" rows="10" placeholder="１０００ 円 (時給)&#10;１０００００ 円 (月給)&#10;１００００００ 円 (年収)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWageJp()">定か</a>
                     </div>
@@ -831,7 +831,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert over-time payment as the format below:</label>
                     <textarea name="EngOtTextArea" id="EngOtTextArea" cols="30" rows="10" placeholder="1000 YEN (Hourly)&#10;10000 YEN (Daily)&#10;100000 YEN (Monthly)&#10;1000000 YEN (Yearly)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtEng()">Sure</a>
                     </div>
@@ -852,7 +852,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အချိန်ပိုလုပ်အားခကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MmOtTextArea" id="MmOtTextArea" cols="30" rows="10" placeholder="လုပ်ခလစာ ယန်း (နာရီအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (လအလိုက်)&#10;၁၀၀၀၀၀ ယန်း (နှစ်အလိုက်)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtMm()">သေချာသည်</a>
                     </div>
@@ -874,7 +874,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で残業代を入力してください。</label>
                     <textarea name="JpOtTextArea" id="JpOtTextArea" cols="30" rows="10" placeholder="１０００ 円 (時給)&#10;１０００００ 円 (月給)&#10;１００００００ 円 (年収)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToOtJp()">定か</a>
                     </div>
@@ -897,7 +897,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert holidays as the format below:</label>
                     <textarea name="EngHolidaysTextArea" id="EngHolidaysTextArea" cols="30" rows="10" placeholder="Saturday, Sunday&#10;Public holidays&#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysEng()">Sure</a>
                     </div>
@@ -918,7 +918,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>ပိတ်ရက်များကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MmHolidaysTextArea" id="MmHolidaysTextArea" cols="30" rows="10" placeholder="စနေ, တနင်္ဂနွေ&#10;အစိုးရရုံးပိတ်ရက်&#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysMm()">သေချာသည်</a>
                     </div>
@@ -940,7 +940,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で休日を入力してください。</label>
                     <textarea name="JpHolidaysTextArea" id="JpHolidaysTextArea" cols="30" rows="10" placeholder="土曜日, 日曜日&#10;祝日&#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToHolidaysJp()">定か</a>
                     </div>
@@ -963,7 +963,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert working hours as the format below:</label>
                     <textarea name="EngWorkinghrTextArea" id="EngWorkinghrTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrEng()">Sure</a>
                     </div>
@@ -984,7 +984,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အလုပ်အချိန်ကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MmWorkinghrTextArea" id="MmWorkinghrTextArea" cols="30" rows="10" placeholder="မနက် ၉း၀၀ ~ ညနေ ၅း၀၀ &#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrMm()">သေချာသည်</a>
                     </div>
@@ -1006,7 +1006,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で勤務時間を入力してください。</label>
                     <textarea name="JpWorkinghrTextArea" id="JpWorkinghrTextArea" cols="30" rows="10" placeholder="９：００ 午前 ~ ５：００ 午後 &#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToWorkinghrJp()">定か</a>
                     </div>
@@ -1029,7 +1029,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert break-time as the format below:</label>
                     <textarea name="EngBreaktimeTextArea" id="EngBreaktimeTextArea" cols="30" rows="10" placeholder="9:00 AM ~ 5:00 PM &#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeEng()">Sure</a>
                     </div>
@@ -1050,7 +1050,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အလုပ်နားချိန်ကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MmBreaktimeTextArea" id="MmBreaktimeTextArea" cols="30" rows="10" placeholder="မနက် ၉း၀၀ ~ ညနေ 5:00 &#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeMm()">သေချာသည်</a>
                     </div>
@@ -1072,7 +1072,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で休憩時間を入力してください。</label>
                     <textarea name="JpBreaktimeTextArea" id="JpBreaktimeTextArea" cols="30" rows="10" placeholder="１２：００ 午前 ~ １：００ 午後 &#10;"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBreaktimeJp()">定か</a>
                     </div>
@@ -1095,7 +1095,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert requirements as the format below:</label>
                     <textarea name="EngReqTextArea" id="EngReqTextArea" cols="30" rows="10" placeholder="Requirement 1&#10;Requirement 2&#10;Requirement 3&#10;Requirement 4"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqEng()">Sure</a>
                     </div>
@@ -1117,7 +1117,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အလုပ်၏လိုအပ်ချက်များကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MMReqTextArea" id="MmReqTextArea" cols="30" rows="10" placeholder="အလုပ်လိုအပ်ချက် ၁&#10;အလုပ်လိုအပ်ချက် ၂&#10;အလုပ်လိုအပ်ချက် ၃&#10;အလုပ်လိုအပ်ချက် ၄"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqMm()">သေချာသည်</a>
                     </div>
@@ -1139,7 +1139,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で必要な資格を入力してください。</label>
                     <textarea name="JpReqTextArea" id="JpReqTextArea" cols="30" rows="10" placeholder="必要な資格 １&#10;必要な資格　２&#10;必要な資格　３&#10;必要な資格　４"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToReqJp()">定か</a>
                     </div>
@@ -1161,7 +1161,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert benefits as the format below:</label>
                     <textarea name="EngbenTextArea" id="EngbenTextArea" cols="30" rows="10" placeholder="Benefits 1&#10;Benefits 2&#10;Benefits 3&#10;Benefits 4"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenEng()">Sure</a>
                     </div>
@@ -1183,7 +1183,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အကျိုးခံစားခွင့်များကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MmbenTextArea" id="MmbenTextArea" cols="30" rows="10" placeholder="အကျိုးခံစားခွင့် ၁&#10;အကျိုးခံစားခွင့် ၂&#10;အကျိုးခံစားခွင့် ၃&#10;အကျိုးခံစားခွင့် ၄"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenMm()">သေချာသည်</a>
                     </div>
@@ -1205,7 +1205,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で待遇を入力してください。</label>
                     <textarea name="JpbenTextArea" id="JpbenTextArea" cols="30" rows="10" placeholder="待遇 １&#10;待遇　２&#10;待遇　３&#10;待遇　４"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToBenJp()">定か</a>
                     </div>
@@ -1228,7 +1228,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert working location as the format below:</label>
                     <textarea name="EngLocationTextArea" id="EngLocationTextArea" cols="30" rows="10" placeholder="Eg. Sapporo, Hokkaido"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationEng()">Sure</a>
                     </div>
@@ -1249,7 +1249,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အလုပ်နေရာကို အောက်ဖော်ပြပါပုံစံအတိုင်းဖြည့်စွက်ပါ</label>
                     <textarea name="MmLocationTextArea" id="MmLocationTextArea" cols="30" rows="10" placeholder="ဥပမာ စပိုရို, ဟိုကိုင်းဒိုး"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationMm()">သေချာသည်</a>
                     </div>
@@ -1271,7 +1271,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下の形式で勤務地を入力してください。</label>
                     <textarea name="JpLocationTextArea" id="JpLocationTextArea" cols="30" rows="10" placeholder="例えば。　札幌, 北海道"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToLocationJp()">定か</a>
                     </div>
@@ -1294,7 +1294,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>Please insert additional note:</label>
                     <textarea name="EngMemoTextArea" id="EngMemoTextArea" cols="30" rows="10" placeholder="Any memo (only admin can see this)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoEng()">Sure</a>
                     </div>
@@ -1315,7 +1315,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>အခြားမှတ်ချက်ကို အောက်ပါနေရာတွင်ဖြည့်စွက်ပါ</label>
                     <textarea name="MmMemoTextArea" id="MmMemoTextArea" cols="30" rows="10" placeholder="Memo တစ်ခုခုရေးရန်နေရာ (အက်မင်သာ မြင်နိုင်ပါသည်)"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">ပယ်ဖျက်ပါ</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoMm()">သေချာသည်</a>
                     </div>
@@ -1337,7 +1337,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                 <div class="modal-body">
                     <label>以下に追記を入力してください。</label>
                     <textarea name="JpMemoTextArea" id="JpMemoTextArea" cols="30" rows="10" placeholder="どれかメモ（管理者だけがこれを見ることができます）"></textarea>
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">キャンセル</button>
                         <a class="btn btn-primary" data-dismiss="modal" onclick="addTextToMemoJp()">定か</a>
                     </div>
