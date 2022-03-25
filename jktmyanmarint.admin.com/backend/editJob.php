@@ -170,12 +170,12 @@ $jp_memo = $_POST['jp_memo'];
 
 function UnlinkFile($id, $where)
 {
-    if (file_exists("./companies/$id" . '-' . $where . ".png")) unlink("./companies/$id" . '-' . $where . ".png");
-    if (file_exists("./companies/$id" . '-' . $where . ".PNG")) unlink("./companies/$id" . '-' . $where . ".PNG");
-    if (file_exists("./companies/$id" . '-' . $where . ".jpg")) unlink("./companies/$id" . '-' . $where . ".jpg");
-    if (file_exists("./companies/$id" . '-' . $where . ".JPG")) unlink("./companies/$id" . '-' . $where . ".JPG");
-    if (file_exists("./companies/$id" . '-' . $where . ".jpeg")) unlink("./companies/$id" . '-' . $where . ".jpeg");
-    if (file_exists("./companies/$id" . '-' . $where . ".JPEG")) unlink("./companies/$id" . '-' . $where . ".JPEG");
+    if (file_exists("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".png")) unlink("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".png");
+    if (file_exists("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".PNG")) unlink("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".PNG");
+    if (file_exists("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".jpg")) unlink("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".jpg");
+    if (file_exists("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".JPG")) unlink("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".JPG");
+    if (file_exists("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".jpeg")) unlink("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".jpeg");
+    if (file_exists("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".JPEG")) unlink("../../jktmyanmarint.com/backend/companies/$id" . '-' . $where . ".JPEG");
 }
 
 // CHECKING IF ID CHANGED
@@ -275,7 +275,7 @@ if ($job_id == $old_job_id) {
 
         UnlinkFile($job_id, "1");
         $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
-        move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
+        move_uploaded_file($_FILES['photo_one']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target1);
 
         // if (resize_image("./" . $target1, $file_extension1, 150)) {
         // continue to insert to db cuz image upload succeed.
@@ -373,7 +373,7 @@ if ($job_id == $old_job_id) {
         UnlinkFile($job_id, "2");
         // if (file_exists("./companies/$job_id" . '-2.' . "$file_extension2")) unlink("./companies/$job_id" . '-2.' . "$file_extension2");
         $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
-        move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
+        move_uploaded_file($_FILES['photo_two']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target2);
 
         // if (resize_image("./" . $target1, $file_extension1, 150)) {
         // continue to insert to db cuz image upload succeed.
@@ -476,8 +476,8 @@ if ($job_id == $old_job_id) {
         $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
         $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
 
-        move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
-        move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
+        move_uploaded_file($_FILES['photo_one']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target1);
+        move_uploaded_file($_FILES['photo_two']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target2);
 
         // if (resize_image("./" . $target2, $file_extension2, 150)) {
         // continue to insert to db cuz image upload succeed.
@@ -592,8 +592,8 @@ if ($job_id == $old_job_id) {
             $update_photos = "companies/" . "$job_id" . '-1.' . "$ext1" . "|" . "companies/" . "$job_id" . '-2.' . "$ext2";
             // eng table update
 
-            rename("../backend/" . $originalPhotos[0], "../backend/" . "companies/" . "$job_id" . '-1.' . "$ext1");
-            rename("../backend/" . $originalPhotos[1], "../backend/" . "companies/" . "$job_id" . '-2.' . "$ext2");
+            rename("../../jktmyanmarint.com/backend/" . $originalPhotos[0], "../../jktmyanmarint.com/backend/companies/" . "$job_id" . '-1.' . "$ext1");
+            rename("../../jktmyanmarint.com/backend/" . $originalPhotos[1], "../../jktmyanmarint.com/backend/companies/" . "$job_id" . '-2.' . "$ext2");
             $en_sql = "UPDATE en_jobs
             SET
             job_id = '$job_id',
@@ -675,11 +675,11 @@ if ($job_id == $old_job_id) {
 
             UnlinkFile($old_job_id, "1");
             $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
-            move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
+            move_uploaded_file($_FILES['photo_one']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target1);
 
             $ext2 = explode(".", explode("|", $_POST["h_photos"])[1])[1];
             
-            rename("../backend/" . explode("|", $_POST["h_photos"])[1], "../backend/" . "companies/" . "$job_id" . '-2.' . "$ext2");
+            rename("../../jktmyanmarint.com/backend/" . explode("|", $_POST["h_photos"])[1], "../../jktmyanmarint.com/backend/companies/" . "$job_id" . '-2.' . "$ext2");
 
             $target2 = "companies/" . "$job_id" . '-2.' . "$ext2";
             $update_photos = $target1 . "|" . $target2;
@@ -771,11 +771,11 @@ if ($job_id == $old_job_id) {
 
             UnlinkFile($old_job_id, "2");
             $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
-            move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
+            move_uploaded_file($_FILES['photo_two']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target2);
 
             $ext1 = explode(".", explode("|", $_POST["h_photos"])[0])[1];
             
-            rename("../backend/" . explode("|", $_POST["h_photos"])[0], "../backend/" . "companies/" . "$job_id" . '-1.' . "$ext1");
+            rename("../../jktmyanmarint.com/backend/" . explode("|", $_POST["h_photos"])[0], "../../jktmyanmarint.com/backend/companies/" . "$job_id" . '-1.' . "$ext1");
 
             $target1 = "companies/" . "$job_id" . '-1.' . "$ext1";
             $update_photos = $target1 . "|" . $target2;
@@ -879,8 +879,8 @@ if ($job_id == $old_job_id) {
             $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
             $target2 = "companies/" . "$job_id" . '-2.' . "$file_extension2";
 
-            move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
-            move_uploaded_file($_FILES['photo_two']['tmp_name'], "./" . $target2);
+            move_uploaded_file($_FILES['photo_one']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target1);
+            move_uploaded_file($_FILES['photo_two']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target2);
 
             $update_photos = $target1 . "|" . $target2;
 

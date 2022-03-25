@@ -713,11 +713,11 @@ function jobDetail(event, jobID, target) {
       $("#detailNote").text(job["memo"]);
       $("#detailPhoto1").attr(
         "src",
-        "./backend/" + job["photos"].split("|")[0]
+        "../jktmyanmarint.com/backend/" + job["photos"].split("|")[0]
       );
       $("#detailPhoto2").attr(
         "src",
-        "./backend/" + job["photos"].split("|")[1]
+        "../jktmyanmarint.com/backend/" + job["photos"].split("|")[1]
       );
     },
     error: function (jqXHR, textStatus, errorThrown) {},
