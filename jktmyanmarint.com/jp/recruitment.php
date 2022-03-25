@@ -197,9 +197,9 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
             <div class="tab-container">
                 <ul class="tab-header">
                     <li class="side-li"></li>
-                    <li id="it" class="tab-nav active"><i class="fas fa-laptop"></i>&nbsp; ITの仕事</li>
-                    <li id="tokutei" class="tab-nav"><i class="fas fa-industry"></i>&nbsp;&nbsp; 特定技能の仕事</li>
-                    <li id="general" class="tab-nav"><i class="fas fa-briefcase"></i>&nbsp; 他の仕事</li>
+                    <li id="it" class="tab-nav active"><i class="fas fa-laptop"></i>&nbsp; 技術</li>
+                    <li id="tokutei" class="tab-nav"><i class="fas fa-industry"></i>&nbsp;&nbsp; 特定技能</li>
+                    <li id="general" class="tab-nav"><i class="fas fa-briefcase"></i>&nbsp; 一般的</li>
                     <li class="side-li"></li>
                 </ul>
                 <div class="tab-body">
