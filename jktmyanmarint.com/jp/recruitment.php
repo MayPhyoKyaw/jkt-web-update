@@ -178,7 +178,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
     <!-- JP School header start -->
     <section>
         <div class="header">
-            <h3>採用</h3>
+            <h3>採用情報</h3>
             <div class="bg-cover"></div>
             <img src="../assets/images/cover/cover.jpg" alt="jpschool-cover" />
         </div>
@@ -188,7 +188,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
     <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.html">ホーム</a></li>
-            <li class="breadcrumb-item active" aria-current="page">採用</li>
+            <li class="breadcrumb-item active" aria-current="page">採用情報</li>
         </ol>
     </nav>
 
@@ -223,7 +223,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     <div class="col-12 col-lg-9 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
                                         <h4>
                                             <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
-                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">日本に人だけ</span><?php } ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">日本に存在方のみ</span><?php } ?>
                                         </h4>
                                         <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?php echo $row["employment_type"] === "Permanent" ? "正社員" : "契約社員"; ?></span>
                                     </div>
@@ -244,13 +244,13 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                     <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; 給与</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
-                                                                                    echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
+                                                                                    echo "<span class='overtime'>残業代：</span>" . "&nbsp" . $row["overtime"];
                                                                                 }
                                                                                 ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; 勤務時間</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?>　(休憩時間： <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; 休日</th>
@@ -322,7 +322,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     <div class="col-12 col-lg-9 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
                                         <h4>
                                             <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
-                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">日本に人だけ</span><?php } ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">日本に存在方のみ</span><?php } ?>
                                         </h4>
                                         <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?php echo $row["employment_type"] === "Permanent" ? "正社員" : "契約社員"; ?></span>
                                     </div>
@@ -343,13 +343,13 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                     <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; 給与</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
-                                                                                    echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
+                                                                                    echo "<span class='overtime'>残業代：</span>" . "&nbsp" . $row["overtime"];
                                                                                 }
                                                                                 ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; 勤務時間</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?>　(休憩時間： <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; 休日</th>
@@ -421,7 +421,7 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     <div class="col-12 col-lg-9 text-center text-lg-left <?php echo $row['isavailable'] === "0" ? 'title-for-close' : '' ?>">
                                         <h4>
                                             <?php echo $row["job_title"] . " (" . $row["job_id"] . ")" ?>
-                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">日本に人だけ</span><?php } ?>
+                                            <?php if($row["memo"] === "[japan]") { ?><span class="badge-japan">日本に存在方のみ</span><?php } ?>
                                         </h4>
                                         <span class="badges contract-badge"><i class="fas fa-user"></i> &nbsp; <?php echo $row["employment_type"] === "Permanent" ? "正社員" : "契約社員"; ?></span>
                                     </div>
@@ -442,13 +442,13 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                     <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; 給与</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
-                                                                                    echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
+                                                                                    echo "<span class='overtime'>残業代：</span>" . "&nbsp" . $row["overtime"];
                                                                                 }
                                                                                 ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; 勤務時間</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?>　(休憩時間： <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; 休日</th>

@@ -160,7 +160,7 @@
   <nav aria-label="breadcrumb" class="breadcrumb-nav d-none d-md-block">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="./index.html">ホーム</a></li>
-      <li class="breadcrumb-item"><a href="./recruitment.php">採用</a></li>
+      <li class="breadcrumb-item"><a href="./recruitment.php">採用情報</a></li>
       <li class="breadcrumb-item active" aria-current="page">応募フォームの完成</li>
     </ol>
   </nav>

@@ -240,13 +240,13 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                     <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; လစာ</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
-                                                                                    echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
+                                                                                    echo "<span class='overtime'>အချိန်ပိုကြေး - </span>" . "&nbsp" . $row["overtime"];
                                                                                 }
                                                                                 ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; အလုပ်ချိန်</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?> (နားချိန် - <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; ပိတ်ရက်များ</th>
@@ -339,13 +339,13 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                     <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; လစာ</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
-                                                                                    echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
+                                                                                    echo "<span class='overtime'>အချိန်ပိုကြေး - </span>" . "&nbsp" . $row["overtime"];
                                                                                 }
                                                                                 ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; အလုပ်ချိန်</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?> (နားချိန် - <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; ပိတ်ရက်များ</th>
@@ -438,13 +438,13 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                     <th scope="row" class="info-table-header"><i class="fas fa-money-check-alt"></i>&nbsp; လစာ</th>
                                                     <td><?= $row["wage"] ?><br><?php
                                                                                 if (!empty($row["overtime"])) {
-                                                                                    echo "<span class='overtime'>Overtime Fees:</span>" . "&nbsp" . $row["overtime"];
+                                                                                    echo "<span class='overtime'>အချိန်ပိုကြေး - </span>" . "&nbsp" . $row["overtime"];
                                                                                 }
                                                                                 ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; အလုပ်ချိန်</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?> (နားချိန် - <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; ပိတ်ရက်များ</th>
