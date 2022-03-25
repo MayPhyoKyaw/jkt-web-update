@@ -183,9 +183,9 @@ if (intval($result[0]) > 0) {
         $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
         $file1 = $_FILES['photo_one']['name'];
 
-        if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
+        if (file_exists("../../jktmyanmarint.com/backend/companies/$job_id" . '-1.' . "$file_extension1")) unlink("../../jktmyanmarint.com/backend/companies/$job_id" . '-1.' . "$file_extension1");
         $target1 = "companies/" . "$job_id" . '-1.' . "$file_extension1";
-        move_uploaded_file($_FILES['photo_one']['tmp_name'], "./" . $target1);
+        move_uploaded_file($_FILES['photo_one']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target1);
 
         $target2 = "nofile";
         $photos = $target1 . "|" . $target2;
