@@ -432,7 +432,7 @@ $(".fs_next_btn").click(function() {
         error = true;
     }
 
-    console.log("error is " + error);
+    // console.log("error is " + error); 
     // animation
     if (!error) {
         $("#job_id").removeClass("box_error");

@@ -225,7 +225,7 @@ include_once "../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; Working Hours</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?> (Breaktime: <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; Holidays</th>
@@ -324,7 +324,7 @@ include_once "../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; Working Hours</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?> (Breaktime: <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; Holidays</th>
@@ -423,7 +423,7 @@ include_once "../jktmyanmarint.admin.com/confs/jobs_config.php";
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-business-time"></i>&nbsp; Working Hours</th>
-                                                    <td><?= $row["working_hour"] ?></td>
+                                                    <td><?= $row["working_hour"] ?> (Breaktime: <?= $row["breaktime"] ?>)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="info-table-header"><i class="fas fa-calendar-alt"></i>&nbsp; Holidays</th>

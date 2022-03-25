@@ -433,7 +433,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 </thead>
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($en_result)) : ?>
-                                                        <tr onclick="jobDetail(event,this,'<?php echo $row['created_at'] ?>','<?php echo $row['requirements'] ?>','<?php echo $row['benefits'] ?>','<?php echo $row['memo'] ?>','<?php echo $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                        <tr onclick="jobDetail(event,'<?php echo $row['job_id'] ?>','eng')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                             <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
@@ -485,7 +485,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 </thead>
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($mm_result)) : ?>
-                                                        <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                        <tr onclick="jobDetail(event,'<?php echo $row['job_id'] ?>','mm')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                             <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
@@ -537,7 +537,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                                 </thead>
                                                 <tbody>
                                                     <?php while ($row = mysqli_fetch_assoc($jp_result)) : ?>
-                                                        <tr onclick="jobDetail(event,this,'<?= $row['created_at'] ?>','<?= $row['requirements'] ?>','<?= $row['benefits'] ?>','<?= $row['memo'] ?>','<?= $row['photos'] ?>')" data-toggle="modal" data-target="#detailModal" class="tb-row">
+                                                        <tr onclick="jobDetail(event,'<?php echo $row['job_id'] ?>','jp')" data-toggle="modal" data-target="#detailModal" class="tb-row">
                                                             <td><img class="check-icon" src="img/1.png" onclick="addToSelected(event,'<?= $row['job_id'] ?>')" /></td>
                                                             <td><?= $row['job_id'] ?></td>
                                                             <td><?= $row['job_title'] ?></td>
