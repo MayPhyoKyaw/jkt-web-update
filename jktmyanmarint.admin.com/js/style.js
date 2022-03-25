@@ -634,39 +634,49 @@ function setCurrentCourseDel(event, idx) {
 }
 
 // SET CURRENT JOB DETAIL
-function jobDetail(event, row, created_at, req, ben, memo, photos) {
+function jobDetail(event, jobID) {
     $("#detailModal").modal("show");
     event.stopPropagation();
-    var tds = row.children;
-    var rowArr = [];
-    for (var i = 0; i < tds.length; i++) {
-        rowArr.push(tds[i].textContent);
-    }
-    // console.log(rowArr);
-    $("#detailJobId").text(rowArr[1]);
-    $("#detailJobTitle").text(rowArr[2]);
-    $("#detailCompany").text(rowArr[3]);
-    $("#detailType").text(rowArr[4]);
-    $("#detailWage").text(rowArr[5]);
-    $("#detailOverTime").text(rowArr[6]);
-    $("#detailHolidays").text(rowArr[7]);
-    $("#detailWorkingHr").text(rowArr[8]);
-    $("#detailBreakTime").text(rowArr[9]);
-    $("#detailLocation").text(rowArr[10]);
-    if (rowArr[11] == "✅") {
-        $("#detailAvailable").text("Available");
-        $("#detailAvailable").css({ backgroundColor: "#00B74A" });
-    } else {
-        $("#detailAvailable").text("Unavailable");
-        $("#detailAvailable").css({ backgroundColor: "#F93154" });
-    }
-    $("#detailCreatedAt").text(createdAt);
-    $("#detailUpdatedAt").text(rowArr[12]);
-    $("#detailReq").text(req);
-    $("#detailBen").text(ben);
-    $("#detailNote").text(memo);
-    $("#detailPhoto1").attr("src", "./backend/" + photos.split("|")[0]);
-    $("#detailPhoto2").attr("src", "./backend/" + photos.split("|")[1]);
+    console.log(typeof jobID);
+    var arr = [];
+    arr.push(jobID);
+    $.ajax({
+        url: "./backend/getJobEng.php",
+        type: "POST",
+        dataType: "json",
+        data: { 'job_id': JSON.stringify(arr) },
+        success: function(data, textStatus, jqXHR) {
+            // console.log(data.job_data);
+            var job = data.job_data[0];
+            $("#detailJobId").text(job["job_id"]);
+            $("#detailJobTitle").text(job["job_title"]);
+            $("#detailCompany").text(job["company_name"]);
+            $("#detailType").text(job["employment_type"]+"~"+job["job_type"]);
+            $("#detailWage").text(job["wage"]);
+            $("#detailOverTime").text(job["overtime"]);
+            $("#detailHolidays").text(job["holidays"]);
+            $("#detailWorkingHr").text(job["working_hour"]);
+            $("#detailBreakTime").text(job["breaktime"]);
+            $("#detailLocation").text(job["location"]);
+            if (job["isavailable"] == "1") {
+                $("#detailAvailable").text("Available");
+                $("#detailAvailable").css({ backgroundColor: "#00B74A" });
+            } else {
+                $("#detailAvailable").text("Unavailable");
+                $("#detailAvailable").css({ backgroundColor: "#F93154" });
+            }
+            $("#detailCreatedAt").text(job["created_at"]);
+            $("#detailUpdatedAt").text(job["updated_at"]);
+            $("#detailReq").text(job["requirements"]);
+            $("#detailBen").text(job["benefits"]);
+            $("#detailNote").text(job["memo"]);
+            $("#detailPhoto1").attr("src", "./backend/" + job["photos"].split("|")[0]);
+            $("#detailPhoto2").attr("src", "./backend/" + job["photos"].split("|")[1]);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {},
+    });
+
+    
 }
 
 // SET CURRENT DELETING ID JOB

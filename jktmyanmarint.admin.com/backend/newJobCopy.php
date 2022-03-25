@@ -116,22 +116,25 @@ foreach ($ids as $id) {
     $ext2 = explode(".",explode("|",$en_photos)[1])[1];
 
     $newPhotos = "companies/" . "$updateID" . '-1.' . "$ext1". "|" ."companies/" . "$updateID" . '-2.' . "$ext2";
+
+    copy("../backend/".explode("|",$en_photos)[0], "../backend/"."companies/" . "$updateID" . '-1.' . "$ext1");
+    copy("../backend/".explode("|",$en_photos)[1], "../backend/"."companies/" . "$updateID" . '-2.' . "$ext2");
+    // if( !copy("../backend/".explode("|",$en_photos)[0], "../backend/"."companies/" . "$updateID" . '-1.' . "$ext1") ) { 
+    //     // echo "File can't be copied! \n"; 
+    // } 
+    // else { 
+    //     //
+    // } 
+
+    // if( !copy("../backend/".explode("|",$en_photos)[1], "../backend/"."companies/" . "$updateID" . '-2.' . "$ext2") ) { 
+    //     // echo "File can't be copied! \n"; 
+    // } 
+    // else { 
+    //     //
+    // } 
+    // EN table insert
     $en_sql = "INSERT INTO en_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour,  breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$newPhotos','$en_company_name','$en_job_title','$en_employment_type','$en_job_type','$en_wage','$en_overtime','$en_holidays','$en_working_hour','$en_breaktime','$en_requirements','$en_benefits','$en_location','$en_memo',$en_isavailable,'$en_created_at', now())";
-    
-    if( !copy("../backend/".explode("|",$en_photos)[0], "../backend/"."companies/" . "$updateID" . '-1.' . "$ext1") ) { 
-        echo "File can't be copied! \n"; 
-    } 
-    else { 
-        //
-    } 
-    
-    if( !copy("../backend/".explode("|",$en_photos)[1], "../backend/"."companies/" . "$updateID" . '-2.' . "$ext2") ) { 
-        echo "File can't be copied! \n"; 
-    } 
-    else { 
-        //
-    } 
-    
+    // $en_sql = "INSERT INTO en_jobs(job_id, photos, company_name, job_title, employment_type, job_type, wage, overtime, holidays, working_hour, breaktime, requirements, benefits, location, memo, isavailable, created_at, updated_at) VALUES ('$updateID','$newPhotos','$en_company_name','$en_job_title','$en_employment_type','$en_job_type','$en_wage','$en_overtime','$en_holidays','$en_working_hour','$en_breaktime','$en_requirements','$en_benefits','$en_location','$en_memo',$en_isavailable,'$en_created_at', now())";
     // echo $en_sql;
     mysqli_query($jobs_db_conn, $en_sql);
 
@@ -166,7 +169,12 @@ while ($row = mysqli_fetch_array($jp_data_result)) {
     $jp_data[] = $row;
 }
 
+// $en_data = mysqli_fetch_assoc($en_data_result);
+// $mm_data = mysqli_fetch_assoc($en_data_result);
+// $jp_data = mysqli_fetch_assoc($en_data_result);
 
 if (count($en_data) > 0 && count($mm_data) > 0 && count($jp_data) > 0) {
-    echo json_encode(array("ids" => $newIds, "en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data, "en_query" => $en_select, "mm_select" => $mm_select, "jp_select" => $jp_select));
+    // http_response_code(200);
+    echo json_encode(array("en_data" => $en_data, "mm_data" => $mm_data, "jp_data" => $jp_data,"en_sql"=>$en_sql));
+    // echo json_encode(array("en_sql"=>$en_sql));
 }
