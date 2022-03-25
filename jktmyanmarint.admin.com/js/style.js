@@ -637,7 +637,7 @@ function setCurrentCourseDel(event, idx) {
 function jobDetail(event, jobID) {
     $("#detailModal").modal("show");
     event.stopPropagation();
-    console.log(typeof jobID);
+    // console.log(typeof jobID);
     var arr = [];
     arr.push(jobID);
     $.ajax({

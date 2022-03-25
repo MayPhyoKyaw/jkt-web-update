@@ -53,6 +53,14 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
 // echo "JP RESULT";
 // echo "<br>";
 // var_dump($jp_result);
+
+
+// echo $get_job_en;
+// echo "<br>";
+// echo $get_job_mm;
+// echo "<br>";
+// echo $get_job_jp;
+// echo "<br>";
 ?>
 
 
