@@ -424,7 +424,7 @@ $(document).ready(function () {
               }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-              //   console.log("error");
+                console.log("error");
               //   console.log(textStatus);
             },
           });
