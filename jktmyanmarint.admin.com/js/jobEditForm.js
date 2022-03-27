@@ -1550,5 +1550,5 @@ function setPreview1(url) {
 }
 
 function setPreview2(url) {
-    $("#photo2-preview").attr("src", "../jktmyanmarint.com/backend" + url).width(150).height(120);
+    $("#photo2-preview").attr("src", "../jktmyanmarint.com/backend/" + url).width(150).height(120);
 }

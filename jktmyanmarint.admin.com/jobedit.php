@@ -602,7 +602,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                                 </p>
                                 <p class="my-3">
                                     <label for="jp_requirements">必要な資格</label>
-                                    <textarea class="no-keydown ta-input" name="jp_requirements" id="jp_requirements" data-toggle="modal" data-target="#JptextAreaInputReq" placeholder="必要な資格"><?= $jp_result['company_name'] ?></textarea>
+                                    <textarea class="no-keydown ta-input" name="jp_requirements" id="jp_requirements" data-toggle="modal" data-target="#JptextAreaInputReq" placeholder="必要な資格"><?= $jp_result['requirements'] ?></textarea>
                                     <span id="jp_error_requirements"></span>
                                 </p>
                                 <p class="my-3">
