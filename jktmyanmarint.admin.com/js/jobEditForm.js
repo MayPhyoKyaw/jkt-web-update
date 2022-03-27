@@ -1546,9 +1546,9 @@ if (photos.split("|")[1]) {
 }
 
 function setPreview1(url) {
-    $("#photo1-preview").attr("src", "../jktmyanmarint.com/backend/" + url).width(150).height(120);
+    $("#photo1-preview").attr("src", "https://jktmyanmarint.com/backend/" + url).width(150).height(120);
 }
 
 function setPreview2(url) {
-    $("#photo2-preview").attr("src", "../jktmyanmarint.com/backend/" + url).width(150).height(120);
+    $("#photo2-preview").attr("src", "https://jktmyanmarint.com/backend/" + url).width(150).height(120);
 }
