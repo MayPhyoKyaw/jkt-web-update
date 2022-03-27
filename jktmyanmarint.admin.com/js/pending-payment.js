@@ -19,20 +19,20 @@ function numberWithCommas(x) {
 }
 
 function setCurrentDetailPayment(tid) {
-    console.log("hello");
-
+    // console.log("hello");
+    // console.log(tid);
   $.post(
     "getPayment.php",
     {
       payment_id: tid,
     },
     function (data) {
-      console.log(data);
+      console.log(data[0]);
       screenshot_img.src = "https://jktmyanmarint.com/backend/paymentUploads/"+data[0]['screenshot'];
       tid_pend.textContent = data[0]['payment_id'];
       sname_pend.textContent = data[0]['student_name'];
-      course_pend.textContent = data[0]['level_or_sub'] == "" && data[0]['title'] || data[0]['title'] + " - " + data[0]['level_or_sub'];
-      banking_pend.textContent = data[0]['bank_name'];
+      course_pend.textContent = data[0]['course'];
+      banking_pend.textContent = data[0]['bank'];
       amount_pend.textContent = numberWithCommas(data[0]['payment_amount'])+" MMK";
       created_at_pend.textContent = data[0]['created_at'];
     }
