@@ -19,8 +19,8 @@ if (isset($_POST['paymentSubmit'])) {
 
     if (move_uploaded_file($_FILES["paymentImg"]["tmp_name"], $dst)) {
         $insert_into_payments = "INSERT INTO payments 
-        (enrollment_id, course_id,bank_id,payment_amount, is_pending, created_at, updated_at) 
-        VALUES ($enrollment_id, $course_id, $bank_id,$paymentAmount, 1, now(),now())";
+        (enrollment_id, course_id,bank_id,payment_amount, is_pending, screenshot, created_at, updated_at) 
+        VALUES ($enrollment_id, $course_id, $bank_id,$paymentAmount, $dst, 1, now(),now())";
         mysqli_query($conn, $insert_into_payments);
         header("location: ../mm/paymentSuccess.php");
     }
