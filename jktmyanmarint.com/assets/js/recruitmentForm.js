@@ -400,7 +400,8 @@ function preventScroll(e) {
 }
 
 $("#recruitmentSubmit").click(function(e) {
-    console.log("Loading");
+    // console.log("Loading");
+    window.scrollTo(0,2000);
     $('body').append(`
     <div class="loading">
       <div></div>

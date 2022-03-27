@@ -3586,13 +3586,13 @@ iframe::-webkit-scrollbar-thumb:hover {
 /* loading start */
 
 .loading {
-    top: 1900px;
+    top: 2000px;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: 99;
     width: 100%;
-    height: 110%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

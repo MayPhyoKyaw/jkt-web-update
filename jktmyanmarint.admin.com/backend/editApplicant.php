@@ -29,7 +29,7 @@ $dst = "../../jktmyanmarint.com/backend/" . $store_path;
 if (!empty($resumeExtension)) {
     // echo "hello not empty";
     if (move_uploaded_file($_FILES["new_edit_resume"]["tmp_name"], $dst)) {
-        $update_to_applicants = "UPDATE applications SET 
+        $update_to_applicants = "UPDATE applicants SET 
             applicant_name='{$applicantName}', 
             job_id = '{$jobId}',
             applicant_email='{$email}',
@@ -49,7 +49,7 @@ if (!empty($resumeExtension)) {
     header("location: ../applicants.php");
 } else {
     echo "hello empty";
-    $update_to_applicant = "UPDATE applications SET 
+    $update_to_applicant = "UPDATE applicants SET 
             applicant_name='{$applicantName}', 
             job_id = '{$jobId}',
             applicant_email='{$email}',
