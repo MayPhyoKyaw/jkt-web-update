@@ -61,6 +61,9 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
 // echo "<br>";
 // echo $get_job_jp;
 // echo "<br>";
+
+// echo "job id is $jobId";
+// var_dump($en_result);
 ?>
 
 
@@ -657,7 +660,7 @@ while ($row = mysqli_fetch_assoc($result_jp)) {
                     </button>
                 </div>
                 <div class="modal-body">Please click <span class="text-primary">Confirm</span> button to confirm informaiton and click <span class="text-secondary">Cancel</span> button to recheck the data.</div>
-                <div class="modal-footer px-0">
+                <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <button class="btn btn-primary" id="confirmBtn" type="submit" form="multistep_form">Confirm</button>
                 </div>

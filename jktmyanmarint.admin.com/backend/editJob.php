@@ -187,7 +187,7 @@ if ($job_id == $old_job_id) {
         // eng table update
         $en_sql = "UPDATE en_jobs
             SET
-            job_id = '$job_id',
+            job_id='$job_id',
             photos='$photos', 
             company_name='$eng_company_name', 
             job_title='$eng_job_title', 
@@ -206,13 +206,13 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $en_sql;
+        // echo $en_sql;
         mysqli_query($jobs_db_conn, $en_sql);
 
         // MM table update
         $mm_sql = "UPDATE mm_jobs
             SET
-            job_id = '$job_id',
+            job_id='$job_id',
             photos='$photos', 
             company_name='$mm_company_name', 
             job_title='$mm_job_title', 
@@ -231,13 +231,13 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $mm_sql;
+        // echo $mm_sql;
         mysqli_query($jobs_db_conn, $mm_sql);
 
         // JP table update
         $jp_sql = "UPDATE jp_jobs
             SET
-            job_id = '$job_id',
+            job_id='$job_id',
             photos='$photos', 
             company_name='$jp_company_name', 
             job_title='$jp_job_title', 
@@ -255,10 +255,11 @@ if ($job_id == $old_job_id) {
             isavailable='$isavailable', 
             updated_at=now()
             WHERE job_id='$old_job_id'";
-        echo $jp_sql;
+        // echo $jp_sql;
         mysqli_query($jobs_db_conn, $jp_sql);
         unset($_SESSION['insertError']);
-        header("location: ../jobs.php");
+        // header("location: ../jobs.php");
+        echo "<script>location='../jobs.php'</script>";
     } elseif (file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo_two']['tmp_name'])) {
 
         // only photo 1 exists
@@ -304,7 +305,7 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $en_sql;
+        // echo $en_sql;
         mysqli_query($jobs_db_conn, $en_sql);
 
         // MM table update
@@ -329,7 +330,7 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $mm_sql;
+        // echo $mm_sql;
         mysqli_query($jobs_db_conn, $mm_sql);
 
         // JP table update
@@ -354,10 +355,11 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $jp_sql;
+        // echo $jp_sql;
         mysqli_query($jobs_db_conn, $jp_sql);
         unset($_SESSION['insertError']);
-        header("location: ../jobs.php");
+        // header("location: ../jobs.php");
+        echo "<script>location='../jobs.php'</script>";
         // } else {
         //     // echo "resize fail";
         //     header("location: ../jobs.php");
@@ -402,7 +404,7 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $en_sql;
+        // echo $en_sql;
         mysqli_query($jobs_db_conn, $en_sql);
 
         // MM table update
@@ -427,7 +429,7 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $mm_sql;
+        // echo $mm_sql;
         mysqli_query($jobs_db_conn, $mm_sql);
 
         // JP table update
@@ -452,10 +454,11 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $jp_sql;
+        // echo $jp_sql;
         mysqli_query($jobs_db_conn, $jp_sql);
         unset($_SESSION['insertError']);
-        header("location: ../jobs.php");
+        // header("location: ../jobs.php");
+        echo "<script>location='../jobs.php'</script>";
     } else {
         // BOTH PHOTOS UPLOADED
         // $fileinfo2 = @getimagesize($_FILES["photo_two"]["tmp_name"]);
@@ -506,7 +509,7 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $en_sql;
+        // echo $en_sql;
         mysqli_query($jobs_db_conn, $en_sql);
 
         // MM table update
@@ -531,13 +534,13 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $mm_sql;
+        // echo $mm_sql;
         mysqli_query($jobs_db_conn, $mm_sql);
 
         // JP table update
         $jp_sql = "UPDATE jp_jobs
             SET
-            job_id = '$job_id',
+            job_id='$job_id',
             photos='$update_photos', 
             company_name='$jp_company_name', 
             job_title='$jp_job_title', 
@@ -556,10 +559,11 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-        echo $jp_sql;
+        // echo $jp_sql;
         mysqli_query($jobs_db_conn, $jp_sql);
         unset($_SESSION['insertError']);
-        header("location: ../jobs.php");
+        // header("location: ../jobs.php");
+        echo "<script>location='../jobs.php'</script>";
         // } else {
         //     // echo "resize fail";
         //     header("location: ../jobs.php");
@@ -568,7 +572,7 @@ if ($job_id == $old_job_id) {
     }
 } else {
     // WHEN ID IS NOT OLD ID
-
+    // echo "no id conflict";
     $checkID = "SELECT COUNT(job_id) FROM en_jobs WHERE job_id='$job_id'";
     $countResult = mysqli_query($jobs_db_conn, $checkID);
     $result = mysqli_fetch_array($countResult);
@@ -580,9 +584,8 @@ if ($job_id == $old_job_id) {
         header("location: ../jobedit.php?job_id=$old_job_id");
     } else {
         // NO ID CONFLICT
-
         if (!file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo_two']['tmp_name'])) {
-
+            // echo "both images not submitted";
             // RENAME PHOTO DUE TO ID CHANGE
             $originalPhotos = explode("|", $_POST["h_photos"]);
 
@@ -596,7 +599,7 @@ if ($job_id == $old_job_id) {
             rename("../../jktmyanmarint.com/backend/" . $originalPhotos[1], "../../jktmyanmarint.com/backend/companies/" . "$job_id" . '-2.' . "$ext2");
             $en_sql = "UPDATE en_jobs
             SET
-            job_id = '$job_id',
+            job_id='$job_id',
             photos='$update_photos', 
             company_name='$eng_company_name', 
             job_title='$eng_job_title', 
@@ -615,13 +618,13 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-            echo $en_sql;
+            // echo $en_sql;
             mysqli_query($jobs_db_conn, $en_sql);
 
             // MM table update
             $mm_sql = "UPDATE mm_jobs
             SET
-            job_id = '$job_id',
+            job_id='$job_id',
             photos='$update_photos', 
             company_name='$mm_company_name', 
             job_title='$mm_job_title', 
@@ -640,13 +643,13 @@ if ($job_id == $old_job_id) {
             updated_at=now()
             WHERE job_id='$old_job_id'";
 
-            echo $mm_sql;
+            // echo $mm_sql;
             mysqli_query($jobs_db_conn, $mm_sql);
 
             // JP table update
             $jp_sql = "UPDATE jp_jobs
             SET
-            job_id = '$job_id',
+            job_id='$job_id',
             photos='$update_photos', 
             company_name='$jp_company_name', 
             job_title='$jp_job_title', 
@@ -664,12 +667,14 @@ if ($job_id == $old_job_id) {
             isavailable='$isavailable', 
             updated_at=now()
             WHERE job_id='$old_job_id'";
-            echo $jp_sql;
+            // echo $jp_sql;
             mysqli_query($jobs_db_conn, $jp_sql);
             unset($_SESSION['insertError']);
-            header("location: ../jobs.php");
+            // header("location: ../jobs.php");
+            echo "<script>location='../jobs.php'</script>";
         } else if (file_exists($_FILES['photo_one']['tmp_name']) && !file_exists($_FILES['photo_two']['tmp_name'])) {
             // PHOTO ONE UPDATED AND PHOTO TWO NOT UPDATED
+            // echo "only one";
             $file_extension1 = pathinfo($_FILES["photo_one"]["name"], PATHINFO_EXTENSION);
             $file1 = $_FILES['photo_one']['name'];
 
@@ -678,7 +683,7 @@ if ($job_id == $old_job_id) {
             move_uploaded_file($_FILES['photo_one']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target1);
 
             $ext2 = explode(".", explode("|", $_POST["h_photos"])[1])[1];
-            
+
             rename("../../jktmyanmarint.com/backend/" . explode("|", $_POST["h_photos"])[1], "../../jktmyanmarint.com/backend/companies/" . "$job_id" . '-2.' . "$ext2");
 
             $target2 = "companies/" . "$job_id" . '-2.' . "$ext2";
@@ -706,7 +711,7 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $en_sql;
+            // echo $en_sql;
             mysqli_query($jobs_db_conn, $en_sql);
 
             // MM table update
@@ -731,7 +736,7 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $mm_sql;
+            // echo $mm_sql;
             mysqli_query($jobs_db_conn, $mm_sql);
 
             // JP table update
@@ -756,16 +761,19 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $jp_sql;
+            // echo $jp_sql;
             mysqli_query($jobs_db_conn, $jp_sql);
             unset($_SESSION['insertError']);
-            header("location: ../jobs.php");
+            // header("location: ../jobs.php");
+            echo "<script>location='../jobs.php'</script>";
             // } else {
             //     // echo "resize fail";
             //     header("location: ../jobs.php");
             // }
             // }
         } else if (!file_exists($_FILES['photo_one']['tmp_name']) && file_exists($_FILES['photo_two']['tmp_name'])) {
+            // PHOTO TWO UPLOADED BUT NOT PHOTO ONE
+            // echo "only two";
             $file_extension2 = pathinfo($_FILES["photo_two"]["name"], PATHINFO_EXTENSION);
             $file2 = $_FILES['photo_two']['name'];
 
@@ -774,7 +782,7 @@ if ($job_id == $old_job_id) {
             move_uploaded_file($_FILES['photo_two']['tmp_name'], "../../jktmyanmarint.com/backend/" . $target2);
 
             $ext1 = explode(".", explode("|", $_POST["h_photos"])[0])[1];
-            
+
             rename("../../jktmyanmarint.com/backend/" . explode("|", $_POST["h_photos"])[0], "../../jktmyanmarint.com/backend/companies/" . "$job_id" . '-1.' . "$ext1");
 
             $target1 = "companies/" . "$job_id" . '-1.' . "$ext1";
@@ -802,7 +810,7 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $en_sql;
+            // echo $en_sql;
             mysqli_query($jobs_db_conn, $en_sql);
 
             // MM table update
@@ -827,7 +835,7 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $mm_sql;
+            // echo $mm_sql;
             mysqli_query($jobs_db_conn, $mm_sql);
 
             // JP table update
@@ -852,10 +860,11 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $jp_sql;
+            // echo $jp_sql;
             mysqli_query($jobs_db_conn, $jp_sql);
             unset($_SESSION['insertError']);
-            header("location: ../jobs.php");
+            // header("location: ../jobs.php");
+            echo "<script>location='../jobs.php'</script>";
             // } else {
             //     // echo "resize fail";
             //     header("location: ../jobs.php");
@@ -870,7 +879,7 @@ if ($job_id == $old_job_id) {
             $file1 = $_FILES['photo_one']['name'];
             $file2 = $_FILES['photo_two']['name'];
 
-            
+
             UnlinkFile($old_job_id, "1");
             UnlinkFile($old_job_id, "2");
             // if (file_exists("./companies/$job_id" . '-1.' . "$file_extension1")) unlink("./companies/$job_id" . '-1.' . "$file_extension1");
@@ -906,7 +915,7 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $en_sql;
+            // echo $en_sql;
             mysqli_query($jobs_db_conn, $en_sql);
 
             // MM table update
@@ -931,13 +940,13 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $mm_sql;
+            // echo $mm_sql;
             mysqli_query($jobs_db_conn, $mm_sql);
 
             // JP table update
             $jp_sql = "UPDATE jp_jobs
                 SET
-                job_id = '$job_id',
+                job_id='$job_id',
                 photos='$update_photos', 
                 company_name='$jp_company_name', 
                 job_title='$jp_job_title', 
@@ -956,10 +965,11 @@ if ($job_id == $old_job_id) {
                 updated_at=now()
                 WHERE job_id='$old_job_id'";
 
-            echo $jp_sql;
+            // echo $jp_sql;
             mysqli_query($jobs_db_conn, $jp_sql);
             unset($_SESSION['insertError']);
-            header("location: ../jobs.php");
+            // header("location: ../jobs.php");
+            echo "<script>location='../jobs.php'</script>";
             // } else {
             //     // echo "resize fail";
             //     header("location: ../jobs.php");
