@@ -124,7 +124,7 @@ function student_edit(event, row, idx) {
     }
   }
 
-  console.log(rowArr);
+  //   console.log(rowArr);
   studentId.value = idx;
   imagePreview.src = "https://jktmyanmarint.com/backend/" + rowArr[1];
   notChangeImg.value = rowArr[1];
