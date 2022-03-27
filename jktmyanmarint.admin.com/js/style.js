@@ -181,10 +181,10 @@ function setCurrentEditing(event, row, idx, classIdx, classFee) {
   var rowArr = [];
   let approved = "";
   for (var i = 0; i < tds.length; i++) {
-    if (i == 0) {
+    if (i == 1) {
       rowArr.push(tds[i].children[0].alt);
     } else {
-      if (i == 5) {
+      if (i == 6) {
         rowArr.push(tds[i].innerHTML);
       } else {
         rowArr.push(tds[i].textContent);
@@ -193,10 +193,10 @@ function setCurrentEditing(event, row, idx, classIdx, classFee) {
   }
   // console.log(rowArr);
   enrollmentId.value = idx;
-  imagePreview.src = "https://jktmyanmarint.com/backend/" + rowArr[0];
-  notChangeImg.value = rowArr[0];
+  imagePreview.src = "https://jktmyanmarint.com/backend/" + rowArr[1];
+  notChangeImg.value = rowArr[1];
   classId.value = classIdx;
-  uname.innerHTML = rowArr[2];
+  uname.innerHTML = rowArr[3];
   // dob.value = rowArr[3];
   // fname.value = rowArr[4];
 
@@ -210,32 +210,32 @@ function setCurrentEditing(event, row, idx, classIdx, classFee) {
   // education.value = rowArr[7];
   // address.value = rowArr[8].trim();
   // phone.value = rowArr[9];
-  paymentMethod.value = rowArr[3];
-  paidPercent.value = rowArr[4].substring(0, rowArr[4].length - 1);
+  paymentMethod.value = rowArr[4];
+  paidPercent.value = rowArr[5].substring(0, rowArr[5].length - 1);
   showPaidPercent.textContent =
-    rowArr[4].substring(0, rowArr[4].length - 1) + "%";
+    rowArr[5].substring(0, rowArr[5].length - 1) + "%";
   showPaidAmount.textContent =
     (parseInt(classFee) *
-      parseInt(rowArr[4].substring(0, rowArr[4].length - 1))) /
+      parseInt(rowArr[5].substring(0, rowArr[5].length - 1))) /
       100 +
     " MMKs";
   totalCourseFee.textContent = parseInt(classFee) + " MMKs";
 
-  if (parseInt(rowArr[4].substring(0, rowArr[4].length - 1)) < 100) {
+  if (parseInt(rowArr[5].substring(0, rowArr[5].length - 1)) < 100) {
     newPaymentField.style.display = "block";
   } else {
     newPaymentField.style.display = "none";
   }
 
   // console.log(rowArr[5]);
-  if (rowArr[5] == "✅") {
+  if (rowArr[6] == "✅") {
     approved = true;
-  } else if (rowArr[5] == "❌") {
+  } else if (rowArr[6] == "❌") {
     approved = false;
   }
   // console.log(approved);
   isPending.checked = (approved == "1" && true) || false;
-  createdAt.value = rowArr[6];
+  createdAt.value = rowArr[7];
 }
 
 function setCurrentDeleting(event, row, idx) {
@@ -246,7 +246,7 @@ function setCurrentDeleting(event, row, idx) {
   // console.log(tds);
   var rowArr = [];
   for (var i = 0; i < tds.length; i++) {
-    if (i == 0) {
+    if (i == 1) {
       rowArr.push(tds[i].children[0].alt);
     } else {
       rowArr.push(tds[i].textContent);
@@ -254,7 +254,7 @@ function setCurrentDeleting(event, row, idx) {
   }
   // console.log(rowArr[2]);
 
-  stuName.innerText = rowArr[2];
+  stuName.innerText = rowArr[3];
   enrollmentDeletingId.value = idx;
 }
 
@@ -263,18 +263,19 @@ function setCurrentDetail(row) {
   var tds = row.children;
   var rowArr = [];
   for (var i = 0; i < tds.length; i++) {
-    if (i == 0) {
+    if (i == 1) {
       rowArr.push(tds[i].children[0].alt);
     } else {
       rowArr.push(tds[i].textContent);
     }
   }
+  console.log(rowArr);
 
   // enrollment id
   // classId
-  detailImage.src = "https://jktmyanmarint.com/backend/" + rowArr[0];
-  detailTitle.innerText = rowArr[1];
-  detailName.innerText = rowArr[2];
+  detailImage.src = "https://jktmyanmarint.com/backend/" + rowArr[1];
+  detailTitle.innerText = rowArr[2];
+  detailName.innerText = rowArr[3];
   // detailDob.innerText = rowArr[3];
   // detailFname.innerText = rowArr[4];
 
@@ -283,9 +284,9 @@ function setCurrentDetail(row) {
   // detailEducation.innerText = rowArr[7];
   // detailAddress.innerText = rowArr[8].trim();
   // detailPhone.innerText = rowArr[9];
-  detailPaymentMethod.innerText = rowArr[3];
-  detailPaidPercent.innerText = rowArr[4];
-  if (rowArr[12] == "1") {
+  detailPaymentMethod.innerText = rowArr[4];
+  detailPaidPercent.innerText = rowArr[5];
+  if (rowArr[6] == "❌") {
     pendingBadge.innerText = "Pending";
     pendingBadge.style.backgroundColor = "#ff6347";
   } else {
@@ -373,7 +374,7 @@ function setCurrentCourseEdit(event, row, catId, typeId) {
   var rowArr = [];
   var days = "";
   for (var i = 0; i < tds.length; i++) {
-    if (i == 7) {
+    if (i == 8) {
       for (var j = 0; j < tds[i].querySelector("div").children.length; j++) {
         days += tds[i].querySelector("div").children[j].textContent + ",";
       }
@@ -460,17 +461,17 @@ function setCurrentCourseEdit(event, row, catId, typeId) {
     // var sectionHrs = sectionsAr[];
   }
 
-  courseIdEdit.value = rowArr[0];
-  courseCreatedAt.value = rowArr[14];
-  courseTitleEdit.value = rowArr[2];
+  courseIdEdit.value = rowArr[1];
+  courseCreatedAt.value = rowArr[15];
+  courseTitleEdit.value = rowArr[3];
   courseCategoryIdEdit.value = catId;
   courseTypeIdEdit.value = typeId;
-  level_or_sub.value = rowArr[3];
+  level_or_sub.value = rowArr[4];
   fee.value = parseInt(
-    rowArr[5].substring(0, rowArr[5].length - 4).replace(/,/g, "")
+    rowArr[6].substring(0, rowArr[6].length - 4).replace(/,/g, "")
   );
-  discountPercent.value = parseInt(rowArr[11]);
-  var date = new Date(rowArr[8]);
+  discountPercent.value = parseInt(rowArr[12]);
+  var date = new Date(rowArr[9]);
 
   var day = date.getDate();
   var month = date.getMonth() + 1;
@@ -479,7 +480,7 @@ function setCurrentCourseEdit(event, row, catId, typeId) {
   day = (day < 10 ? "0" : "") + day;
   startDate.value = year + "-" + month + "-" + day;
 
-  duration.value = parseInt(rowArr[9]);
+  duration.value = parseInt(rowArr[10]);
   // startTime.value = rowArr[8].split("~")[0];
   // endTime.value = rowArr[8].split("~")[1];
   // if (days.includes("M")) {
@@ -503,10 +504,10 @@ function setCurrentCourseEdit(event, row, catId, typeId) {
   // if (days.includes("Su")) {
   //   Su.checked = true;
   // }
-  instructor.value = rowArr[6] == "-" ? "" : rowArr[6];
-  services.textContent = rowArr[10] == "-" ? "" : rowArr[10];
+  instructor.value = rowArr[7] == "-" ? "" : rowArr[7];
+  services.textContent = rowArr[11] == "-" ? "" : rowArr[11];
   note.textContent =
-    rowArr[12] == "-" ? "" : rowArr[12].replace(/\r?\n|\r/g, " ").trim();
+    rowArr[13] == "-" ? "" : rowArr[13].replace(/\r?\n|\r/g, " ").trim();
 }
 
 // course edit new section
@@ -565,14 +566,13 @@ function setCurrentCourseDetail(row) {
   var rowArr = [];
   var days = "";
   for (var i = 0; i < tds.length; i++) {
-    if (i == 7) {
-      // console.log(tds[i].querySelector("div").children);
+    if (i == 8) {
+      console.log(tds[i].querySelector("div"));
       for (var j = 0; j < tds[i].querySelector("div").children.length; j++) {
         days += tds[i].querySelector("div").children[j].textContent + ",";
         // console.log(tds[i].children[j].textContent);
       }
       // console.log(days);
-
       rowArr.push(days.substring(2, days.length - 1).trim());
     } else {
       rowArr.push(tds[i].textContent);
@@ -612,19 +612,19 @@ function setCurrentCourseDetail(row) {
 
     // var sectionHrs = sectionsAr[];
   }
-  detailCourseTitle.innerText = rowArr[2];
-  detailCourseCategory.innerText = rowArr[1];
-  detailCourseType.innerText = rowArr[4];
-  detailCourseLvlorsub.innerText = rowArr[3];
-  detailCourseFee.innerText = rowArr[5];
-  detailCourseInstructor.innerText = rowArr[6];
-  detailCourseServices.innerText = rowArr[10];
-  detailCourseDiscount.innerText = rowArr[11];
-  detailCourseStartDate.innerText = rowArr[8];
-  detailCourseDuration.innerText = rowArr[9];
+  detailCourseTitle.innerText = rowArr[3];
+  detailCourseCategory.innerText = rowArr[2];
+  detailCourseType.innerText = rowArr[5];
+  detailCourseLvlorsub.innerText = rowArr[4];
+  detailCourseFee.innerText = rowArr[6];
+  detailCourseInstructor.innerText = rowArr[7];
+  detailCourseServices.innerText = rowArr[11];
+  detailCourseDiscount.innerText = rowArr[12];
+  detailCourseStartDate.innerText = rowArr[9];
+  detailCourseDuration.innerText = rowArr[10];
   // detailCourseDays.innerText = days;
   // detailCourseFromTo.innerText = rowArr[8];
-  detailCourseNote.innerText = rowArr[12].replace(/\r?\n|\r/g, " ").trim();
+  detailCourseNote.innerText = rowArr[13].replace(/\r?\n|\r/g, " ").trim();
 }
 
 function setCurrentCourseDel(event, idx) {
