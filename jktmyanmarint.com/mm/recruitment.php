@@ -261,8 +261,8 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     </div>
                                     <div class="col-12 col-lg-5 col-xl-4 order-1 order-lg-2 mb-2 mb-lg-0 text-lg-right text-center">
                                         <?php $photoArr = explode("|", $row["photos"]) ?>
-                                        <img src="../../jktmyanmarint.admin.com/backend/<?= $photoArr[0] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
-                                        <img src="../../jktmyanmarint.admin.com/backend/<?= $photoArr[1] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
+                                        <img src="../backend/<?= $photoArr[0] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
+                                        <img src="../backend/<?= $photoArr[1] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -360,8 +360,8 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     </div>
                                     <div class="col-12 col-lg-5 col-xl-4 order-1 order-lg-2 mb-2 mb-lg-0 text-lg-right text-center">
                                         <?php $photoArr = explode("|", $row["photos"]) ?>
-                                        <img src="../../jktmyanmarint.admin.com/backend/<?= $photoArr[0] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
-                                        <img src="../../jktmyanmarint.admin.com/backend/<?= $photoArr[1] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
+                                        <img src="../backend/<?= $photoArr[0] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
+                                        <img src="../backend/<?= $photoArr[1] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -459,8 +459,8 @@ include_once "../../jktmyanmarint.admin.com/confs/jobs_config.php";
                                     </div>
                                     <div class="col-12 col-lg-5 col-xl-4 order-1 order-lg-2 mb-2 mb-lg-0 text-lg-right text-center">
                                         <?php $photoArr = explode("|", $row["photos"]) ?>
-                                        <img src="../../jktmyanmarint.admin.com/backend/<?= $photoArr[0] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
-                                        <img src="../../jktmyanmarint.admin.com/backend/<?= $photoArr[1] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
+                                        <img src="../backend/<?= $photoArr[0] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
+                                        <img src="../backend/<?= $photoArr[1] ?>" alt="Company Profile" class="company-profile" width="145" height="150" />
                                     </div>
                                 </div>
                                 <div class="row">

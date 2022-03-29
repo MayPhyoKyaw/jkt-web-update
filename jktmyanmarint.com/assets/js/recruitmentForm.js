@@ -401,7 +401,7 @@ function preventScroll(e) {
 
 $("#recruitmentSubmit").click(function(e) {
     // console.log("Loading");
-    window.scrollTo(0,2000);
+    window.scrollTo(0, 2000);
     $('body').append(`
     <div class="loading">
       <div></div>
@@ -409,6 +409,5 @@ $("#recruitmentSubmit").click(function(e) {
       <div></div>
     </div>
   `);
-    // window.scrollTo(0, 800);
     document.querySelector('.loading').addEventListener('wheel', preventScroll);
 });

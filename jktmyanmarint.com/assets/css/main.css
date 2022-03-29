@@ -3405,8 +3405,8 @@ iframe::-webkit-scrollbar-thumb:hover {
 
 .company-profile {
     /* float: right; */
-    margin: 5px 10px 10px;
-    border: 1px solid #027fc8;
+    margin: 30px 10px 10px;
+    /* border: 1px solid #027fc8; */
 }
 
 .info-table-header {
@@ -3468,6 +3468,11 @@ iframe::-webkit-scrollbar-thumb:hover {
 .company-info-table>tbody>tr>td {
     border-top: 1px solid rgba(233, 233, 248, 0.603);
     border-bottom: 1px solid rgba(233, 233, 248, 0.603);
+    padding: 5px 0.75rem !important;
+}
+
+.company-info-table>tbody>tr>td>p {
+    margin-bottom: 3px;
 }
 
 
@@ -3583,7 +3588,7 @@ iframe::-webkit-scrollbar-thumb:hover {
 /* JOB recruitment start */
 
 
-/* loading start */
+/* recruitment loading start */
 
 .loading {
     top: 2000px;
@@ -3634,7 +3639,61 @@ iframe::-webkit-scrollbar-thumb:hover {
 }
 
 
-/* loading end */
+/* recruitment loading end */
+
+
+/* class enroll loading start */
+
+.class-enroll-loading {
+    top: 650px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.class-enroll-loading div {
+    width: 1rem;
+    height: 1rem;
+    margin: 2rem 0.3rem;
+    background: #474a5f;
+    border-radius: 50%;
+    -webkit-animation: 0.9s bounce infinite alternate;
+    animation: 0.9s bounce infinite alternate;
+}
+
+.class-enroll-loading div:nth-child(2) {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.class-enroll-loading div:nth-child(3) {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+@-webkit-keyframes bounce {
+    to {
+        opacity: 0.3;
+        transform: translate3d(0, -1rem, 0);
+    }
+}
+
+@keyframes bounce {
+    to {
+        opacity: 0.3;
+        transform: translate3d(0, -1rem, 0);
+    }
+}
+
+
+/* class enroll loading end */
 
 
 /* media query */
