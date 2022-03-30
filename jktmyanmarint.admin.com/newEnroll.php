@@ -390,13 +390,17 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                 <label for="paymentAmount">Payment Amount (MMKs)</label>
                                 <input type="number" name="paymentAmount" id="paymentAmount" class="form-control" placeholder="eg. 100,000" />
                             </div>
-
+                            <div class="form-group mb-4">
+                                <label for="discountAmount">Discount Amount (MMKs)</label>
+                                <input type="number" name="discountAmount" id="discountAmount" class="form-control" placeholder="eg. 30,000" />
+                            </div>
                             <div class="form-group mb-4">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="isPending" name="isPending">
                                     <label class="form-check-label" for="isPending">Is Pending?</label>
                                 </div>
                             </div>
+                           
                             <hr>
                             <button type="submit" class="btn btn-facebook btn-user btn-block" id="enroll">
                                 <i class="fa fa-user-plus fa-fw"></i> Add Enrollment

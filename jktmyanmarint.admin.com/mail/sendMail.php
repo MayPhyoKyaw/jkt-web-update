@@ -11,13 +11,13 @@ require "src/Exception.php";
 //Load Composer's autoloader
 // require 'vendor/autoload.php';
 
-include("../confs/config.php");
- $dbhost = "localhost";
- $dbuser = "cp810609_jkt";
- $dbpass = "HW_PCa0dJLzg";
- $dbname = "cp810609_training";
- $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
- mysqli_select_db($conn, $dbname);
+// include("../confs/config.php");
+//  $dbhost = "localhost";
+//  $dbuser = "cp810609_jkt";
+//  $dbpass = "HW_PCa0dJLzg";
+//  $dbname = "cp810609_training";
+//  $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+//  mysqli_select_db($conn, $dbname);
 
 // $dbhost = "127.0.0.1:3307";
 // $dbuser = "root";

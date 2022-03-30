@@ -4,10 +4,9 @@
 include("../confs/config.php");
 
 // for mail
-include("../mail/sendMail.php");
+include_once("../mail/sendMail.php");
 
 // STEP 1 
-
 $photo = $_FILES['photo'];
 $uname = $_POST['uname'];
 $dob = $_POST['dob'];
@@ -32,12 +31,17 @@ if (isset($_POST['paymentAmount'])) {
 } else {
     $paymentAmount = 0;
 }
+if(isset($_POST['discountAmount'])){
+    $discountAmount = intval($_POST['discountAmount']);
+}else{
+    $discountAmount = 0;
+}
 
-$getPaymentAmount = "SELECT fee from courses WHERE course_id = $courseId";
-$result = mysqli_query($conn, $getPaymentAmount);
-$result_row = mysqli_fetch_assoc($result);
+// $getPaymentAmount = "SELECT fee from courses WHERE course_id = $courseId";
+// $result = mysqli_query($conn, $getPaymentAmount);
+// $result_row = mysqli_fetch_assoc($result);
 
-$paidPercent = intval(($paymentAmount / $result_row['fee']) * 100);
+// $paidPercent = intval(($paymentAmount / $result_row['fee']) * 100);
 
 if (isset($_POST['isPending']) && $_POST["isPending"] == "on") {
     $isPending = 1;
@@ -209,7 +213,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -233,7 +238,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -285,10 +291,16 @@ if ($org_width > "300" || $org_height > "300") {
         echo "resize fail";
     }
 } else {
-    if (file_exists("../../jktmyanmarint.com/backend/uploads/$nrcNumber.$file_extension")) unlink("../../jktmyanmarint.com/backend/uploads/$nrcNumber.$file_extension");
+    echo "image size ok";
+    if (file_exists("../../jktmyanmarint.com/backend/uploads/$nrcNumber.$file_extension")){
+        unlink("../../jktmyanmarint.com/backend/uploads/$nrcNumber.$file_extension");
+        echo "image unlinked";
+    } 
     $target = "uploads/" . "$nrcNumber.$file_extension";
-    if (move_uploaded_file($_FILES["photo"]["tmp_name"], "../../jktmyanmarint.com/backend/" . $target)) {
+    echo $target;
+    if (move_uploaded_file($_FILES["photo"]["tmp_name"], "./" . $target)) {
         // continue to insert to db cuz image upload succeed.
+        echo "file move success";
         $check_student_if_exist = "SELECT * FROM students WHERE nrc='$nrc'";
         $stu_result = mysqli_query($conn, $check_student_if_exist);
         $stu_row = mysqli_fetch_assoc($stu_result);
@@ -338,7 +350,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -362,7 +375,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
