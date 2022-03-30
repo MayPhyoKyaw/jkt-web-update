@@ -27,24 +27,15 @@ $courseId = intval($_POST['classId']);
 
 // STEP 3
 $payment_method = $_POST['paymentMethod'];
-$paidPercent = intval($_POST['paidPercent']);
+$oldPaidAmount = intval($_POST['paidAmount']);
+
 if (isset($_POST['newPaymentField'])) {
     $newPaymentField = intval($_POST['newPaymentField']);
 }else {
     $newPaymentField = 0;
 }
 
-$getPaymentAmount = "SELECT fee from courses WHERE course_id = $courseId";
-$result = mysqli_query($conn, $getPaymentAmount);
-$result_row = mysqli_fetch_assoc($result);
-
-$paidAmount = (intval($result_row['fee']) * $paidPercent)/100;
-$newPaidPercent = intval((($paidAmount+$newPaymentField)/intval($result_row['fee']))*100);
-// echo "Course fee is" . $result_row['fee'];
-// echo "Paid amount is" . $paidAmount;
-// echo "New paid amount is" . $newPaymentField;
-// echo "total paid percent is" . $newPaidPercent;
-
+$paidAmount = $oldPaidAmount + $newPaymentField;
 $created_at = $_POST["createdAt"];
 
 if (isset($_POST['isPending']) && $_POST["isPending"] == "on") {
@@ -56,7 +47,7 @@ if (isset($_POST['isPending']) && $_POST["isPending"] == "on") {
 $update_to_enrollments = "UPDATE enrollments SET 
             course_id=$courseId, 
             payment_method='$payment_method',
-            paid_percent=$newPaidPercent ,
+            paid_amount=$paidAmount,
             created_at='$created_at',
             updated_at=now(),
             is_pending=$isPending

@@ -201,7 +201,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -209,6 +210,7 @@ if ($org_width > "300" || $org_height > "300") {
                 $courseId,
                 $lastInsertedsid,
                 '$payment_method',
+                0 , 
                 0 , 
                 now(), 
                 now(),
@@ -225,7 +227,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -234,6 +237,7 @@ if ($org_width > "300" || $org_height > "300") {
                 $updated_id,
                 '$payment_method',
                 0 , 
+                0,
                 now(), 
                 now(),
                 1)";
@@ -332,7 +336,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -341,6 +346,7 @@ if ($org_width > "300" || $org_height > "300") {
                 $lastInsertedsid,
                 '$payment_method',
                 0 , 
+                0,
                 now(), 
                 now(),
                 1)";
@@ -356,7 +362,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -365,6 +372,7 @@ if ($org_width > "300" || $org_height > "300") {
                 $updated_id,
                 '$payment_method',
                 0 , 
+                0,
                 now(), 
                 now(),
                 1)";
@@ -411,4 +419,3 @@ if ($org_width > "300" || $org_height > "300") {
 }
 
 mysqli_close($conn);
-?>

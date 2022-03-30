@@ -77,7 +77,7 @@ let updatedDownloadBtn = {
             return "Payment";
             break;
           case 8:
-            return "Paid Percentage";
+            return "Paid Amount";
             break;
           case 9:
             return "Approved";
@@ -211,7 +211,7 @@ var buttons = [
                         `<a href="students.php?id=${data["nrcNo"]}">${data["student_name"]}</a>`
                       );
                       $("td:eq(4)", row).text(`${data["payment_method"]}`);
-                      $("td:eq(5)", row).text(`${data["paid_percent"]}%`);
+                      $("td:eq(5)", row).text(`${data["paid_amount"]}%`);
                       if (data["is_pending"] == 0) {
                         $("td:eq(6)", row).html(`&#9989;`);
                       } else {
@@ -312,12 +312,12 @@ $(document).ready(function () {
         });
 
       this.api()
-        .columns(".select-paidPercent-filter")
+        .columns(".select-paidAmount-filter")
         .every(function () {
           var column = this;
           // console.log(column)
           var select = $(
-            '<select class="form-control"><option value="">Filter by Paid Percent</option></select>'
+            '<select class="form-control"><option value="">Filter by Paid Amount</option></select>'
           )
             .appendTo($(".filter3").empty())
             .on("change", function () {

@@ -37,7 +37,13 @@ $getPaymentAmount = "SELECT fee from courses WHERE course_id = $courseId";
 $result = mysqli_query($conn, $getPaymentAmount);
 $result_row = mysqli_fetch_assoc($result);
 
-$paidPercent = intval(($paymentAmount / $result_row['fee']) * 100);
+// $paidPercent = intval(($paymentAmount / $result_row['fee']) * 100);
+
+if (isset($_POST['discountAmount'])) {
+    $discountAmount = intval($_POST['discountAmount']);
+} else {
+    $discountAmount = 0;
+}
 
 if (isset($_POST['isPending']) && $_POST["isPending"] == "on") {
     $isPending = 1;
@@ -209,7 +215,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -217,7 +224,8 @@ if ($org_width > "300" || $org_height > "300") {
                     $courseId,
                 $lastInsertedsid,
                 '$payment_method',
-                $paidPercent , 
+                $paymentAmount ,
+                $discountAmount, 
                 now(), 
                 now(),
                 $isPending)";
@@ -233,7 +241,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -241,7 +250,8 @@ if ($org_width > "300" || $org_height > "300") {
                 $courseId,
                 $updated_id,
                 '$payment_method',
-                $paidPercent , 
+                $paymentAmount ,
+                $discountAmount,
                 now(), 
                 now(),
                 $isPending)";
@@ -338,7 +348,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -346,7 +357,8 @@ if ($org_width > "300" || $org_height > "300") {
                 $courseId,
                 $lastInsertedsid,
                 '$payment_method',
-                $paidPercent , 
+                $paymentAmount ,
+                $discountAmount,
                 now(), 
                 now(),
                 $isPending)";
@@ -362,7 +374,8 @@ if ($org_width > "300" || $org_height > "300") {
                 course_id,
                 student_id,
                 payment_method,
-                paid_percent,
+                paid_amount,
+                discount_amount,
                 created_at,
                 updated_at,
                 is_pending) 
@@ -370,7 +383,8 @@ if ($org_width > "300" || $org_height > "300") {
                 $courseId,
                 $updated_id,
                 '$payment_method',
-                $paidPercent , 
+                $paymentAmount ,
+                $discountAmount,
                 now(), 
                 now(),
                 $isPending)";
