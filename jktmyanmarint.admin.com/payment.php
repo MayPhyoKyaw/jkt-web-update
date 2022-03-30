@@ -305,6 +305,12 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             </select>
                         </div>
                     </div>
+                    <?php 
+                    $countQuery = "SELECT COUNT(*) as count FROM `payments` p, `enrollments` e WHERE p.enrollment_id = e.enrollment_id;";
+                    $count = mysqli_query($conn, $countQuery);
+                    $countResult = mysqli_fetch_assoc($count);
+                    if(intval($countResult["count"]) > 0) {
+                    ?>
                     <div class="row payment-block">
                         <?php
                         $query = "SELECT
@@ -331,6 +337,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
                         ?>
                             <div class="col-12 col-lg-6 p-2">
                                 <div class="card card-block shadow mb-3 px-3 pt-3">
+                                <?php echo "<h1>hello</h1>";?>
                                     <div class="row my-3">
                                         <div class="transaction-label col-6">Transaction ID : </div>
                                         <div class="transaction-data col-6"><?php echo $row['payment_id']; ?></div>
@@ -357,8 +364,15 @@ $noti_result = mysqli_query($conn, $get_notifications);
                                     </div>
                                 </div>
                             </div>
-                        <?php endwhile; ?>
+                        <?php 
+                        endwhile; 
+                        ?>
                     </div>
+                    <?php
+                    } else {
+                        echo "<div class='col-12 p-2 no-data'>There is no data.</div>";
+                    }
+                    ?> 
                 </div>
                 <!-- /.container-fluid -->
 

@@ -192,10 +192,10 @@ function encrypt_decrypt($action, $string)
 
     <section class="main">
         <div>
-            <div class="container">
+            <div class="container-fluid" style="padding: 0 100px">
                 <div class="row text-center mt-4 mt-lg-0">
                     <div class="col-11 col-md-10 mx-auto job-process-block">
-                        <img src="../assets/images/mm_process.png" class="job-process" alt="Process Image" width="100%" height="320" />
+                        <img src="../assets/images/mm_process.png" class="job-process" alt="Process Image" width="100%" height="360" />
                     </div>
                 </div>
                 <div class="row">
@@ -225,11 +225,11 @@ function encrypt_decrypt($action, $string)
                                         </tr>
                                         <tr>
                                             <th><i class="fas fa-user"></i></th>
-                                            <td><?= $row["employment_type"] ?></td>
+                                            <td><?php echo $row["employment_type"] === "Permanent" ? "အမြဲတမ်းဝန်ထမ်း" : "စာချုပ်ဝန်ထမ်း" ?></td>
                                         </tr>
                                         <tr>
                                             <th><i class="fas fa-business-time"></th>
-                                            <td><?php echo $row["working_hour"] . "<br>Break Time: " . $row["breaktime"] ?></td>
+                                            <td><?php echo $row["working_hour"] . "<br>နားချိန် - " . $row["breaktime"] ?></td>
                                         </tr>
                                         <tr>
                                             <th><i class="fas fa-calendar-alt"></i></th>
@@ -262,7 +262,7 @@ function encrypt_decrypt($action, $string)
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-10 col-lg-8 mb-5 mt-4 mx-auto w-100">
+                    <div class="col-12 col-md-10 col-lg-8 mb-5 mt-4 mx-auto">
                         <p id="description">
                             ကျေးဇူးပြု၍ ဖောင်၏ အကွက်အားလုံးကို ဖြည့်ပါ။ <br>
                             ကျွန်ုပ်တို့နှင့်ပူးပေါင်းသည့်အတွက် ကျေးဇူးတင်ပါသည်။
@@ -356,11 +356,11 @@ function encrypt_decrypt($action, $string)
                             </tr>
                             <tr>
                                 <th><i class="fas fa-user"></i></th>
-                                <td><?= $row["employment_type"] ?></td>
+                                <td><?php echo $row["employment_type"] === "Permanent" ? "အမြဲတမ်းဝန်ထမ်း" : "စာချုပ်ဝန်ထမ်း" ?></td>
                             </tr>
                             <tr>
                                 <th><i class="fas fa-business-time"></th>
-                                <td><?php echo $row["working_hour"] . "<br>Break Time: " . $row["breaktime"] ?></td>
+                                <td><?php echo $row["working_hour"] . "<br>နားချိန် - " . $row["breaktime"] ?></td>
                             </tr>
                             <tr>
                                 <th><i class="fas fa-calendar-alt"></i></th>

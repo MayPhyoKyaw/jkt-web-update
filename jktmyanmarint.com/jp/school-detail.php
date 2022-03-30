@@ -115,7 +115,7 @@ function encrypt_decrypt($action, $string)
           <li class="recruitment-li">
             <a href="./recruitment.php">
               <button class="recruitment-btn">
-                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用
+                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用情報
               </button>
             </a>
           </li>

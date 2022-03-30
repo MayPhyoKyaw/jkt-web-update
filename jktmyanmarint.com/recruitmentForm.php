@@ -171,7 +171,7 @@ function encrypt_decrypt($action, $string)
 
     <section class="main">
         <div>
-            <div class="container">
+            <div class="container-fluid" style="padding: 0 100px">
                 <div class="row text-center mt-4 mt-lg-0">
                     <div class="col-11 col-md-10 mx-auto job-process-block">
                         <img src="./assets/images/en_process.png" class="job-process" alt="Process Image" width="100%" height="320" />
@@ -192,7 +192,7 @@ function encrypt_decrypt($action, $string)
                                 <input type="checkbox" id="check" class="accordion">
                                 <label class="tab-label" for="check"><?php echo $row['job_title'] . " (" . $row['job_id'] . ")"; ?></label>
                                 <div class="tab-content">
-                                    <table class="table company-info-table">
+                                    <table class="company-info-table">
                                         <tr>
                                             <th><i class="fas fa-yen-sign"></i></th>
                                             <td>
@@ -323,7 +323,7 @@ function encrypt_decrypt($action, $string)
                     </div>
                     <div class="col-12 col-md-10 col-lg-4 d-none d-lg-block company-info">
                         <h4><?= $row["job_title"] . " (" . $row['job_id'] . ")" ?></h4>
-                        <table class="table company-info-table mt-4">
+                        <table class="company-info-table mt-4">
                             <tr>
                                 <th><i class="fas fa-yen-sign"></i></th>
                                 <td>

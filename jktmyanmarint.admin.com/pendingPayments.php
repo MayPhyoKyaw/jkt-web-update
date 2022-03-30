@@ -305,6 +305,12 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             </select>
                         </div>
                     </div>
+                    <?php 
+                    $countQuery = "SELECT COUNT(*) as count FROM `payments` p, `enrollments` e WHERE p.enrollment_id = e.enrollment_id;";
+                    $count = mysqli_query($conn, $countQuery);
+                    $countResult = mysqli_fetch_assoc($count);
+                    if(intval($countResult["count"]) > 0) {
+                    ?>
                     <div class="row payment-block">
                         <form id="deleteForm" class="my-2" action="backend/deletePayment.php" method="POST">
                             <input type="hidden" name="payment_id" id="deletingId">
@@ -374,6 +380,11 @@ $noti_result = mysqli_query($conn, $get_notifications);
                             </div>
                         <?php endwhile; ?>
                     </div>
+                    <?php
+                    } else {
+                        echo "<div class='col-12 p-2 no-data'>There is no data.</div>";
+                    }
+                    ?> 
                 </div>
                 <!-- /.container-fluid -->
 

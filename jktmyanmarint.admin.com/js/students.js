@@ -73,7 +73,6 @@ function student_detail(row) {
             rowArr.push(tds[i].textContent);
         }
     }
-    // console.log(rowArr);
 
     detailImage.src = "https://jktmyanmarint.com/backend/" + rowArr[1];
     detailName.innerText = rowArr[2];
@@ -426,6 +425,7 @@ $(document).ready(function() {
             encryptedId: getParam,
         },
         function(data) {
+
             table.destroy();
             table = $("#dataTable")
                 .DataTable({
@@ -433,7 +433,7 @@ $(document).ready(function() {
                         [11, "desc"]
                     ],
                 })
-                .column(4)
+                .column(5)
                 .search(data.toString())
                 .draw();
         }

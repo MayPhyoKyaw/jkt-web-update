@@ -140,7 +140,7 @@ function encrypt_decrypt($action, $string)
                     <li class="recruitment-li">
                         <a href="./recruitment.php">
                             <button class="recruitment-btn">
-                                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用
+                                <img src="../assets/images/icon/job-search.png" width="20" height="20" />&nbsp; 採用情報
                             </button>
                         </a>
                     </li>
@@ -196,10 +196,10 @@ function encrypt_decrypt($action, $string)
 
     <section class="main">
         <div>
-            <div class="container">
+            <div class="container-fluid" style="padding: 0 100px">
                 <div class="row text-center mt-4 mt-lg-0">
                     <div class="col-11 col-md-10 mx-auto job-process-block">
-                        <img src="../assets/images/jp_process.png" class="job-process" alt="Process Image" width="100%" height="320" />
+                        <img src="../assets/images/jp_process.png" class="job-process" alt="Process Image" width="100%" height="360" />
                     </div>
                 </div>
                 <div class="row">
@@ -229,11 +229,11 @@ function encrypt_decrypt($action, $string)
                                         </tr>
                                         <tr>
                                             <th><i class="fas fa-user"></i></th>
-                                            <td><?= $row["employment_type"] ?></td>
+                                            <td><?php echo $row["employment_type"] === "Permanent" ? "正社員" : "契約社員"; ?></td>
                                         </tr>
                                         <tr>
                                             <th><i class="fas fa-business-time"></th>
-                                            <td><?php echo $row["working_hour"] . "<br>Break Time: " . $row["breaktime"] ?></td>
+                                            <td><?php echo $row["working_hour"] . "<br>休憩時間：" . $row["breaktime"] ?></td>
                                         </tr>
                                         <tr>
                                             <th><i class="fas fa-calendar-alt"></i></th>
@@ -266,7 +266,7 @@ function encrypt_decrypt($action, $string)
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-10 col-lg-8 mb-5 mt-4 mx-auto w-100">
+                    <div class="col-12 col-md-10 col-lg-8 mb-5 mt-4 mx-auto">
                         <p id="description">
                             フォームのすべてのフィールドに入力してください。 <br>
                             ご参加いただきありがとうございます！！
@@ -360,11 +360,11 @@ function encrypt_decrypt($action, $string)
                             </tr>
                             <tr>
                                 <th><i class="fas fa-user"></i></th>
-                                <td><?= $row["employment_type"] ?></td>
+                                <td><?php echo $row["employment_type"] === "Permanent" ? "正社員" : "契約社員"; ?></td>
                             </tr>
                             <tr>
                                 <th><i class="fas fa-business-time"></th>
-                                <td><?php echo $row["working_hour"] . "<br>Break Time: " . $row["breaktime"] ?></td>
+                                <td><?php echo $row["working_hour"] . "<br>休憩時間： " . $row["breaktime"] ?></td>
                             </tr>
                             <tr>
                                 <th><i class="fas fa-calendar-alt"></i></th>
