@@ -1,7 +1,7 @@
 var selected = [];
-var isAllChecked = false;
 
 function addToSelected(event, id) {
+  console.log(id);
   var src = event.target.src;
   var root = src.slice(0, -5);
   var checkBox = src.slice(-5);
@@ -12,12 +12,14 @@ function addToSelected(event, id) {
   }
   event.stopPropagation();
   if (!selected.includes(id)) {
+    console.log("id not include");
     selected.push(id);
   } else {
     if (selected.indexOf(id) !== -1) {
       selected.splice(selected.indexOf(id), 1);
     }
   }
+  // console.log(selected);
 }
 
 function formatDate(date) {
@@ -38,46 +40,94 @@ var selectAllBtnMm = document.getElementById("select-all-mm");
 var selectAllBtnJp = document.getElementById("select-all-jp");
 
 selectAllBtnEn.addEventListener("click", function (event) {
+  var myTable = $("#enDT").DataTable();
+  var form_data = myTable.column(0).data();
+  var i = 0;
+
   var src = event.target.src;
   var root = src.slice(0, -5);
+
   var checkBox = src.slice(-5);
   if (checkBox == "1.png") {
     event.target.src = root + "2.png";
     $(".check-icon").attr("src", root + "2.png");
-    isAllChecked = true;
+    // isAllChecked = true;
+    selected = [];
+    while (i < form_data.length) {
+      if(form_data[i].includes("<img")){
+        selected.push(form_data[i].substring(70, form_data[0].length - 4));
+      }else{
+        selected.push(form_data[i]);
+      }
+      i++;
+    }
   } else {
     event.target.src = root + "1.png";
     $(".check-icon").attr("src", root + "1.png");
-    isAllChecked = false;
+    // isAllChecked = false;
+    selected = [];
   }
+  // console.log(selected);
 });
 selectAllBtnMm.addEventListener("click", function (event) {
+  var myTable = $("#mmDT").DataTable();
+  var form_data = myTable.column(0).data();
+  var i = 0;
+
   var src = event.target.src;
   var root = src.slice(0, -5);
+
   var checkBox = src.slice(-5);
   if (checkBox == "1.png") {
     event.target.src = root + "2.png";
     $(".check-icon").attr("src", root + "2.png");
-    isAllChecked = true;
+    // isAllChecked = true;
+    selected = [];
+    while (i < form_data.length) {
+      if(form_data[i].includes("<img")){
+        selected.push(form_data[i].substring(70, form_data[0].length - 4));
+      }else{
+        selected.push(form_data[i]);
+      }
+      i++;
+    }
   } else {
     event.target.src = root + "1.png";
     $(".check-icon").attr("src", root + "1.png");
-    isAllChecked = false;
+    // isAllChecked = false;
+    selected = [];
   }
+  // console.log(selected);
 });
 selectAllBtnJp.addEventListener("click", function (event) {
+  var myTable = $("#jpDT").DataTable();
+  var form_data = myTable.column(0).data();
+  var i = 0;
+
   var src = event.target.src;
   var root = src.slice(0, -5);
+
   var checkBox = src.slice(-5);
   if (checkBox == "1.png") {
     event.target.src = root + "2.png";
     $(".check-icon").attr("src", root + "2.png");
-    isAllChecked = true;
+    // isAllChecked = true;
+    selected = [];
+    while (i < form_data.length) {
+      if(form_data[i].includes("<img")){
+        selected.push(form_data[i].substring(70, form_data[0].length - 4));
+      }else{
+        selected.push(form_data[i]);
+      }
+      i++;
+    }
   } else {
     event.target.src = root + "1.png";
     $(".check-icon").attr("src", root + "1.png");
-    isAllChecked = false;
+    // isAllChecked = false;
+    selected = [];
   }
+  // console.log(selected);
 });
 
 // Call the dataTables jQuery plugin
@@ -176,7 +226,7 @@ $(document).ready(function () {
         if (selected.length <= 0) {
           alert("please select at least one row to copy");
         } else {
-        //   console.log(selected);
+          //   console.log(selected);
           $.ajax({
             url: "./backend/newJobCopy.php",
             type: "POST",
@@ -187,6 +237,7 @@ $(document).ready(function () {
               //  console.log("success");
               //   console.log(data);
               selected = [];
+              $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
               //   var data = jQuery.parseJSON(data);
               //   eng version destroy
               $("#enDT").DataTable().destroy();
@@ -202,7 +253,7 @@ $(document).ready(function () {
 
               // EN TABLE REINITIALIZE
               if (data) {
-                // console.log(data.en_data);   
+                // console.log(data.en_data);
                 table_en = $("#enDT").dataTable({
                   aaData: data.en_data,
                   dom:
@@ -424,7 +475,7 @@ $(document).ready(function () {
               }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                console.log("error");
+              console.log("error");
               //   console.log(textStatus);
             },
           });
@@ -465,16 +516,19 @@ $(document).ready(function () {
       text: '<i class="fa fa-trash"></i>',
       action: function (e, dt, node, config) {
         // alert("Button activated");
-        if (isAllChecked) {
+        if ($("#enDT").DataTable().column(0).data().length == selected.length) {
           if (window.confirm("Are you sure to delete all?")) {
             // They clicked Yes
             $.ajax({
-              url: "./backend/deleteAllJobs.php",
+              url: "./backend/deleteSelectedJob.php",
               type: "POST",
+              dataType: "json",
+              data: { job_ids: JSON.stringify(selected) },
               success: function (data, textStatus, jqXHR) {
                 //checkbox unchecked
-
-                isAllChecked = false;
+                // isAllChecked = false;
+                selected = [];
+                $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
                 var root = $("#select-all-en").attr("src").slice(0, -5);
                 var checkBox = $("#select-all-en").attr("src").slice(-5);
                 if (checkBox == "1.png") {
@@ -492,213 +546,6 @@ $(document).ready(function () {
                 // jp version destroy
                 $("#jpDT").DataTable().clear().draw();
                 // download update
-                // buttons_en.splice(1, 1, updatedDownloadBtn);
-                // buttons_mm.splice(1, 1, updatedDownloadBtn);
-                // buttons_jp.splice(1, 1, updatedDownloadBtn);
-
-                // if (data) {
-                //   // en table reinitialize
-                //   table_en = $("#enDT").dataTable({
-                //     aaData: data.en_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_en,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //         src = "img/1.png"
-                //         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                //   // en table reinitialize
-                //   table_mm = $("#mmDT").dataTable({
-                //     aaData: data.mm_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_mm,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //         src = "img/1.png"
-                //         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                //   // jp table reinitialize
-                //   table_jp = $("#jpDT").dataTable({
-                //     aaData: data.jp_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_jp,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //         src = "img/1.png"
-                //         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                // }
               },
               error: function (jqXHR, textStatus, errorThrown) {},
             });
@@ -719,6 +566,7 @@ $(document).ready(function () {
                 success: function (data, textStatus, jqXHR) {
                   //data - response from server
                   selected = [];
+                  $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
                   // var data = jQuery.parseJSON(data);
                   //   console.log(data.en_data);
                   // eng version destroy
@@ -988,6 +836,7 @@ $(document).ready(function () {
               //data - response from server
               // console.log("success");
               selected = [];
+              $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
               // var data = jQuery.parseJSON(data);
               // eng version destroy
               $("#enDT").DataTable().destroy();
@@ -1232,8 +1081,7 @@ $(document).ready(function () {
       text: '<i class="fa fa-trash"></i>',
       action: function (e, dt, node, config) {
         // alert("Button activated");
-
-        if (isAllChecked) {
+        if ($("#mmDT").DataTable().column(0).data().length == selected.length) {
           if (window.confirm("Are you sure to delete all?")) {
             // They clicked Yes
             $.ajax({
@@ -1241,7 +1089,9 @@ $(document).ready(function () {
               type: "POST",
               success: function (data, textStatus, jqXHR) {
                 //check box unchecked
-                isAllChecked = false;
+                // isAllChecked = false;
+                selected = [];
+                $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
                 var root = $("#select-all-mm").attr("src").slice(0, -5);
                 var checkBox = $("#select-all-mm").attr("src").slice(-5);
                 if (checkBox == "1.png") {
@@ -1258,214 +1108,6 @@ $(document).ready(function () {
                 // jp version destroy
                 $("#jpDT").DataTable().clear().draw();
 
-                // download update
-                // buttons_en.splice(1, 1, updatedDownloadBtn);
-                // buttons_mm.splice(1, 1, updatedDownloadBtn);
-                // buttons_jp.splice(1, 1, updatedDownloadBtn);
-
-                // if (data) {
-                //   // en table reinitialize
-                //   table_en = $("#enDT").dataTable({
-                //     aaData: data.en_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_en,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //                         src = "img/1.png"
-                //                         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                //   // en table reinitialize
-                //   table_mm = $("#mmDT").dataTable({
-                //     aaData: data.mm_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_mm,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //                         src = "img/1.png"
-                //                         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                //   // jp table reinitialize
-                //   table_jp = $("#jpDT").dataTable({
-                //     aaData: data.jp_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_jp,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //                         src = "img/1.png"
-                //                         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                // }
               },
               error: function (jqXHR, textStatus, errorThrown) {},
             });
@@ -1486,6 +1128,7 @@ $(document).ready(function () {
                 success: function (data, textStatus, jqXHR) {
                   //data - response from server
                   selected = [];
+                  $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
                   // var data = jQuery.parseJSON(data);
                   // eng version destroy
                   $("#enDT").DataTable().destroy();
@@ -1741,6 +1384,7 @@ $(document).ready(function () {
               //data - response from server
               // console.log("success");
               selected = [];
+              $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
               // var data = jQuery.parseJSON(data);
               // eng version destroy
               $("#enDT").DataTable().destroy();
@@ -1991,7 +1635,7 @@ $(document).ready(function () {
       text: '<i class="fa fa-trash"></i>',
       action: function (e, dt, node, config) {
         // alert("Button activated");
-        if (isAllChecked) {
+        if ($("#jpDT").DataTable().column(0).data().length == selected.length) {
           if (window.confirm("Are you sure to delete all?")) {
             // They clicked Yes
             $.ajax({
@@ -1999,7 +1643,9 @@ $(document).ready(function () {
               type: "POST",
               success: function (data, textStatus, jqXHR) {
                 //check box unchecked
-                isAllChecked = false;
+                // isAllChecked = false;
+                selected = [];
+                $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
                 var root = $("#select-all-jp").attr("src").slice(0, -5);
                 var checkBox = $("#select-all-jp").attr("src").slice(-5);
                 if (checkBox == "1.png") {
@@ -2016,214 +1662,6 @@ $(document).ready(function () {
                 // jp version destroy
                 $("#jpDT").DataTable().clear().draw();
 
-                // download update
-                // buttons_en.splice(1, 1, updatedDownloadBtn);
-                // buttons_mm.splice(1, 1, updatedDownloadBtn);
-                // buttons_jp.splice(1, 1, updatedDownloadBtn);
-
-                // if (data) {
-                //   // en table reinitialize
-                //   table_en = $("#enDT").dataTable({
-                //     aaData: data.en_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_en,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //                         src = "img/1.png"
-                //                         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                //   // en table reinitialize
-                //   table_mm = $("#mmDT").dataTable({
-                //     aaData: data.mm_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_mm,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //                         src = "img/1.png"
-                //                         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                //   // jp table reinitialize
-                //   table_jp = $("#jpDT").dataTable({
-                //     aaData: data.jp_data,
-                //     dom:
-                //       "<'row' <'col-sm-12 col-md-2'l> <'col-md-8 col-sm-12 text-center'B> <'col-sm-12 col-md-2'f> >" +
-                //       "<'row'<'col-sm-12'tr>>" +
-                //       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                //     // dom : '<"mybg"fB><"bottom"lrtpi>',
-                //     buttons: buttons_jp,
-                //     rowCallback: function (row, data) {
-                //       // if (data[4] == "A") {
-                //       $(row).on("click", function (event) {
-                //         // alert("hello");
-                //         jobDetail(
-                //           event,
-                //           this,
-                //           data["created_at"],
-                //           data["requirements"],
-                //           data["benefits"],
-                //           data["memo"],
-                //           data["photos"]
-                //         );
-                //       });
-
-                //       $(row).addClass("tb-row");
-                //       $("td:eq(0)", row).html(`<img class = "check-icon"
-                //                         src = "img/1.png"
-                //                         onclick = "addToSelected(event, '${data[0]}')" />`);
-
-                //       $("td:eq(1)", row).text(`${data["job_id"]}`);
-                //       $("td:eq(2)", row).text(`${data["job_title"]}`);
-                //       $("td:eq(3)", row).text(`${data["company_name"]}`);
-                //       $("td:eq(4)", row).text(
-                //         `${data["job_type"]}-${data["employment_type"]}`
-                //       );
-                //       $("td:eq(5)", row).text(`${data["wage"]}`);
-                //       $("td:eq(6)", row).text(`${data["overtime"]}`);
-                //       $("td:eq(7)", row).text(`${data["holidays"]}`);
-                //       $("td:eq(8)", row).text(`${data["working_hour"]}`);
-                //       $("td:eq(9)", row).text(`${data["breaktime"]}`);
-                //       $("td:eq(10)", row).text(`${data["location"]}`);
-                //       if (data["isavailable"] == 1) {
-                //         $("td:eq(11)", row).html(`&#9989;`);
-                //       } else {
-                //         $("td:eq(11)", row).html(`&#10060;`);
-                //       }
-                //       $("td:eq(12)", row).text(`${data["updated_at"]}`);
-
-                //       $("td:eq(13)", row).html(
-                //         `<a class="tb-btn tb-btn-edit" onclick="event.stopPropagation()" href="./jobedit.php?job_id=${data["job_id"]}"><i class="fa fa-pencil"></i></a>`
-                //       );
-
-                //       $("td:eq(14)", row).html(
-                //         `<button class="tb-btn tb-btn-delete" onclick="setCurrentJobDel(event,'${data["job_id"]}')" data-toggle="modal" data-target="#deletingModal"><i class="fa fa-trash"></button>`
-                //       );
-                //       // }
-                //     },
-                //     order: [[12, "desc"]],
-                //     columnDefs: [
-                //       { orderable: false, targets: [0, 13, 14] },
-                //       {
-                //         targets: [15, 16, 17],
-                //         visible: false,
-                //         searchable: false,
-                //       },
-                //     ],
-                //   });
-                // }
               },
               error: function (jqXHR, textStatus, errorThrown) {},
             });
@@ -2244,8 +1682,9 @@ $(document).ready(function () {
                 success: function (data, textStatus, jqXHR) {
                   //data - response from server
                   selected = [];
+                  $(".check-icon").attr("src", "http://admin.jktmyanmarint.com/img/"+ "1.png");
                   // var data = jQuery.parseJSON(data);
-                  //   console.log(data.en_data);
+                  // console.log(data.en_data);
                   // eng version destroy
                   $("#enDT").DataTable().destroy();
                   // mm version destroy

@@ -37,17 +37,28 @@ function formatDate(date) {
 var selectAllBtn = document.getElementById("select-all");
 
 selectAllBtn.addEventListener("click", function (event) {
+  var myTable = $("#dataTable").DataTable();
+  var form_data = myTable.column(0).data();
+  var i = 0;
+  selected = [];
+  
   var src = event.target.src;
   var root = src.slice(0, -5);
+  
   var checkBox = src.slice(-5);
   if (checkBox == "1.png") {
     event.target.src = root + "2.png";
     $(".check-icon").attr("src", root + "2.png");
-    isAllChecked = true;
+    // isAllChecked = true;
+    while(i<form_data.length){
+      selected.push(form_data[i].substring(70,form_data[i].length-4));
+      i++;
+  }
   } else {
     event.target.src = root + "1.png";
     $(".check-icon").attr("src", root + "1.png");
-    isAllChecked = false;
+    // isAllChecked = false;
+    selected=[];
   }
 });
 
@@ -71,7 +82,7 @@ var buttons = [
     text: '<i class="fa fa-trash"></i>',
     action: function (e, dt, node, config) {
       // alert("Button activated");
-      if (isAllChecked) {
+      if ($("#dataTable").DataTable().column(0).data().length == selected.length) {
         if (window.confirm("Are you sure to delete all?")) {
           // They clicked Yes
           $.ajax({
@@ -108,7 +119,6 @@ var buttons = [
             // document.getElementById('courses_ids').value = selected;
             console.log($("#courses_ids").val());
             $("#deleteSelectedId").submit();
-            
           } else {
             // They clicked no
           }

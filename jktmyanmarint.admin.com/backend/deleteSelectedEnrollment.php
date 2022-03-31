@@ -15,7 +15,7 @@ foreach ($ids as $id) {
     mysqli_query($conn, $enroll_delete);
 }
 
-$enroll_all = "SELECT enrollment_id, e.course_id AS course_id, title, level_or_sub, photo, student_name, nrc, payment_method, paid_percent, is_pending, e.created_at AS created_at,
+$enroll_all = "SELECT enrollment_id, e.course_id AS course_id, title, level_or_sub, photo, student_name, nrc, payment_method, paid_amount, is_pending, e.created_at AS created_at,
 e.updated_at AS updated_at,c.fee as fee FROM enrollments e, students s, courses c WHERE e.student_id = s.student_id AND e.course_id = c.course_id ORDER BY updated_at DESC";
 
 $data_result = mysqli_query($conn, $enroll_all);

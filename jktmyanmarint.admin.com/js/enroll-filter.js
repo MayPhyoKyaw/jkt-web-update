@@ -1,8 +1,6 @@
 var selected = [];
-var isAllChecked = false;
 
 function addToSelected(event, id) {
-  console.log();
   var src = event.target.src;
   var root = src.slice(0, -5);
   var checkBox = src.slice(-5);
@@ -19,6 +17,7 @@ function addToSelected(event, id) {
       selected.splice(selected.indexOf(id), 1);
     }
   }
+  // console.log(selected);
 }
 
 function formatDate(date) {
@@ -37,17 +36,27 @@ function formatDate(date) {
 var selectAllBtn = document.getElementById("select-all");
 
 selectAllBtn.addEventListener("click", function (event) {
+  var myTable = $("#dataTable").DataTable();
+  var form_data = myTable.column(0).data();
+  var i = 0;
   var src = event.target.src;
   var root = src.slice(0, -5);
+
   var checkBox = src.slice(-5);
   if (checkBox == "1.png") {
     event.target.src = root + "2.png";
     $(".check-icon").attr("src", root + "2.png");
-    isAllChecked = true;
+    // isAllChecked = true;
+    selected = [];
+    while (i < form_data.length) {
+      selected.push(form_data[i].substring(70, form_data[i].length - 4));
+      i++;
+    }
   } else {
     event.target.src = root + "1.png";
     $(".check-icon").attr("src", root + "1.png");
-    isAllChecked = false;
+    // isAllChecked = false;
+    selected = [];
   }
 });
 
@@ -92,17 +101,17 @@ let updatedDownloadBtn = {
             return data;
         }
       },
-      body: function(data, row, column, node) {
-          // Strip $ from salary column to make it numeric
-          switch (column) {
-              case 4:
-                  // return data.replace(/[1,]/g, "&#9989;");
-                  // return "ava";
-                  return data === "0" ? "❌" : "✅";
-                  break;
-              default:
-                  return data;
-          }
+      body: function (data, row, column, node) {
+        // Strip $ from salary column to make it numeric
+        switch (column) {
+          case 4:
+            // return data.replace(/[1,]/g, "&#9989;");
+            // return "ava";
+            return data === "0" ? "❌" : "✅";
+            break;
+          default:
+            return data;
+        }
       },
     },
   },
@@ -128,7 +137,9 @@ var buttons = [
     text: '<i class="fa fa-trash"></i>',
     action: function (e, dt, node, config) {
       // alert("Button activated");
-      if (isAllChecked) {
+      if (
+        $("#dataTable").DataTable().column(0).data().length == selected.length
+      ) {
         if (window.confirm("Are you sure to delete all?")) {
           // They clicked Yes
           $.ajax({
@@ -170,6 +181,10 @@ var buttons = [
               success: function (data, textStatus, jqXHR) {
                 //data - response from server
                 selected = [];
+                $(".check-icon").attr(
+                  "src",
+                  "http://admin.jktmyanmarint.com/img/" + "1.png"
+                );
                 // var data = jQuery.parseJSON(data);
                 // console.log(data.students);
                 // table destroy
@@ -183,7 +198,7 @@ var buttons = [
                   //   stu["13"] = "data";
                   //   stu["14"] = "data";
                   // }
-                  console.log(data.enrollments);
+                  //   console.log(data.enrollments);
                   buttons.splice(0, 1, updatedDownloadBtn);
                   table_en = $("#dataTable").dataTable({
                     aaData: data.enrollments,
