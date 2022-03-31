@@ -556,7 +556,7 @@ $noti_result = mysqli_query($conn, $get_notifications);
 
                         <div class="form-group mb-4">
                             <label for="email">Enter Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="eg. student@gmail.com" required />
+                            <input type="email" name="email" id="email" class="form-control" placeholder="eg. student@gmail.com"/>
                         </div>
 
                         <div class="form-group mb-4">
