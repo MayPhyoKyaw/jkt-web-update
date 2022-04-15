@@ -444,7 +444,7 @@ function encrypt_decrypt($action, $string)
 
   <!-- Detail Comment area start -->
   <section class="container">
-    <div class="row px-0 px-md-5 pt-4 pb-5">
+    <div class="row px-0 px-md-5 pt-4 pb-5" style="overflow-x: hidden;">
       <div class="col-12 col-lg-7 text-center pb-2 pb-lg-0">
         <iframe id="digital" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FJKT-Digital-Institute-101947668883371%2F&tabs=timeline&width=500&height=790&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=300620088760320" width="87%" class="ifr" height="550" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
         </iframe>

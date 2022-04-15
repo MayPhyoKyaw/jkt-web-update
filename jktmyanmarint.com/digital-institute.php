@@ -151,7 +151,7 @@ function encrypt_decrypt($action, $string)
 
   <!-- JP School header start -->
   <section>
-    <div class="header">
+    <div class="header" style="overflow-x: hidden;">
       <h3>DIGITAL INSTITUTE</h3>
       <div class="bg-cover"></div>
       <img src="./assets/images/cover/cover.jpg" alt="jpschool-cover" />
@@ -169,7 +169,7 @@ function encrypt_decrypt($action, $string)
 
   <!-- Training School Detail Information Blog start -->
   <section>
-    <div class="container pt-5">
+    <div class="container pt-5" style="overflow-x: hidden;">
       <div class="row">
         <div class="col-lg-10 detail-info-blog">
           <div class="detail-info-blog-item-img">
@@ -199,7 +199,7 @@ function encrypt_decrypt($action, $string)
 
   <!-- School Schedule Blog start -->
   <section>
-    <div class="container schedule-blog">
+    <div class="container schedule-blog" style="overflow-x: hidden;">
       <h1 class="text-center pb-3">Class Schedule</h1>
       <div class="row">
         <div class="col-12 col-lg-12 schedule-blog-info">
@@ -336,7 +336,7 @@ function encrypt_decrypt($action, $string)
 
   <!-- Detail Images Blog start -->
   <section>
-    <div class="container pb-3">
+    <div class="container pb-3" style="overflow-x: hidden;">
       <h3 class="detail-activity-blog-title pb-3">Activity Gallery</h3>
       <div class="row detail-activity-blog pb-3" id="detailActivityBlog">
         <div class="col-md-4">
@@ -454,8 +454,8 @@ function encrypt_decrypt($action, $string)
 
   <!-- Detail Comment area start -->
   <section class="container">
-    <div class="row px-0 px-md-5 pt-4 pb-5">
-      <div class="col-12 col-lg-7 text-center pb-2 pb-lg-0">
+    <div class="row px-0 px-md-5 pt-4 pb-5" style="overflow-x: hidden;">
+      <div class="col-12 col-lg-7 text-center pb-2 pb-lg-0" style="overflow-x: hidden;">
         <iframe id="digital" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FJKT-Digital-Institute-101947668883371%2F&tabs=timeline&width=500&height=790&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=300620088760320" width="87%" class="ifr" height="550" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
         </iframe>
       </div>
